@@ -1,63 +1,25 @@
 /* ==========================================================================
-   SkyGentic AI / AiChat Extracted Design System - Core Components & Utility
+   SkyGentic AI / High-Fidelity Glossy Layout & Design System
    ========================================================================== */
 
-@import './tokens.css';
-@import './typography.css';
-
 /* --------------------------------------------------------------------------
-   1. Reset, Global Base & Accessibility (a11y)
+   1. Base & Reset
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: var(--color-surface-white);
-  color: var(--color-midnight-06);
-  min-height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: var(--color-obsidian-950);
+  color: var(--color-slate-200);
+  font-family: var(--font-family-body);
   overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img, video, svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Skip to Content Link (a11y) */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: var(--space-4);
-  background: var(--color-green-primary);
-  color: var(--color-midnight-06);
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-pill);
-  font-weight: var(--font-weight-bold);
-  z-index: 9999;
-  transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-  top: var(--space-4);
-  outline: 3px solid var(--color-midnight-06);
-}
-
-/* Global Focus Visible Ring (a11y) */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid var(--focus-ring-color);
-  outline-offset: var(--focus-ring-offset);
 }
 
 /* --------------------------------------------------------------------------
@@ -68,226 +30,272 @@ input:focus-visible,
   max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--space-4);
-  padding-right: var(--space-4);
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
 }
 
 .container-narrow {
+  width: 100%;
   max-width: var(--container-narrow-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
 }
 
-.section {
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
-  position: relative;
-}
-
-.section-dark {
-  background-color: var(--color-midnight-06);
-  color: var(--color-surface-white);
-}
-
-.section-hero {
-  background-color: var(--color-midnight-06);
-  background-image: var(--gradient-subtle-glow);
-  color: var(--color-surface-white);
-  padding-top: calc(var(--navbar-height) + var(--space-12));
-  padding-bottom: var(--space-24);
-  overflow: hidden;
+.container-focus {
+  width: 100%;
+  max-width: var(--container-focus-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
 }
 
 /* --------------------------------------------------------------------------
-   3. Buttons & Interactive Links (Tier 2 Semantic & Tier 3 Variants)
+   3. Accessible Skip Link (WCAG 2.1 AA)
    -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-sapphire-500);
+  color: #ffffff;
+  padding: var(--space-3) var(--space-6);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-pill);
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4. High-Fidelity Glossy Controls (Buttons & Badges)
+   -------------------------------------------------------------------------- */
+.btn-glossy-primary,
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3);
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
+  background: var(--bg-gradient-sapphire);
+  color: var(--color-surface-white);
   padding: 8px 10px 8px 24px;
-  border-radius: var(--btn-primary-radius);
+  border-radius: var(--radius-pill);
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
-  cursor: pointer;
   border: none;
-  min-height: 48px; /* Accessible tap target */
+  cursor: pointer;
+  min-height: 48px;
   position: relative;
   overflow: hidden;
-  transition: background-color var(--transition-normal), transform var(--transition-normal);
+  box-shadow: var(--gloss-rim-primary), var(--shadow-glossy-primary);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
+.btn-glossy-primary:hover,
 .btn-primary:hover {
-  background-color: var(--btn-primary-hover-bg);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-green);
+  background: var(--bg-gradient-sapphire-hover);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.75), var(--shadow-glossy-primary-hover);
 }
 
+.btn-glossy-secondary,
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3);
-  background-color: var(--btn-secondary-bg);
-  color: var(--btn-secondary-text);
+  background: var(--bg-gradient-obsidian);
+  color: var(--color-surface-white);
   padding: 8px 10px 8px 24px;
   border-radius: var(--radius-pill);
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
+  border: 1px solid var(--color-dark-border);
   cursor: pointer;
   min-height: 48px;
-  border: 1px solid var(--btn-secondary-border);
-  transition: all var(--transition-normal);
+  box-shadow: var(--gloss-rim-secondary), var(--shadow-glossy-secondary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.btn-glossy-secondary:hover,
 .btn-secondary:hover {
-  background-color: var(--color-midnight-05);
-  border-color: var(--border-glass-strong);
   transform: translateY(-2px);
+  border-color: var(--color-dark-border-hover);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
+.btn-glossy-glass,
 .btn-glass {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3);
-  background-color: var(--btn-glass-bg);
-  color: var(--btn-glass-text);
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--color-surface-white);
   padding: 8px 10px 8px 24px;
   border-radius: var(--radius-pill);
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   cursor: pointer;
   min-height: 48px;
-  border: 1px solid var(--btn-glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all var(--transition-normal);
+  box-shadow: var(--gloss-rim-glass), 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 }
 
+.btn-glossy-glass:hover,
 .btn-glass:hover {
-  background-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-.btn-icon-bubble {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-circle);
-  background-color: var(--btn-icon-bubble-bg);
-  color: var(--btn-icon-bubble-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform var(--transition-normal);
-}
-
-.btn-primary:hover .btn-icon-bubble,
-.btn-secondary:hover .btn-icon-bubble,
-.btn-glass:hover .btn-icon-bubble {
-  transform: translate(2px, -2px);
-}
-
-.btn-icon-bubble.light {
-  background-color: var(--color-surface-white);
-  color: var(--color-midnight-06);
-}
-
-/* Dual-layer Animated Text (Slide Up on Hover) */
+/* Button Text Slide Micro-Interaction */
 .btn-text-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 24px;
   display: flex;
   flex-direction: column;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
 }
 
 .btn-text-slide {
-  transition: transform var(--transition-smooth);
+  display: block;
+  transition: transform var(--transition-normal);
+  line-height: 20px;
 }
 
+.btn-glossy-primary:hover .btn-text-slide,
+.btn-glossy-secondary:hover .btn-text-slide,
+.btn-glossy-glass:hover .btn-text-slide,
 .btn-primary:hover .btn-text-slide,
 .btn-secondary:hover .btn-text-slide {
-  transform: translateY(-24px);
+  transform: translateY(-20px);
 }
 
-/* Read More Link */
-.read-more-link {
+/* Button Icon Bubble */
+.btn-icon-bubble {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.btn-glossy-primary:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-glossy-secondary:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Eyebrow & Pill Badges */
+.badge-pill,
+.eyebrow-pill {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-midnight-06);
-  font-size: var(--font-size-base);
-  min-height: 44px;
-  transition: gap var(--transition-fast), color var(--transition-fast);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--color-sapphire-400);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
-.read-more-link:hover {
-  gap: var(--space-3);
-  color: var(--color-purple-04);
-}
-
-.read-more-link.white {
-  color: var(--color-surface-white);
+.badge-pill.sapphire {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--color-sapphire-400);
+  border-color: rgba(59, 130, 246, 0.35);
 }
 
 /* --------------------------------------------------------------------------
-   4. Floating Navbar Header
+   5. Section 1: Floating Glossy Navbar
    -------------------------------------------------------------------------- */
 .navbar-wrapper {
   position: fixed;
-  top: var(--space-4);
+  top: 16px;
   left: 0;
   right: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
   padding: 0 var(--space-4);
 }
 
 .navbar-container {
+  width: 100%;
   max-width: var(--container-max-width);
-  margin: 0 auto;
-  background: rgba(3, 3, 29, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass-light);
+  height: 68px;
+  background: var(--bg-glass-navbar);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--color-dark-border);
   border-radius: var(--radius-pill);
-  padding: var(--space-2) var(--space-6);
+  box-shadow: var(--gloss-rim-secondary), var(--shadow-glass-header);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadow-md);
+  padding: 0 var(--space-6);
+  transition: border-color var(--transition-fast);
 }
 
 .nav-brand {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-surface-white);
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-surface-white);
+  gap: var(--space-2);
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-  padding: var(--space-2);
+  font-family: var(--font-family-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-slate-200);
+  text-decoration: none;
   transition: color var(--transition-fast);
 }
 
@@ -295,179 +303,451 @@ input:focus-visible,
   color: var(--color-surface-white);
 }
 
-/* --------------------------------------------------------------------------
-   5. Cards & Surface Modules (Tier 2/3 Semantics & Variants)
-   -------------------------------------------------------------------------- */
-.card {
-  border-radius: var(--card-radius-default);
-  padding: var(--space-8);
-  background-color: var(--card-surface-light);
-  border: 1px solid var(--card-border-light);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-ambient);
-  border-color: rgba(151, 65, 254, 0.3);
-}
-
-.card-glass {
-  background-color: var(--card-surface-dark);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  border: 1px solid var(--card-border-dark);
-  color: var(--color-surface-white);
-}
-
-.card-glass:hover {
-  border-color: var(--border-glass-strong);
-  box-shadow: var(--shadow-glow-purple);
-}
-
-/* --------------------------------------------------------------------------
-   6. Eyebrow Badge Pill
-   -------------------------------------------------------------------------- */
-.badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  background-color: rgba(13, 239, 147, 0.12);
-  color: var(--color-green-primary);
-  border: 1px solid rgba(13, 239, 147, 0.25);
-  border-radius: var(--radius-pill);
-  padding: var(--space-1) var(--space-4);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: var(--space-4);
-}
-
-.badge-pill.lime {
-  background-color: rgba(184, 255, 122, 0.15);
-  color: var(--color-lime-accent);
-  border-color: rgba(184, 255, 122, 0.3);
-}
-
-.badge-pill.purple {
-  background-color: rgba(151, 65, 254, 0.15);
-  color: var(--color-purple-03);
-  border-color: rgba(151, 65, 254, 0.3);
-}
-
-/* --------------------------------------------------------------------------
-   7. Metric Stats Grid
-   -------------------------------------------------------------------------- */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-8);
-  padding: var(--space-10) var(--space-8);
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-glass-light);
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-}
-
-.stat-item {
-  text-align: center;
-}
-
-/* --------------------------------------------------------------------------
-   8. Testimonial Interactive Accordion
-   -------------------------------------------------------------------------- */
-.testimonial-container {
+.nav-actions {
   display: flex;
-  gap: var(--space-4);
-  overflow-x: auto;
-  padding-bottom: var(--space-4);
+  align-items: center;
+  gap: var(--space-5);
 }
 
-.testimonial-card {
-  flex: 0 0 280px;
-  background-color: var(--bg-glass-card);
-  border: 1px solid var(--border-glass-light);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
+.nav-signin {
+  color: var(--color-slate-200);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-signin:hover {
   color: var(--color-surface-white);
-  transition: all var(--transition-smooth);
-}
-
-@media (min-width: 992px) {
-  .testimonial-container {
-    display: flex;
-    gap: var(--space-4);
-    overflow: visible;
-  }
-
-  .testimonial-card {
-    flex: 1 1 23%;
-    cursor: pointer;
-  }
-
-  .testimonial-card:hover,
-  .testimonial-card:focus-visible,
-  .testimonial-card.active {
-    flex: 1 1 35%;
-    background: var(--gradient-card-purple);
-    border-color: var(--color-purple-04);
-  }
 }
 
 /* --------------------------------------------------------------------------
-   9. Footer
+   6. Section 2: Hero Section (Deep Obsidian with Ambient Spotlight)
    -------------------------------------------------------------------------- */
-.footer-wrapper {
-  background-color: var(--color-midnight-07);
-  color: var(--color-surface-white);
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-12);
-  border-top: 1px solid var(--border-glass-light);
+.section-hero {
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 90px;
+  background: var(--color-obsidian-950);
+  overflow: hidden;
 }
 
-.footer-grid {
+.hero-glow-spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.18) 0%, rgba(11, 15, 25, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: 1.2fr 2fr;
-  gap: var(--space-10);
-  margin-bottom: var(--space-16);
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-12);
+  align-items: center;
 }
 
-@media (max-width: 991px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.footer-hero-card {
-  background: var(--gradient-card-purple);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
+.hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.footer-links-grid {
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+/* Hero Visual Hub */
+.hero-visual-hub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-glass-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--gloss-rim-secondary), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.visual-hub-badge {
+  position: absolute;
+  background: var(--color-obsidian-900);
+  border: 1px solid var(--color-dark-border);
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-surface-white);
+}
+
+.visual-hub-badge.top-right {
+  top: -12px;
+  right: -12px;
+}
+
+.visual-hub-badge.bottom-left {
+  bottom: -12px;
+  left: -12px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Section 3: Enterprise Metrics Bento Bar
+   -------------------------------------------------------------------------- */
+.section-metrics {
+  background: var(--color-obsidian-900);
+  padding: var(--space-16) 0;
+  border-top: 1px solid var(--color-dark-border);
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.metrics-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-8);
 }
 
-@media (max-width: 767px) {
-  .footer-links-grid {
-    grid-template-columns: 1fr;
-  }
+.metric-tile {
+  background: var(--color-obsidian-850);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--gloss-rim-secondary), 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
 }
 
-.footer-column-title {
+.metric-tile:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   8. Section 4: Client Logo Marquee (Platinum Surface)
+   -------------------------------------------------------------------------- */
+.section-marquee {
+  background: var(--color-surface-white);
+  padding: var(--space-12) 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-surface-border);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  white-space: nowrap;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   font-family: var(--font-family-display);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-4);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-slate-600);
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: filter var(--transition-fast), opacity var(--transition-fast);
+}
+
+.marquee-item:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. Section 5: Platform Capabilities Bento Grid (Platinum Surface)
+   -------------------------------------------------------------------------- */
+.section-capabilities {
+  background: var(--color-surface-platinum);
+  padding: var(--space-24) 0;
+}
+
+.capabilities-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--space-16) auto;
+}
+
+.capabilities-header h2 {
+  color: var(--color-obsidian-950);
+}
+
+.capabilities-header p {
+  color: var(--color-slate-600);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.bento-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-ambient-card);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.bento-card h3, .bento-card h4 {
+  color: var(--color-obsidian-950);
+}
+
+.bento-card p {
+  color: var(--color-slate-600);
+}
+
+.bento-col-2 {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.bento-col-3 {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-sapphire-600);
+  text-decoration: none;
+  margin-top: var(--space-4);
+  transition: gap var(--transition-fast);
+}
+
+.read-more-link:hover {
+  gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Section 6: Product Interactive Workflow Showcase (White Surface)
+   -------------------------------------------------------------------------- */
+.section-showcase {
+  background: var(--color-surface-white);
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-surface-border);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.showcase-content h2 {
+  color: var(--color-obsidian-950);
+}
+
+.showcase-content p {
+  color: var(--color-slate-600);
+}
+
+.showcase-media-container {
+  background: var(--color-obsidian-950);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
   color: var(--color-surface-white);
+}
+
+/* --------------------------------------------------------------------------
+   11. Section 7: Testimonials Glossy Ribbon (Deep Obsidian)
+   -------------------------------------------------------------------------- */
+.section-testimonials {
+  background: var(--color-obsidian-950);
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-dark-border);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.testimonials-ribbon {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.testimonial-card {
+  flex: 1 1 23%;
+  background: var(--color-obsidian-900);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--gloss-rim-secondary);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.testimonial-card:hover,
+.testimonial-card:focus-visible,
+.testimonial-card.active {
+  flex: 1 1 35%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 70%, #1d4ed8 100%);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4), 0 8px 30px rgba(37, 99, 235, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   12. Section 8: FAQ Accordion Hub (Platinum Surface)
+   -------------------------------------------------------------------------- */
+.section-faq {
+  background: var(--color-surface-platinum);
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-surface-border);
+}
+
+.faq-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-12) auto;
+}
+
+.faq-header h2 {
+  color: var(--color-obsidian-950);
+}
+
+.faq-header p {
+  color: var(--color-slate-600);
+}
+
+.faq-card-container {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-ambient-card);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-surface-border);
+  padding: var(--space-5) 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  font-family: var(--font-family-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-obsidian-950);
+  text-align: left;
+  cursor: pointer;
+  padding: var(--space-2) 0;
+}
+
+.faq-trigger:focus-visible {
+  outline: 2px solid var(--color-sapphire-500);
+  outline-offset: 4px;
+}
+
+.faq-panel {
+  padding-top: var(--space-3);
+  color: var(--color-slate-600);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   13. Section 9: Enterprise Dual-Card Glossy Footer
+   -------------------------------------------------------------------------- */
+.footer-wrapper {
+  background: #070a10;
+  padding: var(--space-20) 0 var(--space-8) 0;
+  border-top: 1px solid var(--color-dark-border);
+}
+
+.footer-cards-grid {
+  display: grid;
+  grid-template-columns: 0.42fr 0.58fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.footer-hero-card {
+  background: var(--bg-gradient-footer-cta);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.footer-nav-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  box-shadow: var(--gloss-rim-secondary);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.footer-col-title {
+  font-family: var(--font-family-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-surface-white);
+  margin-bottom: var(--space-4);
 }
 
 .footer-link-list {
@@ -479,30 +759,92 @@ input:focus-visible,
   gap: var(--space-3);
 }
 
-.footer-link-list a {
-  color: var(--color-midnight-01);
-  font-size: var(--font-size-sm);
-  padding: var(--space-1) 0;
-  display: inline-block;
+.footer-link {
+  color: var(--color-slate-400);
+  text-decoration: none;
+  font-size: 0.875rem;
   transition: color var(--transition-fast);
 }
 
-.footer-link-list a:hover {
-  color: var(--color-green-primary);
+.footer-link:hover {
+  color: var(--color-surface-white);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-dark-border);
+  padding-top: var(--space-8);
+  font-size: 0.875rem;
+  color: var(--color-slate-400);
 }
 
 /* --------------------------------------------------------------------------
-   10. Reduced Motion (a11y)
+   14. Responsive Media Queries
    -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .hero-grid,
+  .showcase-grid,
+  .testimonials-grid,
+  .footer-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .metrics-bento-grid,
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-col-2, .bento-col-3 {
+    margin-top: 0;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .testimonials-ribbon {
+    flex-direction: column;
+  }
+
+  .testimonial-card {
+    flex: 1 1 100% !important;
+  }
+
+  .footer-nav-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-nav-card {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. Accessibility Focus Rings & Reduced Motion
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-sapphire-400);
+  outline-offset: var(--focus-ring-offset);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .btn-primary:hover .btn-text-slide,
-  .btn-secondary:hover .btn-text-slide {
-    transform: none !important;
   }
 }
