@@ -2,24 +2,27 @@
 
 This repository is optimized for autonomous development by Google Antigravity agents, subagents, and peer agents.
 
-## Core Roles & Delegation Patterns
+## Core Agent Roles & Delegation Patterns
 
-1. **Design System Guardian (self / subagent)**:
-   - Verifies that all new components use CSS tokens from `styles/tokens.css` and typography from `styles/typography.css`.
-   - Ensures responsive layouts across mobile (`<480px`), tablet (`768px-991px`), and desktop (`>992px`).
+1. **Canvas Designer & Token Architect (self / subagent)**:
+   - Wireframes visual hierarchy in `docs/canvas-specs.md` before coding.
+   - Enforces Tier-1/2/3 token inheritance from `styles/tokens.css`.
 
-2. **Fullstack / UI Builder Agent**:
-   - Scaffolds new pages in `pages/` and reusable modules in `components/`.
-   - Integrates state management and backend APIs.
+2. **Hallmark UI Builder Agent**:
+   - Scaffolds accessible, pixel-perfect modular components in `components/`.
+   - Validates responsive breakpoints across mobile (`<480px`), tablet (`768px-991px`), and desktop (`>992px`).
 
-3. **Security & Quality Reviewer Agent**:
-   - Checks against OWASP vulnerabilities, XSS in React/HTML rendering, and hardcoded secrets.
-   - Audits bundle size and font loading performance.
+3. **Accessibility (a11y) & SEO Guardian Agent**:
+   - Audits WCAG 2.1/2.2 AA compliance, color contrast ratios, focus-visible states, and screen-reader ARIA trees.
+   - Audits JSON-LD Schema structured data, meta tags, Core Web Vitals (LCP, INP, CLS), and Lighthouse 100/100 baselines.
 
 ## Fast Verification Commands
 ```bash
-# Start local development server
+# Start local preview server
 npm run dev
+
+# Run automated tests
+npm test
 
 # Check git status
 git status

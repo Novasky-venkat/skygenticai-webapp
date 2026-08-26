@@ -5,7 +5,7 @@
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Brand Accent Colors
+     1. Brand Accent Colors (Tier 1 Primitives)
      ------------------------------------------------------------------------ */
   --color-green-primary: #0def93;        /* High-energy electric neon green (Primary CTA) */
   --color-green-hover: #09b26e;          /* Deeper green for hover states */
@@ -160,4 +160,31 @@
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ------------------------------------------------------------------------
+     12. Tier 2: Component Semantic Tokens (Inherited from Primitives)
+     ------------------------------------------------------------------------ */
+  --btn-primary-bg: var(--color-green-primary);
+  --btn-primary-hover-bg: var(--color-green-hover);
+  --btn-primary-text: var(--color-midnight-06);
+  --btn-primary-radius: var(--radius-pill);
+  --btn-icon-bubble-bg: var(--color-midnight-07);
+  --btn-icon-bubble-color: var(--color-surface-white);
+
+  --btn-secondary-bg: var(--color-midnight-06);
+  --btn-secondary-text: var(--color-surface-white);
+  --btn-secondary-border: var(--border-glass-light);
+
+  --btn-glass-bg: var(--bg-glass-button);
+  --btn-glass-text: var(--color-surface-white);
+  --btn-glass-border: var(--border-glass-strong);
+
+  --card-surface-light: var(--color-surface-white);
+  --card-surface-dark: var(--bg-glass-card);
+  --card-border-light: var(--color-surface-border);
+  --card-border-dark: var(--border-glass-light);
+  --card-radius-default: var(--radius-xl);
+
+  --focus-ring-color: var(--color-green-primary);
+  --focus-ring-offset: 3px;
 }
