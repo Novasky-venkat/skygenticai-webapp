@@ -638,66 +638,46 @@ body {
   position: relative;
   z-index: 2;
 }
-/* 11. Section 6: Scrollable Card Deck Showcase */
-.section-scrollable-deck {
-  background: var(--color-surface-subtle);
-  padding: 100px 0 120px 0;
+/* 11. Section 6: Sticky Scrollable Showcase (1:1 AiChat Match) */
+.section-sticky-showcase {
+  background: var(--color-surface-subtle); /* #EBEFF7 */
+  padding: 100px 0 160px 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.scrollable-deck-grid {
+.sticky-showcase-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.deck-left-wrapper {
+  grid-template-columns: 1.25fr 1fr;
+  gap: 32px;
+  align-items: start;
   position: relative;
+}
+
+/* Left Column: Vertically Stacking Scrollable Cards */
+.sticky-cards-column {
   display: flex;
   flex-direction: column;
+  gap: 60px;
+  position: relative;
 }
 
-.deck-tab-headers {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: -18px;
-  padding: 0 20px;
-  z-index: 0;
+.sticky-card-item {
+  transition: transform var(--transition-smooth);
 }
 
-.deck-tab-edge {
-  height: 14px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  padding: 0;
-}
-
-.deck-tab-edge.active {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-.deck-card-surface {
+.sticky-card-surface {
   background: var(--color-surface-white);
   border: 1px solid rgba(228, 235, 243, 0.95);
   border-radius: 24px;
-  padding: 18px 18px 24px 18px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-  position: relative;
-  z-index: 1;
+  padding: 16px 16px 24px 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.deck-ui-mockup {
-  border-radius: 18px;
+.sticky-card-mockup {
+  border-radius: 20px;
   padding: 24px;
-  min-height: 340px;
+  min-height: 380px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -705,18 +685,18 @@ body {
   justify-content: space-between;
 }
 
-.deck-wave-mesh {
+.sticky-wave-mesh {
   position: absolute;
-  bottom: -40px;
-  right: -40px;
-  width: 320px;
-  height: 200px;
-  background: radial-gradient(ellipse at center, rgba(13, 239, 147, 0.35) 0%, rgba(37, 99, 235, 0.2) 50%, rgba(0, 0, 0, 0) 80%);
+  bottom: -30px;
+  right: -30px;
+  width: 360px;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(13, 239, 147, 0.35) 0%, rgba(151, 65, 254, 0.2) 50%, rgba(0, 0, 0, 0) 80%);
   pointer-events: none;
-  filter: blur(30px);
+  filter: blur(25px);
 }
 
-.deck-mockup-topbar {
+.mockup-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -730,13 +710,17 @@ body {
   gap: 6px;
 }
 
-.mockup-dots span {
+.mockup-dots .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
 
-.deck-mockup-badge {
+.mockup-dots .dot.red { background: #FF5F56; }
+.mockup-dots .dot.yellow { background: #FFBD2E; }
+.mockup-dots .dot.green { background: #27C93F; }
+
+.mockup-badge {
   font-family: var(--font-family-body);
   font-size: 12px;
   font-weight: 700;
@@ -749,14 +733,14 @@ body {
   text-transform: uppercase;
 }
 
-.deck-mockup-status {
+.mockup-status {
   font-family: var(--font-family-body);
   font-size: 12px;
   font-weight: 600;
   color: var(--color-green-primary);
 }
 
-.deck-mockup-content {
+.mockup-dialogue {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -764,7 +748,7 @@ body {
   z-index: 1;
 }
 
-.deck-chat-bubble {
+.chat-bubble {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -773,12 +757,12 @@ body {
   padding: 14px 18px;
 }
 
-.deck-chat-bubble.agent {
+.chat-bubble.agent {
   background: rgba(13, 239, 147, 0.12);
   border-color: rgba(13, 239, 147, 0.3);
 }
 
-.bubble-tag {
+.bubble-label {
   font-size: 11px;
   font-weight: 700;
   color: var(--color-green-primary);
@@ -788,81 +772,60 @@ body {
   margin-bottom: 4px;
 }
 
-.deck-chat-bubble p {
+.chat-bubble p {
   color: #ffffff;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
 }
 
-.deck-card-footer {
-  padding-top: 16px;
+.sticky-card-caption {
+  padding-top: 18px;
   padding-left: 8px;
 }
 
-.deck-caption-name {
+.sticky-caption-title {
   font-family: var(--font-family-display);
-  font-size: 1.25rem;
+  font-size: 1.35rem; /* 21.6px */
   font-weight: 500;
   color: var(--color-text-dark);
   margin: 0;
 }
 
-.deck-nav-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
+/* Right Column: Sticky Title & Description Card */
+.sticky-content-column {
+  position: sticky;
+  top: 140px;
+  height: fit-content;
 }
 
-.deck-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(3, 3, 29, 0.2);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  padding: 0;
-}
-
-.deck-dot.active {
-  width: 28px;
-  border-radius: var(--radius-pill);
-  background: var(--color-midnight-06);
-}
-
-.deck-right-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.deck-right-card {
+.sticky-white-panel {
   background: var(--color-surface-white);
   border: 1px solid rgba(228, 235, 243, 0.95);
   border-radius: 28px;
   padding: 48px 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.deck-right-title {
+.sticky-panel-title {
   font-family: var(--font-family-display);
-  font-size: 2.5rem;
+  font-size: 2.75rem; /* 44px */
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--color-text-dark);
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
 }
 
-.deck-right-desc {
+.sticky-panel-desc {
   font-family: var(--font-family-body);
-  font-size: 1rem;
+  font-size: 1rem; /* 16px */
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text-body);
   margin: 0;
 }
+
 
 /* 12. Section 7: Testimonials Ribbon */
 .section-testimonials {

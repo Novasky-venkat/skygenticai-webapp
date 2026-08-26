@@ -2,6 +2,7 @@ export { ArrowBubble } from './ArrowBubble.jsx';
 export { ActionLink } from './ActionLink.jsx';
 export { CapsuleButton } from './CapsuleButton.jsx';
 export { BentoCard } from './BentoCard.jsx';
+export { StickyShowcase } from './StickyShowcase.jsx';
 export { ScrollableCardDeck } from './ScrollableCardDeck.jsx';
 export { StackedDeck } from './StackedDeck.jsx';
 export { SurfaceCard } from './SurfaceCard.jsx';
