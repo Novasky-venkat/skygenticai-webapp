@@ -102,3 +102,25 @@ Every Antigravity agent working on this codebase MUST strictly execute the **4-P
    - Wait for explicit user confirmation and feedback on how the component looks.
 4. **Hallmark Implementation**:
    - Once approved by the user, build the accessible, pixel-perfect modular component in `components/` and verify with `npm test`.
+
+---
+
+## 7. How to Use Hallmark, Lighthouse & SEO Skill Sets (MANDATORY RUNBOOK)
+
+Consult [`docs/skillsets-guide.md`](../docs/skillsets-guide.md) for execution details:
+
+1. **💎 Hallmark Skill Set (`skills/hallmark/`)**:
+   - MUST be used during layout and component styling.
+   - Enforces the 4-phase lifecycle (Research -> Canvas -> User Confirmation -> Implementation).
+   - Validates token adherence via `npm run audit:hallmark`.
+
+2. **🔦 Lighthouse Skill Set (`skills/lighthouse/`)**:
+   - MUST be executed before any PR or check-in to guarantee **100/100 Accessibility**.
+   - Validates landmarks, bypass skip link, heading hierarchy, and ARIA bindings via `npm run audit:a11y`.
+
+3. **🔍 SEO Skill Set (`skills/seo/`)**:
+   - MUST be executed whenever metadata or pages change.
+   - Validates Schema.org JSON-LD, OpenGraph, sitemap.xml, and robots.txt via `npm run audit:seo`.
+
+4. **Master Full-Suite Verification**:
+   - Run `npm test` to execute all three skill audits and bundle optimizations.
