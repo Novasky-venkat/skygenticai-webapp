@@ -1,10 +1,11 @@
 import React from 'react';
+import { CapsuleButton } from './base';
 
 export const Navbar = () => (
   <header className="navbar-wrapper" role="banner">
     <nav className="navbar-container" aria-label="Main Navigation">
       <a href="/" className="nav-brand" aria-label="SkyGentic AI Homepage">
-        <span style={{ color: 'var(--color-sapphire-400)' }}>SkyGentic</span>&nbsp;AI
+        <span style={{ color: 'var(--color-green-primary)' }}>SkyGentic</span>&nbsp;AI
       </a>
 
       <ul className="nav-menu" role="list">
@@ -18,18 +19,9 @@ export const Navbar = () => (
 
       <div className="nav-actions">
         <a href="#signin" className="nav-signin">Sign In</a>
-        <a href="#demo" className="btn-glossy-primary" aria-label="Book a demo session">
-          <div className="btn-text-wrapper">
-            <span className="btn-text-slide">Book a demo</span>
-            <span className="btn-text-slide">Book a demo</span>
-          </div>
-          <div className="btn-icon-bubble" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </div>
-        </a>
+        <CapsuleButton href="#demo" variant="primary" ariaLabel="Book a demo session">
+          Book a demo
+        </CapsuleButton>
       </div>
     </nav>
   </header>

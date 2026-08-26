@@ -1,91 +1,136 @@
-# Canvas-First Layout & High-Fidelity Glossy Controls Specification
+# Modular Base Components Design System (Hallmark Specification)
 
-This document details the layout architecture and **High-Fidelity Glossy Controls** design system for SkyGentic AI, moving away from hyper-saturated neon AI colors to an **Executive Sapphire, Platinum, and Obsidian** visual language with specular lighting, glass refraction, and tactile depth.
-
----
-
-## 1. Refined Executive Color Palette (Non-Neon, High Contrast)
-
-### Brand & Surface Palette
-| Token Name | Hex / RGBA | Role / Application | Contrast Ratio |
-| :--- | :--- | :--- | :--- |
-| `--color-sapphire-500` | `#2563EB` | **Primary Action Base** (Precision Cobalt Sapphire) | **4.6:1** on Light / **8.5:1** on Dark |
-| `--color-sapphire-600` | `#1D4ED8` | Primary Hover / Active Base | **9.8:1** (AAA) |
-| `--color-sapphire-400` | `#3B82F6` | Specular Rim / Highlight Gradient | Highlight Accent |
-| `--color-obsidian-950` | `#0B0F19` | **Deepest Obsidian Void** (Page Background) | Base Void |
-| `--color-obsidian-900` | `#0F172A` | Primary Dark Surface & Navbar Base | Dark Surface |
-| `--color-obsidian-800` | `#1E293B` | Elevated Card Base / Subsurface | Card Fill |
-| `--color-slate-400` | `#94A3B8` | Subtitle / Secondary Slate Text | **5.4:1** on Dark (AA) |
-| `--color-slate-200` | `#E2E8F0` | High-Contrast Body Text | **14.1:1** on Dark (AAA) |
-| `--color-surface-white`| `#FFFFFF` | Display Titles & Light Section Surfaces | **17.5:1** on Dark (AAA) |
+A definitive catalog and architectural blueprint of all **Base Modular Components** (Atoms & Molecules) designed for composition across all sections of the SkyGentic AI web application.
 
 ---
 
-## 2. High-Fidelity Glossy Controls Anatomy
-
-### A. Glossy Sapphire Primary Button (`.btn-glossy-primary`)
-* **Geometry**: `border-radius: 3rem` (48px pill), `height: 48px`, `padding: 8px 10px 8px 24px`.
-* **Base Gradient**: `linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%)`.
-* **Specular Top Sheen**: Multi-stop gloss gradient (`linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 51%, rgba(255,255,255,0.08) 100%)`).
-* **Bevel & Rim Light**: `box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(0, 0, 0, 0.35), 0 4px 16px rgba(37, 99, 235, 0.35);`.
-* **Hover Interaction**: Smooth lift (`translateY(-2px)`), glow intensifies (`box-shadow: 0 8px 24px rgba(37, 99, 235, 0.5)`).
+## 1. Complete Component Inventory & Composition Map
 
 ```
-State: Idle
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ BASE COMPONENTS (ATOMS & MOLECULES)                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. CapsuleButton       │ • Variants: primary, secondary, glass, white       │
+│                        │ • Anatomy: Pill (48px) + TextSlide + ArrowBubble   │
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 2. BadgePill           │ • Variants: sapphire, emerald, lime, dark-glass    │
+│                        │ • Anatomy: Capsule (12px text) + Pulsing Status Dot│
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 3. SurfaceCard         │ • Variants: light-ambient, dark-glass, gradient-cta│
+│                        │ • Anatomy: 20px/28px radius + Specular Rim + Shadow│
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 4. StatBlock           │ • Anatomy: 56px Clash Digit + Satoshi Label + Desc │
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 5. ReadMoreLink        │ • Anatomy: Satoshi 15px + Animated Chevron Arrow   │
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 6. AccordionDisclosure │ • Anatomy: ARIA Trigger + Animated +/- Icon + Panel│
+├────────────────────────┼────────────────────────────────────────────────────┤
+│ 7. TrustAvatarCluster  │ • Anatomy: 4x Overlapping Avatars + Social Proof   │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼ (Composed into Sections)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SECTION ORGANISMS                                                           │
+│ • NavbarHeader        = NavBrand + NavLinks + CapsuleButton.Primary         │
+│ • HeroSection         = BadgePill + H1 + CapsuleButton.Dual + VisualHub    │
+│ • MetricsStrip        = TrustAvatarCluster + StatBlock(x3) + BadgePill(x6)  │
+│ • BentoCapabilities   = SurfaceCard.Light(x5) + ReadMoreLink + Button.CTA   │
+│ • TestimonialsRibbon  = TestimonialCard.Expanding(x4) (23% -> 35% width)    │
+│ • FaqHub              = SurfaceCard.Light + AccordionDisclosure(x3)         │
+│ • DualCardFooter      = SurfaceCard.Gradient + SurfaceCard.DarkGlass + Link │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. Base Component 1: CapsuleButton (`.btn`)
+
+### Anatomy & Visual Blueprint
+```
 ┌─────────────────────────────────────────────────────────────┐
-│  ╭───────────────────────────────────────────────────────╮  │ (Top Specular Highlight: 0.6 opacity)
-│  │  [ Book a demo ]                     (• ↗)            │  │ (Sapphire Gradient: #3B82F6 -> #1D4ED8)
-│  ╰───────────────────────────────────────────────────────╯  │ (Bottom Shadow: 0 4px 16px Sapphire)
+│ ╭─────────────────────────────────────────────────────────╮ │  <-- 48px Capsule (border-radius: 3rem)
+│ │  [ Button Label ]                                (• ↗)  │ │  <-- Dual-Layer Text Slide on :hover
+│ ╰─────────────────────────────────────────────────────────╯ │  <-- 32px Circular Icon Bubble (45° rot)
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### B. Glossy Obsidian Secondary Button (`.btn-glossy-secondary`)
-* **Base**: `linear-gradient(180deg, #1E293B 0%, #0F172A 100%)`.
-* **Glass Bevel**: `box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 0 rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4);`.
-* **Border**: `1px solid rgba(255, 255, 255, 0.15)`.
+### Variants Matrix:
+1. **`btn-primary` (Electric Emerald / Sapphire)**:
+   - `background: var(--color-green-primary) / var(--color-sapphire-500);`
+   - `color: var(--color-midnight-06);`
+   - Icon bubble: Dark circle with white arrow `↗`.
+2. **`btn-secondary` (Midnight Obsidian)**:
+   - `background: var(--color-obsidian-900);`
+   - `border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff;`
+3. **`btn-glass` (Frosted Crystal)**:
+   - `background: rgba(255, 255, 255, 0.10); backdrop-filter: blur(20px);`
+   - `border: 1px solid rgba(255, 255, 255, 0.20); color: #ffffff;`
+4. **`btn-white` (Footer CTA Variant)**:
+   - `background: #ffffff; color: #03031d; box-shadow: 0 4px 20px rgba(0,0,0,0.3);`
 
-### C. Frosted Crystal Control (`.btn-glossy-glass`)
-* **Base**: `rgba(255, 255, 255, 0.10)`.
-* **Backdrop Filter**: `blur(24px) saturate(180%)`.
-* **Specular Rim**: `box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.45), 0 4px 20px rgba(0, 0, 0, 0.15);`.
-* **Border**: `1px solid rgba(255, 255, 255, 0.25)`.
+### 6-State Lifecycle:
+* **Idle**: Standard padding `8px 10px 8px 24px`, height `48px`.
+* **Hover**: `translateY(-2px)`, text slides up `20px`, arrow rotates `45deg`, ambient glow shadow.
+* **Focus-Visible**: `outline: 2px solid var(--focus-ring-color); outline-offset: 3px;`.
+* **Active / Pressed**: `scale(0.98); translateY(0);`.
+* **Disabled**: `opacity: 0.5; pointer-events: none;`.
+* **Loading**: Text hidden, spinner rendered in icon bubble.
 
 ---
 
-## 3. High-Fidelity Glossy Layout Blueprint
+## 3. Base Component 2: BadgePill (`.badge-pill`)
 
+### Anatomy & Visual Blueprint
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ 1. FLOATING GLOSSY NAVBAR (Fixed Frosted Glass Capsule, max-w: 1350px, blur: 24px, Specular Rim)       │
-│    [Ai]SkyGentic       Solutions ▾   Products ▾   Resources ▾   Company ▾   Pricing  Sign In [Book Demo]│
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 2. HERO SECTION [DEEP OBSIDIAN - #0B0F19 with Sapphire Ambient Spotlight]                              │
-│    Left (55%): Glossy Eyebrow Pill + Massive H1 (Clash Display) + Lead Copy + Glossy Sapphire CTA Group│
-│    Right (45%): High-Gloss Glassmorphic Visual Hub with Precision UI Cards & Specular Sheen            │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 3. ENTERPRISE METRICS BENTO BAR [OBSIDIAN SURFACE - #0F172A with Beveled Glass Borders]                 │
-│    3 Glossy Metric Tiles: 91% Containment Rate | 85% CSAT Score | 1M+ Daily Messages Automated          │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 4. CLIENT LOGO MARQUEE [PLATINUM SURFACE - #FFFFFF]                                                     │
-│    Subtle frosted horizontal ticker with enterprise logos and vertical divider strokes                 │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 5. PLATFORM CAPABILITIES BENTO GRID [PLATINUM SLATE - #F8FAFC]                                          │
-│    Staggered 3-Column Bento Cards with Glossy Top Rim Lights, Sapphire Icon Pods & Read More Links      │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 6. PRODUCT INTERACTIVE WORKFLOW SHOWCASE [WHITE - #FFFFFF]                                              │
-│    Left (45%): "Power Up Your Lead Generation" + Enterprise Value Pillars                              │
-│    Right (55%): Glossy Video & UI Container with Satin Refraction Borders & Interactive Demo Flow      │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 7. TESTIMONIALS GLOSSY RIBBON [DEEP OBSIDIAN - #0B0F19]                                                │
-│    Left (30%): "What CX Leaders Are Saying" Headline + Glossy CTA                                      │
-│    Right (70%): 4-Card Glossy Flex Accordion with Smooth Sapphire Glow Expansion (23% -> 35% on hover) │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 8. FAQ ACCORDION HUB [PLATINUM SLATE - #F8FAFC]                                                         │
-│    Centered Glass Card Container (max-w: 840px) with Glossy Sapphire Focus Rings & ARIA States         │
-├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 9. ENTERPRISE DUAL-CARD GLOSSY FOOTER [OBSIDIAN - #070A10]                                             │
-│    Left Card (40%): Glossy Sapphire/Obsidian CTA Card ("Scale Your Conversational CX Today")          │
-│    Right Card (60%): Frosted Glass Navigation Directory (Platform, Solutions, Company)                │
-│    Bottom Bar: Copyright, Legal links, Privacy, Status                                                 │
-└─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+( • PULSING DOT   UPPERCASE BADGE TEXT )
+```
+* **Shape**: `border-radius: var(--radius-pill)` (9999px).
+* **Typography**: `font-family: var(--font-family-body); font-size: 0.75rem (12px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;`.
+* **Pulsing Dot**: `width: 6px; height: 6px; border-radius: 50%; animation: pulse 2s infinite;`.
+* **Variants**:
+  - `badge-pill.emerald`: `background: rgba(13, 239, 147, 0.12); color: #0DEF93; border: 1px solid rgba(13, 239, 147, 0.3);`
+  - `badge-pill.sapphire`: `background: rgba(37, 99, 235, 0.12); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3);`
+  - `badge-pill.glass`: `background: rgba(255, 255, 255, 0.08); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15);`
+
+---
+
+## 4. Base Component 3: SurfaceCard (`.surface-card`)
+
+### Variants:
+1. **Light Ambient Card (`.card-light`)**:
+   - `background: #ffffff; border: 1px solid #e4ebf3; border-radius: 20px;`
+   - `box-shadow: 0 4px 130px rgba(150, 163, 181, 0.15);`
+   - Hover: `translateY(-4px); border-color: rgba(37, 99, 235, 0.3);`
+2. **Dark Frosted Glass Card (`.card-dark-glass`)**:
+   - `background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(24px);`
+   - `border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 20px;`
+   - Hover: `translateY(-4px); border-color: rgba(255, 255, 255, 0.25);`
+3. **Hero Gradient Card (`.card-gradient-hero`)**:
+   - `background: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);`
+   - `border-radius: 28px; border: 1px solid rgba(151, 65, 254, 0.4);`
+
+---
+
+## 5. Base Component 4: StatBlock (`.stat-block`)
+
+### Anatomy:
+* **Digit**: `font-family: var(--font-family-display); font-size: 3.5rem (56px); font-weight: 600; line-height: 1.0; letter-spacing: -0.03em; color: #ffffff;`
+* **Label**: `font-family: var(--font-family-body); font-size: 0.875rem (14px); font-weight: 600; color: #ffffff; margin-top: 8px;`
+* **Description**: `font-size: 0.8125rem (13px); color: var(--color-slate-400); line-height: 1.5; margin-top: 4px;`
+
+---
+
+## 6. Base Component 5: AccordionDisclosure (`.accordion-item`)
+
+### Anatomy & ARIA Binding:
+```html
+<div class="accordion-item">
+  <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-id">
+    <span class="accordion-title">Question Text</span>
+    <span class="accordion-icon" aria-hidden="true">+</span>
+  </button>
+  <div id="panel-id" class="accordion-panel" hidden>
+    Answer content text with 1.6 line-height.
+  </div>
+</div>
 ```

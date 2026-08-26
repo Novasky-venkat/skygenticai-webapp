@@ -1,68 +1,63 @@
 import React from 'react';
-import { PrimaryButton } from './buttons';
+import { SurfaceCard, BadgePill, CapsuleButton } from './base';
 
-export const Footer = () => {
-  return (
-    <footer className="footer-wrapper">
-      <div className="container">
-        <div className="footer-grid">
-          <div className="footer-hero-card">
-            <div>
-              <div className="badge-pill lime" style={{ marginBottom: 'var(--space-4)' }}>Get Started Today</div>
-              <h3 className="display-3 text-white" style={{ marginBottom: 'var(--space-4)' }}>
-                Ready to elevate your customer CX with Agentic AI?
-              </h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.85)', marginBottom: 'var(--space-6)' }}>
-                Book an exploratory session with our conversational AI architects.
-              </p>
-            </div>
-            <div>
-              <PrimaryButton text="Book a Demo" href="#contact" />
-            </div>
+export const Footer = () => (
+  <footer className="footer-wrapper" role="contentinfo">
+    <div className="container">
+      <div className="footer-cards-grid">
+        {/* Left Hero CTA Card */}
+        <SurfaceCard variant="gradient-hero" className="footer-hero-card">
+          <BadgePill variant="glass" style={{ marginBottom: 'var(--space-4)' }}>Ready to Launch</BadgePill>
+          <h3 style={{ color: '#ffffff', marginBottom: 'var(--space-3)' }}>Build Your Agentic CX Today</h3>
+          <p style={{ color: 'var(--color-slate-200)', marginBottom: 'var(--space-6)' }}>
+            Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.
+          </p>
+          <CapsuleButton href="#demo" variant="white">
+            Book a Demo
+          </CapsuleButton>
+        </SurfaceCard>
+
+        {/* Right Navigation Directory Card */}
+        <SurfaceCard variant="dark-glass" className="footer-nav-card">
+          <div>
+            <div className="footer-col-title">Platform</div>
+            <ul className="footer-link-list">
+              <li><a href="#hero" className="footer-link">Agentic AI</a></li>
+              <li><a href="#capabilities" className="footer-link">Voice AI</a></li>
+              <li><a href="#capabilities" className="footer-link">Agent CoPilot</a></li>
+              <li><a href="#showcase" className="footer-link">Omnichannel</a></li>
+            </ul>
           </div>
-
-          <div className="footer-links-grid">
-            <div>
-              <div className="footer-column-title">Platform</div>
-              <ul className="footer-link-list">
-                <li><a href="#">Agentic AI</a></li>
-                <li><a href="#">Voice AI</a></li>
-                <li><a href="#">Agent CoPilot</a></li>
-                <li><a href="#">Omnichannel</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="footer-column-title">Solutions</div>
-              <ul className="footer-link-list">
-                <li><a href="#">Customer Support</a></li>
-                <li><a href="#">Sales & Marketing</a></li>
-                <li><a href="#">Conversational Commerce</a></li>
-                <li><a href="#">Enterprise Hub</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="footer-column-title">Company</div>
-              <ul className="footer-link-list">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Press & Media</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
+          <div>
+            <div className="footer-col-title">Solutions</div>
+            <ul className="footer-link-list">
+              <li><a href="#features" className="footer-link">Customer Support</a></li>
+              <li><a href="#features" className="footer-link">Conversational Sales</a></li>
+              <li><a href="#features" className="footer-link">Commerce Hub</a></li>
+              <li><a href="#features" className="footer-link">Enterprise Security</a></li>
+            </ul>
           </div>
-        </div>
-
-        <div style={{ borderTop: '1px solid var(--border-glass-light)', paddingTop: 'var(--space-6)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)', color: 'var(--color-midnight-02)', fontSize: 'var(--font-size-sm)' }}>
-          <div>© 2026 AiChat / SkyGentic AI. All rights reserved.</div>
-          <div style={{ display: 'flex', gap: 'var(--space-6)' }}>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-            <a href="#security">Security</a>
+          <div>
+            <div className="footer-col-title">Company</div>
+            <ul className="footer-link-list">
+              <li><a href="#about" className="footer-link">About Us</a></li>
+              <li><a href="#careers" className="footer-link">Careers</a></li>
+              <li><a href="#privacy" className="footer-link">Privacy Policy</a></li>
+              <li><a href="#contact" className="footer-link">Contact Sales</a></li>
+            </ul>
           </div>
+        </SurfaceCard>
+      </div>
+
+      {/* Footer Bottom Bar */}
+      <div className="footer-bottom-bar">
+        <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
+        <div style={{ display: 'flex', gap: 'var(--space-6)' }}>
+          <a href="#privacy" className="footer-link">Privacy Policy</a>
+          <a href="#terms" className="footer-link">Terms of Service</a>
+          <a href="#security" className="footer-link">Security & Trust</a>
         </div>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);

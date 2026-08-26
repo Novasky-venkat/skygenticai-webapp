@@ -1,9 +1,9 @@
 /* ==========================================================================
-   SkyGentic AI / High-Fidelity Glossy Layout & Design System
+   SkyGentic AI / Hallmark Base Components & Section Design System
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Base & Reset
+   1. Base & Global Reset
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -16,14 +16,14 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-obsidian-950);
+  background-color: var(--color-midnight-06);
   color: var(--color-slate-200);
   font-family: var(--font-family-body);
   overflow-x: hidden;
 }
 
 /* --------------------------------------------------------------------------
-   2. Layout Containers
+   2. Layout Containers (AiChat Matching Grid)
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -60,8 +60,8 @@ body {
   top: -999px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-sapphire-500);
-  color: #ffffff;
+  background: var(--color-green-primary);
+  color: var(--color-midnight-06);
   padding: var(--space-3) var(--space-6);
   font-weight: 700;
   font-size: 1rem;
@@ -74,21 +74,21 @@ body {
 
 .skip-link:focus {
   top: 16px;
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+  outline: 2px solid var(--color-green-primary);
+  outline-offset: 3px;
 }
 
 /* --------------------------------------------------------------------------
-   4. High-Fidelity Glossy Controls (Buttons & Badges)
+   4. Base Component: CapsuleButton (.btn)
    -------------------------------------------------------------------------- */
-.btn-glossy-primary,
-.btn-primary {
+.btn-primary,
+.btn-secondary,
+.btn-glass,
+.btn-white {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  background: var(--bg-gradient-sapphire);
-  color: var(--color-surface-white);
   padding: 8px 10px 8px 24px;
   border-radius: var(--radius-pill);
   font-family: var(--font-family-body);
@@ -100,76 +100,65 @@ body {
   min-height: 48px;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--gloss-rim-primary), var(--shadow-glossy-primary);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
-.btn-glossy-primary:hover,
+/* Variant: Primary (Electric Green) */
+.btn-primary {
+  background: var(--color-green-primary);
+  color: var(--color-midnight-06);
+  box-shadow: 0 4px 14px rgba(13, 239, 147, 0.35);
+}
+
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: var(--bg-gradient-sapphire-hover);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.75), var(--shadow-glossy-primary-hover);
+  background: var(--color-green-hover);
+  box-shadow: 0 8px 24px rgba(13, 239, 147, 0.5);
 }
 
-.btn-glossy-secondary,
+/* Variant: Secondary (Dark Midnight) */
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  background: var(--bg-gradient-obsidian);
+  background: var(--color-midnight-06);
   color: var(--color-surface-white);
-  padding: 8px 10px 8px 24px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-family-body);
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
   border: 1px solid var(--color-dark-border);
-  cursor: pointer;
-  min-height: 48px;
-  box-shadow: var(--gloss-rim-secondary), var(--shadow-glossy-secondary);
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.btn-glossy-secondary:hover,
 .btn-secondary:hover {
   transform: translateY(-2px);
   border-color: var(--color-dark-border-hover);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
-.btn-glossy-glass,
+/* Variant: Glass (Frosted Crystal) */
 .btn-glass {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
   background: rgba(255, 255, 255, 0.10);
   color: var(--color-surface-white);
-  padding: 8px 10px 8px 24px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-family-body);
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.20);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  cursor: pointer;
-  min-height: 48px;
-  box-shadow: var(--gloss-rim-glass), 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.btn-glossy-glass:hover,
 .btn-glass:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Button Text Slide Micro-Interaction */
+/* Variant: White (Footer CTA) */
+.btn-white {
+  background: var(--color-surface-white);
+  color: var(--color-midnight-06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  background: var(--color-surface-light);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* Text Slide Wrapper */
 .btn-text-wrapper {
   display: flex;
   flex-direction: column;
@@ -184,19 +173,18 @@ body {
   line-height: 20px;
 }
 
-.btn-glossy-primary:hover .btn-text-slide,
-.btn-glossy-secondary:hover .btn-text-slide,
-.btn-glossy-glass:hover .btn-text-slide,
 .btn-primary:hover .btn-text-slide,
-.btn-secondary:hover .btn-text-slide {
+.btn-secondary:hover .btn-text-slide,
+.btn-glass:hover .btn-text-slide,
+.btn-white:hover .btn-text-slide {
   transform: translateY(-20px);
 }
 
-/* Button Icon Bubble */
+/* Icon Bubble */
 .btn-icon-bubble {
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(3, 3, 29, 0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -204,19 +192,39 @@ body {
   transition: transform var(--transition-fast), background var(--transition-fast);
 }
 
-.btn-glossy-primary:hover .btn-icon-bubble {
-  transform: rotate(45deg);
-  background: rgba(255, 255, 255, 0.3);
+.btn-primary .btn-icon-bubble {
+  background: var(--color-midnight-06);
+  color: var(--color-green-primary);
 }
 
-.btn-glossy-secondary:hover .btn-icon-bubble {
+.btn-primary:hover .btn-icon-bubble {
   transform: rotate(45deg);
-  background: rgba(255, 255, 255, 0.25);
 }
 
-/* Eyebrow & Pill Badges */
-.badge-pill,
-.eyebrow-pill {
+.btn-secondary .btn-icon-bubble,
+.btn-glass .btn-icon-bubble {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-surface-white);
+}
+
+.btn-secondary:hover .btn-icon-bubble,
+.btn-glass:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+}
+
+.btn-white .btn-icon-bubble {
+  background: rgba(3, 3, 29, 0.1);
+  color: var(--color-midnight-06);
+}
+
+.btn-white:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   5. Base Component: BadgePill (.badge-pill)
+   -------------------------------------------------------------------------- */
+.badge-pill {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -227,21 +235,225 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(37, 99, 235, 0.12);
-  color: var(--color-sapphire-400);
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.badge-pill .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.badge-pill.emerald {
+  background: rgba(13, 239, 147, 0.12);
+  color: var(--color-green-primary);
+  border: 1px solid rgba(13, 239, 147, 0.3);
 }
 
 .badge-pill.sapphire {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(37, 99, 235, 0.12);
   color: var(--color-sapphire-400);
-  border-color: rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge-pill.glass {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-surface-white);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* --------------------------------------------------------------------------
-   5. Section 1: Floating Glossy Navbar
+   6. Base Component: SurfaceCard (.surface-card)
    -------------------------------------------------------------------------- */
+.surface-card {
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card-light {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-ambient-card);
+}
+
+.card-light:hover {
+  transform: translateY(-4px);
+  border-color: rgba(151, 65, 254, 0.3);
+  box-shadow: 0 12px 40px rgba(150, 163, 181, 0.2);
+}
+
+.card-dark-glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--gloss-rim-secondary), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card-dark-glass:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-dark-border-hover);
+}
+
+.card-gradient-hero {
+  background: var(--bg-gradient-card-purple);
+  border: 1px solid rgba(151, 65, 254, 0.4);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   7. Base Component: StatBlock (.stat-block)
+   -------------------------------------------------------------------------- */
+.stat-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-digit {
+  font-family: var(--font-family-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--color-surface-white);
+}
+
+.stat-label {
+  font-family: var(--font-family-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-surface-white);
+  margin-top: var(--space-2);
+}
+
+.stat-desc {
+  font-size: 0.8125rem;
+  color: var(--color-slate-400);
+  line-height: 1.5;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.stat-separator {
+  width: 100%;
+  height: 1px;
+  background: var(--color-dark-border);
+  margin: var(--space-6) 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Base Component: ReadMoreLink (.read-more-link)
+   -------------------------------------------------------------------------- */
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-green-primary);
+  text-decoration: none;
+  margin-top: var(--space-4);
+  transition: gap var(--transition-fast);
+}
+
+.read-more-link:hover {
+  gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Base Component: AccordionDisclosure (.accordion-item)
+   -------------------------------------------------------------------------- */
+.accordion-item {
+  border-bottom: 1px solid var(--color-surface-border);
+  padding: var(--space-5) 0;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  font-family: var(--font-family-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-midnight-06);
+  text-align: left;
+  cursor: pointer;
+  padding: var(--space-2) 0;
+}
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--color-green-primary);
+  outline-offset: 4px;
+}
+
+.accordion-panel {
+  padding-top: var(--space-3);
+  color: var(--color-slate-600);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. Base Component: TrustAvatarCluster (.trust-avatar-cluster)
+   -------------------------------------------------------------------------- */
+.trust-avatar-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--color-midnight-06);
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.avatar-dot:first-child {
+  margin-left: 0;
+}
+
+.trust-label {
+  font-size: 0.8125rem;
+  color: var(--color-slate-400);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   11. Section Specific Layout Styling
+   -------------------------------------------------------------------------- */
+/* Section 1: Floating Navbar */
 .navbar-wrapper {
   position: fixed;
   top: 16px;
@@ -258,8 +470,8 @@ body {
   max-width: var(--container-max-width);
   height: 68px;
   background: var(--bg-glass-navbar);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-dark-border);
   border-radius: var(--radius-pill);
   box-shadow: var(--gloss-rim-secondary), var(--shadow-glass-header);
@@ -267,7 +479,6 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-6);
-  transition: border-color var(--transition-fast);
 }
 
 .nav-brand {
@@ -276,9 +487,6 @@ body {
   font-weight: 600;
   color: var(--color-surface-white);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
 }
 
 .nav-menu {
@@ -321,14 +529,12 @@ body {
   color: var(--color-surface-white);
 }
 
-/* --------------------------------------------------------------------------
-   6. Section 2: Hero Section (Deep Obsidian with Ambient Spotlight)
-   -------------------------------------------------------------------------- */
+/* Section 2: Hero Section */
 .section-hero {
   position: relative;
   padding-top: 150px;
   padding-bottom: 90px;
-  background: var(--color-obsidian-950);
+  background: var(--color-midnight-06);
   overflow: hidden;
 }
 
@@ -339,7 +545,7 @@ body {
   transform: translateX(-50%);
   width: 900px;
   height: 500px;
-  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.18) 0%, rgba(11, 15, 25, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(151, 65, 254, 0.22) 0%, rgba(3, 3, 29, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -353,12 +559,6 @@ body {
   align-items: center;
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .hero-cta-group {
   display: flex;
   align-items: center;
@@ -367,82 +567,28 @@ body {
   flex-wrap: wrap;
 }
 
-/* Hero Visual Hub */
-.hero-visual-hub {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-glass-card {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--color-dark-border);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--gloss-rim-secondary), 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-.visual-hub-badge {
-  position: absolute;
-  background: var(--color-obsidian-900);
-  border: 1px solid var(--color-dark-border);
-  padding: 10px 16px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
-  color: var(--color-surface-white);
-}
-
-.visual-hub-badge.top-right {
-  top: -12px;
-  right: -12px;
-}
-
-.visual-hub-badge.bottom-left {
-  bottom: -12px;
-  left: -12px;
-}
-
-/* --------------------------------------------------------------------------
-   7. Section 3: Enterprise Metrics Bento Bar
-   -------------------------------------------------------------------------- */
+/* Section 3: Features & Metrics Composite Strip */
 .section-metrics {
-  background: var(--color-obsidian-900);
+  background: var(--color-midnight-06);
   padding: var(--space-16) 0;
   border-top: 1px solid var(--color-dark-border);
   border-bottom: 1px solid var(--color-dark-border);
 }
 
-.metrics-bento-grid {
+.features-composite-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  grid-template-columns: 1fr 1.15fr 0.85fr;
+  gap: var(--space-10);
+  align-items: center;
 }
 
-.metric-tile {
-  background: var(--color-obsidian-850);
-  border: 1px solid var(--color-dark-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  box-shadow: var(--gloss-rim-secondary), 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform var(--transition-normal), border-color var(--transition-normal);
+.features-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
 }
 
-.metric-tile:hover {
-  transform: translateY(-4px);
-  border-color: rgba(59, 130, 246, 0.35);
-}
-
-/* --------------------------------------------------------------------------
-   8. Section 4: Client Logo Marquee (Platinum Surface)
-   -------------------------------------------------------------------------- */
+/* Section 4: Client Logo Marquee */
 .section-marquee {
   background: var(--color-surface-white);
   padding: var(--space-12) 0;
@@ -481,11 +627,9 @@ body {
   opacity: 1;
 }
 
-/* --------------------------------------------------------------------------
-   9. Section 5: Platform Capabilities Bento Grid (Platinum Surface)
-   -------------------------------------------------------------------------- */
+/* Section 5: Bento Grid */
 .section-capabilities {
-  background: var(--color-surface-platinum);
+  background: var(--color-surface-light);
   padding: var(--space-24) 0;
 }
 
@@ -496,7 +640,7 @@ body {
 }
 
 .capabilities-header h2 {
-  color: var(--color-obsidian-950);
+  color: var(--color-midnight-06);
 }
 
 .capabilities-header p {
@@ -510,23 +654,8 @@ body {
   align-items: start;
 }
 
-.bento-card {
-  background: var(--color-surface-white);
-  border: 1px solid var(--color-surface-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-ambient-card);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-}
-
-.bento-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
-  border-color: rgba(37, 99, 235, 0.3);
-}
-
 .bento-card h3, .bento-card h4 {
-  color: var(--color-obsidian-950);
+  color: var(--color-midnight-06);
 }
 
 .bento-card p {
@@ -547,60 +676,9 @@ body {
   gap: var(--space-8);
 }
 
-.read-more-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  color: var(--color-sapphire-600);
-  text-decoration: none;
-  margin-top: var(--space-4);
-  transition: gap var(--transition-fast);
-}
-
-.read-more-link:hover {
-  gap: 10px;
-}
-
-/* --------------------------------------------------------------------------
-   10. Section 6: Product Interactive Workflow Showcase (White Surface)
-   -------------------------------------------------------------------------- */
-.section-showcase {
-  background: var(--color-surface-white);
-  padding: var(--space-24) 0;
-  border-top: 1px solid var(--color-surface-border);
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: var(--space-16);
-  align-items: center;
-}
-
-.showcase-content h2 {
-  color: var(--color-obsidian-950);
-}
-
-.showcase-content p {
-  color: var(--color-slate-600);
-}
-
-.showcase-media-container {
-  background: var(--color-obsidian-950);
-  border: 1px solid var(--color-dark-border);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
-  color: var(--color-surface-white);
-}
-
-/* --------------------------------------------------------------------------
-   11. Section 7: Testimonials Glossy Ribbon (Deep Obsidian)
-   -------------------------------------------------------------------------- */
+/* Section 6: Testimonials Ribbon */
 .section-testimonials {
-  background: var(--color-obsidian-950);
+  background: var(--color-midnight-07);
   padding: var(--space-24) 0;
   border-top: 1px solid var(--color-dark-border);
 }
@@ -620,7 +698,7 @@ body {
 
 .testimonial-card {
   flex: 1 1 23%;
-  background: var(--color-obsidian-900);
+  background: var(--color-midnight-06);
   border: 1px solid var(--color-dark-border);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
@@ -633,16 +711,14 @@ body {
 .testimonial-card:focus-visible,
 .testimonial-card.active {
   flex: 1 1 35%;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 70%, #1d4ed8 100%);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4), 0 8px 30px rgba(37, 99, 235, 0.3);
+  background: var(--bg-gradient-card-purple);
+  border-color: var(--color-purple-04);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4), 0 8px 30px rgba(151, 65, 254, 0.3);
 }
 
-/* --------------------------------------------------------------------------
-   12. Section 8: FAQ Accordion Hub (Platinum Surface)
-   -------------------------------------------------------------------------- */
+/* Section 7: FAQ Accordion Hub */
 .section-faq {
-  background: var(--color-surface-platinum);
+  background: var(--color-surface-light);
   padding: var(--space-24) 0;
   border-top: 1px solid var(--color-surface-border);
 }
@@ -654,62 +730,16 @@ body {
 }
 
 .faq-header h2 {
-  color: var(--color-obsidian-950);
+  color: var(--color-midnight-06);
 }
 
 .faq-header p {
   color: var(--color-slate-600);
 }
 
-.faq-card-container {
-  background: var(--color-surface-white);
-  border: 1px solid var(--color-surface-border);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-ambient-card);
-}
-
-.faq-item {
-  border-bottom: 1px solid var(--color-surface-border);
-  padding: var(--space-5) 0;
-}
-
-.faq-item:last-child {
-  border-bottom: none;
-}
-
-.faq-trigger {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  font-family: var(--font-family-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--color-obsidian-950);
-  text-align: left;
-  cursor: pointer;
-  padding: var(--space-2) 0;
-}
-
-.faq-trigger:focus-visible {
-  outline: 2px solid var(--color-sapphire-500);
-  outline-offset: 4px;
-}
-
-.faq-panel {
-  padding-top: var(--space-3);
-  color: var(--color-slate-600);
-  line-height: 1.6;
-}
-
-/* --------------------------------------------------------------------------
-   13. Section 9: Enterprise Dual-Card Glossy Footer
-   -------------------------------------------------------------------------- */
+/* Section 8: Dual-Card Footer */
 .footer-wrapper {
-  background: #070a10;
+  background: #0f0f11;
   padding: var(--space-20) 0 var(--space-8) 0;
   border-top: 1px solid var(--color-dark-border);
 }
@@ -719,14 +749,6 @@ body {
   grid-template-columns: 0.42fr 0.58fr;
   gap: var(--space-8);
   margin-bottom: var(--space-16);
-}
-
-.footer-hero-card {
-  background: var(--bg-gradient-footer-cta);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-10);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .footer-nav-card {
@@ -781,18 +803,17 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   14. Responsive Media Queries
+   12. Responsive Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
   .hero-grid,
-  .showcase-grid,
+  .features-composite-grid,
   .testimonials-grid,
   .footer-cards-grid {
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
 
-  .metrics-bento-grid,
   .bento-grid {
     grid-template-columns: 1fr;
   }
@@ -831,12 +852,12 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   15. Accessibility Focus Rings & Reduced Motion
+   13. Accessibility Focus Rings & Reduced Motion
    -------------------------------------------------------------------------- */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid var(--color-sapphire-400);
+  outline: 2px solid var(--color-green-primary);
   outline-offset: var(--focus-ring-offset);
 }
 
