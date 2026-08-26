@@ -1,10 +1,3 @@
-/* ==========================================================================
-   SkyGentic AI / Exact AiChat.com Typography & Styles
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. @font-face Definitions (Clean AiChat CDN TTF)
-   -------------------------------------------------------------------------- */
 @font-face {
   font-family: 'Clashdisplay';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bee_ClashDisplay-Medium.ttf') format('truetype');
@@ -12,7 +5,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Clashdisplay';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf0_ClashDisplay-Semibold.ttf') format('truetype');
@@ -20,7 +12,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Clashdisplay';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6beb_ClashDisplay-Bold.ttf') format('truetype');
@@ -28,7 +19,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Satoshi';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf6_Satoshi-Regular.ttf') format('truetype');
@@ -36,7 +26,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Satoshi';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf5_Satoshi-Medium.ttf') format('truetype');
@@ -44,7 +33,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Satoshi';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf3_Satoshi-Bold.ttf') format('truetype');
@@ -52,10 +40,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* --------------------------------------------------------------------------
-   2. Global Typography Rendering & Subpixel Anti-Aliasing
-   -------------------------------------------------------------------------- */
 html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,18 +47,13 @@ html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input {
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0;
 }
-
 body {
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem; 
   font-weight: 400;
   line-height: 1.6;
   color: #3d4050;
 }
-
-/* --------------------------------------------------------------------------
-   3. Heading Styles (Matching AiChat.com Exact Measurements)
-   -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6,
 .font-display,
 .headline-homepage,
@@ -88,58 +67,44 @@ h1, h2, h3, h4, h5, h6,
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0;
 }
-
-/* H1: Exact 3.25rem (52px), line-height 120%, max-width 640px for clean 3-line wrap */
 h1, .display-1, .headline-homepage {
-  font-size: 2.5rem; /* 40px on mobile */
+  font-size: 2.5rem; 
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: #03031d;
   max-width: 640px;
 }
-
 @media (min-width: 992px) {
   h1, .display-1, .headline-homepage {
-    font-size: 3.25rem; /* 52px on desktop */
+    font-size: 3.25rem; 
     line-height: 1.2;
   }
 }
-
-/* H2: 2.5rem (40px) on desktop */
 h2, .display-2, .section-title, .metrics-heading {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.015em;
 }
-
 @media (min-width: 992px) {
   h2, .display-2, .section-title, .metrics-heading {
     font-size: 2.5rem;
     line-height: 1.25;
   }
 }
-
-/* H3: 1.5rem (24px) */
 h3, .display-3 {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: -0.01em;
 }
-
-/* H4: 1.25rem (20px) */
 h4, .display-4 {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
-
-/* --------------------------------------------------------------------------
-   4. Eyebrows, Sub-leads & Paragraphs
-   -------------------------------------------------------------------------- */
 .hero-eyebrow, .banner-tag {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px;
@@ -148,7 +113,6 @@ h4, .display-4 {
   letter-spacing: 0;
   margin-bottom: 16px;
 }
-
 .hero-lead, .text-lead, .banner-details {
   font-family: 'Satoshi', sans-serif;
   font-size: 18px;
@@ -158,7 +122,6 @@ h4, .display-4 {
   max-width: 480px;
   margin-bottom: 24px;
 }
-
 p {
   margin-top: 0;
   margin-bottom: var(--space-4);
@@ -168,17 +131,14 @@ p {
   line-height: 1.6;
   color: #3d4050;
 }
-
-/* Stat Counter Digit: Clashdisplay 56px Medium */
 .stat-digit, .feature-digit {
   font-family: 'Clashdisplay', sans-serif;
-  font-size: 3.5rem; /* 56px */
+  font-size: 3.5rem; 
   font-weight: 500;
   line-height: 1.0;
   letter-spacing: -0.02em;
   color: #ffffff;
 }
-
 .stat-label {
   font-family: 'Satoshi', sans-serif;
   font-size: 16px;
@@ -186,8 +146,6 @@ p {
   color: #c1c1ce;
   margin-top: 6px;
 }
-
-/* Button Typography: Satoshi 15px Medium */
 .btn-primary, .btn-secondary, .btn-glass, .btn-white {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px;
