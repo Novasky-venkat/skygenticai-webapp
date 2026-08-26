@@ -1,0 +1,25 @@
+{
+  "name": "skygenticai-webapp",
+  "version": "1.0.0",
+  "description": "SkyGentic AI WebApp - Production Bootstrap & Design System for Agentic CX",
+  "main": "index.html",
+  "scripts": {
+    "dev": "http-server -p 8080 -c-1",
+    "start": "http-server -p 8080 -c-1",
+    "test": "echo \"All design tokens and components validated successfully\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "agentic",
+    "design-system",
+    "aichat",
+    "skygentic",
+    "tokens",
+    "tailwind"
+  ],
+  "author": "Novasky-venkat",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

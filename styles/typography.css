@@ -1,0 +1,174 @@
+/* ==========================================================================
+   SkyGentic AI / AiChat Extracted Design System - Typography
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* Clash Display Webfont */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bef_ClashDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bee_ClashDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf0_ClashDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Satoshi Webfont */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf6_Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf5_Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf3_Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf2_Satoshi-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Smoothing */
+html, body {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-midnight-06);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: var(--font-family-display);
+  color: var(--color-midnight-06);
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+h1, .display-1 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+@media (min-width: 992px) {
+  h1, .display-1 {
+    font-size: var(--font-size-6xl);
+  }
+}
+
+h2, .display-2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+h3, .display-3 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+}
+
+h4, .display-4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+}
+
+h5, .display-5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+}
+
+h6, .display-6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+}
+
+/* Eyebrows & Badges */
+.eyebrow-pill {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Paragraphs & Subtitles */
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-lead {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-white {
+  color: var(--color-surface-white) !important;
+}
+
+/* Stat Digit */
+.stat-digit {
+  font-family: var(--font-family-display);
+  font-size: 3.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.0;
+  color: var(--color-surface-white);
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-2);
+}

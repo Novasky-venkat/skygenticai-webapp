@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyGentic AI / AiChat - Agentic Design System</title>
+  <meta name="description" content="Production-ready Design System & Component Library for Agentic AI conversational CX platforms." />
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/typography.css" />
+  <link rel="stylesheet" href="./styles/design-system.css" />
+  <style>
+    /* Custom Showcase-only helpers */
+    .color-swatch {
+      height: 80px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-2);
+      color: white;
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-sm);
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: var(--space-4);
+    }
+    .tab-btn {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-surface-border);
+      background: var(--color-surface-white);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: var(--font-size-sm);
+      transition: all var(--transition-fast);
+    }
+    .tab-btn.active {
+      background: var(--color-midnight-06);
+      color: var(--color-surface-white);
+      border-color: var(--color-midnight-06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation -->
+  <header class="navbar-wrapper">
+    <nav class="navbar-container">
+      <a href="/" class="nav-brand">
+        <span style="color: var(--color-green-primary);">SkyGentic</span>&nbsp;AI
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#showcase" class="nav-link">Design Tokens</a></li>
+        <li><a href="#components" class="nav-link">Components</a></li>
+        <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
+        <li><a href="#testimonials" class="nav-link">Stories</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <a href="#login" class="nav-link" style="display: none; @media(min-width: 768px){display: block;}">Sign In</a>
+        <a href="#demo" class="btn-primary">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Book a demo</span>
+            <span class="btn-text-slide">Book a demo</span>
+          </div>
+          <div class="btn-icon-bubble">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section section-hero">
+    <div class="container" style="text-align: center; max-width: 880px;">
+      <div class="badge-pill lime">
+        <span>Introducing AVA: Vantage Agentic AI</span>
+      </div>
+
+      <h1 class="display-1 text-white" style="margin-top: var(--space-4); margin-bottom: var(--space-6);">
+        Harness the Power of Agentic AI for Conversational CX
+      </h1>
+
+      <p class="text-lead" style="color: var(--color-midnight-01); max-width: 660px; margin: 0 auto var(--space-8);">
+        Next-level autonomous, purpose-driven AI chatbots and multi-agent systems designed to scale enterprise customer operations.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="#components" class="btn-primary">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Explore Components</span>
+            <span class="btn-text-slide">Explore Components</span>
+          </div>
+          <div class="btn-icon-bubble">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+        <a href="#showcase" class="btn-glass">
+          <span>Design Tokens</span>
+          <div class="btn-icon-bubble">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Stats Bar -->
+  <section class="section section-dark" style="padding-top: 0;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-digit" style="color: var(--color-green-primary);">91%</div>
+          <div class="stat-label">Containment Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-digit" style="color: var(--color-lime-accent);">85%</div>
+          <div class="stat-label">Customer Satisfaction (CSAT)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-digit" style="color: var(--color-cyan-04);">1M+</div>
+          <div class="stat-label">Daily Messages Automated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Design System Playground -->
+  <section class="section" id="showcase" style="background-color: var(--color-surface-white);">
+    <div class="container">
+      <div style="max-width: 720px; margin: 0 auto var(--space-12); text-align: center;">
+        <div class="badge-pill purple">Interactive Design System</div>
+        <h2 class="display-2" style="margin-top: var(--space-2);">Design System Palette & Tokens</h2>
+        <p class="text-lead">Extracted color constants, CSS custom properties, and typography scales.</p>
+      </div>
+
+      <!-- Color Swatches -->
+      <div class="card" style="margin-bottom: var(--space-8);">
+        <h3 class="display-4" style="margin-bottom: var(--space-4);">1. Color Palette</h3>
+        
+        <h5 class="display-5" style="margin: var(--space-4) 0 var(--space-2);">Brand Accents</h5>
+        <div class="color-grid">
+          <div class="color-swatch" style="background: #0DEF93; color: #03031D;"><span>Green Primary</span><code>#0DEF93</code></div>
+          <div class="color-swatch" style="background: #09B26E;"><span>Green Hover</span><code>#09B26E</code></div>
+          <div class="color-swatch" style="background: #B8FF7A; color: #03031D;"><span>Lime Accent</span><code>#B8FF7A</code></div>
+          <div class="color-swatch" style="background: #9741FE;"><span>Purple Primary</span><code>#9741FE</code></div>
+          <div class="color-swatch" style="background: #4B207F;"><span>Dark Indigo</span><code>#4B207F</code></div>
+          <div class="color-swatch" style="background: #61DAEE; color: #03031D;"><span>Electric Cyan</span><code>#61DAEE</code></div>
+        </div>
+
+        <h5 class="display-5" style="margin: var(--space-6) 0 var(--space-2);">Midnight Dark Surfaces</h5>
+        <div class="color-grid">
+          <div class="color-swatch" style="background: #02020F;"><span>Void Black</span><code>#02020F</code></div>
+          <div class="color-swatch" style="background: #03031D;"><span>Midnight 900</span><code>#03031D</code></div>
+          <div class="color-swatch" style="background: #04042B;"><span>Midnight 800</span><code>#04042B</code></div>
+          <div class="color-swatch" style="background: #06063A;"><span>Midnight 700</span><code>#06063A</code></div>
+          <div class="color-swatch" style="background: #83839D;"><span>Slate Muted</span><code>#83839D</code></div>
+          <div class="color-swatch" style="background: #EBEFF7; color: #03031D;"><span>Surface Light</span><code>#EBEFF7</code></div>
+        </div>
+      </div>
+
+      <!-- Typography Scale -->
+      <div class="card" id="components" style="margin-bottom: var(--space-8);">
+        <h3 class="display-4" style="margin-bottom: var(--space-4);">2. Typography & Heading Scale (Clash Display & Satoshi)</h3>
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div style="border-bottom: 1px solid var(--color-surface-border); padding-bottom: var(--space-3);">
+            <div class="display-1">Display 1 (48px - 56px / Clash Display)</div>
+            <code style="color: var(--color-midnight-02);">font-family: 'Clash Display'; font-weight: 700; line-height: 1.15;</code>
+          </div>
+          <div style="border-bottom: 1px solid var(--color-surface-border); padding-bottom: var(--space-3);">
+            <div class="display-2">Display 2 (36px - 44px / Section Heading)</div>
+            <code style="color: var(--color-midnight-02);">font-family: 'Clash Display'; font-weight: 600; line-height: 1.25;</code>
+          </div>
+          <div style="border-bottom: 1px solid var(--color-surface-border); padding-bottom: var(--space-3);">
+            <div class="display-3">Display 3 (24px - 28px / Card Title)</div>
+            <code style="color: var(--color-midnight-02);">font-family: 'Clash Display'; font-weight: 600;</code>
+          </div>
+          <div>
+            <p class="text-lead" style="margin-bottom: var(--space-1);">Body Lead (18px - 20px / Satoshi & Inter) — Crisp, legible typography engineered for enterprise AI web interfaces.</p>
+            <p style="margin-bottom: 0; color: var(--color-midnight-02);">Body Regular (15px - 16px) — High legibility with subpixel anti-aliasing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Button Variants -->
+      <div class="card">
+        <h3 class="display-4" style="margin-bottom: var(--space-4);">3. Reusable Button Components (with Slide Micro-interaction)</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; background: #03031D; padding: var(--space-8); border-radius: var(--radius-lg);">
+          <a href="#" class="btn-primary">
+            <div class="btn-text-wrapper">
+              <span class="btn-text-slide">Primary Action</span>
+              <span class="btn-text-slide">Primary Action</span>
+            </div>
+            <div class="btn-icon-bubble">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </div>
+          </a>
+
+          <a href="#" class="btn-secondary">
+            <div class="btn-text-wrapper">
+              <span class="btn-text-slide">Secondary Navy</span>
+              <span class="btn-text-slide">Secondary Navy</span>
+            </div>
+            <div class="btn-icon-bubble light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </div>
+          </a>
+
+          <a href="#" class="btn-glass">
+            <span>Glass Frosted</span>
+            <div class="btn-icon-bubble">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </div>
+          </a>
+
+          <a href="#" class="read-more-link white">
+            <span>Read More</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Capabilities Grid -->
+  <section class="section" id="capabilities" style="background-color: var(--color-surface-light);">
+    <div class="container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto var(--space-12);">
+        <div class="badge-pill lime">Platform Capabilities</div>
+        <h2 class="display-2" style="margin-top: var(--space-2);">Agentic Modules Built for Scale</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+        <div class="card">
+          <div class="badge-pill lime">Autonomous</div>
+          <h4 class="display-4" style="margin-bottom: var(--space-3);">Agentic AI</h4>
+          <p style="color: var(--color-midnight-02); margin-bottom: var(--space-6);">
+            Autonomous goal-driven agents that reason, plan, execute multi-step workflows, and resolve complex inquiries.
+          </p>
+          <a href="#" class="read-more-link">
+            <span>Explore Agentic AI</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="badge-pill purple">Real-Time</div>
+          <h4 class="display-4" style="margin-bottom: var(--space-3);">Voice AI</h4>
+          <p style="color: var(--color-midnight-02); margin-bottom: var(--space-6);">
+            Ultra-low latency conversational voice agents delivering seamless speech recognition and voice synthesis.
+          </p>
+          <a href="#" class="read-more-link">
+            <span>Explore Voice AI</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="badge-pill" style="background: rgba(97, 218, 238, 0.15); color: #03031D; border-color: #61DAEE;">Productivity</div>
+          <h4 class="display-4" style="margin-bottom: var(--space-3);">Agent CoPilot</h4>
+          <p style="color: var(--color-midnight-02); margin-bottom: var(--space-6);">
+            Empower human agents with instant knowledge lookups, smart summaries, and proactive suggestion copilots.
+          </p>
+          <a href="#" class="read-more-link">
+            <span>Explore CoPilot</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Testimonials Accordion -->
+  <section class="section section-dark" id="testimonials">
+    <div class="container">
+      <div style="max-width: 640px; margin-bottom: var(--space-10);">
+        <div class="badge-pill lime">Customer Stories</div>
+        <h2 class="display-2 text-white" style="margin-top: var(--space-2);">
+          What CX Leaders Are Saying
+        </h2>
+      </div>
+
+      <div class="testimonial-container">
+        <div class="testimonial-card active">
+          <div style="color: var(--color-green-primary); font-size: 1.75rem; line-height: 1;">“</div>
+          <p style="color: rgba(255, 255, 255, 0.9); margin-top: var(--space-3);">
+            AiChat transformed our customer interactions. Automating our knowledge base cut response times to zero and dramatically boosted CSAT.
+          </p>
+          <div style="margin-top: var(--space-6); border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+            <div style="font-weight: 600; color: #fff;">Francesca Lopez</div>
+            <div style="font-size: var(--font-size-xs); color: var(--color-midnight-01);">Marketing Comms Manager</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div style="color: var(--color-green-primary); font-size: 1.75rem; line-height: 1;">“</div>
+          <p style="color: rgba(255, 255, 255, 0.9); margin-top: var(--space-3);">
+            The agentic flow builder allowed us to deploy omnichannel sales bots across WhatsApp and Instagram in under two weeks.
+          </p>
+          <div style="margin-top: var(--space-6); border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+            <div style="font-weight: 600; color: #fff;">David Chen</div>
+            <div style="font-size: var(--font-size-xs); color: var(--color-midnight-01);">Head of CX, Retail Hub</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div style="color: var(--color-green-primary); font-size: 1.75rem; line-height: 1;">“</div>
+          <p style="color: rgba(255, 255, 255, 0.9); margin-top: var(--space-3);">
+            Enterprise-grade security, instantaneous vector search, and seamless human handoff make AiChat the gold standard.
+          </p>
+          <div style="margin-top: var(--space-6); border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+            <div style="font-weight: 600; color: #fff;">Sarah Jenkins</div>
+            <div style="font-size: var(--font-size-xs); color: var(--color-midnight-01);">VP Digital Ops</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" id="faq" style="background-color: var(--color-surface-light);">
+    <div class="container" style="max-width: 840px;">
+      <div style="text-align: center; margin-bottom: var(--space-10);">
+        <div class="badge-pill purple">Frequently Asked Questions</div>
+        <h2 class="display-2" style="margin-top: var(--space-2);">Everything You Need to Know</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="card" onclick="toggleFaq(this)" style="cursor: pointer; padding: var(--space-6);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 class="display-5" style="margin: 0;">What is Agentic AI and how does it differ from traditional chatbots?</h4>
+            <span class="faq-icon" style="font-size: 1.25rem; font-weight: bold; color: var(--color-purple-04);">−</span>
+          </div>
+          <p class="faq-answer" style="margin-top: var(--space-4); margin-bottom: 0; color: var(--color-midnight-02);">
+            Agentic AI autonomously reasons, utilizes external tools, queries knowledge bases dynamically, and executes multi-step business transactions without manual static flowcharts.
+          </p>
+        </div>
+
+        <div class="card" onclick="toggleFaq(this)" style="cursor: pointer; padding: var(--space-6);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 class="display-5" style="margin: 0;">Which messaging channels are supported out of the box?</h4>
+            <span class="faq-icon" style="font-size: 1.25rem; font-weight: bold; color: var(--color-midnight-02);">+</span>
+          </div>
+          <p class="faq-answer" style="display: none; margin-top: var(--space-4); margin-bottom: 0; color: var(--color-midnight-02);">
+            WhatsApp, Messenger, Instagram, LINE, KakaoTalk, web widgets, and voice endpoints are all natively supported.
+          </p>
+        </div>
+
+        <div class="card" onclick="toggleFaq(this)" style="cursor: pointer; padding: var(--space-6);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 class="display-5" style="margin: 0;">How does the design system enforce brand consistency?</h4>
+            <span class="faq-icon" style="font-size: 1.25rem; font-weight: bold; color: var(--color-midnight-02);">+</span>
+          </div>
+          <p class="faq-answer" style="display: none; margin-top: var(--space-4); margin-bottom: 0; color: var(--color-midnight-02);">
+            Through atomic CSS custom properties in <code>tokens.css</code>, strict typography scales in <code>typography.css</code>, and Antigravity Agent guidelines in <code>.gemini/GEMINI.md</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-hero-card">
+          <div>
+            <div class="badge-pill lime" style="margin-bottom: var(--space-4);">Ready to Launch</div>
+            <h3 class="display-3 text-white" style="margin-bottom: var(--space-4);">
+              Build Your Agentic CX Experience Today
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.85); margin-bottom: var(--space-6);">
+              Explore our developer documentation and Antigravity agent configurations.
+            </p>
+          </div>
+          <div>
+            <a href="#demo" class="btn-primary">
+              <div class="btn-text-wrapper">
+                <span class="btn-text-slide">Book a Demo</span>
+                <span class="btn-text-slide">Book a Demo</span>
+              </div>
+              <div class="btn-icon-bubble">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-grid">
+          <div>
+            <div class="footer-column-title">Platform</div>
+            <ul class="footer-link-list">
+              <li><a href="#capabilities">Agentic AI</a></li>
+              <li><a href="#capabilities">Voice AI</a></li>
+              <li><a href="#capabilities">Agent CoPilot</a></li>
+              <li><a href="#components">Design System</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-column-title">Solutions</div>
+            <ul class="footer-link-list">
+              <li><a href="#">Customer Support</a></li>
+              <li><a href="#">Sales & Marketing</a></li>
+              <li><a href="#">Conversational Commerce</a></li>
+              <li><a href="#">Enterprise Hub</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-column-title">Company</div>
+            <ul class="footer-link-list">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--border-glass-light); padding-top: var(--space-6); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); color: var(--color-midnight-02); font-size: var(--font-size-sm);">
+        <div>© 2026 SkyGentic AI / Novasky. Extracted from AiChat Design System.</div>
+        <div style="display: flex; gap: var(--space-6);">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(card) {
+      const answer = card.querySelector('.faq-answer');
+      const icon = card.querySelector('.faq-icon');
+      if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        icon.textContent = '−';
+        icon.style.color = 'var(--color-purple-04)';
+      } else {
+        answer.style.display = 'none';
+        icon.textContent = '+';
+        icon.style.color = 'var(--color-midnight-02)';
+      }
+    }
+  </script>
+</body>
+</html>

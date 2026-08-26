@@ -1,0 +1,163 @@
+/* ==========================================================================
+   SkyGentic AI / AiChat Extracted Design System - Design Tokens
+   Namespace: :root
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Brand Accent Colors
+     ------------------------------------------------------------------------ */
+  --color-green-primary: #0def93;        /* High-energy electric neon green (Primary CTA) */
+  --color-green-hover: #09b26e;          /* Deeper green for hover states */
+  --color-green-light: #42dd9f;          /* Light green accent */
+  --color-green-tint: #87f8ca;           /* Mint tint for badge backgrounds */
+  --color-green-dark: #067749;           /* Dark green */
+  --color-green-void: #033c25;           /* Deepest green void */
+  
+  --color-lime-accent: #b8ff7a;          /* Electric lime accent (Auth & highlight pills) */
+
+  --color-purple-01: #e5cfff;            /* Lavender light */
+  --color-purple-02: #cba0ff;            /* Soft lilac */
+  --color-purple-03: #b171fe;            /* Bright violet */
+  --color-purple-04: #9741fe;            /* Primary purple / active indicator */
+  --color-purple-05: #7131be;            /* Medium purple */
+  --color-purple-06: #4b207f;            /* Dark indigo gradient stop */
+  --color-purple-07: #261040;            /* Deep purple void */
+
+  --color-cyan-01: #d8f6f8;              /* Pale cyan tint */
+  --color-cyan-04: #61daee;              /* Electric cyan accent */
+  --color-cyan-05: #48a4b2;              /* Medium teal */
+  --color-cyan-06: #306c76;              /* Dark teal */
+  --color-cyan-07: #18363b;              /* Cyan void */
+  --color-cyan-teal: #14ebd2;            /* Bright cyan-teal glow */
+
+  /* ------------------------------------------------------------------------
+     2. Dark Neutral Surfaces (Midnight Palette)
+     ------------------------------------------------------------------------ */
+  --color-midnight-07: #02020f;          /* Deepest void black (Icon wrappers & base) */
+  --color-midnight-06: #03031d;          /* Primary dark surface & text base */
+  --color-midnight-05: #04042b;          /* Rich midnight blue */
+  --color-midnight-04: #06063a;          /* Deep navy background */
+  --color-midnight-03: #44446b;          /* Dark slate borders & muted elements */
+  --color-midnight-02: #83839d;          /* Slate secondary text */
+  --color-midnight-01: #c1c1ce;          /* Light slate muted text */
+
+  /* ------------------------------------------------------------------------
+     3. Light Neutrals & Surface Colors
+     ------------------------------------------------------------------------ */
+  --color-surface-white: #ffffff;
+  --color-surface-light: #fafafa;
+  --color-surface-subtle: #ebeff7;
+  --color-surface-border: #e4ebf3;
+  --color-text-dark: #03031d;
+  --color-text-secondary: rgba(6, 6, 58, 0.8);
+  --color-text-muted: #83839d;
+  --color-text-blog: #363638;
+
+  /* ------------------------------------------------------------------------
+     4. Translucent & Glassmorphic Fills
+     ------------------------------------------------------------------------ */
+  --bg-glass-card: rgba(255, 255, 255, 0.08);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.05);
+  --bg-glass-button: rgba(255, 255, 255, 0.15);
+  --border-glass-light: rgba(255, 255, 255, 0.12);
+  --border-glass-strong: rgba(255, 255, 255, 0.2);
+
+  /* ------------------------------------------------------------------------
+     5. Brand Gradients
+     ------------------------------------------------------------------------ */
+  --gradient-hero: linear-gradient(118deg, #06063a 0%, #3b1f6d 67%, #0def93 103%);
+  --gradient-banner-glow: linear-gradient(60deg, #06063a 0%, #3b1f6d 60%, #13d78f 100%);
+  --gradient-card-purple: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
+  --gradient-cyber-teal: linear-gradient(68deg, #4f37c3 0%, #4f37c3 43%, #14ebd2 43%, #1ad8d0 54%, #1ad8d0 100%);
+  --gradient-subtle-glow: radial-gradient(circle at 50% 0%, rgba(151, 65, 254, 0.18) 0%, rgba(3, 3, 29, 0) 70%);
+
+  /* ------------------------------------------------------------------------
+     6. Typography Scale & Families
+     ------------------------------------------------------------------------ */
+  --font-family-display: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;       /* 12px */
+  --font-size-sm: 0.875rem;      /* 14px */
+  --font-size-base: 1rem;        /* 16px */
+  --font-size-md: 1.125rem;      /* 18px */
+  --font-size-lg: 1.25rem;       /* 20px */
+  --font-size-xl: 1.375rem;      /* 22px */
+  --font-size-2xl: 1.5rem;       /* 24px */
+  --font-size-3xl: 1.75rem;      /* 28px */
+  --font-size-4xl: 2.25rem;      /* 36px */
+  --font-size-5xl: 3rem;         /* 48px */
+  --font-size-6xl: 3.5rem;       /* 56px */
+
+  /* Line Heights */
+  --line-height-tight: 1.15;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* ------------------------------------------------------------------------
+     7. Spacing Tokens
+     ------------------------------------------------------------------------ */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ------------------------------------------------------------------------
+     8. Border Radii
+     ------------------------------------------------------------------------ */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;          /* Standard card radius */
+  --radius-2xl: 30px;
+  --radius-pill: 3rem;        /* 48px capsule buttons */
+  --radius-full: 9999px;
+  --radius-circle: 50%;
+
+  /* ------------------------------------------------------------------------
+     9. Shadows & Elevation
+     ------------------------------------------------------------------------ */
+  --shadow-sm: 0 2px 7px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(3, 3, 29, 0.16);
+  --shadow-ambient: 0 4px 130px rgba(150, 163, 181, 0.15);
+  --shadow-glow-green: 0 0 30px rgba(13, 239, 147, 0.3);
+  --shadow-glow-purple: 0 0 30px rgba(151, 65, 254, 0.3);
+  --shadow-glass-inset: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+
+  /* ------------------------------------------------------------------------
+     10. Layout Containers & Breakpoints
+     ------------------------------------------------------------------------ */
+  --container-max-width: 1350px;
+  --container-narrow-width: 1130px;
+  --navbar-height: 80px;
+
+  /* ------------------------------------------------------------------------
+     11. Transitions & Animation
+     ------------------------------------------------------------------------ */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

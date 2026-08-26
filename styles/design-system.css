@@ -1,0 +1,481 @@
+/* ==========================================================================
+   SkyGentic AI / AiChat Extracted Design System - Core Components & Utility
+   ========================================================================== */
+
+@import './tokens.css';
+@import './typography.css';
+
+/* --------------------------------------------------------------------------
+   1. Reset & Global Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-surface-white);
+  color: var(--color-midnight-06);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   2. Layout Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow-width);
+}
+
+.section {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  position: relative;
+}
+
+.section-dark {
+  background-color: var(--color-midnight-06);
+  color: var(--color-surface-white);
+}
+
+.section-hero {
+  background-color: var(--color-midnight-06);
+  background-image: var(--gradient-subtle-glow);
+  color: var(--color-surface-white);
+  padding-top: calc(var(--navbar-height) + var(--space-12));
+  padding-bottom: var(--space-24);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   3. Buttons & Interactive Links
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--color-green-primary);
+  color: var(--color-midnight-06);
+  padding: 8px 10px 8px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-green-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-green);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--color-midnight-06);
+  color: var(--color-surface-white);
+  padding: 8px 10px 8px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--border-glass-light);
+  transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-midnight-05);
+  border-color: var(--border-glass-strong);
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--bg-glass-button);
+  color: var(--color-surface-white);
+  padding: 8px 10px 8px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--border-glass-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-normal);
+}
+
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-icon-bubble {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-midnight-07);
+  color: var(--color-surface-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.btn-primary:hover .btn-icon-bubble,
+.btn-secondary:hover .btn-icon-bubble,
+.btn-glass:hover .btn-icon-bubble {
+  transform: translate(2px, -2px);
+}
+
+.btn-icon-bubble.light {
+  background-color: var(--color-surface-white);
+  color: var(--color-midnight-06);
+}
+
+/* Dual-layer Animated Text (Slide Up on Hover) */
+.btn-text-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-text-slide {
+  transition: transform var(--transition-smooth);
+}
+
+.btn-primary:hover .btn-text-slide,
+.btn-secondary:hover .btn-text-slide {
+  transform: translateY(-24px);
+}
+
+/* Read More Link */
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-midnight-06);
+  font-size: var(--font-size-base);
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.read-more-link:hover {
+  gap: var(--space-3);
+  color: var(--color-purple-04);
+}
+
+.read-more-link.white {
+  color: var(--color-surface-white);
+}
+
+/* --------------------------------------------------------------------------
+   4. Floating Navbar Header
+   -------------------------------------------------------------------------- */
+.navbar-wrapper {
+  position: fixed;
+  top: var(--space-4);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 var(--space-4);
+}
+
+.navbar-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  background: rgba(3, 3, 29, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass-light);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-surface-white);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-surface-white);
+}
+
+/* --------------------------------------------------------------------------
+   5. Cards & Surface Modules
+   -------------------------------------------------------------------------- */
+.card {
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-surface-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-ambient);
+  border-color: rgba(151, 65, 254, 0.3);
+}
+
+.card-glass {
+  background-color: var(--bg-glass-card);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--border-glass-light);
+  color: var(--color-surface-white);
+}
+
+.card-glass:hover {
+  border-color: var(--border-glass-strong);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.card-icon-header {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-banner-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  color: var(--color-surface-white);
+}
+
+/* --------------------------------------------------------------------------
+   6. Eyebrow Badge Pill
+   -------------------------------------------------------------------------- */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: rgba(13, 239, 147, 0.12);
+  color: var(--color-green-primary);
+  border: 1px solid rgba(13, 239, 147, 0.25);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+.badge-pill.lime {
+  background-color: rgba(184, 255, 122, 0.15);
+  color: var(--color-lime-accent);
+  border-color: rgba(184, 255, 122, 0.3);
+}
+
+.badge-pill.purple {
+  background-color: rgba(151, 65, 254, 0.15);
+  color: var(--color-purple-03);
+  border-color: rgba(151, 65, 254, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   7. Metric Stats Grid
+   -------------------------------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-8);
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-glass-light);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. Testimonial Interactive Accordion
+   -------------------------------------------------------------------------- */
+.testimonial-container {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+}
+
+.testimonial-card {
+  flex: 0 0 280px;
+  background-color: var(--bg-glass-card);
+  border: 1px solid var(--border-glass-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  color: var(--color-surface-white);
+  transition: all var(--transition-smooth);
+}
+
+@media (min-width: 992px) {
+  .testimonial-container {
+    display: flex;
+    gap: var(--space-4);
+    overflow: visible;
+  }
+
+  .testimonial-card {
+    flex: 1 1 23%;
+    cursor: pointer;
+  }
+
+  .testimonial-card:hover,
+  .testimonial-card.active {
+    flex: 1 1 35%;
+    background: var(--gradient-card-purple);
+    border-color: var(--color-purple-04);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer
+   -------------------------------------------------------------------------- */
+.footer-wrapper {
+  background-color: var(--color-midnight-07);
+  color: var(--color-surface-white);
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-12);
+  border-top: 1px solid var(--border-glass-light);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-16);
+}
+
+.footer-hero-card {
+  background: var(--gradient-card-purple);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.footer-column-title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-4);
+  color: var(--color-surface-white);
+}
+
+.footer-link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-link-list a {
+  color: var(--color-midnight-01);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer-link-list a:hover {
+  color: var(--color-green-primary);
+}
+
+/* --------------------------------------------------------------------------
+   10. Form & Inputs
+   -------------------------------------------------------------------------- */
+.form-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-surface-white);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-green-primary);
+  box-shadow: 0 0 0 2px rgba(13, 239, 147, 0.2);
+}
+
+.form-input::placeholder {
+  color: var(--color-midnight-02);
+}
