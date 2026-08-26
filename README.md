@@ -78,3 +78,26 @@ To verify the setup:
 ## License
 
 MIT © [Novasky](https://github.com/Novasky-venkat) / SkyGentic AI.
+
+---
+
+## Bundling & Asset Optimization Pipeline
+
+This project includes a high-performance, zero-overhead bundling and asset optimization pipeline:
+
+```bash
+# Build & optimize production bundle into dist/ (Minified + Brotli + Gzip)
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Run bundle performance budget and size audit
+npm run test:perf
+```
+
+### Optimization Features:
+- **HTML & CSS Minification**: Removes dead whitespace and comments.
+- **Pre-compression**: Generates `.br` (Brotli) and `.gz` (Gzip) assets for direct edge serving on Cloudflare Pages, AWS S3/CloudFront, Netlify, and Vercel.
+- **Sub-10KB Total Initial Payload**: Entire critical path bundle is under 8 KB compressed.
+- **Budget Enforcement**: CI performance auditor fails if bundle sizes exceed defined limits.

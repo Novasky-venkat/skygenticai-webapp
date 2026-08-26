@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "http-server -p 8080 -c-1",
     "start": "http-server -p 8080 -c-1",
-    "test": "echo \"All design tokens and components validated successfully\" && exit 0"
+    "build": "node scripts/build-optimizer.js",
+    "build:vite": "vite build",
+    "preview": "http-server dist -p 8080 -c-1",
+    "test": "node scripts/build-optimizer.js && node scripts/perf-audit.js",
+    "test:perf": "node scripts/perf-audit.js"
   },
   "keywords": [
     "ai",
