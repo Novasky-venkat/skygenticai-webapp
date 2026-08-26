@@ -1,9 +1,9 @@
 /* ==========================================================================
-   SkyGentic AI / AiChat-Matching Typography Architecture
+   SkyGentic AI / Bolder & High-Impact Typography Architecture (AiChat Match)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. @font-face Definitions: Clash Display (Headings & Display)
+   1. @font-face Definitions: Clash Display (Heavy & Punchy Display Weights)
    -------------------------------------------------------------------------- */
 @font-face {
   font-family: 'Clash Display';
@@ -29,17 +29,17 @@
   font-display: swap;
 }
 
-/* --------------------------------------------------------------------------
-   2. @font-face Definitions: Satoshi (UI, Body & Subtitles)
-   -------------------------------------------------------------------------- */
 @font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf4_Satoshi-Light.ttf') format('truetype');
-  font-weight: 300;
+  font-family: 'Clash Display';
+  src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf0_ClashDisplay-Semibold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+/* --------------------------------------------------------------------------
+   2. @font-face Definitions: Satoshi (High-Contrast Bold UI & Body)
+   -------------------------------------------------------------------------- */
 @font-face {
   font-family: 'Satoshi';
   src: url('https://cdn.prod.website-files.com/677ca44598d8bae2633f6b99/677ca44598d8bae2633f6bf6_Satoshi-Regular.ttf') format('truetype');
@@ -73,7 +73,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. Global Subpixel Anti-Aliasing (AiChat Match)
+   3. Global Subpixel Anti-Aliasing & Rendering
    -------------------------------------------------------------------------- */
 html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input {
   -webkit-font-smoothing: antialiased;
@@ -85,12 +85,13 @@ html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input {
 body {
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.6;
-  color: var(--color-slate-200);
+  color: #c5cedd;
 }
 
 /* --------------------------------------------------------------------------
-   4. AiChat-Matching Headings Scale
+   4. Bolder Headlines Scale (Heavy Visual Impact)
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6,
 .font-display,
@@ -98,82 +99,71 @@ h1, h2, h3, h4, h5, h6,
 .section-title {
   font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--color-surface-white);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin-top: 0;
 }
 
-/* Hero Display 1 (.headline-homepage) */
+/* Hero Display 1: Massive 64px, Tight, Bold */
 h1, .display-1, .headline-homepage {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2.75rem; /* 44px on mobile */
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+@media (min-width: 992px) {
+  h1, .display-1, .headline-homepage {
+    font-size: 4.25rem; /* 68px on desktop */
+    line-height: 1.05;
+  }
+}
+
+/* Section Title 2: Punchy 48px */
+h2, .display-2, .section-title {
+  font-size: 2.25rem; /* 36px on mobile */
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
 }
 
 @media (min-width: 992px) {
-  h1, .display-1, .headline-homepage {
-    font-size: 3.5rem; /* 56px */
-    line-height: 1.15;
+  h2, .display-2, .section-title {
+    font-size: 3.25rem; /* 52px on desktop */
+    line-height: 1.12;
   }
 }
 
-/* Section Title 2 (.section-title) */
-h2, .display-2, .section-title {
-  font-size: 2.2rem; /* 35px */
-  font-weight: 500;
-  line-height: 1.25;
+/* Card Heading 3 */
+h3, .display-3 {
+  font-size: 1.85rem; /* 30px */
+  font-weight: 700;
+  line-height: 1.22;
   letter-spacing: -0.02em;
 }
 
-@media (min-width: 992px) {
-  h2, .display-2, .section-title {
-    font-size: 2.75rem; /* 44px */
-  }
-}
-
-/* Section Sub-title 3 / Card Titles */
-h3, .display-3 {
-  font-size: 1.75rem; /* 28px */
-  font-weight: 600;
-  line-height: 1.3;
+/* Sub-card Heading 4 */
+h4, .display-4 {
+  font-size: 1.45rem; /* 23px */
+  font-weight: 700;
+  line-height: 1.28;
   letter-spacing: -0.015em;
 }
 
-/* Card Heading 4 (.shop-name, .service-name) */
-h4, .display-4, .shop-name, .service-name {
-  font-size: 1.375rem; /* 22px */
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-}
-
-/* Component Heading 5 (.dropdown-title) */
-h5, .display-5, .dropdown-title {
-  font-size: 1.125rem; /* 18px */
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-h6, .display-6 {
-  font-size: 1rem; /* 16px */
-  font-weight: 600;
-  line-height: 1.4;
-}
-
 /* --------------------------------------------------------------------------
-   5. Lead Paragraphs, Subtitles & Badges (.banner-details, .badge-pill)
+   5. Lead Paragraphs, Subtitles & Button Typography
    -------------------------------------------------------------------------- */
 .text-lead, .banner-details, .section-details {
   font-family: 'Satoshi', sans-serif;
-  font-size: 1.125rem; /* 18px */
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--color-slate-400);
+  font-size: 1.1875rem; /* 19px */
+  font-weight: 500;
+  line-height: 1.65;
+  color: #a3adc2;
 }
 
 @media (min-width: 992px) {
   .text-lead, .banner-details, .section-details {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.35rem; /* 21.6px */
   }
 }
 
@@ -181,33 +171,43 @@ p {
   margin-top: 0;
   margin-bottom: var(--space-4);
   font-family: 'Satoshi', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-slate-400);
+  font-size: 1.05rem; /* 16.8px */
+  font-weight: 500;
+  line-height: 1.65;
+  color: #8f9cae;
 }
 
+/* Eyebrow & Badges: Extra Bold, 0.08em Letter Spacing */
 .badge-pill, .eyebrow-pill {
   font-family: 'Satoshi', sans-serif;
-  font-size: 0.75rem; /* 12px */
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* Stat Digit */
+/* Stat Counter: Imposing 64px Bold Display */
 .stat-digit, .feature-digit {
   font-family: 'Clash Display', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 600;
+  font-size: 4rem; /* 64px */
+  font-weight: 700;
   line-height: 1.0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--color-surface-white);
 }
 
-.stat-label, .featuers-counter-text {
+.stat-label {
   font-family: 'Satoshi', sans-serif;
-  font-size: 0.875rem; /* 14px */
-  font-weight: 500;
-  color: var(--color-slate-400);
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  color: #ffffff;
   margin-top: var(--space-2);
+}
+
+/* Button Typography */
+.btn-primary, .btn-secondary, .btn-glass, .btn-white {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
