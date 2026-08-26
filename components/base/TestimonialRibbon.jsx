@@ -5,43 +5,43 @@ export const TestimonialRibbon = ({
   testimonials = [
     {
       id: 1,
-      name: 'Francesca Lopez',
-      role: 'Marketing Communications Manager, Hatten Melaka',
-      quote: 'SkyGentic has completely transformed our hospitality engagement. Inquiries across WhatsApp and Web receive immediate human-like assistance, drastically boosting our direct booking conversions.',
-      logo: 'HATTEN'
+      name: 'Elena Rostova',
+      role: 'Head of Customer Experience, Apex Hospitality Group',
+      quote: 'SkyGentic completely redefined our global guest booking experience. Inquiries across WhatsApp and mobile web are resolved in seconds, delivering a 42% surge in direct reservation bookings without adding support staff.',
+      logo: 'APEX HOTELS'
     },
     {
       id: 2,
-      name: 'Danny Chen',
-      role: 'Marketing Manager, Petron',
-      quote: 'The Launch of Virtual Assistance-Tania has enabled our customers to learn about the benefits and the miles loyalty card, discover merchandise rewards redemption, locate stations, and find a Gasul dealer with ease and convenience. Overall, the interactive chatbot experience has been well-received and contributed significantly to the Miles loyalty card activation rate. We are excited and look forward to a more fruitful collaboration with SkyGentic.',
-      logo: 'PETRON'
+      name: 'Marcus Vance',
+      role: 'VP of Digital Innovation, Solara Energy',
+      quote: 'Deploying SkyGentic’s autonomous agent ecosystem has empowered our customers to effortlessly manage energy subscriptions, track rewards, and locate service hubs 24/7. The personalized conversational flows drove a 54% boost in member activation rates and established a new benchmark for our digital CX.',
+      logo: 'SOLARA'
     },
     {
       id: 3,
-      name: 'Malik Murad Ali',
-      role: 'Director of IT, Digital, HR and LPS, MYDIN',
-      quote: 'Deploying SkyGentic Agent CoPilot allowed our retail customer support team to resolve 3x more shopper queries in real-time, delivering sub-second response times without expanding support shifts.',
-      logo: 'MYDIN'
+      name: 'Kavita Patel',
+      role: 'Chief Technology Officer, MetroRetail Global',
+      quote: 'Integrating SkyGentic Agent CoPilot into our retail operations allowed our customer service team to resolve 3x more shopper queries in real-time, cutting average resolution time by 65% across 200+ global storefronts.',
+      logo: 'METRORETAIL'
     },
     {
       id: 4,
-      name: 'Joe Ow',
-      role: 'Chief Executive Officer, SISTIC Singapore',
-      quote: 'SkyGentic’s conversational service solution has enabled us to engage at scale and deepen our relationships with customers on a 1-on-1 basis. We’ve seen proven success for the past 2 years and would be excited to continue this journey with SkyGentic.',
-      logo: 'SISTIC'
+      name: 'Arthur Sterling',
+      role: 'Chief Executive Officer, Vantage Point FinTech',
+      quote: 'SkyGentic’s enterprise conversational infrastructure has allowed us to deliver hyper-personalized financial guidance at scale. Over the past two years, customer satisfaction reached an all-time high of 98.4%, and we consider them an indispensable technology partner.',
+      logo: 'VANTAGEPOINT'
     }
   ],
-  title = 'Hear What People Are Saying',
-  description = 'Explore real customer feedback and see how SkyGentic is revolutionizing service, engagement, and business growth.',
-  ctaText = "Let's talk",
+  title = 'Trusted by Forward-Thinking Industry Leaders',
+  description = 'Discover how innovative global enterprises leverage SkyGentic to automate customer interactions, elevate service benchmarks, and unlock new revenue streams.',
+  ctaText = 'Connect With Us',
   ctaHref = '#contact',
   className = ''
 }) => {
-  const [activeIdx, setActiveIdx] = useState(1); // Default to Danny Chen (Card 2) matching reference
+  const [activeIdx, setActiveIdx] = useState(1);
 
   return (
-    <section id="testimonials" className={`section-testimonial-ribbon ${className}`} aria-label="Customer Testimonials">
+    <section id="testimonials" className={`section-testimonial-ribbon ${className}`} aria-label="Customer Success Testimonials">
       <div className="testimonial-main-wrapper">
         {/* Left Column: Fixed Header & CTA */}
         <div className="testimonial-left-wrapper">
