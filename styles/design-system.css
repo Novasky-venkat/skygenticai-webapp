@@ -895,3 +895,15 @@ input:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Modern Web Performance: Offscreen Content Visibility
+   -------------------------------------------------------------------------- */
+.section-capabilities,
+.section-showcase,
+.section-testimonials,
+.section-faq,
+.footer-wrapper {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
