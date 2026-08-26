@@ -27,3 +27,10 @@ npm test
 # Check git status
 git status
 ```
+
+## Mandatory Operating Rule: Research & User Visual Confirmation
+Before implementing or modifying any component styling or layout:
+1. **Research** the latest UI/UX and a11y patterns.
+2. **Draft** the visual design and token bindings in `docs/canvas-specs.md`.
+3. **Present the visual preview/mockup to the User** and request review.
+4. **DO NOT proceed to coding** until the User confirms the design and visual appearance.

@@ -77,3 +77,28 @@ Consult [`docs/component-guidelines.md`](../docs/component-guidelines.md) for fu
 5. **Micro-Interactions**:
    - Capsule buttons must feature dual-layer slide-up hover text (`.btn-text-wrapper` > `.btn-text-slide`).
    - Cards must elevate (`translateY(-4px)`) on hover with smooth cubic-bezier easing.
+
+---
+
+## 6. MANDATORY RULE: Research First & Confirm Visuals with User
+
+Every Antigravity agent working on this codebase MUST strictly execute the **4-Phase Component Lifecycle**:
+
+```
+┌─────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐      ┌─────────────────┐
+│ 1. RESEARCH     │ ───> │ 2. CANVAS SPECIFICATION │ ───> │ 3. USER VISUAL CONFIRMATION│ ───> │ 4. IMPLEMENT    │
+│ Best practices  │      │ Wireframe, tokens,      │      │ Present visual layout to  │      │ Hallmark code,  │
+│ & a11y standards│      │ & 6-state matrix        │      │ User & obtain approval    │      │ a11y tests & QA │
+└─────────────────┘      └─────────────────────────┘      └───────────────────────────┘      └─────────────────┘
+```
+
+### The 4 Mandatory Steps:
+1. **Research First**:
+   - Thoroughly research component UX best practices, modern web guidance, and WCAG 2.1/2.2 AA a11y standards.
+2. **Design on Canvas**:
+   - Specify layout bounds, token bindings (`styles/tokens.css`), and the 6 component states (Idle, Hover, Focus-Visible, Active, Disabled, Loading) in `docs/canvas-specs.md`.
+3. **Confirm Visuals with the User (CRITICAL GATE)**:
+   - **STOP** before writing code. Present the visual mockup, hierarchy, color contrast ratios, and interaction states to the user.
+   - Wait for explicit user confirmation and feedback on how the component looks.
+4. **Hallmark Implementation**:
+   - Once approved by the user, build the accessible, pixel-perfect modular component in `components/` and verify with `npm test`.

@@ -47,7 +47,10 @@ All UI elements must follow strict atomic composition rules to ensure isolation,
    - Secondary actions must use Dark Navy (`.btn-secondary`) or Glass (`.btn-glass`).
 2. **Scan-Friendly Eye Tracking**:
    - Layouts must follow the **F-Pattern** for text-heavy sections and the **Z-Pattern** for landing heroes:
-     * *Eyebrow Badge* $ightarrow$ *Display 1 Headline* $ightarrow$ *Sub-lead Paragraph* $ightarrow$ *Primary CTA*.
+     * *Eyebrow Badge* $
+ightarrow$ *Display 1 Headline* $
+ightarrow$ *Sub-lead Paragraph* $
+ightarrow$ *Primary CTA*.
 3. **Spacing Rhythm**:
    - Use strict spatial multipliers (`4px`, `8px`, `16px`, `24px`, `32px`, `48px`, `80px`). Never use arbitrary padding like `17px` or `29px`.
 
@@ -169,3 +172,13 @@ When implementing any new component in `components/`, adhere to this 5-step chec
    - Desktop (`>992px`): Multi-column grid/flex layout with hover effects.
 4. **Reduced Motion**: Ensure animations degrade cleanly inside `@media (prefers-reduced-motion: reduce)`.
 5. **SEO & Semantics**: Wrap in semantic tags (`<article>`, `<section>`, `<nav>`, `<aside>`).
+
+---
+
+## 5. Mandatory Research & User Confirmation Protocol
+
+Before writing any CSS or JSX for a component:
+1. **Research**: Review existing design tokens in `styles/tokens.css` and industry a11y standards.
+2. **Visual Draft**: Construct the component layout in `docs/canvas-specs.md`.
+3. **User Approval Gate**: Present the visual structure (colors, contrast ratios, hover states) to the user.
+4. **Implementation**: Only commence code implementation after receiving user confirmation on visual appearance.
