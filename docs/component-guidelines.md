@@ -182,3 +182,47 @@ Before writing any CSS or JSX for a component:
 2. **Visual Draft**: Construct the component layout in `docs/canvas-specs.md`.
 3. **User Approval Gate**: Present the visual structure (colors, contrast ratios, hover states) to the user.
 4. **Implementation**: Only commence code implementation after receiving user confirmation on visual appearance.
+
+---
+
+## 6. Styling Components with the Hallmark Skill Set
+
+When styling UI components using the global **Hallmark** skillset, unconditionally follow these rules:
+
+### A. Anti-AI Slop Craft Rules
+1. **Zero Emojis & Cheesy Glyphs**: Never use emojis (⚡, 🧠, 🎙️, 🔒, 📈, 🤝, 🎯, ✨) or cheesy "Ai✦" badge icons in production UI elements. Use clean SVG vector line icons.
+2. **No Floating Pill Status Boxes**: Prohibit random floating AI status boxes (e.g. "• Autonomous Agent Live").
+3. **Intentional Typography**: Use display typography (`Clash Display`) exclusively for headers/display numbers and body typography (`Satoshi` / `Inter`) for copy.
+
+### B. 3-Tier Token Inheritance
+* **Tier 1 (Primitives)**: Defined in `styles/tokens.css` (`--color-green-primary: #0DEF93;`, `--color-midnight-06: #03031D;`, `--radius-pill: 3rem;`).
+* **Tier 2 (Component Semantics)**: Component variables mapped to primitives (`--btn-bg: var(--color-green-primary);`).
+* **Tier 3 (Component Variants)**: Modifier classes that override component variables (`.btn-secondary { --btn-bg: var(--color-midnight-06); }`).
+
+### C. The 6-State Interactive Styling Matrix
+Every interactive component must declare explicit styles for all 6 states:
+1. **Idle**: Baseline elevation with 1px border.
+2. **Hover**: Smooth lift (`translateY(-2px)` to `-4px`) with subtle glow/sheen.
+3. **Focus-Visible**: High-contrast outline ring (`outline: 2px solid var(--color-green-primary); outline-offset: 3px;`).
+4. **Active**: Subtle tactile scale or push (`translateY(0)` or `scale(0.98)`).
+5. **Disabled**: Reduced opacity (`0.45`), `pointer-events: none` or `cursor: not-allowed`.
+6. **Loading**: Subtle pulse/spinner with `aria-busy="true"`.
+
+### D. Specular Rim Light & High-Fidelity Depth
+```css
+/* Specular top rim light for glossy controls */
+box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 4px 20px rgba(0, 0, 0, 0.12);
+
+/* Frosted glass backdrop */
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+background: rgba(255, 255, 255, 0.08);
+border: 1px solid rgba(255, 255, 255, 0.12);
+```
+
+### E. Verification
+Always validate component styling with:
+```bash
+npm run audit:hallmark
+npm test
+```

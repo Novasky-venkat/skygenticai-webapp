@@ -143,12 +143,12 @@ MIT © [Novasky](https://github.com/Novasky-venkat) / SkyGentic AI.
 
 ## Master Engineering Skill Sets
 
-This repository is equipped with 3 specialized Antigravity skill sets:
+This repository is equipped with 3 specialized Antigravity & AI Agent skill sets:
 
-| Skill Set | Purpose | Verification Command |
-| :--- | :--- | :--- |
-| 💎 **Hallmark UI Craft** | Enforces Canvas-First design, 3-tier token inheritance, and High-Fidelity Glossy Controls. | `npm run audit:hallmark` |
-| 🔦 **Lighthouse Accessibility** | Enforces WCAG 2.1/2.2 AA compliance, ARIA landmarks, and 100/100 Lighthouse score. | `npm run audit:a11y` |
-| 🔍 **SEO Optimization** | Enforces Schema.org JSON-LD microdata, OpenGraph, canonical URLs, sitemap, and robots.txt. | `npm run audit:seo` |
+| Skill Set | Definition File | Purpose | Verification Command |
+| :--- | :--- | :--- | :--- |
+| 💎 **Hallmark UI Craft** | [`skills/hallmark/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/hallmark/SKILL.md) | Enforces Canvas-First design, 3-tier token inheritance, and High-Fidelity Glossy Controls. | `npm run audit:hallmark` |
+| 🔦 **Lighthouse Accessibility** | [`skills/lighthouse/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/lighthouse/SKILL.md) | Enforces WCAG 2.1/2.2 AA compliance, ARIA landmarks, and 100/100 Lighthouse score. | `npm run audit:a11y` |
+| 🔍 **SEO Optimization** | [`skills/seo/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/seo/SKILL.md) | Enforces Schema.org JSON-LD microdata, OpenGraph, canonical URLs, sitemap, and robots.txt. | `npm run audit:seo` |
 
-*See **[`docs/skillsets-guide.md`](./docs/skillsets-guide.md)** for detailed runbooks and agent activation instructions.*
+*See **[`docs/skillsets-guide.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/docs/skillsets-guide.md)** for detailed runbooks and agent activation instructions.*

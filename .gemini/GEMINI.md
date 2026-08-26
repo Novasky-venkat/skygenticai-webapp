@@ -107,18 +107,18 @@ Every Antigravity agent working on this codebase MUST strictly execute the **4-P
 
 ## 7. How to Use Hallmark, Lighthouse & SEO Skill Sets (MANDATORY RUNBOOK)
 
-Consult [`docs/skillsets-guide.md`](../docs/skillsets-guide.md) for execution details:
+Consult the [Master Skillsets Guide](file:///Users/sanhome/Source/repos/skygenticai-webapp/docs/skillsets-guide.md) for execution details:
 
-1. **💎 Hallmark Skill Set (`skills/hallmark/`)**:
+1. **💎 Hallmark UI Craft Skill ([`skills/hallmark/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/hallmark/SKILL.md))**:
    - MUST be used during layout and component styling.
    - Enforces the 4-phase lifecycle (Research -> Canvas -> User Confirmation -> Implementation).
    - Validates token adherence via `npm run audit:hallmark`.
 
-2. **🔦 Lighthouse Skill Set (`skills/lighthouse/`)**:
+2. **🔦 Lighthouse Accessibility Skill ([`skills/lighthouse/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/lighthouse/SKILL.md))**:
    - MUST be executed before any PR or check-in to guarantee **100/100 Accessibility**.
    - Validates landmarks, bypass skip link, heading hierarchy, and ARIA bindings via `npm run audit:a11y`.
 
-3. **🔍 SEO Skill Set (`skills/seo/`)**:
+3. **🔍 SEO Optimization Engine Skill ([`skills/seo/SKILL.md`](file:///Users/sanhome/Source/repos/skygenticai-webapp/skills/seo/SKILL.md))**:
    - MUST be executed whenever metadata or pages change.
    - Validates Schema.org JSON-LD, OpenGraph, sitemap.xml, and robots.txt via `npm run audit:seo`.
 
