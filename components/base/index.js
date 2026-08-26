@@ -1,5 +1,4 @@
 export { CapsuleButton } from './CapsuleButton.jsx';
-export { BadgePill } from './BadgePill.jsx';
 export { SurfaceCard } from './SurfaceCard.jsx';
 export { BentoCard } from './BentoCard.jsx';
 export { StatBlock } from './StatBlock.jsx';

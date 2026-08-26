@@ -1,43 +1,39 @@
 import React from 'react';
-import { BadgePill, CapsuleButton, SurfaceCard } from './base';
+import { CapsuleButton } from './base';
 
 export const Hero = () => (
   <section id="hero" className="section-hero" aria-label="Hero Introduction">
-    <div className="hero-glow-spotlight" aria-hidden="true" />
     <div className="container">
       <div className="hero-grid">
-        <div className="hero-content">
-          <BadgePill variant="emerald" style={{ marginBottom: 'var(--space-4)' }}>
-            Introducing AVA: Vantage Agentic AI
-          </BadgePill>
-          <h1 className="headline-homepage">Harness the Power of Agentic AI for Conversational CX</h1>
-          <p className="text-lead">Next-level autonomous & purpose-driven AI chatbots transforming enterprise customer engagement with sub-50ms latency.</p>
+        <div>
+          <div className="hero-eyebrow">Introducing AVA: SkyGentic Vantage AI</div>
+          <h1 className="headline-homepage">
+            Harness the Power of<br />Agentic AI for<br />Conversational CX
+          </h1>
+          <p className="hero-lead">
+            Next level Autonomous & Purpose-Driven Chatbots for<br />transforming businesses.
+          </p>
           
           <div className="hero-cta-group">
             <CapsuleButton href="#demo" variant="primary">
               Book a Demo
             </CapsuleButton>
-            <CapsuleButton href="#capabilities" variant="glass">
-              Explore Capabilities
-            </CapsuleButton>
           </div>
         </div>
 
-        <div className="hero-visual-hub" aria-hidden="true">
-          <SurfaceCard variant="dark-glass" className="hero-glass-card">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
-              <BadgePill variant="emerald">Autonomous Agent Active</BadgePill>
-              <span style={{ fontSize: '0.8125rem', color: 'var(--color-slate-400)' }}>Latency: 42ms</span>
-            </div>
-            <div style={{ background: 'var(--color-midnight-06)', border: '1px solid var(--color-dark-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-4)', marginBottom: 'var(--space-3)' }}>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-green-primary)', fontWeight: 700, marginBottom: 4 }}>USER INQUIRY</div>
-              <div style={{ fontSize: '0.9375rem', color: 'var(--color-surface-white)' }}>"Can you reschedule my order #8492 and apply enterprise tier credit?"</div>
-            </div>
-            <div style={{ background: 'rgba(13, 239, 147, 0.10)', border: '1px solid rgba(13, 239, 147, 0.3)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-4)' }}>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-green-primary)', fontWeight: 700, marginBottom: 4 }}>AGENT REASONING & EXECUTION</div>
-              <div style={{ fontSize: '0.9375rem', color: 'var(--color-surface-white)' }}>"Order rescheduled to Thursday 10:00 AM. 15% enterprise credit applied successfully."</div>
-            </div>
-          </SurfaceCard>
+        <div className="hero-visual-container" aria-hidden="true">
+          <div className="hero-3d-bot">
+            <div className="bot-eye-glow" />
+          </div>
+
+          <div className="floating-mic-chip">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9741FE" strokeWidth="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" y1="19" x2="12" y2="23" />
+              <line x1="8" y1="23" x2="16" y2="23" />
+            </svg>
+          </div>
         </div>
       </div>
     </div>

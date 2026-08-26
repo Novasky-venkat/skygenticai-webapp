@@ -1,24 +1,25 @@
 import React from 'react';
-import { SurfaceCard, BadgePill, CapsuleButton } from './base';
+import { CapsuleButton } from './base';
 
 export const Footer = () => (
   <footer className="footer-wrapper" role="contentinfo">
     <div className="container">
       <div className="footer-cards-grid">
         {/* Left Hero CTA Card */}
-        <SurfaceCard variant="gradient-hero" className="footer-hero-card">
-          <BadgePill variant="glass" style={{ marginBottom: 'var(--space-4)' }}>Ready to Launch</BadgePill>
-          <h3 style={{ color: '#ffffff', marginBottom: 'var(--space-3)' }}>Build Your Agentic CX Today</h3>
-          <p style={{ color: 'var(--color-slate-200)', marginBottom: 'var(--space-6)' }}>
+        <div className="card-gradient-hero">
+          <h3 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2.25rem', fontWeight: 500, color: '#ffffff', marginBottom: 'var(--space-3)' }}>
+            Build Your Agentic CX Today
+          </h3>
+          <p style={{ color: 'var(--color-slate-200)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
             Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.
           </p>
           <CapsuleButton href="#demo" variant="white">
             Book a Demo
           </CapsuleButton>
-        </SurfaceCard>
+        </div>
 
         {/* Right Navigation Directory Card */}
-        <SurfaceCard variant="dark-glass" className="footer-nav-card">
+        <div className="footer-nav-card">
           <div>
             <div className="footer-col-title">Platform</div>
             <ul className="footer-link-list">
@@ -46,7 +47,7 @@ export const Footer = () => (
               <li><a href="#contact" className="footer-link">Contact Sales</a></li>
             </ul>
           </div>
-        </SurfaceCard>
+        </div>
       </div>
 
       {/* Footer Bottom Bar */}
