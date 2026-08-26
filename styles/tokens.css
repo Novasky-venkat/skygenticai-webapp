@@ -1,66 +1,63 @@
 /* ==========================================================================
-   SkyGentic AI / Design Tokens (1:1 AiChat.com Exact Match)
+   SkyGentic AI / Exact AiChat.com Styling Tokens
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Brand Accent Colors
+     1. Brand Accent & Colors
      ------------------------------------------------------------------------ */
   --color-green-primary: #0def93;   /* Electric Neon Emerald */
   --color-green-hover: #09b26e;
-  --color-lime-accent: #b8ff7a;
   --color-purple-04: #9741fe;       /* Royal Violet */
-  --color-purple-06: #4b207f;       /* Deep Violet */
+  --color-purple-06: #4b207f;
   --color-indigo-dark: #06063a;     /* Midnight Indigo */
   
   /* ------------------------------------------------------------------------
-     2. Midnight Dark Surfaces
+     2. Midnight Dark Surfaces & Text
      ------------------------------------------------------------------------ */
-  --color-midnight-07: #02020f;     /* Void Black */
-  --color-midnight-06: #03031d;     /* Deep Jet Navy */
+  --color-midnight-07: #02020f;
+  --color-midnight-06: #03031d;     /* High Contrast Jet Black/Navy */
   --color-midnight-05: #04042b;
-  --color-midnight-04: #06063a;     /* Section Dark Surface */
+  --color-midnight-04: #06063a;     /* Metrics Section Dark */
   --color-midnight-03: #1c1c37;
-  --color-midnight-02: #3d4050;     /* Dark Charcoal Text */
+  --color-midnight-02: #3d4050;     /* Body Text Charcoal */
   
   /* ------------------------------------------------------------------------
-     3. Light Neutrals & Text Colors
+     3. Light Neutrals & Canvas
      ------------------------------------------------------------------------ */
   --color-surface-white: #ffffff;
   --color-surface-light: #fafafa;
-  --color-surface-subtle: #ebeff7;
+  --color-surface-subtle: #ebeff7;  /* Authentic AiChat light background tint */
   --color-surface-border: #e4ebf3;
   --color-dark-border: rgba(255, 255, 255, 0.12);
-  --color-dark-border-hover: rgba(255, 255, 255, 0.25);
   
-  --color-text-dark: #03031d;       /* High-contrast black on light */
-  --color-text-body: #374151;       /* Crisp body text on light */
-  --color-text-muted: #6b7280;      /* Muted subtitle on light */
-  --color-slate-200: #e2e8f0;       /* Crisp text on dark */
-  --color-slate-400: #94a3b8;       /* Muted text on dark */
+  --color-text-dark: #03031d;
+  --color-text-body: #3d4050;
+  --color-text-muted: #6c6c89;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #c1c1ce;
 
   /* ------------------------------------------------------------------------
-     4. Gradients
+     4. Gradients & Atmospheric Glows
      ------------------------------------------------------------------------ */
-  --bg-gradient-hero-glow: radial-gradient(circle at 85% 45%, rgba(151, 65, 254, 0.45) 0%, rgba(37, 99, 235, 0.35) 30%, rgba(255, 255, 255, 0) 70%);
+  --bg-gradient-hero-glow: radial-gradient(circle at 82% 42%, rgba(151, 65, 254, 0.42) 0%, rgba(37, 99, 235, 0.30) 30%, rgba(255, 255, 255, 0) 70%);
   --bg-gradient-card-purple: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
   --bg-gradient-footer-cta: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
-  --bg-glass-card: rgba(255, 255, 255, 0.06);
-  --bg-glass-navbar: rgba(255, 255, 255, 0.90);
+  --bg-glass-navbar: rgba(255, 255, 255, 0.92);
 
   /* ------------------------------------------------------------------------
-     5. Typography Tokens
+     5. Typography Families
      ------------------------------------------------------------------------ */
-  --font-family-display: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'Clashdisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-code: 'JetBrains Mono', monospace;
 
   /* ------------------------------------------------------------------------
-     6. Layout & Spacing Scale
+     6. Layout & Spacing
      ------------------------------------------------------------------------ */
-  --container-max-width: 1350px;
-  --container-narrow-width: 1130px;
-  --container-focus-width: 840px;
+  --container-max-width: 1320px;
+  --container-narrow-width: 1120px;
+  --container-focus-width: 820px;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -76,7 +73,7 @@
   --space-24: 96px;
 
   /* ------------------------------------------------------------------------
-     7. Border Radii Tokens
+     7. Border Radii
      ------------------------------------------------------------------------ */
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -86,12 +83,12 @@
   --radius-pill: 3rem;
 
   /* ------------------------------------------------------------------------
-     8. Shadows & Elevation
+     8. Shadows
      ------------------------------------------------------------------------ */
   --shadow-btn-primary: 0 4px 14px rgba(13, 239, 147, 0.35);
   --shadow-btn-primary-hover: 0 8px 24px rgba(13, 239, 147, 0.5);
   --shadow-ambient-card: 0 4px 130px rgba(150, 163, 181, 0.15);
-  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-nav: 0 4px 24px rgba(0, 0, 0, 0.04);
 
   /* ------------------------------------------------------------------------
      9. Transitions
