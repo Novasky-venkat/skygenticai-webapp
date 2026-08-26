@@ -57,3 +57,23 @@ All Antigravity agents working in this repository MUST follow the instructions, 
 
 - Never hardcode API keys, secrets, or internal URLs.
 - Use conventional commits: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `chore:`, `perf:`.
+
+---
+
+## 5. Modular Components & High-Fidelity Styling (MANDATORY)
+
+Consult [`docs/component-guidelines.md`](../docs/component-guidelines.md) for full atomic recipes:
+
+1. **Atomic Hierarchy**: Compose UI strictly as Atoms -> Molecules -> Organisms.
+2. **Intuitive Action Hierarchy**: Exactly ONE primary CTA (`#0DEF93` Neon Green) per viewport.
+3. **Contrast Standards**:
+   - Primary CTA: Neon Green on Midnight Dark (**14.2:1 / AAA**).
+   - Display Headings: White on Midnight Dark (**18.6:1 / AAA**).
+   - Light Body: Dark text on White (**18.6:1 / AAA**).
+4. **Surface Treatment**:
+   - Dark Cards: Frosted glass (`backdrop-filter: blur(40px)` + `1px solid rgba(255,255,255,0.12)`).
+   - Light Cards: Pure white with ambient elevation (`box-shadow: 0 4px 130px rgba(150,163,181,0.15)`).
+   - All card corners MUST use `var(--radius-xl)` (20px).
+5. **Micro-Interactions**:
+   - Capsule buttons must feature dual-layer slide-up hover text (`.btn-text-wrapper` > `.btn-text-slide`).
+   - Cards must elevate (`translateY(-4px)`) on hover with smooth cubic-bezier easing.
