@@ -1,36 +1,36 @@
 # Multi-Agent Operating Guide (AGENTS.md)
 
-This repository is optimized for autonomous development by Google Antigravity agents, subagents, and peer agents.
+This repository is strictly governed by **Hallmark Engineering & UI Craft Standards**. Autonomous development by Google Antigravity agents, subagents, and peer agents must unconditionally abide by the following non-negotiable rules.
 
-## Core Agent Roles & Delegation Patterns
+## Mandatory Hallmark Design & UI Craft Rules (Strict & Non-Negotiable)
 
-1. **Canvas Designer & Token Architect (self / subagent)**:
-   - Wireframes visual hierarchy in `docs/canvas-specs.md` before coding.
-   - Enforces Tier-1/2/3 token inheritance from `styles/tokens.css`.
+1. **ZERO EMOJIS & ZERO CHEESY AI ICONS**:
+   - Strictly prohibit the use of emojis (e.g., ⚡, 🧠, 🎙️, 🔒, 📈, 🤝, 🎯, ✨) in production UI components, chips, cards, or hero elements.
+   - Do NOT use cheesy "AI" glyphs or "Ai✦" badge icons.
+   - All visual indicators must use pixel-perfect, clean Hallmark SVG vector line icons or sleek typographic treatments.
 
-2. **Hallmark UI Builder Agent**:
-   - Scaffolds accessible, pixel-perfect modular components in `components/`.
-   - Validates responsive breakpoints across mobile (`<480px`), tablet (`768px-991px`), and desktop (`>992px`).
+2. **NO FLOATING AI PILL BADGES**:
+   - Absolutely no floating pill status boxes (e.g., "• Autonomous Agent Live", "• AI Skill Active").
 
-3. **Accessibility (a11y) & SEO Guardian Agent**:
-   - Audits WCAG 2.1/2.2 AA compliance, color contrast ratios, focus-visible states, and screen-reader ARIA trees.
-   - Audits JSON-LD Schema structured data, meta tags, Core Web Vitals (LCP, INP, CLS), and Lighthouse 100/100 baselines.
+3. **STRICT 3-TIER TOKEN & TYPOGRAPHY INHERITANCE**:
+   - Tier 1 (Primitive): Hex values defined only in `styles/tokens.css`.
+   - Tier 2 (Semantic): Semantic surface, text, and border aliases.
+   - Tier 3 (Component): Component-scoped CSS variables.
+   - Typography must strictly use `var(--font-family-display)` (`'Clash Display'`, system-ui) and `var(--font-family-body)` (`'Satoshi'`, system-ui). No unapproved external fonts.
+
+4. **CANVAS-FIRST RESEARCH & USER VISUAL CONFIRMATION**:
+   - Research modern web APIs and a11y standards before modifying layouts.
+   - Maintain visual hierarchy specifications in `docs/canvas-specs.md`.
+   - Present visual previews to the User and verify with Lighthouse (100/100 A11y & SEO).
 
 ## Fast Verification Commands
 ```bash
 # Start local preview server
 npm run dev
 
-# Run automated tests
+# Run automated tests (Asset budget + a11y + SEO + Hallmark tokens)
 npm test
 
 # Check git status
 git status
 ```
-
-## Mandatory Operating Rule: Research & User Visual Confirmation
-Before implementing or modifying any component styling or layout:
-1. **Research** the latest UI/UX and a11y patterns.
-2. **Draft** the visual design and token bindings in `docs/canvas-specs.md`.
-3. **Present the visual preview/mockup to the User** and request review.
-4. **DO NOT proceed to coding** until the User confirms the design and visual appearance.

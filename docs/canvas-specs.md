@@ -1,3 +1,12 @@
+# SkyGentic AI Canvas & Component Architecture Specifications
+
+> [!IMPORTANT]
+> **Strict Hallmark UI Craft Directive**:
+> 1. **Zero Emojis & Zero AI Icons**: Prohibit emojis and cheesy AI badges. Use clean Hallmark SVG vector line controls.
+> 2. **Strict Typography Inheritance**: Exclusively bind to `Clash Display` (Display) and `Satoshi` (Body).
+> 3. **3-Tier Global Tokens**: All color, radius, and spacing values must inherit from `styles/tokens.css`.
+
+
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
 A modular, reusable component specification designed according to **Hallmark UI Craft** and the visual architecture of **AiChat.com** (`media_1787709924445.png`).
