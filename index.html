@@ -257,65 +257,128 @@
       </div>
     </section>
 
-    <!-- Section 5: Platform Capabilities Bento Grid -->
-    <section id="capabilities" class="section-capabilities" aria-label="Platform Capabilities">
+        <!-- Section 5: Platform Capabilities Staggered Bento Grid (1:1 AiChat Match) -->
+    <section id="capabilities" className="section-capabilities" aria-label="Platform Capabilities" style="background: var(--color-surface-subtle); padding: var(--space-24) 0 var(--space-20) 0;">
       <div class="container">
         <div class="capabilities-header">
-          <h2>Modular Capabilities Built for the Autonomous Era</h2>
-          <p class="text-lead" style="color: var(--color-text-body); font-size: 1.25rem;">Equip your conversational front-office with goal-driven AI agents, low-latency voice, and dynamic knowledge retrieval.</p>
+          <h2 class="capabilities-main-title">AI Products</h2>
+          <p class="capabilities-main-desc">
+            SkyGentic delivers advanced AI solutions to enhance engagement, simplify processes, and fuel business growth.
+          </p>
         </div>
 
-        <div class="bento-grid">
-          <!-- Bento Column 1 -->
-          <div class="surface-card card-light">
-            <div class="chip-pill" style="background: rgba(13, 239, 147, 0.15); color: #09B26E; border-color: rgba(13, 239, 147, 0.3); margin-bottom: var(--space-4);">Autonomous</div>
-            <h3>Agentic AI Workflow Engine</h3>
-            <p>Deploy autonomous agents capable of dynamic reasoning, tool-calling APIs, and multi-step transaction resolution without hardcoded logic.</p>
-            <a href="#demo" class="read-more-link">
-              <span>Explore Agentic AI</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </a>
-          </div>
-
-          <!-- Bento Column 2 -->
-          <div class="bento-col-2">
-            <div class="surface-card card-light">
-              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Real-Time</div>
-              <h4>Ultra Low-Latency Voice AI</h4>
-              <p>Natural conversational voice agents with sub-300ms latency and emotion modulation.</p>
-            </div>
-            <div class="surface-card card-light">
-              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Productivity</div>
-              <h4>Agent CoPilot</h4>
-              <p>Empower human support agents with instant context synthesis and AI-assisted drafts.</p>
-            </div>
-          </div>
-
-          <!-- Bento Column 3 -->
-          <div class="bento-col-3">
-            <div class="surface-card card-light">
-              <div class="chip-pill" style="background: rgba(13, 239, 147, 0.15); color: #09B26E; border-color: rgba(13, 239, 147, 0.3); margin-bottom: var(--space-3);">Omnichannel</div>
-              <h4>Conversational Commerce</h4>
-              <p>Drive revenue directly through native WhatsApp, Instagram, and web checkout flows.</p>
-            </div>
-            <div class="surface-card card-light">
-              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Enterprise</div>
-              <h4>Knowledge Grounding</h4>
-              <p>Vector search and real-time synchronization with Salesforce, Zendesk, and SQL backends.</p>
+        <div class="bento-staggered-grid">
+          <!-- Column 1: Left (Offset downwards, containing Agentic AI) -->
+          <div class="bento-column col-1">
+            <div class="bento-feature-card">
+              <div class="bento-card-icon-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03031D" stroke-width="2">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                  <path d="M2 17L12 22L22 17"></path>
+                  <path d="M2 12L12 17L22 12"></path>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Agentic AI</h3>
+              <p class="bento-card-desc">Redefine engagement with human-like AI chatbots that provide natural responses, tailored recommendations, with a touch of personality to elevate customer connections.</p>
+              <a href="#demo" class="bento-card-action-link" aria-label="Read more about Agentic AI">
+                <span>Read More</span>
+                <div class="bento-action-bubble" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
-        </div>
 
-        <div style="text-align: center; margin-top: var(--space-16);">
-          <a href="#demo" class="btn-primary">
-            <div class="btn-text-wrapper">
-              <span class="btn-text-slide">Build your first AI chatbot</span>
-              <span class="btn-text-slide">Build your first AI chatbot</span>
+          <!-- Column 2: Middle (Voice AI on top, AI Agent on bottom) -->
+          <div class="bento-column col-2">
+            <div class="bento-feature-card">
+              <div class="bento-card-icon-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03031D" stroke-width="2">
+                  <line x1="6" y1="9" x2="6" y2="15"></line>
+                  <line x1="10" y1="5" x2="10" y2="19"></line>
+                  <line x1="14" y1="7" x2="14" y2="17"></line>
+                  <line x1="18" y1="9" x2="18" y2="15"></line>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Voice AI</h3>
+              <p class="bento-card-desc">Talk to the brand effortlessly with Voice AI—no typing, just instant, hands-free responses.</p>
+              <a href="#demo" class="bento-card-action-link" aria-label="Read more about Voice AI">
+                <span>Read More</span>
+                <div class="bento-action-bubble" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
             </div>
-            <div class="btn-icon-bubble" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+
+            <div class="bento-feature-card">
+              <div class="bento-card-icon-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03031D" stroke-width="2">
+                  <circle cx="12" cy="7" r="4"></circle>
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">AI Agent</h3>
+              <p class="bento-card-desc">Transform customer engagement with SkyGentic's AI Agent—personalized, efficient, and designed to reflect your brand across platforms.</p>
+              <a href="#demo" class="bento-card-action-link" aria-label="Read more about AI Agent">
+                <span>Read More</span>
+                <div class="bento-action-bubble" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
             </div>
-          </a>
+          </div>
+
+          <!-- Column 3: Right (Agent CoPilot on top, Conversational Sales & Marketing on bottom) -->
+          <div class="bento-column col-3">
+            <div class="bento-feature-card">
+              <div class="bento-card-icon-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03031D" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Agent CoPilot</h3>
+              <p class="bento-card-desc">Effortlessly access and manage your knowledge base by crawling websites, uploading documents, and creating Q&A pairs—all within one platform.</p>
+              <a href="#demo" class="bento-card-action-link" aria-label="Read more about Agent CoPilot">
+                <span>Read More</span>
+                <div class="bento-action-bubble" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
+            </div>
+
+            <div class="bento-feature-card">
+              <div class="bento-card-icon-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03031D" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Conversational Sales & Marketing</h3>
+              <p class="bento-card-desc">Deliver 1:1 personalized conversations with intuitive automation tools, from smart segmentation to tailored customer journeys, designed to boost your marketing performance.</p>
+              <a href="#demo" class="bento-card-action-link" aria-label="Read more about Conversational Sales & Marketing">
+                <span>Read More</span>
+                <div class="bento-action-bubble" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
