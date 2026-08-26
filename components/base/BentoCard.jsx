@@ -1,4 +1,5 @@
 import React from 'react';
+import { ActionLink } from './ActionLink';
 
 export const BentoCard = ({
   icon,
@@ -21,19 +22,9 @@ export const BentoCard = ({
     {/* 3. Body Copy */}
     <p className="bento-card-desc">{description}</p>
 
-    {/* 4. Action Link with Black Arrow Bubble */}
-    <a
-      href={href}
-      className="bento-card-action-link"
-      aria-label={ariaLabel || `Read more about ${title}`}
-    >
-      <span>Read More</span>
-      <div className="bento-action-bubble" aria-hidden="true">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-          <line x1="7" y1="17" x2="17" y2="7" />
-          <polyline points="7 7 17 7 17 17" />
-        </svg>
-      </div>
-    </a>
+    {/* 4. Modular ActionLink Component */}
+    <ActionLink href={href} ariaLabel={ariaLabel || `Read more about ${title}`}>
+      Read More
+    </ActionLink>
   </div>
 );

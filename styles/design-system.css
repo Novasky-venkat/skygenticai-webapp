@@ -1,3 +1,94 @@
+
+/* --------------------------------------------------------------------------
+   Atomic Shared Component: ArrowBubble (.arrow-bubble)
+   -------------------------------------------------------------------------- */
+.arrow-bubble,
+.btn-icon-bubble,
+.bento-action-bubble {
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+/* Size Modifiers */
+.arrow-bubble.size-sm,
+.bento-action-bubble {
+  width: 20px;
+  height: 20px;
+}
+
+.arrow-bubble.size-md,
+.btn-icon-bubble {
+  width: 32px;
+  height: 32px;
+}
+
+/* Variant Modifiers */
+.arrow-bubble.variant-dark,
+.btn-primary .arrow-bubble,
+.btn-primary .btn-icon-bubble,
+.bento-action-bubble {
+  background: var(--color-midnight-06);
+  color: #ffffff;
+}
+
+.btn-primary:hover .arrow-bubble,
+.btn-primary:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+}
+
+.arrow-bubble.variant-glass,
+.btn-glass .arrow-bubble,
+.btn-glass .btn-icon-bubble {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.btn-glass:hover .arrow-bubble,
+.btn-glass:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+}
+
+.arrow-bubble.variant-white,
+.btn-white .arrow-bubble,
+.btn-white .btn-icon-bubble {
+  background: var(--color-midnight-06);
+  color: #ffffff;
+}
+
+.btn-white:hover .arrow-bubble,
+.btn-white:hover .btn-icon-bubble {
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Atomic Shared Component: ActionLink (.action-link-arrow)
+   -------------------------------------------------------------------------- */
+.action-link-arrow,
+.bento-card-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  transition: gap var(--transition-fast);
+}
+
+.action-link-arrow:hover,
+.bento-card-action-link:hover {
+  gap: 10px;
+}
+
+.action-link-arrow:hover .arrow-bubble,
+.bento-card-action-link:hover .bento-action-bubble {
+  transform: rotate(45deg);
+}
+
 /* ==========================================================================
    SkyGentic AI / Exact AiChat.com Styling & Component Architecture
    ========================================================================== */
