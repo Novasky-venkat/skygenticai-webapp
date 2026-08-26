@@ -549,5 +549,88 @@
       });
     });
   </script>
-  </body>
+    <!-- Interactive Testimonials Accordion Ribbon Script -->
+  <script>
+    const testimonialsData = [
+      {
+        name: "Francesca Lopez",
+        role: "Marketing Communications Manager, Hatten Melaka",
+        quote: "SkyGentic has completely streamlined our hospitality booking flows. Customer inquiries receive immediate answers in seconds, drastically boosting our room reservation rate.",
+        logo: "HATTEN"
+      },
+      {
+        name: "Danny Chen",
+        role: "Marketing Manager, Petron",
+        quote: "The omnichannel campaigns we orchestrated through WhatsApp and web widgets helped us achieve a 48% conversion lift with zero manual overhead.",
+        logo: "PETRON"
+      },
+      {
+        name: "Malik Murad Ali",
+        role: "Director of IT, Digital, HR and LPS, MYDIN",
+        quote: "Deploying SkyGentic Agent CoPilot allowed our customer support team to handle 3x more complex retail inquiries without increasing headcount.",
+        logo: "MYDIN"
+      },
+      {
+        name: "Joe Ow",
+        role: "Chief Executive Officer, SISTIC Singapore",
+        quote: "SkyGentic’s conversational service solution has enabled us to engage at scale and deepen our relationships with customers on a 1-on-1 basis. We’ve seen proven success for the past 2 years and would be excited to continue this journey with SkyGentic.",
+        logo: "sistic"
+      }
+    ];
+
+    const panels = document.querySelectorAll('.testimonial-panel');
+
+    function renderPanel(panel, idx, isActive) {
+      const data = testimonialsData[idx];
+      panel.classList.toggle('active', isActive);
+      panel.classList.toggle('collapsed', !isActive);
+      panel.setAttribute('aria-selected', isActive);
+
+      if (isActive) {
+        panel.innerHTML = `
+          <div class="panel-expanded-view">
+            <div class="expanded-header">
+              <h3 class="expanded-name">${data.name}</h3>
+              <div class="expanded-role">${data.role}</div>
+            </div>
+            <p class="expanded-quote">“${data.quote}”</p>
+            <div class="expanded-footer">
+              <span class="expanded-logo-badge">${data.logo}</span>
+            </div>
+          </div>
+        `;
+      } else {
+        const formattedName = data.name.replace(' ', '<br>');
+        panel.innerHTML = `
+          <div class="panel-collapsed-view">
+            <div class="collapsed-top" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+            <div class="collapsed-middle">
+              <span class="collapsed-role">${data.role}</span>
+            </div>
+            <div class="collapsed-bottom">
+              <h3 class="collapsed-name">${formattedName}</h3>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function setActivePanel(activeIdx) {
+      panels.forEach((p, idx) => renderPanel(p, idx, idx === activeIdx));
+    }
+
+    panels.forEach((panel, idx) => {
+      panel.addEventListener('mouseenter', () => setActivePanel(idx));
+      panel.addEventListener('click', () => setActivePanel(idx));
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') setActivePanel(idx);
+      });
+    });
+  </script>
+</body>
 </html>

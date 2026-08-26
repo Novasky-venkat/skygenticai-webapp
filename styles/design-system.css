@@ -326,18 +326,176 @@ body {
 }
 .sticky-panel-desc { font-family: var(--font-family-body); font-size: 1rem; line-height: 1.6; color: var(--color-text-body); margin: 0; }
 
-/* 12. Section 7: Testimonials Ribbon */
-.section-testimonials { background: var(--color-midnight-07); padding: var(--space-24) 0; border-top: 1px solid var(--color-dark-border); }
-.testimonials-grid { display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-12); align-items: center; }
-.testimonials-ribbon { display: flex; gap: var(--space-4); width: 100%; }
-.testimonial-card {
-  flex: 1 1 23%; background: var(--color-midnight-06); border: 1px solid var(--color-dark-border);
-  border-radius: var(--radius-xl); padding: var(--space-6); transition: all var(--transition-smooth); cursor: pointer;
+/* 12. Section 7: Expanding Testimonials Ribbon (1:1 AiChat Match) */
+.section-testimonial-ribbon {
+  background-color: #0b0c16;
+  padding: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-dark-border);
 }
-.testimonial-card:hover, .testimonial-card:focus-visible, .testimonial-card.active {
-  flex: 1 1 35%; background: var(--bg-gradient-card-purple); border-color: var(--color-purple-04);
-  box-shadow: 0 8px 30px rgba(151, 65, 254, 0.35);
+
+.testimonial-main-wrapper {
+  display: flex;
+  min-height: 640px;
+  width: 100%;
 }
+
+.testimonial-left-wrapper {
+  width: 32%;
+  padding: 80px 40px 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-title {
+  font-family: var(--font-family-display);
+  font-size: 2.75rem; /* 44px */
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.testimonial-details {
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 32px 0;
+  max-width: 380px;
+}
+
+.testimonial-cta-wrap {
+  margin-top: auto;
+}
+
+/* Right Testimonial Accordion Grid */
+.testimonial-right-wrapper {
+  width: 68%;
+  display: flex;
+}
+
+.testimonial-panel {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+}
+
+.testimonial-panel.collapsed {
+  flex: 1;
+  background: #0b0c16;
+}
+
+.testimonial-panel.collapsed:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.testimonial-panel.active {
+  flex: 2.5;
+  background: linear-gradient(135deg, #06063A 0%, #3B1F6D 50%, #0DEF93 100%);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Collapsed Panel Structure */
+.panel-collapsed-view {
+  height: 100%;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.collapsed-top {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.testimonial-panel.collapsed:hover .collapsed-top {
+  color: var(--color-green-primary);
+  transform: translateX(4px);
+}
+
+.collapsed-middle {
+  margin: auto 0 40px 0;
+}
+
+.collapsed-role {
+  font-family: var(--font-family-body);
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+}
+
+.collapsed-bottom {
+  margin-top: auto;
+}
+
+.collapsed-name {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem; /* 21.6px */
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Expanded Active Panel Structure */
+.panel-expanded-view {
+  height: 100%;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.expanded-header {
+  margin-bottom: 24px;
+}
+
+.expanded-name {
+  font-family: var(--font-family-display);
+  font-size: 1.75rem; /* 28px */
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.expanded-role {
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.expanded-quote {
+  font-family: var(--font-family-body);
+  font-size: 1.05rem; /* 16.8px */
+  line-height: 1.65;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.01em;
+}
+
+.expanded-footer {
+  margin-top: auto;
+}
+
+.expanded-logo-badge {
+  font-family: var(--font-family-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
 
 /* 13. Section 8: FAQ Accordion Hub */
 .section-faq { background: var(--color-surface-light); padding: var(--space-24) 0; border-top: 1px solid var(--color-surface-border); }
