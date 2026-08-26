@@ -83,28 +83,52 @@
   <!-- Accessible Skip Link (WCAG 2.1 AA) -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Section 1: Floating Capsule Navbar -->
+  <!-- Section 1: Floating Light Capsule Navbar -->
   <header class="navbar-wrapper" role="banner">
     <nav class="navbar-container" aria-label="Main Navigation">
       <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
-        <span style="color: var(--color-green-primary);">SkyGentic</span>&nbsp;AI
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 4px;">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#0DEF93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="#0DEF93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="#0DEF93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span style="color: var(--color-midnight-06);">SkyGentic</span>
       </a>
 
       <ul class="nav-menu" role="list">
-        <li><a href="#hero" class="nav-link">Overview</a></li>
-        <li><a href="#features" class="nav-link">Solutions</a></li>
-        <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-        <li><a href="#showcase" class="nav-link">Platform</a></li>
-        <li><a href="#testimonials" class="nav-link">Stories</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li>
+          <a href="#features" class="nav-link">
+            Solutions
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#capabilities" class="nav-link">
+            Products
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#showcase" class="nav-link">
+            Resources
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#testimonials" class="nav-link">
+            Company
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li><a href="#faq" class="nav-link">Pricing</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="#signin" class="nav-signin">Sign In</a>
         <a href="#demo" class="btn-primary" aria-label="Book a demo session">
           <div class="btn-text-wrapper">
-            <span class="btn-text-slide">Book a demo</span>
-            <span class="btn-text-slide">Book a demo</span>
+            <span class="btn-text-slide">Book a Demo</span>
+            <span class="btn-text-slide">Book a Demo</span>
           </div>
           <div class="btn-icon-bubble" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -120,18 +144,14 @@
   <!-- Main Content Landmark -->
   <main id="main-content">
 
-    <!-- Section 2: Hero Section -->
+    <!-- Section 2: Hero Section (White Canvas + Cosmic Glow) -->
     <section id="hero" class="section-hero" aria-label="Hero Introduction">
-      <div class="hero-glow-spotlight" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content">
-            <div class="badge-pill emerald" style="margin-bottom: var(--space-4);">
-              <span class="status-dot" aria-hidden="true"></span>
-              Introducing AVA: Vantage Agentic AI
-            </div>
+          <div>
+            <div class="hero-eyebrow">Introducing AVA: SkyGentic Vantage AI</div>
             <h1 class="headline-homepage">Harness the Power of Agentic AI for Conversational CX</h1>
-            <p class="text-lead">Next-level autonomous & purpose-driven AI chatbots transforming enterprise customer engagement with sub-50ms latency.</p>
+            <p class="hero-lead">Next level Autonomous & Purpose-Driven Chatbots for transforming businesses.</p>
             
             <div class="hero-cta-group">
               <a href="#demo" class="btn-primary">
@@ -146,48 +166,40 @@
                   </svg>
                 </div>
               </a>
-              <a href="#capabilities" class="btn-glass">
-                <div class="btn-text-wrapper">
-                  <span class="btn-text-slide">Explore Capabilities</span>
-                  <span class="btn-text-slide">Explore Capabilities</span>
-                </div>
-                <div class="btn-icon-bubble" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </div>
-              </a>
             </div>
           </div>
 
-          <div class="hero-visual-hub" aria-hidden="true">
-            <div class="surface-card card-dark-glass">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-                <div class="badge-pill emerald"><span class="status-dot"></span>Autonomous Agent Active</div>
-                <span style="font-size: 0.8125rem; color: var(--color-slate-400);">Latency: 42ms</span>
-              </div>
-              <div style="background: var(--color-midnight-06); border: 1px solid var(--color-dark-border); border-radius: var(--radius-lg); padding: var(--space-4); margin-bottom: var(--space-3);">
-                <div style="font-size: 0.75rem; color: var(--color-green-primary); font-weight: 700; margin-bottom: 4px;">USER INQUIRY</div>
-                <div style="font-size: 0.9375rem; color: var(--color-surface-white);">"Can you reschedule my order #8492 and apply enterprise tier credit?"</div>
-              </div>
-              <div style="background: rgba(13, 239, 147, 0.10); border: 1px solid rgba(13, 239, 147, 0.3); border-radius: var(--radius-lg); padding: var(--space-4);">
-                <div style="font-size: 0.75rem; color: var(--color-green-primary); font-weight: 700; margin-bottom: 4px;">AGENT REASONING & EXECUTION</div>
-                <div style="font-size: 0.9375rem; color: var(--color-surface-white);">"Order rescheduled to Thursday 10:00 AM. 15% enterprise credit applied successfully."</div>
-              </div>
+          <!-- Hero Right 3D Visual Hub with Glow -->
+          <div class="hero-visual-container" aria-hidden="true">
+            <div class="hero-3d-bot">
+              <div class="bot-eye-glow"></div>
+            </div>
+
+            <div class="floating-badge top-left">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #0DEF93; display: inline-block;"></span>
+              Autonomous Agent Live
+            </div>
+
+            <div class="floating-mic-chip">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9741FE" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Features & Metrics Composite Strip -->
-    <section id="features" class="section-metrics" aria-label="Key Performance Metrics & Capabilities">
+    <!-- Section 3: Enterprise Metrics Strip (Midnight Indigo) -->
+    <section id="features" class="section-metrics" aria-label="Key Performance Metrics">
       <div class="container">
         <div class="features-composite-grid">
           <div>
-            <h2 style="color: var(--color-surface-white); font-size: 2rem; line-height: 1.25; margin-bottom: var(--space-4);">
-              How SkyGentic AI Helps Businesses Achieve Remarkable Success
+            <h2 class="metrics-heading">
+              How SkyGentic Helps Businesses Like Yours Achieve Remarkable Success
             </h2>
             <a href="#contact" class="btn-glass" style="margin-bottom: var(--space-6);">
               <div class="btn-text-wrapper">
@@ -198,44 +210,32 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </div>
             </a>
-            <div class="trust-avatar-cluster">
-              <div class="avatar-stack" aria-hidden="true">
-                <span class="avatar-dot" style="background: #3B82F6;">FL</span>
-                <span class="avatar-dot" style="background: #10B981;">DC</span>
-                <span class="avatar-dot" style="background: #8B5CF6;">SM</span>
-                <span class="avatar-dot" style="background: #F59E0B;">AK</span>
-              </div>
-              <span class="trust-label">100+ Enterprise Brands Globally</span>
-            </div>
           </div>
 
           <div>
             <div class="stat-block">
               <div class="stat-digit">91%</div>
               <div class="stat-label">Containment Rate</div>
-              <p class="stat-desc">Autonomous resolution of multi-step inquiries without human escalation.</p>
             </div>
             <div class="stat-separator"></div>
             <div class="stat-block">
               <div class="stat-digit">85%</div>
               <div class="stat-label">CSAT Satisfaction Score</div>
-              <p class="stat-desc">Personalized, high-speed responses across all enterprise touchpoints.</p>
             </div>
             <div class="stat-separator"></div>
             <div class="stat-block">
               <div class="stat-digit">1M+</div>
               <div class="stat-label">Daily Messages Automated</div>
-              <p class="stat-desc">High-availability infrastructure serving Fortune 500 commerce operations.</p>
             </div>
           </div>
 
           <div class="features-chips-grid">
-            <div class="badge-pill glass">Omnichannel</div>
-            <div class="badge-pill glass">Workflows</div>
-            <div class="badge-pill glass">Commerce</div>
-            <div class="badge-pill glass">AI Assist</div>
-            <div class="badge-pill glass">Conversational AI</div>
-            <div class="badge-pill glass">Marketing</div>
+            <div class="chip-pill">Omnichannel</div>
+            <div class="chip-pill">Workflows</div>
+            <div class="chip-pill">Commerce</div>
+            <div class="chip-pill">AI Assist</div>
+            <div class="chip-pill">Conversational AI</div>
+            <div class="chip-pill">Marketing</div>
           </div>
         </div>
       </div>
@@ -261,15 +261,14 @@
     <section id="capabilities" class="section-capabilities" aria-label="Platform Capabilities">
       <div class="container">
         <div class="capabilities-header">
-          <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Engineered for Scale</div>
           <h2>Modular Capabilities Built for the Autonomous Era</h2>
-          <p class="text-lead">Equip your conversational front-office with goal-driven AI agents, low-latency voice, and dynamic knowledge retrieval.</p>
+          <p class="text-lead" style="color: var(--color-text-body); font-size: 1.25rem;">Equip your conversational front-office with goal-driven AI agents, low-latency voice, and dynamic knowledge retrieval.</p>
         </div>
 
         <div class="bento-grid">
           <!-- Bento Column 1 -->
           <div class="surface-card card-light">
-            <div class="badge-pill emerald" style="margin-bottom: var(--space-4);">Autonomous</div>
+            <div class="chip-pill" style="background: rgba(13, 239, 147, 0.15); color: #09B26E; border-color: rgba(13, 239, 147, 0.3); margin-bottom: var(--space-4);">Autonomous</div>
             <h3>Agentic AI Workflow Engine</h3>
             <p>Deploy autonomous agents capable of dynamic reasoning, tool-calling APIs, and multi-step transaction resolution without hardcoded logic.</p>
             <a href="#demo" class="read-more-link">
@@ -281,12 +280,12 @@
           <!-- Bento Column 2 -->
           <div class="bento-col-2">
             <div class="surface-card card-light">
-              <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Real-Time</div>
+              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Real-Time</div>
               <h4>Ultra Low-Latency Voice AI</h4>
               <p>Natural conversational voice agents with sub-300ms latency and emotion modulation.</p>
             </div>
             <div class="surface-card card-light">
-              <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Productivity</div>
+              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Productivity</div>
               <h4>Agent CoPilot</h4>
               <p>Empower human support agents with instant context synthesis and AI-assisted drafts.</p>
             </div>
@@ -295,12 +294,12 @@
           <!-- Bento Column 3 -->
           <div class="bento-col-3">
             <div class="surface-card card-light">
-              <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Omnichannel</div>
+              <div class="chip-pill" style="background: rgba(13, 239, 147, 0.15); color: #09B26E; border-color: rgba(13, 239, 147, 0.3); margin-bottom: var(--space-3);">Omnichannel</div>
               <h4>Conversational Commerce</h4>
               <p>Drive revenue directly through native WhatsApp, Instagram, and web checkout flows.</p>
             </div>
             <div class="surface-card card-light">
-              <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Enterprise</div>
+              <div class="chip-pill" style="background: rgba(151, 65, 254, 0.12); color: #9741FE; border-color: rgba(151, 65, 254, 0.3); margin-bottom: var(--space-3);">Enterprise</div>
               <h4>Knowledge Grounding</h4>
               <p>Vector search and real-time synchronization with Salesforce, Zendesk, and SQL backends.</p>
             </div>
@@ -321,54 +320,15 @@
       </div>
     </section>
 
-    <!-- Section 6: Product Interactive Workflow Showcase -->
-    <section id="showcase" class="section-showcase" aria-label="Interactive Product Workflow" style="background: var(--color-surface-white); padding: var(--space-24) 0; border-top: 1px solid var(--color-surface-border);">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-16); align-items: center;">
-          <div>
-            <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Interactive Architecture</div>
-            <h2 style="color: var(--color-midnight-06);">Power Up Your Lead Generation & Support Ops</h2>
-            <p class="text-lead" style="color: var(--color-slate-600);">Unify live chat, ticketing, customer data platforms, and autonomous AI agents in one high-performance dashboard.</p>
-            
-            <div style="margin-top: var(--space-6);">
-              <a href="#demo" class="btn-primary">
-                <div class="btn-text-wrapper">
-                  <span class="btn-text-slide">Start Free Trial</span>
-                  <span class="btn-text-slide">Start Free Trial</span>
-                </div>
-                <div class="btn-icon-bubble" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="surface-card card-dark-glass" aria-hidden="true">
-            <div style="display: flex; gap: 8px; margin-bottom: var(--space-4);">
-              <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span>
-            </div>
-            <div style="font-family: var(--font-family-code); font-size: 0.8125rem; line-height: 1.6; color: var(--color-slate-200);">
-              <span style="color: var(--color-green-primary); font-weight: 600;">$ skygentic agent:deploy</span> --cluster=production<br>
-              [✓] Compiling 3-Tier Global Tokens...<br>
-              [✓] Checking WCAG 2.1 AA digital accessibility standards... (100/100 Passed)<br>
-              [✓] Connecting WhatsApp & Webhook endpoints... (Status: 200 OK)<br>
-              <span style="color: #10b981;">[⚡] Autonomous CX Agent Live in 42ms.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 7: Testimonials Expanding Ribbon -->
+    <!-- Section 6: Interactive Testimonials Ribbon -->
     <section id="testimonials" class="section-testimonials" aria-label="Customer Success Stories">
       <div class="container">
         <div class="testimonials-grid">
           <div>
-            <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Proven Impact</div>
-            <h2 style="color: var(--color-surface-white);">Hear What CX Leaders Are Saying</h2>
-            <p style="color: var(--color-slate-400); margin-bottom: var(--space-6);">Measured efficiency gains and transformative customer satisfaction across top global brands.</p>
+            <h2 style="font-family: var(--font-family-display); font-size: 2.75rem; font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: var(--space-4);">
+              Hear What People Are Saying
+            </h2>
+            <p style="color: var(--color-slate-400); font-size: 1.15rem; margin-bottom: var(--space-6);">Measured efficiency gains and transformative customer satisfaction across top global brands.</p>
             <a href="#contact" class="btn-glass">
               <div class="btn-text-wrapper">
                 <span class="btn-text-slide">Let's Talk</span>
@@ -382,32 +342,33 @@
 
           <div class="testimonials-ribbon" role="region" aria-label="Interactive Testimonials">
             <div class="testimonial-card active" tabindex="0">
-              <div style="font-weight: 700; color: var(--color-surface-white); margin-bottom: var(--space-2);">Francesca L.</div>
+              <div style="font-weight: 700; color: #ffffff; margin-bottom: var(--space-2);">Francesca L.</div>
               <div style="font-size: 0.8125rem; color: var(--color-slate-400); margin-bottom: var(--space-3);">VP of CX, Global Retail</div>
-              <p style="font-size: 0.875rem; color: var(--color-slate-200);">"SkyGentic AI automated 91% of our incoming peak support volume with zero customer friction."</p>
+              <p style="font-size: 0.875rem; color: #ffffff; line-height: 1.6;">"SkyGentic AI automated 91% of our incoming peak support volume with zero customer friction."</p>
             </div>
             <div class="testimonial-card" tabindex="0">
-              <div style="font-weight: 700; color: var(--color-surface-white); margin-bottom: var(--space-2);">David C.</div>
+              <div style="font-weight: 700; color: #ffffff; margin-bottom: var(--space-2);">David C.</div>
               <div style="font-size: 0.8125rem; color: var(--color-slate-400); margin-bottom: var(--space-3);">Head of Commerce, RetailHub</div>
-              <p style="font-size: 0.875rem; color: var(--color-slate-200);">"Our conversion rates on WhatsApp increased by 3.4x within two weeks of launch."</p>
+              <p style="font-size: 0.875rem; color: #ffffff; line-height: 1.6;">"Our conversion rates on WhatsApp increased by 3.4x within two weeks of launch."</p>
             </div>
             <div class="testimonial-card" tabindex="0">
-              <div style="font-weight: 700; color: var(--color-surface-white); margin-bottom: var(--space-2);">Sarah M.</div>
+              <div style="font-weight: 700; color: #ffffff; margin-bottom: var(--space-2);">Sarah M.</div>
               <div style="font-size: 0.8125rem; color: var(--color-slate-400); margin-bottom: var(--space-3);">Director of Ops, Synapse</div>
-              <p style="font-size: 0.875rem; color: var(--color-slate-200);">"The fastest onboarding and highest quality agent copilot we have ever evaluated."</p>
+              <p style="font-size: 0.875rem; color: #ffffff; line-height: 1.6;">"The fastest onboarding and highest quality agent copilot we have ever evaluated."</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 8: FAQ Accordion Hub -->
+    <!-- Section 7: FAQ Accordion Hub -->
     <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
       <div class="container-focus">
-        <div class="faq-header">
-          <div class="badge-pill emerald" style="margin-bottom: var(--space-3);">Clear Answers</div>
-          <h2>Frequently Asked Questions</h2>
-          <p>Everything you need to know about our Agentic AI infrastructure and deployment.</p>
+        <div style="text-align: center; margin-bottom: var(--space-12);">
+          <h2 style="font-family: var(--font-family-display); font-size: 2.75rem; font-weight: 700; color: var(--color-text-dark); margin-bottom: var(--space-3);">
+            Frequently Asked Questions
+          </h2>
+          <p style="color: var(--color-text-body); font-size: 1.15rem;">Everything you need to know about our Agentic AI infrastructure and deployment.</p>
         </div>
 
         <div class="surface-card card-light" style="padding: var(--space-8);">
@@ -446,15 +407,19 @@
 
   </main>
 
-  <!-- Section 9: Enterprise Dual-Card Footer -->
+  <!-- Section 8: Enterprise Dual-Card Footer -->
   <footer class="footer-wrapper" role="contentinfo">
     <div class="container">
       <div class="footer-cards-grid">
         <!-- Left Hero CTA Card -->
-        <div class="surface-card card-gradient-hero">
-          <div class="badge-pill glass" style="margin-bottom: var(--space-4);">Ready to Launch</div>
-          <h3 style="color: #ffffff; margin-bottom: var(--space-3);">Build Your Agentic CX Today</h3>
-          <p style="color: var(--color-slate-200); margin-bottom: var(--space-6);">Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.</p>
+        <div class="card-gradient-hero">
+          <div class="chip-pill" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); margin-bottom: var(--space-4);">Ready to Launch</div>
+          <h3 style="font-family: var(--font-family-display); font-size: 2.25rem; font-weight: 700; color: #ffffff; margin-bottom: var(--space-3);">
+            Build Your Agentic CX Today
+          </h3>
+          <p style="color: var(--color-slate-200); font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-6);">
+            Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.
+          </p>
           <a href="#demo" class="btn-white">
             <div class="btn-text-wrapper">
               <span class="btn-text-slide">Book a Demo</span>
@@ -467,7 +432,7 @@
         </div>
 
         <!-- Right Navigation Directory Card -->
-        <div class="surface-card card-dark-glass footer-nav-card">
+        <div class="footer-nav-card">
           <div>
             <div class="footer-col-title">Platform</div>
             <ul class="footer-link-list">

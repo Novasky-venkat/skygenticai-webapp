@@ -1,62 +1,62 @@
 /* ==========================================================================
-   SkyGentic AI / High-Fidelity Glossy Design System Tokens
+   SkyGentic AI / Design Tokens (1:1 AiChat.com Exact Match)
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Tier 1: Global Primitives - Executive Palette (Non-Neon)
+     1. Brand Accent Colors
      ------------------------------------------------------------------------ */
-  /* Precision Sapphire & Cobalt */
-  --color-sapphire-400: #3b82f6;
-  --color-sapphire-500: #2563eb;
-  --color-sapphire-600: #1d4ed8;
-  --color-sapphire-700: #1e40af;
-  --color-sapphire-glow: rgba(37, 99, 235, 0.35);
-
-  /* Deep Obsidian & Slate Dark Surfaces */
-  --color-obsidian-950: #0b0f19;    /* Base Deep Void */
-  --color-obsidian-900: #0f172a;    /* Primary Dark Surface & Navbar Base */
-  --color-obsidian-850: #131d31;    /* Card Deep Surface */
-  --color-obsidian-800: #1e293b;    /* Elevated Card Fill / Border Accent */
-
-  /* Neutral Slates */
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;       /* High-contrast body text on dark */
-  --color-slate-400: #94a3b8;       /* Secondary / Muted text */
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-
-  /* Surfaces */
+  --color-green-primary: #0def93;   /* Electric Neon Emerald */
+  --color-green-hover: #09b26e;
+  --color-lime-accent: #b8ff7a;
+  --color-purple-04: #9741fe;       /* Royal Violet */
+  --color-purple-06: #4b207f;       /* Deep Violet */
+  --color-indigo-dark: #06063a;     /* Midnight Indigo */
+  
+  /* ------------------------------------------------------------------------
+     2. Midnight Dark Surfaces
+     ------------------------------------------------------------------------ */
+  --color-midnight-07: #02020f;     /* Void Black */
+  --color-midnight-06: #03031d;     /* Deep Jet Navy */
+  --color-midnight-05: #04042b;
+  --color-midnight-04: #06063a;     /* Section Dark Surface */
+  --color-midnight-03: #1c1c37;
+  --color-midnight-02: #3d4050;     /* Dark Charcoal Text */
+  
+  /* ------------------------------------------------------------------------
+     3. Light Neutrals & Text Colors
+     ------------------------------------------------------------------------ */
   --color-surface-white: #ffffff;
-  --color-surface-platinum: #f8fafc;
-  --color-surface-light: #f1f5f9;
-  --color-surface-border: #e2e8f0;
+  --color-surface-light: #fafafa;
+  --color-surface-subtle: #ebeff7;
+  --color-surface-border: #e4ebf3;
   --color-dark-border: rgba(255, 255, 255, 0.12);
   --color-dark-border-hover: rgba(255, 255, 255, 0.25);
-
-  /* ------------------------------------------------------------------------
-     2. High-Fidelity Glossy & Specular Highlights
-     ------------------------------------------------------------------------ */
-  --gloss-rim-primary: inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(0, 0, 0, 0.35);
-  --gloss-rim-secondary: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 0 rgba(0, 0, 0, 0.5);
-  --gloss-rim-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
   
-  --bg-gradient-sapphire: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
-  --bg-gradient-sapphire-hover: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
-  --bg-gradient-obsidian: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-  --bg-gradient-footer-cta: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
-  --bg-glass-card: rgba(255, 255, 255, 0.06);
-  --bg-glass-navbar: rgba(15, 23, 42, 0.85);
+  --color-text-dark: #03031d;       /* High-contrast black on light */
+  --color-text-body: #374151;       /* Crisp body text on light */
+  --color-text-muted: #6b7280;      /* Muted subtitle on light */
+  --color-slate-200: #e2e8f0;       /* Crisp text on dark */
+  --color-slate-400: #94a3b8;       /* Muted text on dark */
 
   /* ------------------------------------------------------------------------
-     3. Typography Tokens
+     4. Gradients
+     ------------------------------------------------------------------------ */
+  --bg-gradient-hero-glow: radial-gradient(circle at 85% 45%, rgba(151, 65, 254, 0.45) 0%, rgba(37, 99, 235, 0.35) 30%, rgba(255, 255, 255, 0) 70%);
+  --bg-gradient-card-purple: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
+  --bg-gradient-footer-cta: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
+  --bg-glass-card: rgba(255, 255, 255, 0.06);
+  --bg-glass-navbar: rgba(255, 255, 255, 0.90);
+
+  /* ------------------------------------------------------------------------
+     5. Typography Tokens
      ------------------------------------------------------------------------ */
   --font-family-display: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-code: 'JetBrains Mono', monospace;
 
   /* ------------------------------------------------------------------------
-     4. Layout & Spacing Scale (4px Vertical Rhythm)
+     6. Layout & Spacing Scale
      ------------------------------------------------------------------------ */
   --container-max-width: 1350px;
   --container-narrow-width: 1130px;
@@ -74,10 +74,9 @@
   --space-16: 64px;
   --space-20: 80px;
   --space-24: 96px;
-  --space-32: 128px;
 
   /* ------------------------------------------------------------------------
-     5. Border Radii Tokens
+     7. Border Radii Tokens
      ------------------------------------------------------------------------ */
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -87,29 +86,20 @@
   --radius-pill: 3rem;
 
   /* ------------------------------------------------------------------------
-     6. Shadows & Ambient Elevation
+     8. Shadows & Elevation
      ------------------------------------------------------------------------ */
-  --shadow-glossy-primary: 0 4px 16px rgba(37, 99, 235, 0.35);
-  --shadow-glossy-primary-hover: 0 8px 24px rgba(37, 99, 235, 0.5);
-  --shadow-glossy-secondary: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-btn-primary: 0 4px 14px rgba(13, 239, 147, 0.35);
+  --shadow-btn-primary-hover: 0 8px 24px rgba(13, 239, 147, 0.5);
   --shadow-ambient-card: 0 4px 130px rgba(150, 163, 181, 0.15);
-  --shadow-glass-header: 0 8px 32px rgba(11, 15, 25, 0.35);
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.05);
 
   /* ------------------------------------------------------------------------
-     7. Transitions & Motion Physics
+     9. Transitions
      ------------------------------------------------------------------------ */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* ------------------------------------------------------------------------
-     8. Tier 2: Component Semantic Bindings
-     ------------------------------------------------------------------------ */
-  --btn-primary-bg: var(--bg-gradient-sapphire);
-  --btn-primary-text: var(--color-surface-white);
-  --btn-primary-shadow: var(--shadow-glossy-primary);
-  --btn-primary-radius: var(--radius-pill);
-  
-  --focus-ring-color: var(--color-sapphire-400);
+  --focus-ring-color: var(--color-green-primary);
   --focus-ring-offset: 3px;
 }
