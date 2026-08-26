@@ -9,9 +9,10 @@
     "build": "node scripts/build-optimizer.js",
     "build:vite": "vite build",
     "preview": "http-server dist -p 8080 -c-1",
-    "test": "node scripts/build-optimizer.js && node scripts/perf-audit.js",
+    "test": "node scripts/build-optimizer.js && node scripts/perf-audit.js && node skills/lighthouse/scripts/audit-a11y.js",
     "test:perf": "node scripts/perf-audit.js",
-    "audit:hallmark": "node skills/hallmark/scripts/validate-tokens.js"
+    "audit:hallmark": "node skills/hallmark/scripts/validate-tokens.js",
+    "audit:a11y": "node skills/lighthouse/scripts/audit-a11y.js"
   },
   "keywords": [
     "ai",
