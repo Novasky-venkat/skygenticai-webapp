@@ -896,6 +896,8 @@
 
     const panels = document.querySelectorAll('.testimonial-panel');
 
+        let currentActiveIdx = 1;
+
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
       panel.classList.toggle('active', isActive);
@@ -937,6 +939,8 @@
     }
 
     function setActivePanel(activeIdx) {
+      if (currentActiveIdx === activeIdx) return;
+      currentActiveIdx = activeIdx;
       panels.forEach((p, idx) => renderPanel(p, idx, idx === activeIdx));
     }
 
