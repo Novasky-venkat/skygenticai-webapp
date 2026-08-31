@@ -111,6 +111,8 @@ body {
 .section-metrics { background: var(--color-card); padding: 90px 0; border-top: 1px solid var(--color-border); }
 .features-composite-grid { display: grid; grid-template-columns: 1.15fr 1.15fr 1fr; gap: 48px; align-items: center; }
 .metrics-heading { font-family: var(--font-family-display); font-size: 2.25rem; font-weight: 500; line-height: 1.2; color: var(--color-heading); margin-bottom: 24px; }
+.section-metrics .metrics-mobile-break,
+.section-metrics .metrics-tablet-break { display: none; }
 .stat-block { display: flex; flex-direction: column; }
 .stat-digit { font-family: var(--font-family-display); font-size: 3.5rem; font-weight: 500; line-height: 1.0; letter-spacing: -0.02em; color: var(--color-primary-blue); }
 .stat-label { font-family: var(--font-family-body); font-size: 15px; font-weight: 400; color: var(--color-body); margin-top: 6px; }
@@ -553,6 +555,7 @@ body {
   .hero-grid, .features-composite-grid, .sticky-showcase-grid, .testimonials-grid, .footer-cards-grid {
     grid-template-columns: 1fr; gap: var(--space-10);
   }
+  .section-metrics .metrics-tablet-break { display: block; }
   .headline-homepage { font-size: 2.5rem; }
   .bento-staggered-grid { grid-template-columns: 1fr; }
   .bento-column.col-1, .bento-column.col-2, .bento-column.col-3 { margin-top: 0; }
@@ -565,6 +568,9 @@ body {
 }
 
 @media (max-width: 640px) {
+  .section-metrics .metrics-heading { font-size: 1.95rem; }
+  .section-metrics .metrics-mobile-break { display: block; }
+  .section-metrics .metrics-tablet-break { display: none; }
   .footer-nav-card { grid-template-columns: 1fr; }
   .footer-bottom-bar { flex-direction: column; gap: var(--space-4); text-align: center; }
 }
