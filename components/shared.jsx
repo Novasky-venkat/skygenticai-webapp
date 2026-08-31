@@ -262,27 +262,27 @@ function Header({ current = "home" }) {
           max-width: var(--max-w);
           padding-inline: 24px;
           gap: 28px;
-          border-radius: 999px;
-          border-color: rgba(255, 255, 255, 0.09);
+          border-radius: var(--radius-pill);
+          border-color: oklch(99% 0.006 250 / 0.09);
           /* Glass pill - same dark base + accent glows as hero */
           background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
-            radial-gradient(circle at 10% 50%, rgba(59, 130, 246, 0.18), transparent 55%),
-            radial-gradient(circle at 90% 50%, rgba(124, 58, 237, 0.14), transparent 55%),
-            rgba(6, 7, 13, 0.72);
+            linear-gradient(135deg, oklch(99% 0.006 250 / 0.07), oklch(99% 0.006 250 / 0.02)),
+            radial-gradient(circle at 10% 50%, oklch(53% 0.200 258 / 0.18), transparent 55%),
+            radial-gradient(circle at 90% 50%, oklch(60% 0.120 190 / 0.14), transparent 55%),
+            oklch(16% 0.012 255 / 0.72);
           backdrop-filter: blur(22px) saturate(170%);
           -webkit-backdrop-filter: blur(22px) saturate(170%);
           box-shadow:
-            0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-            0 1px 0 rgba(255, 255, 255, 0.10) inset,
-            0 16px 48px rgba(0, 0, 0, 0.36),
-            0 4px 16px rgba(0, 0, 0, 0.22);
+            0 0 0 1px oklch(99% 0.006 250 / 0.06) inset,
+            0 1px 0 oklch(99% 0.006 250 / 0.10) inset,
+            0 16px 48px oklch(16% 0.012 255 / 0.36),
+            0 4px 16px oklch(16% 0.012 255 / 0.22);
         }
         .hdr--scrolled .hdr-nav {
-          color: rgba(255,255,255,0.78);
+          color: oklch(94% 0.014 250 / 0.78);
         }
         .hdr--scrolled .hdr-nav-link:hover {
-          color: #fff;
+          color: var(--color-card);
         }
         .hdr-logo {
           display: inline-flex;
@@ -312,7 +312,7 @@ function Header({ current = "home" }) {
           font-size: 13px;
           font-weight: 500;
           letter-spacing: 0.01em;
-          color: rgba(241, 247, 255, 0.78);
+          color: oklch(94% 0.014 250 / 0.78);
           flex: none;
           justify-content: flex-end;
         }
@@ -334,7 +334,7 @@ function Header({ current = "home" }) {
           align-items: center;
           gap: 6px;
           padding: 10px 12px;
-          border-radius: 999px;
+          border-radius: var(--radius-pill);
           background: transparent;
           border: none;
           font-family: inherit;
@@ -347,9 +347,9 @@ function Header({ current = "home" }) {
           white-space: nowrap;
         }
         .hdr-nav-link:hover {
-          color: #fff;
-          background: rgba(255, 255, 255, 0.055);
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.055) inset;
+          color: var(--color-card);
+          background: oklch(99% 0.006 250 / 0.055);
+          box-shadow: 0 0 0 1px oklch(99% 0.006 250 / 0.055) inset;
           transform: translateY(-1px);
         }
         .hdr-nav-link svg {
@@ -362,12 +362,12 @@ function Header({ current = "home" }) {
           position: absolute;
           top: calc(100% + 2px);
           left: 0;
-          background: rgba(5, 8, 18, 0.93);
+          background: oklch(16% 0.012 255 / 0.93);
           backdrop-filter: blur(34px) saturate(155%);
           -webkit-backdrop-filter: blur(34px) saturate(155%);
-          border: 1px solid rgba(255, 255, 255, 0.16);
+          border: 1px solid oklch(99% 0.006 250 / 0.16);
           border-radius: var(--r-lg);
-          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+          box-shadow: 0 24px 70px oklch(16% 0.012 255 / 0.34);
           padding: 10px;
           min-width: 200px;
           display: flex;
@@ -385,21 +385,21 @@ function Header({ current = "home" }) {
           padding: 10px 12px;
           border-radius: 10px;
           font-size: 14px;
-          color: rgba(241,247,255,0.8);
+          color: oklch(94% 0.014 250 / 0.8);
           text-shadow: none;
           transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
         }
         .hdr-submenu-link:focus,
         .hdr-submenu-link:active,
         .hdr-submenu-link:hover {
-          background: rgba(125, 211, 252, 0.1);
-          color: #fff;
+          background: oklch(60% 0.120 190 / 0.1);
+          color: var(--color-card);
           outline: none;
           transform: translateX(2px);
         }
         .hdr-dropdown:hover .hdr-nav-link,
         .hdr-dropdown:focus-within .hdr-nav-link {
-          color: #fff;
+          color: var(--color-card);
         }
         .hdr-cta {
           position: relative;
@@ -429,36 +429,36 @@ function Header({ current = "home" }) {
           font-family: inherit;
           font-weight: 600;
           line-height: 1.2;
-          border-radius: 999px;
+          border-radius: var(--radius-pill);
           border: 1px solid transparent;
           cursor: pointer;
           white-space: nowrap;
           transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
         }
         .hdr-btn--ghost {
-          color: #ffffff !important;
-          background: rgba(9, 16, 25, 0.86);
-          border-color: rgba(255,255,255,0.16);
+          color: var(--color-card) !important;
+          background: oklch(17% 0.014 255 / 0.86);
+          border-color: oklch(99% 0.006 250 / 0.16);
         }
         .hdr--scrolled .hdr-btn--ghost {
           background: transparent;
         }
         .hdr-btn--ghost:hover {
-          background: rgba(255,255,255,0.09);
-          border-color: rgba(94,234,212,0.34);
+          background: oklch(99% 0.006 250 / 0.09);
+          border-color: oklch(60% 0.120 190 / 0.34);
           transform: translateY(-1px);
         }
         .hdr-btn--primary {
-          color: #031018 !important;
+          color: var(--color-blue-900) !important;
           background:
-            linear-gradient(135deg, rgba(167,255,243,0.98), rgba(94,234,212,0.96) 52%, rgba(56,189,248,0.92));
-          border-color: rgba(191, 255, 245, 0.28);
-          box-shadow: 0 16px 34px rgba(45, 212, 191, 0.22), 0 0 0 1px rgba(255,255,255,0.12) inset;
+            linear-gradient(135deg, var(--color-blue-100), var(--color-teal-soft));
+          border-color: oklch(60% 0.120 190 / 0.28);
+          box-shadow: 0 16px 34px oklch(60% 0.120 190 / 0.22), 0 0 0 1px oklch(99% 0.006 250 / 0.12) inset;
         }
         .hdr-btn--primary:hover {
           opacity: 0.96;
           transform: translateY(-1px);
-          box-shadow: 0 20px 46px rgba(45, 212, 191, 0.30), 0 0 0 1px rgba(255,255,255,0.16) inset;
+          box-shadow: 0 20px 46px oklch(60% 0.120 190 / 0.30), 0 0 0 1px oklch(99% 0.006 250 / 0.16) inset;
         }
         .hdr-btn--block {
           width: 100%;
@@ -476,17 +476,17 @@ function Header({ current = "home" }) {
           flex-direction: column; gap: 4px; padding: 8px;
           cursor: pointer;
         }
-        .hdr-burger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+        .hdr-burger span { width: 22px; height: 2px; background: var(--color-card); border-radius: var(--radius-line); }
         .hdr-mobile {
           display: none;
           flex-direction: column;
           padding: 16px 24px 24px;
           gap: 14px;
-          border-top: 1px solid rgba(255,255,255,0.14);
-          background: rgba(3, 3, 3, 0.9);
+          border-top: 1px solid oklch(99% 0.006 250 / 0.14);
+          background: oklch(16% 0.012 255 / 0.9);
         }
         .hdr-mobile a {
-          color: #fff;
+          color: var(--color-card);
           font-weight: 500;
         }
         .hdr-mobile-group {
@@ -501,7 +501,7 @@ function Header({ current = "home" }) {
           padding-left: 12px;
         }
         .hdr-mobile-submenu a {
-          color: rgba(255,255,255,0.72);
+          color: oklch(94% 0.014 250 / 0.72);
           font-size: 13px;
           font-weight: 400;
         }
@@ -637,7 +637,7 @@ function Footer() {
           z-index: 1;
           width: min(calc(100% - 48px), var(--max-w));
           height: 1px;
-          background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.14) 18%, rgba(94,234,212,0.16) 50%, rgba(255,255,255,0.14) 82%, transparent 100%);
+          background: linear-gradient(90deg, transparent 0%, oklch(99% 0.006 250 / 0.14) 18%, oklch(60% 0.120 190 / 0.16) 50%, oklch(99% 0.006 250 / 0.14) 82%, transparent 100%);
           transform: translateX(-50%);
           pointer-events: none;
         }
@@ -645,7 +645,7 @@ function Footer() {
           position: relative;
           z-index: 2;
         }
-        .ft .pill { background: rgba(255,255,255,0.05); border-color: var(--dark-border); color: var(--dark-ink-soft); }
+        .ft .pill { background: oklch(99% 0.006 250 / 0.05); border-color: var(--dark-border); color: var(--dark-ink-soft); }
         .ft-logo-img {
           width: min(330px, 100%);
           height: 80px;
@@ -707,8 +707,8 @@ function Footer() {
         }
         .ft-cols a:hover {
           color: var(--dark-ink);
-          background: rgba(255, 255, 255, 0.055);
-          border-color: rgba(255, 255, 255, 0.08);
+          background: oklch(99% 0.006 250 / 0.055);
+          border-color: oklch(99% 0.006 250 / 0.08);
           transform: translateX(2px);
         }
         .ft-bottom {
@@ -781,7 +781,7 @@ function Footer() {
           right: 0;
           bottom: 0;
           height: 34%;
-          background: linear-gradient(180deg, rgba(6,7,13,0), rgba(6,7,13,0.68));
+          background: linear-gradient(180deg, oklch(16% 0.012 255 / 0), oklch(16% 0.012 255 / 0.68));
         }
         .ft-bigword img {
           display: block;
@@ -837,8 +837,8 @@ function ChatWidget() {
                 <svg viewBox="0 0 32 32" width="22" height="22">
                   <defs>
                     <linearGradient id="cwg" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stopColor="#3b82f6" />
-                      <stop offset="1" stopColor="#10b981" />
+                      <stop offset="0" stopColor="oklch(53% 0.200 258)" />
+                      <stop offset="1" stopColor="oklch(60% 0.120 190)" />
                     </linearGradient>
                   </defs>
                   <circle cx="16" cy="16" r="14" fill="url(#cwg)" opacity="0.2" />
@@ -897,9 +897,9 @@ function ChatWidget() {
           height: 56px;
           border-radius: 50%;
           background: linear-gradient(135deg, var(--accent), var(--accent-2));
-          color: white;
+          color: var(--color-card);
           border: none;
-          box-shadow: 0 12px 30px rgba(59,130,246,0.4);
+          box-shadow: 0 12px 30px oklch(53% 0.200 258 / 0.4);
           z-index: 99;
           display: flex;
           align-items: center;
@@ -913,9 +913,9 @@ function ChatWidget() {
           position: absolute;
           top: 4px; right: 4px;
           width: 12px; height: 12px;
-          background: #ef4444;
+          background: var(--color-amber);
           border-radius: 50%;
-          border: 2px solid white;
+          border: 2px solid var(--color-card);
         }
         .cw {
           position: fixed;
@@ -925,16 +925,16 @@ function ChatWidget() {
           max-width: calc(100vw - 32px);
           height: 540px;
           max-height: calc(100vh - 120px);
-          background: #0c0e16;
+          background: oklch(16% 0.012 255);
           border: 1px solid var(--dark-border-strong);
           border-radius: var(--r-xl);
-          box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+          box-shadow: 0 12px 48px oklch(16% 0.012 255 / 0.5);
           display: flex;
           flex-direction: column;
           overflow: hidden;
           z-index: 98;
           animation: cwIn 0.22s ease;
-          color: white;
+          color: var(--color-card);
         }
         @keyframes cwIn {
           from { opacity: 0; transform: translateY(10px) scale(0.98); }
@@ -946,13 +946,13 @@ function ChatWidget() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: rgba(255,255,255,0.03);
+          background: oklch(99% 0.006 250 / 0.03);
         }
         .cw-avatar {
           width: 36px; height: 36px;
           border-radius: 50%;
-          background: #06070d;
-          border: 1px solid rgba(255,255,255,0.08);
+          background: oklch(14% 0.012 255);
+          border: 1px solid oklch(99% 0.006 250 / 0.08);
           display: flex; align-items: center; justify-content: center;
         }
         .cw-close {
@@ -961,7 +961,7 @@ function ChatWidget() {
           width: 28px; height: 28px;
           border-radius: 50%;
         }
-        .cw-close:hover { background: rgba(255,255,255,0.08); }
+        .cw-close:hover { background: oklch(99% 0.006 250 / 0.08); }
         .cw-body {
           flex: 1;
           overflow-y: auto;
@@ -973,20 +973,20 @@ function ChatWidget() {
         .cw-msg {
           max-width: 80%;
           padding: 10px 14px;
-          border-radius: 14px;
+          border-radius: var(--radius-lg);
           font-size: 14px;
           line-height: 1.45;
-          color: white;
+          color: var(--color-card);
         }
         .cw-msg--bot {
-          background: rgba(255, 255, 255, 0.05);
-          color: white;
+          background: oklch(99% 0.006 250 / 0.05);
+          color: var(--color-card);
           align-self: flex-start;
           border-bottom-left-radius: 4px;
         }
         .cw-msg--user {
           background: var(--accent);
-          color: white;
+          color: var(--color-card);
           align-self: flex-end;
           border-bottom-right-radius: 4px;
         }
@@ -1011,17 +1011,17 @@ function ChatWidget() {
         }
         .cw-suggest button {
           background: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 999px;
+          border: 1px solid oklch(99% 0.006 250 / 0.12);
+          border-radius: var(--radius-pill);
           padding: 6px 12px;
           font-size: 12.5px;
-          color: rgba(255, 255, 255, 0.7);
+          color: oklch(94% 0.014 250 / 0.7);
           transition: all 0.15s ease;
           cursor: pointer;
         }
         .cw-suggest button:hover {
           background: var(--accent);
-          color: white;
+          color: var(--color-card);
           border-color: var(--accent);
         }
         .cw-input {
@@ -1033,21 +1033,21 @@ function ChatWidget() {
         }
         .cw-input input {
           flex: 1;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(0,0,0,0.2);
-          border-radius: 999px;
+          border: 1px solid oklch(99% 0.006 250 / 0.12);
+          background: oklch(16% 0.012 255 / 0.2);
+          border-radius: var(--radius-pill);
           padding: 10px 16px;
           font-size: 14px;
           font-family: inherit;
           outline: none;
-          color: white;
+          color: var(--color-card);
         }
-        .cw-input input:focus { border-color: var(--accent); background: rgba(0,0,0,0.4); }
+        .cw-input input:focus { border-color: var(--accent); background: oklch(16% 0.012 255 / 0.4); }
         .cw-input button {
           width: 38px; height: 38px;
           border-radius: 50%;
-          background: white;
-          color: #0c0e16;
+          background: var(--color-card);
+          color: oklch(16% 0.012 255);
           border: none;
           font-size: 18px;
           cursor: pointer;
@@ -1055,7 +1055,7 @@ function ChatWidget() {
           align-items: center;
           justify-content: center;
         }
-        .cw-input button:hover { background: var(--accent); color: white; }
+        .cw-input button:hover { background: var(--accent); color: var(--color-card); }
       `}</style>
     </>
   );

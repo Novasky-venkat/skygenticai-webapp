@@ -3,7 +3,7 @@
 
 function NovaTweaks() {
   const defaults = /*EDITMODE-BEGIN*/{
-    "palette": ["#38bdf8", "#5eead4"],
+    "palette": ["oklch(53% 0.200 258)", "oklch(60% 0.120 190)"],
     "fontPair": "ibm-plex"
   }/*EDITMODE-END*/;
 
@@ -26,20 +26,14 @@ function NovaTweaks() {
 
   // Apply palette
   React.useEffect(() => {
-    const pal = Array.isArray(t.palette) ? t.palette : ["#38bdf8", "#5eead4"];
+    const pal = Array.isArray(t.palette) ? t.palette : ["oklch(53% 0.200 258)", "oklch(60% 0.120 190)"];
     const [a, a2] = pal;
     const r = document.documentElement;
     r.style.setProperty("--accent", a);
     r.style.setProperty("--accent-2", a2);
-    // Build glow rgba approximations
-    const hexToRgba = (hex, alpha) => {
-      const h = hex.replace("#", "");
-      const n = parseInt(h, 16);
-      const rr = (n >> 16) & 255, gg = (n >> 8) & 255, bb = n & 255;
-      return `rgba(${rr},${gg},${bb},${alpha})`;
-    };
-    r.style.setProperty("--accent-glow", hexToRgba(a, 0.35));
-    r.style.setProperty("--accent-2-glow", hexToRgba(a2, 0.3));
+    const withAlpha = (color, alpha) => color.replace(/\)$/, ` / ${alpha})`);
+    r.style.setProperty("--accent-glow", withAlpha(a, 0.35));
+    r.style.setProperty("--accent-2-glow", withAlpha(a2, 0.3));
   }, [t.palette]);
 
   // Apply fonts (inject google font link, update CSS vars)
@@ -70,11 +64,11 @@ function NovaTweaks() {
         label="Accents"
         value={t.palette}
         options={[
-          ["#38bdf8", "#5eead4"],
-          ["#7c3aed", "#06b6d4"],
-          ["#f97316", "#ec4899"],
-          ["#84cc16", "#3b82f6"],
-          ["#0b1220", "#64748b"],
+          ["oklch(53% 0.200 258)", "oklch(60% 0.120 190)"],
+          ["oklch(53% 0.200 258)", "oklch(29% 0.080 258)"],
+          ["oklch(94% 0.035 190)", "oklch(70% 0.140 250)"],
+          ["oklch(98% 0.010 250)", "oklch(53% 0.200 258)"],
+          ["oklch(96% 0.018 250)", "oklch(19% 0.025 255)"],
         ]}
         onChange={v => setTweak("palette", v)}
       />

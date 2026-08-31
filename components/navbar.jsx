@@ -5,7 +5,7 @@ export const Navbar = () => (
   <header className="navbar-wrapper" role="banner">
     <nav className="navbar-container" aria-label="Main Navigation">
       <a href="/" className="nav-brand" aria-label="SkyGentic AI Homepage">
-        <span style={{ color: 'var(--color-green-primary)' }}>SkyGentic</span>&nbsp;AI
+        <span style={{ color: 'var(--color-primary-blue)' }}>SkyGentic</span>&nbsp;AI
       </a>
 
       <ul className="nav-menu" role="list">

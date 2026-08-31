@@ -1,62 +1,52 @@
 /* ==========================================================================
-   SkyGentic AI / Exact AiChat.com Styling Tokens
+   SkyGentic AI / Design System Color Tokens
+   Source of truth: DESIGN_SYSTEM.md
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Brand Accent & Colors
+     1. Brand Palette
      ------------------------------------------------------------------------ */
-  --color-green-primary: #0def93;   /* Electric Neon Emerald */
-  --color-green-hover: #09b26e;
-  --color-purple-04: #9741fe;       /* Royal Violet */
-  --color-purple-06: #4b207f;
-  --color-indigo-dark: #06063a;     /* Midnight Indigo */
-  
-  /* ------------------------------------------------------------------------
-     2. Midnight Dark Surfaces & Text
-     ------------------------------------------------------------------------ */
-  --color-midnight-07: #02020f;
-  --color-midnight-06: #03031d;     /* High Contrast Jet Black/Navy */
-  --color-midnight-05: #04042b;
-  --color-midnight-04: #06063a;     /* Metrics Section Dark */
-  --color-midnight-03: #1c1c37;
-  --color-midnight-02: #3d4050;     /* Body Text Charcoal */
-  
-  /* ------------------------------------------------------------------------
-     3. Light Neutrals & Canvas
-     ------------------------------------------------------------------------ */
-  --color-surface-white: #ffffff;
-  --color-surface-light: #fafafa;
-  --color-surface-subtle: #ebeff7;  /* Authentic AiChat light background tint */
-  --color-surface-border: #e4ebf3;
-  --color-dark-border: rgba(255, 255, 255, 0.12);
-  
-  --color-text-dark: #03031d;
-  --color-text-body: #3d4050;
-  --color-text-muted: #6c6c89;
-  --color-slate-200: #e2e8f0;
-  --color-slate-400: #c1c1ce;
+  --color-blue-50: oklch(97% .018 250);
+  --color-blue-100: oklch(94% .035 250);
+  --color-blue-900: oklch(29% .08 258);
+  --color-teal: oklch(60% .12 190);
+  --color-teal-soft: oklch(94% .035 190);
+  --color-amber: oklch(72% .14 75);
+  --color-primary-blue: oklch(53% .2 258);
+  --color-secondary-blue: oklch(70% .14 250);
+  --color-soft-sky: var(--color-blue-100);
+  --color-cta-hover: oklch(47% .18 258);
+  --color-background: oklch(98% .01 250);
+  --color-section-alt: oklch(96% .018 250);
+  --color-card: oklch(99% .006 250);
+  --color-border: oklch(88% .02 250);
+  --color-heading: oklch(19% .025 255);
+  --color-body: oklch(34% .025 252);
+  --color-secondary-text: oklch(45% .025 252);
 
   /* ------------------------------------------------------------------------
-     4. Gradients & Atmospheric Glows
+     2. Gradients & Atmospheric Glows
      ------------------------------------------------------------------------ */
-  --bg-gradient-hero-glow: radial-gradient(circle at 82% 42%, rgba(151, 65, 254, 0.42) 0%, rgba(37, 99, 235, 0.30) 30%, rgba(255, 255, 255, 0) 70%);
-  --bg-gradient-card-purple: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
-  --bg-gradient-footer-cta: linear-gradient(87deg, #04042b 0%, #4b207f 64%, #7131be 102%);
-  --bg-glass-navbar: rgba(255, 255, 255, 0.92);
+  --bg-gradient-hero: linear-gradient(180deg, var(--color-background) 0%, var(--color-blue-50) 100%);
+  --bg-gradient-primary-cta: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-blue-900) 100%);
+  --bg-gradient-ai-showcase: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
+  --bg-gradient-knowledge: linear-gradient(135deg, var(--color-teal-soft) 0%, var(--color-card) 100%);
+  --bg-gradient-testimonials: linear-gradient(135deg, var(--color-card) 0%, var(--color-blue-50) 100%);
+  --bg-gradient-hero-glow: radial-gradient(circle at 82% 42%, oklch(94% .035 250 / .78) 0%, oklch(98% .01 250 / 0) 72%);
+  --bg-gradient-footer-cta: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
+  --bg-glass-navbar: oklch(99% .006 250 / .92);
 
   /* ------------------------------------------------------------------------
-     5. Typography Families
+     3. Typography Families
      ------------------------------------------------------------------------ */
   --font-family-display: 'Clashdisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-code: 'JetBrains Mono', monospace;
 
   /* ------------------------------------------------------------------------
-     6. Layout & Spacing
+     4. Layout & Spacing
      ------------------------------------------------------------------------ */
   --container-max-width: 1320px;
-  --container-narrow-width: 1120px;
   --container-focus-width: 820px;
 
   --space-1: 4px;
@@ -73,9 +63,10 @@
   --space-24: 96px;
 
   /* ------------------------------------------------------------------------
-     7. Border Radii
+     5. Border Radii
      ------------------------------------------------------------------------ */
   --radius-sm: 6px;
+  --radius-line: 2px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 20px;
@@ -83,20 +74,20 @@
   --radius-pill: 3rem;
 
   /* ------------------------------------------------------------------------
-     8. Shadows
+     6. Shadows
      ------------------------------------------------------------------------ */
-  --shadow-btn-primary: 0 4px 14px rgba(13, 239, 147, 0.35);
-  --shadow-btn-primary-hover: 0 8px 24px rgba(13, 239, 147, 0.5);
-  --shadow-ambient-card: 0 4px 130px rgba(150, 163, 181, 0.15);
-  --shadow-nav: 0 4px 24px rgba(0, 0, 0, 0.04);
+  --shadow-btn-primary: 0 4px 14px oklch(53% .2 258 / .26);
+  --shadow-btn-primary-hover: 0 8px 24px oklch(47% .18 258 / .32);
+  --shadow-ambient-card: 0 4px 130px oklch(70% .045 250 / .15);
+  --shadow-nav: 0 4px 24px oklch(19% .025 255 / .05);
 
   /* ------------------------------------------------------------------------
-     9. Transitions
+     7. Transitions
      ------------------------------------------------------------------------ */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
-  --focus-ring-color: var(--color-green-primary);
+  --focus-ring-color: var(--color-primary-blue);
   --focus-ring-offset: 3px;
 }

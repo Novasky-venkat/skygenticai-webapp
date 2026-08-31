@@ -6,10 +6,10 @@ export const TrustAvatarCluster = ({
 }) => (
   <div className={`trust-avatar-cluster ${className}`}>
     <div className="avatar-stack" aria-hidden="true">
-      <span className="avatar-dot" style={{ background: '#3B82F6' }}>FL</span>
-      <span className="avatar-dot" style={{ background: '#10B981' }}>DC</span>
-      <span className="avatar-dot" style={{ background: '#8B5CF6' }}>SM</span>
-      <span className="avatar-dot" style={{ background: '#F59E0B' }}>AK</span>
+      <span className="avatar-dot" style={{ background: 'var(--color-primary-blue)' }}>FL</span>
+      <span className="avatar-dot" style={{ background: 'var(--color-secondary-blue)' }}>DC</span>
+      <span className="avatar-dot" style={{ background: 'var(--color-blue-900)' }}>SM</span>
+      <span className="avatar-dot" style={{ background: 'var(--color-teal)' }}>AK</span>
     </div>
     <span className="trust-label">{label}</span>
   </div>

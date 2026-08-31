@@ -2,7 +2,7 @@ import React from 'react';
 
 export const BadgePill = ({
   children,
-  variant = 'emerald', // 'emerald' | 'sapphire' | 'glass' | 'purple'
+  variant = 'emerald', // 'emerald' | 'sapphire' | 'glass' | 'premium'
   dot = true,
   className = '',
   ...props
