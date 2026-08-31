@@ -6,6 +6,22 @@
 > 2. **Strict Typography Inheritance**: Exclusively bind to `Clash Display` (Display) and `Satoshi` (Body).
 > 3. **3-Tier Global Tokens**: All color, radius, and spacing values must inherit from `styles/tokens.css`.
 
+## Hero Background Asset Architecture
+
+The active hero background image is stored at `assets/hero/agentic-hero-bg.png`.
+
+Change rules:
+- Store hero-specific raster artwork under `assets/hero/` with a semantic, lowercase hyphenated filename.
+- Reference hero artwork only through the `--bg-hero-agentic` token in `styles/tokens.css`.
+- Keep sizing, clipping, responsive crop, and overlay rules in `.section-hero` inside `styles/design-system.css`.
+- Do not place decorative hero artwork in markup. The hero image remains a CSS background so the fixed header can float over it and the section can clip it.
+- Keep `.section-hero` full-screen with `min-height: 100svh`, `overflow: hidden`, and `background-position` tuned per breakpoint.
+- Use `npm test` after any hero image or crop change to preserve perf budget, accessibility, SEO, and Hallmark token checks.
+
+Current crop:
+- Desktop: `background-size: clamp(980px, 70vw, 1480px) auto`; `background-position: right center`.
+- Tablet and mobile: `background-size: auto 100%`; `background-position: calc(100% + 740px) center`.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 

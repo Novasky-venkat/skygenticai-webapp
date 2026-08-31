@@ -5,7 +5,7 @@
 
 /* 1. Base & Reset */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   margin: 0; padding: 0;
   background-color: var(--color-background);
@@ -96,11 +96,25 @@ body {
 
 /* 7. Section 2: Hero Section */
 .section-hero {
-  position: relative; padding-top: 150px; padding-bottom: 90px;
-  background-color: var(--color-background); background-image: var(--bg-gradient-hero), var(--bg-gradient-hero-glow);
-  background-repeat: no-repeat; background-size: 100% 100%; overflow: hidden;
+  position: relative; min-height: 100svh; display: flex; align-items: center;
+  padding-top: 120px; padding-bottom: var(--space-16);
+  background-color: var(--color-background); background-image: var(--bg-hero-agentic), var(--bg-gradient-hero);
+  background-repeat: no-repeat; background-size: clamp(980px, 70vw, 1480px) auto, 100% 100%;
+  background-position: right center, center; overflow: hidden; isolation: isolate;
 }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-8); align-items: center; }
+.section-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--bg-hero-scrim);
+  pointer-events: none; z-index: 0;
+}
+.section-hero .container {
+  position: relative; z-index: 1; width: 100%;
+}
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 635px);
+  align-items: center;
+}
+.hero-copy { max-width: 635px; }
 .hero-eyebrow { font-family: var(--font-family-body); font-size: 15px; color: var(--color-secondary-text); margin-bottom: 16px; }
 .headline-homepage {
   font-family: var(--font-family-display); font-size: 3.25rem; font-weight: 500; line-height: 1.2;
@@ -108,20 +122,6 @@ body {
 }
 .hero-lead { font-family: var(--font-family-body); font-size: 18px; line-height: 1.55; color: var(--color-body); max-width: 480px; margin-bottom: 24px; }
 .hero-cta-group { display: flex; align-items: center; gap: var(--space-4); }
-.hero-visual-container { position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; }
-.hero-3d-bot {
-  width: 320px; height: 320px;
-  background: radial-gradient(circle at 35% 35%, var(--color-teal-soft) 0%, var(--color-blue-900) 82%);
-  border-radius: 50%; box-shadow: 0 20px 80px oklch(53% .2 258 / .24), inset 0 2px 20px oklch(99% .006 250 / .42);
-  display: flex; align-items: center; justify-content: center;
-}
-.bot-eye-glow { width: 140px; height: 40px; background: var(--color-card); border-radius: 20px; box-shadow: 0 0 30px var(--color-soft-sky); }
-.floating-mic-chip {
-  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
-  width: 68px; height: 68px; background: oklch(99% .006 250 / .95); color: var(--color-blue-900); backdrop-filter: blur(20px);
-  border: 2px solid var(--color-soft-sky); border-radius: 50%;
-  box-shadow: 0 12px 35px oklch(60% .19 255 / .2); display: flex; align-items: center; justify-content: center;
-}
 
 /* 8. Section 3: Enterprise Metrics Strip (1:1 AiChat Match) */
 .section-metrics { background: var(--color-card); padding: 90px 0; border-top: 1px solid var(--color-border); }
@@ -569,6 +569,12 @@ body {
   .hero-grid, .features-composite-grid, .sticky-showcase-grid, .testimonials-grid, .footer-cards-grid {
     grid-template-columns: 1fr; gap: var(--space-10);
   }
+  .section-hero {
+    min-height: 100svh; padding-top: 112px; padding-bottom: var(--space-12);
+    background-size: auto 100%, 100% 100%;
+    background-position: calc(100% + 740px) center, center;
+  }
+  .section-hero::before { background: var(--bg-hero-scrim-mobile); }
   .headline-homepage { font-size: 2.5rem; }
   .bento-staggered-grid { grid-template-columns: 1fr; }
   .bento-column.col-1, .bento-column.col-2, .bento-column.col-3 { margin-top: 0; }
@@ -581,6 +587,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  .navbar-container { height: 70px; padding: 0 var(--space-4); }
+  .nav-brand span { display: none; }
+  .nav-actions { gap: var(--space-3); }
+  .nav-signin { display: none; }
   .footer-nav-card { grid-template-columns: 1fr; }
   .footer-bottom-bar { flex-direction: column; gap: var(--space-4); text-align: center; }
 }

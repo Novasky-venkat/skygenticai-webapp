@@ -29,11 +29,13 @@
      2. Gradients & Atmospheric Glows
      ------------------------------------------------------------------------ */
   --bg-gradient-hero: linear-gradient(180deg, var(--color-background) 0%, var(--color-blue-50) 100%);
+  --bg-hero-agentic: url("../assets/hero/agentic-hero-bg.png");
+  --bg-hero-scrim: linear-gradient(90deg, oklch(98% .01 250 / .86) 0%, oklch(98% .01 250 / .7) 36%, oklch(98% .01 250 / 0) 72%);
+  --bg-hero-scrim-mobile: linear-gradient(180deg, oklch(98% .01 250 / .9), oklch(98% .01 250 / .52));
   --bg-gradient-primary-cta: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-blue-900) 100%);
   --bg-gradient-ai-showcase: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
   --bg-gradient-knowledge: linear-gradient(135deg, var(--color-teal-soft) 0%, var(--color-card) 100%);
   --bg-gradient-testimonials: linear-gradient(135deg, var(--color-card) 0%, var(--color-blue-50) 100%);
-  --bg-gradient-hero-glow: radial-gradient(circle at 82% 42%, oklch(94% .035 250 / .78) 0%, oklch(98% .01 250 / 0) 72%);
   --bg-gradient-footer-cta: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
   --bg-glass-navbar: oklch(99% .006 250 / .92);
 
