@@ -20,6 +20,7 @@
   --color-background: oklch(98% .01 250);
   --color-section-alt: oklch(96% .018 250);
   --color-card: oklch(99% .006 250);
+  --color-navbar-scrolled: #f8fcff;
   --color-border: oklch(88% .02 250);
   --color-heading: oklch(19% .025 255);
   --color-body: oklch(34% .025 252);
@@ -35,7 +36,6 @@
   --bg-gradient-testimonials: linear-gradient(135deg, var(--color-card) 0%, var(--color-blue-50) 100%);
   --bg-gradient-hero-glow: radial-gradient(circle at 82% 42%, oklch(94% .035 250 / .78) 0%, oklch(98% .01 250 / 0) 72%);
   --bg-gradient-footer-cta: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
-  --bg-glass-navbar: oklch(99% .006 250 / .92);
 
   /* ------------------------------------------------------------------------
      3. Typography Families

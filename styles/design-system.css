@@ -78,23 +78,7 @@ body {
 .btn-text-slide { display: block; transition: transform var(--transition-normal); line-height: 20px; }
 .btn-primary:hover .btn-text-slide, .btn-glass:hover .btn-text-slide, .btn-white:hover .btn-text-slide { transform: translateY(-20px); }
 
-/* 6. Section 1: Floating Navbar */
-.navbar-wrapper { position: fixed; top: 14px; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; padding: 0 var(--space-4); }
-.navbar-container {
-  width: 100%; max-width: var(--container-max-width); height: 72px;
-  background: var(--bg-glass-navbar); backdrop-filter: blur(20px);
-  border: 1px solid var(--color-border); border-radius: 9999px;
-  box-shadow: var(--shadow-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-8);
-}
-.nav-brand { font-family: var(--font-family-display); font-size: 1.45rem; font-weight: 700; color: var(--color-heading); text-decoration: none; display: flex; align-items: center; gap: var(--space-2); }
-.nav-menu { display: flex; align-items: center; gap: var(--space-8); list-style: none; margin: 0; padding: 0; }
-.nav-link { font-family: var(--font-family-body); font-size: 1rem; font-weight: 500; color: var(--color-body); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color var(--transition-fast); }
-.nav-link:hover { color: var(--color-primary-blue); }
-.nav-actions { display: flex; align-items: center; gap: var(--space-6); }
-.nav-signin { color: var(--color-body); font-size: 1rem; font-weight: 500; text-decoration: none; transition: color var(--transition-fast); }
-.nav-signin:hover { color: var(--color-primary-blue); }
-
-/* 7. Section 2: Hero Section */
+/* 6. Section 2: Hero Section */
 .section-hero {
   position: relative; padding-top: 150px; padding-bottom: 90px;
   background-color: var(--color-background); background-image: var(--bg-gradient-hero), var(--bg-gradient-hero-glow);
@@ -564,7 +548,7 @@ body {
   content-visibility: auto; contain-intrinsic-size: 1px 600px;
 }
 
-/* 16. Media Queries */
+/* 15. Media Queries */
 @media (max-width: 991px) {
   .hero-grid, .features-composite-grid, .sticky-showcase-grid, .testimonials-grid, .footer-cards-grid {
     grid-template-columns: 1fr; gap: var(--space-10);
@@ -585,7 +569,7 @@ body {
   .footer-bottom-bar { flex-direction: column; gap: var(--space-4); text-align: center; }
 }
 
-/* 17. Accessibility Focus Rings & Reduced Motion */
+/* 16. Accessibility Focus Rings & Reduced Motion */
 a:focus-visible, button:focus-visible, input:focus-visible {
   outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset);
 }
