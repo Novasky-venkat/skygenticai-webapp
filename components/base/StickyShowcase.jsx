@@ -218,7 +218,7 @@ export const StickyShowcase = ({ className = '' }) => {
 
                     <div className="customer-crm-pane">
                       <div className="crm-title">Account Intelligence</div>
-                      <div className="crm-row"><span>Sentiment:</span> <strong style={{ color: '#0DEF93' }}>Exceptional (96%)</strong></div>
+                      <div className="crm-row"><span>Sentiment:</span> <strong style={{ color: 'var(--color-heading)' }}>Exceptional (96%)</strong></div>
                       <div className="crm-row"><span>Account Value:</span> <strong>$18,500/yr</strong></div>
                       <div className="crm-row"><span>Seat Scale:</span> <strong>2,000 Active</strong></div>
                       <div className="crm-row"><span>Channel:</span> <strong>Omnichannel Suite</strong></div>

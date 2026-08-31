@@ -7,7 +7,7 @@ export const Features = () => (
       <div className="features-composite-grid">
         {/* Left Column: Heading, CTA & Trust Proof */}
         <div className="features-left-block">
-          <h2 style={{ color: 'var(--color-surface-white)', fontSize: '2rem', lineHeight: 1.25, marginBottom: 'var(--space-4)' }}>
+          <h2 style={{ color: 'var(--color-card)', fontSize: '2rem', lineHeight: 1.25, marginBottom: 'var(--space-4)' }}>
             How SkyGentic AI Helps Businesses Achieve Remarkable Success
           </h2>
           <CapsuleButton href="#contact" variant="glass" style={{ marginBottom: 'var(--space-6)' }}>

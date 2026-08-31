@@ -52,7 +52,7 @@ body {
   font-size: 1.125rem; 
   font-weight: 400;
   line-height: 1.6;
-  color: #3d4050;
+  color: var(--color-body);
 }
 h1, h2, h3, h4, h5, h6,
 .font-display,
@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 500;
   letter-spacing: -0.015em;
   margin-top: 0;
-  color: #03031d;
+  color: var(--color-heading);
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0;
 }
@@ -72,7 +72,7 @@ h1, .display-1, .headline-homepage {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
-  color: #03031d;
+  color: var(--color-heading);
   max-width: 640px;
 }
 @media (min-width: 992px) {
@@ -109,7 +109,7 @@ h4, .display-4 {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: #6c6c89;
+  color: var(--color-body);
   letter-spacing: 0;
   margin-bottom: 16px;
 }
@@ -118,7 +118,7 @@ h4, .display-4 {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.55;
-  color: #3d4050;
+  color: var(--color-body);
   max-width: 480px;
   margin-bottom: 24px;
 }
@@ -129,7 +129,7 @@ p {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: #3d4050;
+  color: var(--color-body);
 }
 .stat-digit, .feature-digit {
   font-family: 'Clashdisplay', sans-serif;
@@ -137,13 +137,13 @@ p {
   font-weight: 500;
   line-height: 1.0;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--color-primary-blue);
 }
 .stat-label {
   font-family: 'Satoshi', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #c1c1ce;
+  color: var(--color-body);
   margin-top: 6px;
 }
 .btn-primary, .btn-secondary, .btn-glass, .btn-white {

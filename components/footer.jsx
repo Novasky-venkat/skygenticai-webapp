@@ -7,10 +7,10 @@ export const Footer = () => (
       <div className="footer-cards-grid">
         {/* Left Hero CTA Card */}
         <div className="card-gradient-hero">
-          <h3 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2.25rem', fontWeight: 500, color: '#ffffff', marginBottom: 'var(--space-3)' }}>
+          <h3 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2.25rem', fontWeight: 500, color: 'var(--color-heading)', marginBottom: 'var(--space-3)' }}>
             Build Your Agentic CX Today
           </h3>
-          <p style={{ color: 'var(--color-slate-200)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
+          <p style={{ color: 'var(--color-body)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
             Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.
           </p>
           <CapsuleButton href="#demo" variant="white">

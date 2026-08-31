@@ -6,7 +6,7 @@ export const ScrollableCardDeck = ({
       id: 'knowledge',
       title: 'Knowledge Base Building',
       badge: 'Knowledge Hub',
-      gradient: 'linear-gradient(145deg, #06063A 0%, #2A1654 60%, #0DEF93 110%)',
+      gradient: 'var(--bg-gradient-knowledge)',
       query: 'What are the key features of the SkyGentic Mortgage Guide?',
       answer: 'Extracted from uploaded PDF: Automated pre-qualification, instant rate calculator, and AI-powered document verification.',
       status: 'Live & Synced'
@@ -15,7 +15,7 @@ export const ScrollableCardDeck = ({
       id: 'marketing',
       title: 'Lead Gen and Marketing Flow Builder',
       badge: 'Campaign Engine',
-      gradient: 'linear-gradient(145deg, #04042B 0%, #4B207F 60%, #9741FE 110%)',
+      gradient: 'var(--bg-gradient-ai-showcase)',
       query: 'Trigger automated WhatsApp nurture flow after user signup?',
       answer: 'Flow active: Instant welcome voucher sent. Nurture sequence scheduled for Day 3 and Day 7 with 48.2% open rate.',
       status: 'Automated'
@@ -24,7 +24,7 @@ export const ScrollableCardDeck = ({
       id: 'omnichannel',
       title: 'Omnichannel Inbox & Live Agent Handoff',
       badge: 'Unified Inbox',
-      gradient: 'linear-gradient(145deg, #02020F 0%, #1E3A8A 60%, #2563EB 110%)',
+      gradient: 'linear-gradient(145deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%)',
       query: 'Seamless escalation from bot to human support specialist?',
       answer: 'Sentiment flagged: Frustrated user. Full chat transcript and customer CRM context handed off to agent Sarah M. in 1.2s.',
       status: 'Protected'
@@ -70,9 +70,9 @@ export const ScrollableCardDeck = ({
                 {/* Window Header */}
                 <div className="deck-mockup-topbar">
                   <div className="mockup-dots">
-                    <span className="dot" style={{ background: '#FF5F56' }} />
-                    <span className="dot" style={{ background: '#FFBD2E' }} />
-                    <span className="dot" style={{ background: '#27C93F' }} />
+                    <span className="dot" style={{ background: 'var(--color-blue-900)' }} />
+                    <span className="dot" style={{ background: 'var(--color-amber)' }} />
+                    <span className="dot" style={{ background: 'var(--color-teal)' }} />
                   </div>
                   <span className="deck-mockup-badge">{cards[activeCardIndex].badge}</span>
                   <span className="deck-mockup-status">{cards[activeCardIndex].status}</span>

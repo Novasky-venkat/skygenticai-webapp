@@ -5,7 +5,7 @@ export const StackedDeck = ({
     {
       id: 1,
       title: 'Knowledge Base Building',
-      gradient: 'linear-gradient(135deg, #06063A 0%, #3B1F6D 60%, #0DEF93 100%)',
+      gradient: 'var(--bg-gradient-knowledge)',
       badge: 'Knowledge Engine',
       query: 'What are the key features of SkyGentic AI?',
       answer: 'SkyGentic delivers autonomous agents, sub-50ms latency, and enterprise tool integrations out of the box.'
@@ -13,7 +13,7 @@ export const StackedDeck = ({
     {
       id: 2,
       title: 'Conversational Marketing Automation',
-      gradient: 'linear-gradient(135deg, #04042B 0%, #4B207F 60%, #7131BE 100%)',
+      gradient: 'var(--bg-gradient-ai-showcase)',
       badge: 'Marketing Flows',
       query: 'Can you trigger a 15% VIP discount on WhatsApp checkout?',
       answer: 'Segment verified: Customer is VIP Tier. 15% coupon applied dynamically to cart #9284.'
@@ -21,7 +21,7 @@ export const StackedDeck = ({
     {
       id: 3,
       title: 'Omnichannel CX Management',
-      gradient: 'linear-gradient(135deg, #02020F 0%, #1E3A8A 60%, #2563EB 100%)',
+      gradient: 'linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%)',
       badge: 'Unified Inbox',
       query: 'How many customer conversations were automated today?',
       answer: '94.2% containment rate across WhatsApp, Web Widget, and Voice channels.'

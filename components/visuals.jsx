@@ -20,7 +20,7 @@ function AgentFlow() {
           width: 100%;
           aspect-ratio: 780 / 455;
           overflow: visible;
-          filter: drop-shadow(0 34px 90px rgba(7, 240, 218, 0.12)) drop-shadow(0 30px 80px rgba(0,0,0,0.58));
+          filter: drop-shadow(0 34px 90px oklch(60% 0.120 190 / 0.12)) drop-shadow(0 30px 80px oklch(19% 0.025 255 / 0.58));
           animation: heroPhotoFloat 6s ease-in-out infinite;
           isolation: isolate;
         }
@@ -33,18 +33,18 @@ function AgentFlow() {
           transform: scale(1.045);
           animation: heroPhotoZoom 10s ease-in-out infinite alternate;
           -webkit-mask-image:
-            radial-gradient(ellipse at 63% 52%, #000 34%, rgba(0,0,0,0.78) 52%, rgba(0,0,0,0.24) 68%, transparent 82%);
+            radial-gradient(ellipse at 63% 52%, oklch(16% 0.012 255) 34%, oklch(16% 0.012 255 / 0.78) 52%, oklch(16% 0.012 255 / 0.24) 68%, transparent 82%);
           mask-image:
-            radial-gradient(ellipse at 63% 52%, #000 34%, rgba(0,0,0,0.78) 52%, rgba(0,0,0,0.24) 68%, transparent 82%);
+            radial-gradient(ellipse at 63% 52%, oklch(16% 0.012 255) 34%, oklch(16% 0.012 255 / 0.78) 52%, oklch(16% 0.012 255 / 0.24) 68%, transparent 82%);
         }
         .hero-photo-art::before {
           content: "";
           position: absolute;
           inset: -18% -15%;
           background:
-            radial-gradient(circle at 58% 48%, rgba(90,255,235,0.18), transparent 26%),
-            radial-gradient(circle at 76% 34%, rgba(38,162,255,0.12), transparent 24%),
-            linear-gradient(90deg, rgba(0,0,0,0.92) 0%, transparent 28%, transparent 66%, rgba(0,0,0,0.88) 100%);
+            radial-gradient(circle at 58% 48%, oklch(60% 0.120 190 / 0.18), transparent 26%),
+            radial-gradient(circle at 76% 34%, oklch(53% 0.200 258 / 0.12), transparent 24%),
+            linear-gradient(90deg, oklch(16% 0.012 255 / 0.92) 0%, transparent 28%, transparent 66%, oklch(16% 0.012 255 / 0.88) 100%);
           mix-blend-mode: screen;
           opacity: 0.66;
           pointer-events: none;
@@ -56,10 +56,10 @@ function AgentFlow() {
           position: absolute;
           inset: -10% -12%;
           background:
-            linear-gradient(90deg, #000 0%, rgba(0,0,0,0.64) 16%, transparent 34%, transparent 68%, rgba(0,0,0,0.72) 86%, #000 100%),
-            linear-gradient(0deg, #000 0%, rgba(0,0,0,0.72) 16%, transparent 38%, transparent 70%, rgba(0,0,0,0.72) 100%),
-            linear-gradient(rgba(125,255,239,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(125,255,239,0.08) 1px, transparent 1px);
+            linear-gradient(90deg, oklch(16% 0.012 255) 0%, oklch(16% 0.012 255 / 0.64) 16%, transparent 34%, transparent 68%, oklch(16% 0.012 255 / 0.72) 86%, oklch(16% 0.012 255) 100%),
+            linear-gradient(0deg, oklch(16% 0.012 255) 0%, oklch(16% 0.012 255 / 0.72) 16%, transparent 38%, transparent 70%, oklch(16% 0.012 255 / 0.72) 100%),
+            linear-gradient(oklch(60% 0.120 190 / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, oklch(60% 0.120 190 / 0.08) 1px, transparent 1px);
           background-size: auto, auto, 42px 42px, 42px 42px;
           opacity: 0.5;
           mix-blend-mode: normal;
@@ -78,7 +78,7 @@ function AgentFlow() {
         }
         .hero-photo-art__scan {
           inset: -8% -20%;
-          background: linear-gradient(105deg, transparent 0 42%, rgba(151,255,241,0.0) 46%, rgba(151,255,241,0.46) 50%, transparent 55% 100%);
+          background: linear-gradient(105deg, transparent 0 42%, oklch(60% 0.120 190 / 0) 46%, oklch(60% 0.120 190 / 0.46) 50%, transparent 55% 100%);
           transform: translateX(-80%);
           mix-blend-mode: screen;
           animation: heroPhotoScan 4.2s ease-in-out infinite;
@@ -87,8 +87,8 @@ function AgentFlow() {
           width: 18%;
           aspect-ratio: 1;
           border-radius: 50%;
-          border: 1px solid rgba(126,255,240,0.45);
-          box-shadow: 0 0 24px rgba(126,255,240,0.24), inset 0 0 22px rgba(126,255,240,0.16);
+          border: 1px solid oklch(60% 0.120 190 / 0.45);
+          box-shadow: 0 0 24px oklch(60% 0.120 190 / 0.24), inset 0 0 22px oklch(60% 0.120 190 / 0.16);
           animation: heroPhotoOrbit 7s linear infinite, heroPhotoBreath 2.8s ease-in-out infinite;
         }
         .hero-photo-art__glow--one {
@@ -106,15 +106,15 @@ function AgentFlow() {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: rgba(151,255,241,0.78);
-          box-shadow: 0 0 22px rgba(151,255,241,0.82);
+          background: oklch(60% 0.120 190 / 0.78);
+          box-shadow: 0 0 22px oklch(60% 0.120 190 / 0.82);
         }
         .hero-photo-art__pulse::after {
           content: "";
           position: absolute;
           inset: -12px;
           border-radius: 50%;
-          border: 1px solid rgba(151,255,241,0.85);
+          border: 1px solid oklch(60% 0.120 190 / 0.85);
           animation: heroPhotoRipple 1.8s ease-out infinite;
         }
         .hero-photo-art__pulse--one {
@@ -130,8 +130,8 @@ function AgentFlow() {
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background: #97fff1;
-          box-shadow: 0 0 14px rgba(151,255,241,0.9);
+          background: var(--color-teal);
+          box-shadow: 0 0 14px oklch(60% 0.120 190 / 0.9);
           animation: heroPhotoSpark 3.2s ease-in-out infinite;
         }
         .hero-photo-art__spark--1 { left: 8%; top: 20%; animation-delay: -0.2s; }
@@ -215,7 +215,7 @@ function ParticleField() {
         if (p.y < 0 || p.y > h) p.vy *= -1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(59,130,246,0.5)";
+        ctx.fillStyle = "oklch(53% 0.200 258 / 0.5)";
         ctx.fill();
       });
       // connect close particles
@@ -228,7 +228,7 @@ function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(59,130,246,${0.15 * (1 - d / (140 * devicePixelRatio))})`;
+            ctx.strokeStyle = `oklch(53% 0.200 258 / ${0.15 * (1 - d / (140 * devicePixelRatio))})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
