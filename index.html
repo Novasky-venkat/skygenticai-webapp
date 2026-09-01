@@ -80,125 +80,30 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
-  <style>
-    .navbar-wrapper {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      width: 100%;
-      border-bottom: 1px solid transparent;
-      box-shadow: none;
-      transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
-    }
 
-    .navbar-container {
-      width: min(100%, var(--container-max-width));
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0 auto;
-      padding: 0 var(--space-6);
-    }
-
-    .navbar-wrapper.is-scrolled {
-      background: var(--color-navbar-scrolled);
-      border-bottom-color: var(--color-border);
-      box-shadow: var(--shadow-nav);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      color: var(--color-heading);
-      font-family: var(--font-family-display);
-      font-size: 1.45rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: var(--space-8);
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-link,
-    .nav-signin {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      color: var(--color-body);
-      font-family: var(--font-family-body);
-      font-size: 1rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-
-    .nav-link:hover,
-    .nav-signin:hover {
-      color: var(--color-primary-blue);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-    }
-
-    @media (max-width: 991px) {
-      .navbar-container {
-        padding: 0 var(--space-4);
-      }
-
-      .nav-menu {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .navbar-container {
-        min-height: 64px;
-        gap: var(--space-3);
-      }
-
-      .nav-actions {
-        gap: var(--space-3);
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- Accessible Bypass Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Section 1: Floating Light Capsule Navbar -->
   <header class="navbar-wrapper" role="banner">
     <nav class="navbar-container" aria-label="Main Navigation">
-      <!-- Brand Logo -->
       <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-          <rect width="28" height="28" rx="8" fill="var(--color-primary-blue)"></rect>
-          <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14C21 17.866 17.866 21 14 21" stroke="var(--color-card)" stroke-width="2.5" stroke-linecap="round"></path>
-          <circle cx="14" cy="14" r="3" fill="var(--color-blue-100)"></circle>
-        </svg>
-        <span>SkyGentic</span>
+        <img class="nav-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
       </a>
 
-      <!-- Category Navigation Links with Dropdown Carets -->
       <ul class="nav-menu">
-        <li>
-          <a href="#capabilities" class="nav-link">
-            <span>Services</span>
+        <li class="services-menu">
+          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown" aria-haspopup="true">
+            Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
+          <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
+            <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img" src="assets/icon-forge.png" alt="" width="32" height="32">Forge</a>
+            <a class="service-dropdown-link" href="services.html#swarn" role="menuitem"><img class="service-icon-img" src="assets/icon-swarn.png" alt="" width="32" height="32">Swarn</a>
+            <a class="service-dropdown-link" href="services.html#skyflow" role="menuitem"><img class="service-icon-img" src="assets/icon-skyflow.png" alt="" width="32" height="32">SkyFlow</a>
+            <a class="service-dropdown-link" href="services.html#hive" role="menuitem"><img class="service-icon-img" src="assets/icon-hive.png" alt="" width="32" height="32">Hive</a>
+            <a class="service-dropdown-link" href="services.html#nova-ops" role="menuitem"><img class="service-icon-img" src="assets/icon-novaops.png" alt="" width="32" height="32">Nova Ops</a>
+          </div>
         </li>
         <li>
           <a href="#capabilities" class="nav-link">
@@ -217,7 +122,6 @@
         </li>
       </ul>
 
-      <!-- Navbar Action Group -->
       <div class="nav-actions">
         <a href="#signin" class="nav-signin">Sign In</a>
         <a href="#demo" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
@@ -236,10 +140,8 @@
     </nav>
   </header>
 
-  <!-- Main Content Landmark -->
   <main id="main-content">
     
-    <!-- Section 2: Hero Section (White Canvas + Cosmic Glow) -->
     <section id="hero" class="section-hero" aria-label="Hero Introduction">
       <div class="container">
         <div class="hero-grid">
@@ -287,18 +189,15 @@
     </section>
 
 
-    <!-- Section 3: Skygentic Platform at a Glance -->
     <section id="features" class="section-metrics" aria-label="Enterprise Impact Metrics">
       <div class="container">
         <div class="features-composite-grid">
-          <!-- Left Column: Title & CTA -->
           <div>
             <h2 class="metrics-heading">
               One unified platform to<br class="metrics-mobile-break"> Build, Deploy and<br class="metrics-tablet-break"> Govern Enterprise AI Agents at scale
             </h2>
           </div>
 
-          <!-- Middle Column: Metrics Statistics -->
           <div style="display: flex; gap: var(--space-8);">
             <div class="stat-block">
               <div class="stat-digit">5</div>
@@ -316,7 +215,6 @@
             </div>
           </div>
 
-          <!-- Right Column: Sleek Hallmark Pill Tags (1:1 Match) -->
           <div class="features-right-wrapper">
             <h3 class="features-right-title">Core Platform Modules</h3>
             <div class="features-chips-flex">
@@ -332,7 +230,6 @@
       </div>
     </section>
 
-    <!-- Section 4: Client Logo Marquee -->
     <section class="section-marquee" aria-label="Trusted Enterprise Clients">
       <div class="marquee-track" aria-hidden="true">
         <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> VERTEX GLOBAL</div>
@@ -346,7 +243,6 @@
       </div>
     </section>
 
-    <!-- Section 5: Platform Capabilities Staggered Bento Grid (Original Bespoke Copy) -->
     <section id="capabilities" class="section-capabilities" aria-label="Platform Capabilities">
       <div class="container">
         <div class="capabilities-header">
@@ -359,7 +255,6 @@
         <div class="bento-staggered-grid">
           <div class="bento-glow-backdrop" aria-hidden="true"></div>
 
-          <!-- Column 1: Left (Autonomous Agentic Intelligence) -->
           <div class="bento-column col-1">
             <div class="bento-feature-card">
               <div class="bento-card-icon-badge" aria-hidden="true">
@@ -382,7 +277,6 @@
             </div>
           </div>
 
-          <!-- Column 2: Middle (Conversational Voice AI & Cognitive Digital Concierge) -->
           <div class="bento-column col-2">
             <div class="bento-feature-card">
               <div class="bento-card-icon-badge" aria-hidden="true">
@@ -427,7 +321,6 @@
             </div>
           </div>
 
-          <!-- Column 3: Right (Enterprise Knowledge RAG Engine & Omnichannel Revenue Automation) -->
           <div class="bento-column col-3">
             <div class="bento-feature-card">
               <div class="bento-card-icon-badge" aria-hidden="true">
@@ -488,14 +381,11 @@
       </div>
     </section>
 
-    <!-- Section 6: Business Messaging Sticky Scrollable Showcase with Real UI Screens (Original Bespoke Copy) -->
     <section id="showcase" class="section-sticky-showcase" aria-label="Business Messaging Showcase">
       <div class="container">
         <div class="sticky-showcase-grid">
-          <!-- Left Column: Vertically Stacking Scrollable Cards -->
           <div class="sticky-cards-column">
             
-            <!-- Card 1: Dynamic Knowledge Retrieval -->
             <div class="sticky-card-item" style="position: sticky; top: 140px; z-index: 1;">
               <div class="sticky-card-surface">
                 <div class="sticky-card-mockup mockup-knowledge">
@@ -518,7 +408,6 @@
                   </div>
 
                   <div class="mockup-split-layout">
-                    <!-- ChatGPT Style Grounded Console -->
                     <div class="chatgpt-window">
                       <div class="chatgpt-header">
                         <div class="avatar-chip">AI</div>
@@ -544,7 +433,6 @@
                       </div>
                     </div>
 
-                    <!-- Documents Sidebar -->
                     <div class="docs-sidebar">
                       <div class="sidebar-header">Vectorized Repositories (3)</div>
                       <div class="doc-item active">
@@ -578,7 +466,6 @@
               </div>
             </div>
 
-            <!-- Card 2: Visual Journey & Revenue Flow Studio -->
             <div class="sticky-card-item" style="position: sticky; top: 180px; z-index: 2;">
               <div class="sticky-card-surface">
                 <div class="sticky-card-mockup mockup-marketing">
@@ -633,7 +520,6 @@
               </div>
             </div>
 
-            <!-- Card 3: Unified CoPilot & Agent Workspace -->
             <div class="sticky-card-item" style="position: sticky; top: 220px; z-index: 3;">
               <div class="sticky-card-surface">
                 <div class="sticky-card-mockup mockup-omnichannel">
@@ -686,7 +572,6 @@
 
           </div>
 
-          <!-- Right Column: Sticky Title & Description Panel -->
           <div class="sticky-content-column">
             <div class="sticky-white-panel">
               <h2 class="sticky-panel-title">
@@ -701,10 +586,8 @@
       </div>
     </section>
 
-    <!-- Section 7: Expanding Testimonials Ribbon (Original Bespoke Copy) -->
     <section id="testimonials" class="section-testimonial-ribbon" aria-label="Customer Success Testimonials">
       <div class="testimonial-main-wrapper">
-        <!-- Left Column: Fixed Heading, Subtitle, and CTA Button -->
         <div class="testimonial-left-wrapper">
           <div>
             <h2 class="testimonial-title">Trusted by<br>Forward-Thinking<br>Industry Leaders</h2>
@@ -728,10 +611,8 @@
           </div>
         </div>
 
-        <!-- Right Column: Horizontal Scrollable & Expanding Ribbon Track -->
         <div class="testimonial-right-wrapper" id="testimonialTrack" role="tablist" aria-label="Customer Reviews Track">
           
-          <!-- Panel 1: Elena Rostova (Collapsed) -->
           <div class="testimonial-panel collapsed" data-index="0" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Elena Rostova">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
@@ -749,7 +630,6 @@
             </div>
           </div>
 
-          <!-- Panel 2: Marcus Vance (Active Expanded Default) -->
           <div class="testimonial-panel active" data-index="1" role="tab" tabindex="0" aria-selected="true" aria-label="Testimonial from Marcus Vance">
             <div class="panel-expanded-view">
               <div class="expanded-header">
@@ -767,7 +647,6 @@
             </div>
           </div>
 
-          <!-- Panel 3: Kavita Patel (Collapsed) -->
           <div class="testimonial-panel collapsed" data-index="2" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Kavita Patel">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
@@ -785,7 +664,6 @@
             </div>
           </div>
 
-          <!-- Panel 4: Arthur Sterling (Collapsed) -->
           <div class="testimonial-panel collapsed" data-index="3" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Arthur Sterling">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
@@ -807,7 +685,6 @@
       </div>
     </section>
 
-    <!-- Section 8: FAQ Accordion Hub (Accessible ARIA Panels) -->
     <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
       <div class="container-focus">
         <div style="text-align: center; margin-bottom: var(--space-12);">
@@ -820,7 +697,6 @@
         </div>
 
         <div class="surface-card card-light" role="region" aria-label="FAQ Accordion">
-          <!-- Accordion Item 1 -->
           <div class="accordion-item">
             <button 
               type="button" 
@@ -839,7 +715,6 @@
             </div>
           </div>
 
-          <!-- Accordion Item 2 -->
           <div class="accordion-item">
             <button 
               type="button" 
@@ -858,7 +733,6 @@
             </div>
           </div>
 
-          <!-- Accordion Item 3 -->
           <div class="accordion-item">
             <button 
               type="button" 
@@ -882,11 +756,9 @@
 
   </main>
 
-  <!-- Section 9: Enterprise Dual-Card Footer -->
   <footer class="footer-wrapper" role="contentinfo">
     <div class="container">
       <div class="footer-cards-grid">
-        <!-- Left Hero CTA Card -->
         <div class="card-gradient-hero">
           <h3 style="font-family: var(--font-family-display); font-size: 2.25rem; font-weight: 500; color: var(--color-heading); margin-bottom: var(--space-3);">
             Ready to Build Your Autonomous CX Workforce?
@@ -908,7 +780,6 @@
           </a>
         </div>
 
-        <!-- Right Navigation Directory Card -->
         <div class="footer-nav-card">
           <div>
             <div class="footer-col-title">Platform</div>
@@ -940,7 +811,6 @@
         </div>
       </div>
 
-      <!-- Footer Bottom Bar -->
       <div class="footer-bottom-bar">
         <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
         <div style="display: flex; gap: var(--space-6);">
@@ -952,7 +822,6 @@
     </div>
   </footer>
 
-  <!-- Interactive Testimonials Accordion Script -->
   <script>
     const navbar = document.querySelector('.navbar-wrapper');
     let navbarScrollTicking = false;
@@ -972,6 +841,39 @@
     window.addEventListener('scroll', scheduleNavbarScrollState, { passive: true });
     window.addEventListener('resize', scheduleNavbarScrollState);
     syncNavbarScrollState();
+
+    const m = document.querySelector('.services-menu');
+    const t = document.querySelector('.services-menu-trigger');
+    const setServicesMenuOpen = (isOpen) => {
+      m?.classList.toggle('is-open', isOpen);
+      t?.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    t?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
+    });
+
+    m?.addEventListener('mouseenter', () => {
+      t?.setAttribute('aria-expanded', 'true');
+    });
+    m?.addEventListener('mouseleave', () => {
+      if (!m?.classList.contains('is-open')) {
+        t?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.service-dropdown-link') || !m?.contains(event.target)) {
+        setServicesMenuOpen(false);
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && (t?.getAttribute('aria-expanded') === 'true' || m?.classList.contains('is-open'))) {
+        setServicesMenuOpen(false);
+        t?.focus();
+      }
+    });
 
     const testimonialsData = [
       {

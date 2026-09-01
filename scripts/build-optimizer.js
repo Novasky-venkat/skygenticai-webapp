@@ -31,6 +31,7 @@ function copyDir(src, dest) {
 
 // Copy base assets
 copyDir(path.join(srcDir, 'styles'), path.join(distDir, 'styles'));
+copyDir(path.join(srcDir, 'assets'), path.join(distDir, 'assets'));
 fs.copyFileSync(path.join(srcDir, 'sitemap.xml'), path.join(distDir, 'sitemap.xml'));
 fs.copyFileSync(path.join(srcDir, 'robots.txt'), path.join(distDir, 'robots.txt'));
 
@@ -39,8 +40,10 @@ function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
     .replace(/\s+/g, ' ')                   // collapse whitespace
-    .replace(/\s*([{}:;,])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
     .replace(/;\}/g, '}')                   // remove trailing semicolons
+    .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // collapse 0 units
+    .replace(/(:|\s)0\.(\d+)/g, '$1.$2')    // 0.5s -> .5s
     .trim();
 }
 
