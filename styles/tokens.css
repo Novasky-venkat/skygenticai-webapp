@@ -29,6 +29,9 @@
      2. Gradients & Atmospheric Glows
      ------------------------------------------------------------------------ */
   --bg-gradient-hero: linear-gradient(180deg, var(--color-background) 0%, var(--color-blue-50) 100%);
+  --bg-hero-composition: radial-gradient(ellipse 900px 720px at 22% 44%, oklch(53% .2 258 / .055) 0%, oklch(53% .2 258 / .024) 42%, oklch(53% .2 258 / 0) 78%), radial-gradient(ellipse 980px 760px at 78% 20%, oklch(94% .035 250 / .09) 0%, oklch(94% .035 250 / .036) 46%, oklch(94% .035 250 / 0) 82%), radial-gradient(ellipse 860px 620px at 58% 94%, oklch(70% .14 250 / .034) 0%, oklch(70% .14 250 / .014) 44%, oklch(70% .14 250 / 0) 80%);
+  --bg-hero-headline-depth: radial-gradient(ellipse 760px 640px at 23% 47%, oklch(53% .2 258 / .062) 0%, oklch(53% .2 258 / .024) 38%, oklch(53% .2 258 / 0) 76%);
+  --bg-hero-headline-depth-mobile: radial-gradient(ellipse 680px 560px at 38% 34%, oklch(53% .2 258 / .046) 0%, oklch(53% .2 258 / .018) 42%, oklch(53% .2 258 / 0) 78%);
   --bg-hero-agentic: url("../assets/hero/agentic-hero-bg.png");
   --bg-hero-scrim: linear-gradient(90deg, oklch(98% .01 250 / .86) 0%, oklch(98% .01 250 / .7) 36%, oklch(98% .01 250 / 0) 72%);
   --bg-hero-scrim-mobile: linear-gradient(180deg, oklch(98% .01 250 / .9), oklch(98% .01 250 / .52));
