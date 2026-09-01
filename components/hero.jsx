@@ -230,12 +230,7 @@ const HeroAutomationVisual = () => {
         <div className="orchestrator-node">
           <div className="orchestrator-node__glow" aria-hidden="true"></div>
           <div className="orchestrator-node__header">
-            <svg className="orchestrator-node__icon" width="22" height="22" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="8" fill="var(--color-primary-blue)" />
-              <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14C21 17.866 17.866 21 14 21" stroke="var(--color-card)" strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="14" cy="14" r="3" fill="var(--color-blue-100)" />
-            </svg>
-            <span className="orchestrator-node__brand">SkyGentic AI</span>
+            <img className="orchestrator-node__wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic AI" />
           </div>
           <span className="orchestrator-node__state">{centerStates[step.state]}</span>
           <span className="orchestrator-node__typing">
