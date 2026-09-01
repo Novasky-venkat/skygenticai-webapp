@@ -43,8 +43,10 @@ function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
     .replace(/\s+/g, ' ')                   // collapse whitespace
-    .replace(/\s*([{}:;,])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
     .replace(/;\}/g, '}')                   // remove trailing semicolons
+    .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // collapse 0 units
+    .replace(/(:|\s)0\.(\d+)/g, '$1.$2')    // 0.5s -> .5s
     .trim();
 }
 

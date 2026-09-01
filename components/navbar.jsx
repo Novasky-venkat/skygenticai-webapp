@@ -9,12 +9,39 @@ export const Navbar = () => (
       </a>
 
       <ul className="nav-menu" role="list">
-        <li><a href="#hero" className="nav-link">Overview</a></li>
-        <li><a href="#features" className="nav-link">Solutions</a></li>
-        <li><a href="#capabilities" className="nav-link">Capabilities</a></li>
-        <li><a href="#showcase" className="nav-link">Platform</a></li>
-        <li><a href="#testimonials" className="nav-link">Stories</a></li>
-        <li><a href="#faq" className="nav-link">FAQ</a></li>
+        <li className="services-menu">
+          <button className="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown" aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div className="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
+            <a className="service-dropdown-link" href="services.html#forge" role="menuitem">
+              <img className="service-icon-img" src="assets/icon-forge.png" alt="" width="32" height="32" />
+              Forge
+            </a>
+            <a className="service-dropdown-link" href="services.html#swarn" role="menuitem">
+              <img className="service-icon-img" src="assets/icon-swarn.png" alt="" width="32" height="32" />
+              Swarn
+            </a>
+            <a className="service-dropdown-link" href="services.html#skyflow" role="menuitem">
+              <img className="service-icon-img" src="assets/icon-skyflow.png" alt="" width="32" height="32" />
+              SkyFlow
+            </a>
+            <a className="service-dropdown-link" href="services.html#hive" role="menuitem">
+              <img className="service-icon-img" src="assets/icon-hive.png" alt="" width="32" height="32" />
+              Hive
+            </a>
+            <a className="service-dropdown-link" href="services.html#nova-ops" role="menuitem">
+              <img className="service-icon-img" src="assets/icon-novaops.png" alt="" width="32" height="32" />
+              Nova Ops
+            </a>
+          </div>
+        </li>
+        <li><a href="#capabilities" className="nav-link">Resources</a></li>
+        <li><a href="#showcase" className="nav-link">Get In Touch</a></li>
+        <li><a href="#about" className="nav-link">About</a></li>
       </ul>
 
       <div className="nav-actions">
