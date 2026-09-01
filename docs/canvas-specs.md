@@ -6,6 +6,26 @@
 > 2. **Strict Typography Inheritance**: Exclusively bind to `Clash Display` (Display) and `Satoshi` (Body).
 > 3. **3-Tier Global Tokens**: All color, radius, and spacing values must inherit from `styles/tokens.css`.
 
+## Hero Autonomous Workforce Animation
+
+The active hero visual is a CSS-driven orchestration scene in `components/hero.jsx` and mirrored in `index.html`.
+
+Change rules:
+- Keep the left hero stack unchanged: eyebrow, headline, supporting copy, CTA.
+- Keep the right-side visualization between 40% and 45% of the desktop hero width.
+- Do not wrap the visualization in a single large rounded dashboard container.
+- Use layered glass panels, organic offsets, transient connections, and soft blue ambient lighting.
+- Keep `.section-hero` clear of the fixed navbar with `--hero-nav-clearance`.
+- Keep `.section-hero` full-screen with `min-height: 100svh`, `overflow: hidden`, and responsive stacking below `991px`.
+- Treat the animation as decorative for assistive tech with `aria-hidden="true"`; the accessible hero message remains in the left copy and CTA.
+- Use `npm test` after any hero animation change to preserve perf budget, accessibility, SEO, and Hallmark token checks.
+
+Canvas specification:
+- Desktop: two-column grid, copy at `0.98fr`, animation at `0.82fr`, with `var(--space-12)` between.
+- Visualization bounds: `min(100%, 600px)` by `min(var(--hero-visual-height), calc(100svh - var(--hero-nav-clearance) - var(--space-10)))`.
+- Organic agent layout: five cards at varied widths, offsets, and depths around the orchestration node.
+- State matrix: idle panels use hairline borders; active motion uses opacity/transform only; focus states remain on CTAs; loading is expressed by the center typing dots; completed state uses success token markers; reduced motion resolves to the completed onboarding state.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
