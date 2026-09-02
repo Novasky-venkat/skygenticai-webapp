@@ -42,35 +42,6 @@
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic Agentic AI differ from standard conversational chatbots?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What deployment options and enterprise integrations are supported?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic safeguard proprietary data and regulatory compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models."
-            }
-          }
-        ]
       }
     ]
   }
@@ -805,71 +776,160 @@
       </div>
     </section>
 
-    <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
-      <div class="container-focus">
-        <div style="text-align: center; margin-bottom: var(--space-12);">
-          <h2 style="font-family: var(--font-family-display); font-size: 2.75rem; font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-4);">
-            Frequently Asked Questions
+     <!-- Section 8: Integrations (Tools)  -->
+    <section id="integrations" class="section-integrations" aria-label="Integrations">
+      <div class="container integrations-layout">
+        <div class="integrations-copy">
+          <h2 class="integrations-title">
+            Connects to 120+ tools<br>your team already uses.
           </h2>
-          <p style="color: var(--color-body); font-size: 1.125rem;">
-            Clear answers on architecture, compliance, and enterprise integration.
+          <p class="integrations-description">
+            n8n, UI path, Zendesk, Slack, Gmail, Stripe, Notion, Codex and your custom internal APIs via webhooks or our SDK.
           </p>
         </div>
 
-        <div class="surface-card card-light" role="region" aria-label="FAQ Accordion">
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-1"
-              id="faq-btn-1"
-            >
-              <span>How does SkyGentic Agentic AI differ from standard conversational chatbots?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
+        <div class="integrations-grid" aria-label="Supported integration tools">
+          <article class="integration-card">
+            <span class="integration-logo logo-n8n" aria-hidden="true">
+              <svg viewBox="0 0 56 40" role="img">
+                <path d="M12 20H25M31 20H44M28 17L36 10M28 23L36 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="10" cy="20" r="5" fill="#fff" stroke="currentColor" stroke-width="4"/>
+                <circle cx="28" cy="20" r="5" fill="#fff" stroke="currentColor" stroke-width="4"/>
+                <circle cx="40" cy="8" r="5" fill="#fff" stroke="currentColor" stroke-width="4"/>
+                <circle cx="40" cy="32" r="5" fill="#fff" stroke="currentColor" stroke-width="4"/>
               </svg>
-            </button>
-            <div id="faq-answer-1" class="accordion-panel" role="region" aria-labelledby="faq-btn-1" style="display: none;">
-              Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks.
-            </div>
-          </div>
+            </span>
+            <span class="integration-name">n8n</span>
+          </article>
 
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-2"
-              id="faq-btn-2"
-            >
-              <span>What deployment options and enterprise integrations are supported?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
+          <article class="integration-card">
+            <span class="integration-logo logo-uipath" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <rect x="6" y="6" width="36" height="36" fill="none" stroke="currentColor" stroke-width="5"/>
+                <path d="M16 16V29C16 34 19 36 24 36C29 36 32 34 32 29V16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
               </svg>
-            </button>
-            <div id="faq-answer-2" class="accordion-panel" role="region" aria-labelledby="faq-btn-2" style="display: none;">
-              SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs.
-            </div>
-          </div>
+            </span>
+            <span class="integration-name">UiPath</span>
+          </article>
 
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-3"
-              id="faq-btn-3"
-            >
-              <span>How does SkyGentic safeguard proprietary data and regulatory compliance?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
+          <article class="integration-card">
+            <span class="integration-logo logo-gmail" aria-hidden="true">
+              <svg viewBox="0 0 52 40" role="img">
+                <path d="M8 10V34H16V18L26 26L36 18V34H44V10L26 24L8 10Z" fill="#fff"/>
+                <path d="M8 10L26 24L44 10" fill="none" stroke="#EA4335" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M8 10V34" stroke="#4285F4" stroke-width="6" stroke-linecap="round"/>
+                <path d="M44 10V34" stroke="#34A853" stroke-width="6" stroke-linecap="round"/>
+                <path d="M8 34H16V18" stroke="#C5221F" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M44 34H36V18" stroke="#FBBC04" stroke-width="6" stroke-linejoin="round"/>
               </svg>
-            </button>
-            <div id="faq-answer-3" class="accordion-panel" role="region" aria-labelledby="faq-btn-3" style="display: none;">
-              We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models.
-            </div>
-          </div>
+            </span>
+            <span class="integration-name">Gmail</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-sheets" aria-hidden="true">
+              <svg viewBox="0 0 44 52" role="img">
+                <path d="M10 4H28L38 14V46C38 47.7 36.7 49 35 49H10C8.3 49 7 47.7 7 46V7C7 5.3 8.3 4 10 4Z" fill="currentColor"/>
+                <path d="M28 4V14H38" fill="#7EE2A8"/>
+                <path d="M15 24H31M15 31H31M15 38H31M21 20V42" stroke="#fff" stroke-width="2.5"/>
+              </svg>
+            </span>
+            <span class="integration-name">Google Sheets</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-codex" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M24 6L38.5 14.5V31.5L24 40L9.5 31.5V14.5L24 6Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M17 18L24 14L31 18V30L24 34L17 30V18Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M24 14V6M31 18L38.5 14.5M31 30L38.5 31.5M24 34V40M17 30L9.5 31.5M17 18L9.5 14.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="integration-name">Codex</span>
+          </article>
+
+          <article class="integration-card integration-card-sageway">
+            <span class="integration-logo logo-sageway" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <defs>
+                  <linearGradient id="sagewayGradient" x1="9" y1="39" x2="39" y2="9">
+                    <stop offset="0" stop-color="#14B8A6"/>
+                    <stop offset="1" stop-color="#3763FF"/>
+                  </linearGradient>
+                </defs>
+                <path d="M34 12C27 7 16 9 14 18C12 26 21 29 26 31C30 33 30 37 25 38C21 39 17 37 14 34" fill="none" stroke="url(#sagewayGradient)" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="integration-name">Sageway</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-jira" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M25 6H42C42 15 36 21 27 21H21C21 12 16 6 7 6H25Z" fill="#2684FF"/>
+                <path d="M25 21H42C42 30 36 36 27 36H21C21 27 16 21 7 21H25Z" fill="#0052CC"/>
+                <path d="M21 21H7C7 13 13 7 21 7V21Z" fill="#4C9AFF"/>
+              </svg>
+            </span>
+            <span class="integration-name">Jira</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-stripe" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <rect x="7" y="9" width="34" height="30" rx="8" fill="currentColor"/>
+                <path d="M30.8 18.2C29.2 17.2 27 16.6 24.4 16.6C20.3 16.6 17.6 18.6 17.6 21.7C17.6 27.6 29.9 24.8 29.9 28.5C29.9 29.7 28.8 30.3 26.9 30.3C24.6 30.3 21.6 29.5 19.6 28.1V33C21.3 34 24 34.8 27 34.8C31.5 34.8 34.4 32.8 34.4 29.4C34.4 23.2 22.1 26 22.1 22.5C22.1 21.5 23 20.9 24.7 20.9C26.7 20.9 29.1 21.5 30.8 22.5V18.2Z" fill="#fff"/>
+              </svg>
+            </span>
+            <span class="integration-name">Stripe</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-twilio" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="5"/>
+                <circle cx="17" cy="17" r="4.5" fill="currentColor"/>
+                <circle cx="31" cy="17" r="4.5" fill="currentColor"/>
+                <circle cx="17" cy="31" r="4.5" fill="currentColor"/>
+                <circle cx="31" cy="31" r="4.5" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="integration-name">Twilio</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-notion" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M9 11L31 7L39 13V39L17 42L9 35V11Z" fill="#fff" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M17 16L39 13M17 42V16L9 11" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M21 21H27L33 32V21H36V36H30L24 25V36H21V21Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="integration-name">Notion</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-zendesk" aria-hidden="true">
+              <svg viewBox="0 0 54 40" role="img">
+                <path d="M8 8H28L8 32V8Z" fill="currentColor"/>
+                <path d="M30 32H50L30 8V32Z" fill="currentColor"/>
+                <path d="M8 32H28L28 8L8 32Z" fill="currentColor" opacity=".72"/>
+              </svg>
+            </span>
+            <span class="integration-name">Zendesk</span>
+          </article>
+
+          <article class="integration-card">
+            <span class="integration-logo logo-slack" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M18 6C15.8 6 14 7.8 14 10V20H10C7.8 20 6 21.8 6 24C6 26.2 7.8 28 10 28H18V6Z" fill="#36C5F0"/>
+                <path d="M42 18C42 15.8 40.2 14 38 14H28V10C28 7.8 26.2 6 24 6C21.8 6 20 7.8 20 10V18H42Z" fill="#2EB67D"/>
+                <path d="M30 42C32.2 42 34 40.2 34 38V28H38C40.2 28 42 26.2 42 24C42 21.8 40.2 20 38 20H30V42Z" fill="#ECB22E"/>
+                <path d="M6 30C6 32.2 7.8 34 10 34H20V38C20 40.2 21.8 42 24 42C26.2 42 28 40.2 28 38V30H6Z" fill="#E01E5A"/>
+              </svg>
+            </span>
+            <span class="integration-name">Slack</span>
+          </article>
         </div>
       </div>
     </section>
@@ -1093,20 +1153,6 @@
       });
     });
 
-    // FAQ Accordion Script
-    const faqTriggers = document.querySelectorAll('.accordion-trigger');
-    faqTriggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-        
-        btn.setAttribute('aria-expanded', !isExpanded);
-        if (panel) {
-          panel.style.display = isExpanded ? 'none' : 'block';
-        }
-      });
-    });
   </script>
 </body>
 </html>

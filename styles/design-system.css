@@ -1123,20 +1123,141 @@ body {
 .expanded-footer { margin-top: auto; }
 .expanded-logo-badge { font-family: var(--font-family-display); font-size: 1.25rem; font-weight: 700; color: var(--color-blue-900); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; }
 
-/* FAQ */
-.section-faq { background: var(--color-background); padding: var(--space-24) 0; }
-.surface-card.card-light {
-  background: var(--color-card); border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-ambient-card);
+/* Integrations */
+.section-integrations {
+  background: var(--color-background);
+  padding: clamp(84px, 8vw, 128px) 0;
+  border-top: 1px solid var(--color-border);
 }
-.accordion-item { border-bottom: 1px solid var(--color-border); padding: var(--space-5) 0; }
-.accordion-item:last-child { border-bottom: none; }
-.accordion-trigger {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  background: none; border: none; font-family: var(--font-family-display); font-size: 1.15rem;
-  font-weight: 500; color: var(--color-heading); text-align: left; cursor: pointer; padding: var(--space-2) 0;
+
+.integrations-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(520px, 0.84fr);
+  align-items: start;
+  gap: clamp(56px, 7vw, 104px);
 }
-.accordion-panel { padding-top: var(--space-3); color: var(--color-body); line-height: 1.6; }
+
+.integrations-copy {
+  max-width: 680px;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-8);
+  font-family: var(--font-family-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--color-blue-900);
+}
+
+.kicker-mark {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary-blue);
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px oklch(53% .2 258 / .08);
+}
+
+.integrations-title {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(3.45rem, 2.25vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: 0;
+  color: var(--color-heading);
+}
+
+.integrations-description {
+  max-width: 660px;
+  margin: var(--space-8) 0 0;
+  font-family: var(--font-family-body);
+  font-size: clamp(1.08rem, 1.5vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--color-body);
+}
+
+.integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.integration-card {
+  min-height: 112px;
+  padding: 24px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--color-card);
+  border: 1px solid oklch(88% .02 250 / .84);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px oklch(19% .025 255 / .025), inset 0 1px 0 oklch(100% 0 0 / .75);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.integration-card:hover {
+  transform: translateY(-2px);
+  border-color: oklch(70% .14 250 / .5);
+  box-shadow: 0 12px 28px oklch(53% .2 258 / .08);
+}
+
+.integration-card-sageway {
+  justify-content: center;
+  gap: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.integration-card-sageway .integration-logo,
+.integration-card-sageway .integration-name {
+  transform: translateX(-6px);
+}
+
+.integration-card-sageway .integration-name {
+  font-size: clamp(1rem, 1.22vw, 1.22rem);
+}
+
+.integration-logo {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-blue);
+}
+
+.integration-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.integration-name {
+  min-width: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: var(--color-heading);
+}
+
+.logo-n8n { color: #EA4B71; }
+.logo-uipath { color: #F04E23; }
+.logo-sheets { color: #0F9D58; }
+.logo-codex { color: var(--color-heading); }
+.logo-jira { color: #2684FF; }
+.logo-stripe { color: #635BFF; }
+.logo-twilio { color: #F22F46; }
+.logo-notion { color: #111111; }
+.logo-zendesk { color: #03363D; }
 
 /* Footer */
 .footer-wrapper { padding: var(--space-20) 0 var(--space-8); }
@@ -1160,7 +1281,7 @@ body {
 }
 
 /* Offscreen Containment */
-.section-capabilities, .section-sticky-showcase, .section-testimonials, .section-faq, .footer-wrapper {
+.section-capabilities, .section-sticky-showcase, .section-testimonials, .section-integrations, .footer-wrapper {
   content-visibility: auto; contain-intrinsic-size: 1px 600px;
 }
 
@@ -1202,6 +1323,9 @@ body {
   .bento-staggered-grid { grid-template-columns: 1fr; }
   .bento-column.col-1, .bento-column.col-3 { margin-top: 0; }
   .mockup-split-layout, .agent-workspace-grid { grid-template-columns: 1fr; }
+  .integrations-layout { grid-template-columns: 1fr; }
+  .integrations-copy { max-width: 760px; }
+  .integrations-grid { max-width: 720px; }
   .navbar-container { padding: 0 var(--space-4); }
   .nav-menu { display: none; }
   .testimonials-ribbon { flex-direction: column; }
@@ -1229,6 +1353,30 @@ body {
   .section-metrics .metrics-heading { font-size: 1.95rem; }
   .section-metrics .metrics-mobile-break { display: block; }
   .section-metrics .metrics-tablet-break { display: none; }
+  .section-integrations { padding: var(--space-20) 0; }
+  .section-kicker { margin-bottom: var(--space-5); }
+  .integrations-title { font-size: clamp(2.55rem, 12vw, 3.6rem); }
+  .integrations-description { margin-top: var(--space-5); font-size: 1rem; }
+  .integrations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .integration-card {
+    min-height: 116px;
+    padding: 18px 12px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .integration-card-sageway {
+    justify-content: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 10px;
+  }
+  .integration-card-sageway .integration-logo,
+  .integration-card-sageway .integration-name {
+    transform: none;
+  }
+  .integration-logo { width: 38px; height: 38px; flex-basis: 38px; }
+  .integration-name { font-size: 1rem; }
   .footer-nav-card { grid-template-columns: 1fr; }
   .footer-bottom-bar { flex-direction: column; gap: var(--space-4); text-align: center; }
 }
