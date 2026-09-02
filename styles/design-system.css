@@ -57,7 +57,7 @@ body {
 .mobile-menu-toggle[data-state="error"] { color: var(--color-amber); }
 .mobile-menu-panel {
   position: fixed; top: 72px; left: 0; right: auto;
-  width: 90vw;
+  width: 60vw;
   height: calc(100dvh - 72px); overflow-y: auto;
   background: var(--color-background); color: var(--color-body);
   border-top: 1px solid var(--color-border); border-right: 1px solid var(--color-border);
@@ -94,7 +94,7 @@ body {
 }
 .mobile-submenu[hidden] { display: none; }
 .mobile-submenu-link {
-  display: flex; align-items: flex-start; gap: var(--space-3);
+  display: flex; align-items: center; gap: var(--space-3);
   min-height: 56px; padding: var(--space-2) 0; color: var(--color-body);
   text-decoration: none; font-family: var(--font-family-body);
   transition: transform var(--transition-fast);
@@ -109,19 +109,8 @@ body {
 .mobile-submenu-link[data-state="success"] { color: var(--color-secondary-blue); }
 .mobile-submenu-link[data-state="error"] { color: var(--color-amber); }
 .mobile-menu-demo {
-  display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
-  width: 100%; margin-top: auto; border-radius: var(--radius-md);
-  background: var(--bg-gradient-primary-cta); color: var(--color-card);
-  font-family: var(--font-family-body); font-size: 1rem; font-weight: 700; text-decoration: none;
-  box-shadow: var(--shadow-btn-primary);
-  transition: transform var(--transition-fast);
+  width: fit-content; align-self: flex-start; margin: 0 0 var(--space-4) 0;
 }
-.mobile-menu-demo:hover, .mobile-menu-demo:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-btn-primary-hover); }
-.mobile-menu-demo:active { transform: translateY(0); }
-.mobile-menu-demo[aria-disabled="true"] { opacity: .45; cursor: not-allowed; transform: none; }
-.mobile-menu-demo[data-state="loading"] { opacity: .72; cursor: progress; }
-.mobile-menu-demo[data-state="success"] { color: var(--color-card); }
-.mobile-menu-demo[data-state="error"] { color: var(--color-card); }
 
 /* Dropdown */
 .services-menu { position: relative; display: flex; align-items: center; }
