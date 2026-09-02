@@ -1398,7 +1398,7 @@ body {
   .mobile-menu-toggle { display: inline-flex; position: relative; z-index: 2; color: var(--color-heading); }
   .navbar-wrapper.is-mobile-menu-open .mobile-menu-icon-open { display: none; }
   .navbar-wrapper.is-mobile-menu-open .mobile-menu-icon-close { display: block; }
-  .nav-brand {
+  .navbar-container > .nav-brand {
     position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
     max-width: min(44vw, 180px); justify-content: center;
   }
@@ -1510,4 +1510,5 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   }
   .marquee-track { animation: none; }
 }
+
 
