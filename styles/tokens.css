@@ -36,6 +36,8 @@
   --bg-gradient-ai-showcase: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
   --bg-gradient-knowledge: linear-gradient(135deg, var(--color-teal-soft) 0%, var(--color-card) 100%);
   --bg-gradient-testimonials: linear-gradient(135deg, var(--color-card) 0%, var(--color-blue-50) 100%);
+  --bg-gradient-footer-cta: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
+
   --font-family-display: 'Clashdisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 

@@ -942,8 +942,6 @@
       </div>
     </section>
 
-    <!-- Pre-Footer CTA Section -->
-    <section id="cta" class="section-pre-footer-cta" aria-label="Ready to Build Your Autonomous Enterprise Workforce">
      <!-- Section 8: Integrations (Tools)  -->
     <section id="integrations" class="section-integrations" aria-label="Integrations">
       <div class="container integrations-layout">
@@ -1034,12 +1032,10 @@
       <div class="container-focus">
         <div class="pre-footer-cta-composition">
           <h2 class="pre-footer-cta-title">
-            Ready to Build Your Autonomous Enterprise Workforce?
+            Ready to Deploy Your Autonomous AI Workforce?
           </h2>
           <p class="pre-footer-cta-desc">
-            Deploy AI agents that work 24/7, automate operations,<br>
-            and scale alongside your business—without adding<br>
-            operational complexity.
+            Transform enterprise operations with intelligent agents that execute multi-intent workflows, reference vector knowledge base in real time, and scale alongside your team.
           </p>
           <div class="pre-footer-cta-actions">
             <a href="#demo" class="btn-primary" aria-label="Schedule a Demo with SkyGentic AI">
@@ -1317,6 +1313,21 @@
       });
     });
 
+ </script>
+    // FAQ Accordion Script
+    const faqTriggers = document.querySelectorAll('.accordion-trigger');
+    faqTriggers.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const panelId = btn.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+
+        btn.setAttribute('aria-expanded', !isExpanded);
+        if (panel) {
+          panel.style.display = isExpanded ? 'none' : 'block';
+        }
+      });
+    });
   </script>
 </body>
 
