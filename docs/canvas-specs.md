@@ -6,15 +6,6 @@
 > 2. **Strict Typography Inheritance**: Exclusively bind to `Clash Display` (Display) and `Satoshi` (Body).
 > 3. **3-Tier Global Tokens**: All color, radius, and spacing values must inherit from `styles/tokens.css`.
 
-## Navbar Menu Left-Alignment Adjustment
-
-- **Desktop layout**: brand remains at the container's leading edge; primary menu is positioned immediately before the account and demo actions with `var(--space-8)` separation.
-- **Alignment rule**: the navbar flex row uses start alignment, while `.nav-menu` uses `margin-left: auto` to place the primary menu on the left side of the sign-in action group.
-- **Mobile and tablet layout**: at widths up to `991px`, the header switches to a burger control on the left, centered SkyGentic brand mark, and bordered `Sign In` action on the right. The schedule demo CTA moves into the menu drawer.
-- **Hero and scroll treatment**: the mobile/tablet header remains transparent over the hero, then switches to the desktop scrolled background, border, and shadow after the scroll threshold.
-- **Mobile drawer pattern**: 90vw desktop-themed light drawer slides in from left to right, uses desktop-matched Satoshi menu rows, keeps the Services accordion chevron only, and includes existing service links, icons, and a full-width demo CTA.
-- **Interactive states**: idle, hover, focus-visible, active, disabled, and loading treatments remain token-bound; the burger and accordion expose expanded states through `aria-expanded`.
-- **Accessibility**: accessible names, Escape close behavior, resize cleanup, focus-visible rings, and the minimum 48px mobile target requirement are preserved.
 ## Hero Autonomous Workforce Animation
 
 The active hero visual is a CSS-driven orchestration scene in `components/hero.jsx` and mirrored in `index.html`.
