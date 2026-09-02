@@ -46,35 +46,6 @@
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic Agentic AI differ from standard conversational chatbots?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What deployment options and enterprise integrations are supported?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic safeguard proprietary data and regulatory compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models."
-            }
-          }
-        ]
       }
     ]
   }
@@ -971,15 +942,17 @@
       </div>
     </section>
 
-    <!-- Pre-Footer CTA Section (Replaces FAQ) -->
-    <section id="cta" class="section-pre-footer-cta" aria-label="Ready to Deploy Autonomous AI Workforce">
+    <!-- Pre-Footer CTA Section -->
+    <section id="cta" class="section-pre-footer-cta" aria-label="Ready to Build Your Autonomous Enterprise Workforce">
       <div class="container-focus">
         <div class="pre-footer-cta-composition">
           <h2 class="pre-footer-cta-title">
-            Ready to Deploy Your Autonomous AI Workforce?
+            Ready to Build Your Autonomous Enterprise Workforce?
           </h2>
           <p class="pre-footer-cta-desc">
-            Transform enterprise operations with intelligent agents that execute multi-intent workflows, reference vector knowledge base in real time, and scale alongside your team.
+            Deploy AI agents that work 24/7, automate operations,<br>
+            and scale alongside your business—without adding<br>
+            operational complexity.
           </p>
           <div class="pre-footer-cta-actions">
             <a href="#demo" class="btn-primary" aria-label="Schedule a Demo with SkyGentic AI">
@@ -1257,20 +1230,6 @@
       });
     });
 
-    // FAQ Accordion Script
-    const faqTriggers = document.querySelectorAll('.accordion-trigger');
-    faqTriggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-
-        btn.setAttribute('aria-expanded', !isExpanded);
-        if (panel) {
-          panel.style.display = isExpanded ? 'none' : 'block';
-        }
-      });
-    });
   </script>
 </body>
 
