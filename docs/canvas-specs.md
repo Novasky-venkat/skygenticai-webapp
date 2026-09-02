@@ -26,6 +26,15 @@ Canvas specification:
 - Organic agent layout: five cards at varied widths, offsets, and depths around the orchestration node.
 - State matrix: idle panels use hairline borders; active motion uses opacity/transform only; focus states remain on CTAs; loading is expressed by the center typing dots; completed state uses success token markers; reduced motion resolves to the completed onboarding state.
 
+## Client Logo Marquee
+
+The marquee in `index.html` uses two identical, adjacent logo groups. Its transform travels exactly one group width (`-50%`), so the reset is visually continuous.
+
+- Bounds: the viewport is masked at both edges; spacing between logo items and groups uses `var(--space-16)`.
+- Idle: continuous linear movement at `var(--motion-marquee-duration)`.
+- Hover: movement pauses so a logo can be inspected.
+- Reduced motion: the first logo group remains visible without animation.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
