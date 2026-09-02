@@ -17,6 +17,13 @@
   --color-heading: oklch(19% .025 255);
   --color-body: oklch(34% .025 252);
   --color-secondary-text: oklch(45% .025 252);
+  --color-footer-background: var(--color-blue-900);
+  --color-footer-text: var(--color-blue-50);
+  --color-footer-heading: var(--color-blue-100);
+  --color-footer-muted: var(--color-border);
+  --color-footer-divider: oklch(88% .02 250 / .2);
+  --color-footer-link-hover-bg: oklch(99% .006 250 / .08);
+  --color-footer-status: var(--color-teal);
 
   --bg-gradient-hero: linear-gradient(180deg, var(--color-background) 0%, var(--color-blue-50) 100%);
   --bg-hero-composition: radial-gradient(ellipse 900px 720px at 22% 44%, oklch(53% .2 258 / .055) 0%, oklch(53% .2 258 / .024) 42%, oklch(53% .2 258 / 0) 78%), radial-gradient(ellipse 980px 760px at 78% 20%, oklch(94% .035 250 / .09) 0%, oklch(94% .035 250 / .036) 46%, oklch(94% .035 250 / 0) 82%), radial-gradient(ellipse 860px 620px at 58% 94%, oklch(70% .14 250 / .034) 0%, oklch(70% .14 250 / .014) 44%, oklch(70% .14 250 / 0) 80%);
@@ -65,6 +72,7 @@
   --transition-fast: .15s ease;
   --transition-normal: .3s cubic-bezier(.16, 1, .3, 1);
   --transition-smooth: .4s cubic-bezier(.16, 1, .3, 1);
+  --motion-marquee-duration: 35s;
   --focus-ring-color: var(--color-primary-blue);
   --focus-ring-offset: 3px;
 }

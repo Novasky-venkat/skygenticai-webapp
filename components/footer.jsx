@@ -1,63 +1,61 @@
 import React from 'react';
-import { CapsuleButton } from './base';
 
 export const Footer = () => (
   <footer className="footer-wrapper" role="contentinfo">
     <div className="container">
-      <div className="footer-cards-grid">
-        {/* Left Hero CTA Card */}
-        <div className="card-gradient-hero">
-          <h3 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2.25rem', fontWeight: 500, color: 'var(--color-heading)', marginBottom: 'var(--space-3)' }}>
-            Build Your Agentic CX Today
-          </h3>
-          <p style={{ color: 'var(--color-body)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
-            Transform customer engagement with autonomous AI agents, sub-50ms latency, and high-conversion workflows.
+      <div className="footer-upper">
+        <div className="footer-brand-section">
+          <a href="/" className="nav-brand footer-brand" aria-label="SkyGentic AI Homepage">
+            <img className="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic" />
+          </a>
+          <p className="footer-description">
+            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
           </p>
-          <CapsuleButton href="#demo" variant="white">
-            Book a Demo
-          </CapsuleButton>
+          <div className="footer-status" aria-label="All systems operational">
+            <span className="footer-status-dot" aria-hidden="true"></span>
+            <span>All systems operational</span>
+          </div>
         </div>
 
-        {/* Right Navigation Directory Card */}
-        <div className="footer-nav-card">
-          <div>
-            <div className="footer-col-title">Platform</div>
+        <nav className="footer-navigation" aria-label="Footer navigation">
+          <div className="footer-nav-column">
+            <h2 className="footer-col-title">Services</h2>
             <ul className="footer-link-list">
-              <li><a href="#hero" className="footer-link">Agentic AI</a></li>
-              <li><a href="#capabilities" className="footer-link">Voice AI</a></li>
-              <li><a href="#capabilities" className="footer-link">Agent CoPilot</a></li>
-              <li><a href="#showcase" className="footer-link">Omnichannel</a></li>
+              <li><a href="services.html#forge" className="footer-link">Forge</a></li>
+              <li><a href="services.html#swarm" className="footer-link">Swarm</a></li>
+              <li><a href="services.html#skyflow" className="footer-link">SkyFlow</a></li>
+              <li><a href="services.html#hive" className="footer-link">Hive</a></li>
+              <li><a href="services.html#nova-ops" className="footer-link">NovaOps</a></li>
             </ul>
           </div>
-          <div>
-            <div className="footer-col-title">Solutions</div>
+          <div className="footer-nav-column">
+            <h2 className="footer-col-title">Quick Links</h2>
             <ul className="footer-link-list">
-              <li><a href="#features" className="footer-link">Customer Support</a></li>
-              <li><a href="#features" className="footer-link">Conversational Sales</a></li>
-              <li><a href="#features" className="footer-link">Commerce Hub</a></li>
-              <li><a href="#features" className="footer-link">Enterprise Security</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="footer-col-title">Company</div>
-            <ul className="footer-link-list">
+              <li><a href="#capabilities" className="footer-link">Resources</a></li>
+              <li><a href="#demo" className="footer-link">Get in Touch</a></li>
               <li><a href="#about" className="footer-link">About Us</a></li>
-              <li><a href="#careers" className="footer-link">Careers</a></li>
-              <li><a href="#privacy" className="footer-link">Privacy Policy</a></li>
-              <li><a href="#contact" className="footer-link">Contact Sales</a></li>
+              <li><a href="#signin" className="footer-link">Sign in</a></li>
             </ul>
           </div>
-        </div>
+          <div className="footer-nav-column">
+            <h2 className="footer-col-title">Follow Us</h2>
+            <ul className="footer-link-list">
+              <li><a href="https://linkedin.com/company/skygenticai" className="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/skygenticai" className="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
+              <li><a href="https://x.com/skygenticai" className="footer-link" aria-label="SkyGentic AI on X">X</a></li>
+              <li><a href="https://youtube.com/@skygenticai" className="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      {/* Footer Bottom Bar */}
       <div className="footer-bottom-bar">
         <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
-        <div style={{ display: 'flex', gap: 'var(--space-6)' }}>
+        <nav className="footer-legal" aria-label="Footer legal links">
           <a href="#privacy" className="footer-link">Privacy Policy</a>
           <a href="#terms" className="footer-link">Terms of Service</a>
           <a href="#security" className="footer-link">Security & Trust</a>
-        </div>
+        </nav>
       </div>
     </div>
   </footer>
