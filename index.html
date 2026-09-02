@@ -87,6 +87,18 @@
 
   <header class="navbar-wrapper" role="banner">
     <nav class="navbar-container" aria-label="Main Navigation">
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="mobile-menu-icon mobile-menu-icon-open" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="mobile-menu-icon mobile-menu-icon-close" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
       <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
         <img class="nav-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
       </a>
@@ -138,6 +150,51 @@
         </a>
       </div>
     </nav>
+
+    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true" inert>
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-list">
+          <div class="mobile-menu-item">
+            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+              <span>Services</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+            <div class="mobile-submenu" id="mobile-services-panel" hidden>
+              <a class="mobile-submenu-link" href="services.html#forge">
+                <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
+                <span><strong>Forge</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#swarn">
+                <img class="service-icon-img" src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">
+                <span><strong>Swarn</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#skyflow">
+                <img class="service-icon-img" src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">
+                <span><strong>SkyFlow</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#hive">
+                <img class="service-icon-img" src="assets/architecture/icon-hive.png" alt="" width="32" height="32">
+                <span><strong>Hive</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#nova-ops">
+                <img class="service-icon-img" src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">
+                <span><strong>Nova Ops</strong></span>
+              </a>
+            </div>
+          </div>
+          <a class="mobile-menu-row" href="#capabilities">
+            <span>Resources</span>
+          </a>
+          <a class="mobile-menu-row" href="#showcase">
+            <span>Get In Touch</span>
+          </a>
+          <a class="mobile-menu-row" href="#about">
+            <span>About</span>
+          </a>
+        </div>
+        <a href="#demo" class="mobile-menu-demo">Schedule Demo</a>
+      </div>
+    </div>
   </header>
 
   <main id="main-content">
@@ -860,6 +917,50 @@
         setServicesMenuOpen(false);
         t?.focus();
       }
+    });
+
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuPanel = document.querySelector('#mobile-menu');
+    const mobileMenuRows = document.querySelectorAll('.mobile-menu-row[aria-controls]');
+    const mobileNavLinks = document.querySelectorAll('.mobile-menu-panel a');
+    const tabletQuery = window.matchMedia('(max-width: 991px)');
+
+    function setMobileMenuOpen(isOpen) {
+      navbar?.classList.toggle('is-mobile-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      mobileMenuButton?.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuButton?.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      mobileMenuPanel?.setAttribute('aria-hidden', String(!isOpen));
+      if (mobileMenuPanel) mobileMenuPanel.inert = !isOpen;
+    }
+
+    mobileMenuButton?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setMobileMenuOpen(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileMenuRows.forEach((row) => {
+      row.addEventListener('click', () => {
+        const panel = document.getElementById(row.getAttribute('aria-controls'));
+        const isExpanded = row.getAttribute('aria-expanded') === 'true';
+        row.setAttribute('aria-expanded', String(!isExpanded));
+        if (panel) panel.hidden = isExpanded;
+      });
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileMenuButton?.getAttribute('aria-expanded') === 'true') {
+        setMobileMenuOpen(false);
+        mobileMenuButton.focus();
+      }
+    });
+
+    tabletQuery.addEventListener('change', (event) => {
+      if (!event.matches) setMobileMenuOpen(false);
     });
 
     const testimonialsData = [
