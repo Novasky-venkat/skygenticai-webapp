@@ -58,12 +58,13 @@ if (/<meta[^>]*property=["']twitter:card["']/i.test(html) || /<meta[^>]*name=["'
 // 4. Check Schema.org JSON-LD
 const hasOrg = /Organization/i.test(html);
 const hasApp = /SoftwareApplication/i.test(html);
+const hasFaq = /FAQPage/i.test(html);
 
-if (hasOrg && hasApp) {
-  console.log('  ✓ [schema-jsonld]: Schema.org JSON-LD microdata (Organization, SoftwareApplication) verified.');
+if (hasOrg && hasApp && hasFaq) {
+  console.log('  ✓ [schema-jsonld]: Schema.org JSON-LD microdata (Organization, SoftwareApplication, FAQPage) verified.');
   passCount++;
 } else {
-  violations.push('[schema-jsonld]: Missing Schema.org JSON-LD microdata for SoftwareApplication or Organization.');
+  violations.push('[schema-jsonld]: Missing Schema.org JSON-LD microdata for SoftwareApplication, Organization, or FAQPage.');
 }
 
 // 5. Check sitemap.xml and robots.txt

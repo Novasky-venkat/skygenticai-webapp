@@ -55,24 +55,6 @@ State matrix:
 - Disabled: not used; footer links remain standard anchors.
 - Loading: not used; footer is static by specification.
 
-## Pre-Footer CTA
-
-The pre-footer CTA in `index.html`, `components/base/PreFooterCTA.jsx`, and `components/faq.jsx` replaces the former FAQ section and sits between testimonials and the approved footer.
-
-- Bounds: single centered `.container-focus` composition, with headline, supporting copy, and the reused primary capsule CTA in that order.
-- Surface: soft section shade mixed only from `--color-background` and `--color-blue-50`; no section panel, card, gradient strip, or footer transition.
-- Ambient: decorative depth is scoped to `.pre-footer-cta-composition::before`, behind the text and CTA only, using existing SkyGentic color tokens.
-- Button: React usage reuses `CapsuleButton`; static markup reuses `.btn-primary`, `.btn-text-wrapper`, `.btn-text-slide`, and `.btn-icon-bubble`.
-- Mobile: copy keeps the existing centered stack and removes manual line breaks below the mobile breakpoint.
-
-State matrix:
-- Idle: headline, copy, and primary CTA remain centered on the inherited page background.
-- Hover: CTA inherits the existing `.btn-primary:hover` slide, lift, shadow, and icon rotation.
-- Focus-visible: CTA inherits the global focus ring.
-- Active: CTA inherits the stable pressed state from the existing button interaction system.
-- Disabled: not used; CTA is a standard anchor.
-- Loading: not used; CTA is static by specification.
-
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
