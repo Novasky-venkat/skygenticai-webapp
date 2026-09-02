@@ -563,233 +563,226 @@ function Nav({ current = "home" }) {
 // ============ FOOTER ============
 function Footer() {
   return (
-    <footer className="ft">
+    <footer className="ft" role="contentinfo">
       <div className="container">
-        <div className="ft-top">
-          <div className="ft-brand">
-            <img className="ft-logo-img" src="uploads/skygentic-wordmark.png" alt="SkyGentic AI" />
-            <p className="ft-tag">Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.</p>
-            <div className="flex gap-2 items-center" style={{ marginTop: 20 }}>
-              <span className="dot-pulse"></span>
-              <span style={{ fontSize: 13, color: "var(--dark-ink-soft)" }}>All systems operational</span>
+        <div className="ft-upper">
+          <div className="ft-brand-section">
+            <a href="index.html" className="hdr-logo ft-brand-logo" aria-label="SkyGentic AI Homepage">
+              <img className="hdr-logo-img ft-logo-img" src="uploads/skygentic-wordmark.png" alt="SkyGentic AI" />
+            </a>
+            <p className="ft-description">
+              Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
+            </p>
+            <div className="ft-status" aria-label="All systems operational">
+              <span className="ft-status-dot" aria-hidden="true"></span>
+              <span>All systems operational</span>
             </div>
           </div>
 
-          <div className="ft-cols">
-            <div>
+          <nav className="ft-navigation" aria-label="Footer navigation">
+            <div className="ft-nav-column">
               <h5>Services</h5>
-              <a href="services.html#forge">Forge</a>
-              <a href="services.html#swarm">Swarm</a>
-              <a href="services.html#skyflow">SkyFlow</a>
-              <a href="services.html#hive">Hive</a>
-              <a href="services.html#novaops">NovaOps</a>
+              <ul className="ft-link-list">
+                <li><a href="services.html#forge">Forge</a></li>
+                <li><a href="services.html#swarm">Swarm</a></li>
+                <li><a href="services.html#skyflow">SkyFlow</a></li>
+                <li><a href="services.html#hive">Hive</a></li>
+                <li><a href="services.html#nova-ops">NovaOps</a></li>
+              </ul>
             </div>
-            <div>
+            <div className="ft-nav-column">
               <h5>Quick Links</h5>
-              <a href="resources.html">Resources</a>
-              <a href="get-in-touch.html">Get in Touch</a>
-              <a href="about-us.html">About Us</a>
-              <a href="signin.html">Sign in</a>
+              <ul className="ft-link-list">
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="get-in-touch.html">Get in Touch</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="signin.html">Sign in</a></li>
+              </ul>
             </div>
-            <div>
+            <div className="ft-nav-column">
               <h5>Follow Us</h5>
-              <a href="#linkedin">LinkedIn</a>
-              <a href="https://github.com/Novasky-venkat/skygenticai" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="#x">X</a>
-              <a href="#youtube">YouTube</a>
+              <ul className="ft-link-list">
+                <li><a href="https://linkedin.com/company/skygenticai" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
+                <li><a href="https://github.com/skygenticai" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
+                <li><a href="https://x.com/skygenticai" aria-label="SkyGentic AI on X">X</a></li>
+                <li><a href="https://youtube.com/@skygenticai" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              </ul>
             </div>
-          </div>
+          </nav>
         </div>
 
         <div className="ft-bottom">
-          <div className="ft-legal">
-            <span>COPYRIGHT © 2026 SkyGentic AI ALL RIGHTS RESERVED.</span>
-            <nav className="ft-policy" aria-label="Footer legal links">
-              <a href="#privacy">Privacy</a>
-              <a href="#terms">Terms</a>
-              <a href="#cookies">Cookies</a>
-            </nav>
-          </div>
+          <span>© 2026 SkyGentic AI / Novasky. All rights reserved.</span>
+          <nav className="ft-policy" aria-label="Footer legal links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#security">Security &amp; Trust</a>
+          </nav>
         </div>
-      </div>
-
-      <div className="ft-bigword" aria-hidden="true">
-        <img src="uploads/skygentic-wordmark.png" alt="SkyGentic AI" />
       </div>
 
       <style>{`
         .ft {
-          --ft-wordmark-drop: 28px;
-          --ft-wordmark-visible-h: min(139px, 10.24vw);
           background: var(--dark-bg);
-          color: var(--dark-ink);
+          color: var(--dark-ink-soft);
           font-family: var(--font-body);
           font-weight: 400;
-          padding: var(--space-9) 0 0;
+          padding: var(--space-8) 0 var(--space-5);
           position: relative;
-          overflow: hidden;
-        }
-        .ft::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: max(88px, calc(var(--ft-wordmark-visible-h) - var(--ft-wordmark-drop) + 8px));
-          z-index: 1;
-          width: min(calc(100% - 48px), var(--max-w));
-          height: 1px;
-          background: linear-gradient(90deg, transparent 0%, oklch(99% 0.006 250 / 0.14) 18%, oklch(60% 0.120 190 / 0.16) 50%, oklch(99% 0.006 250 / 0.14) 82%, transparent 100%);
-          transform: translateX(-50%);
-          pointer-events: none;
+          overflow-x: clip;
         }
         .ft .container {
           position: relative;
-          z-index: 2;
         }
-        .ft .pill { background: oklch(99% 0.006 250 / 0.05); border-color: var(--dark-border); color: var(--dark-ink-soft); }
+        .ft-upper {
+          display: grid;
+          grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+          gap: var(--space-8);
+          align-items: start;
+          padding-bottom: var(--space-8);
+        }
+        .ft-brand-section {
+          max-width: 560px;
+        }
+        .ft-brand-logo {
+          width: fit-content;
+          height: auto;
+          margin-left: -10px;
+          padding: 8px 10px;
+          background: var(--color-card);
+          border: 1px solid var(--dark-border);
+          border-radius: var(--r-sm);
+        }
         .ft-logo-img {
-          width: min(330px, 100%);
-          height: 80px;
-          object-fit: contain;
-          object-position: left center;
-          display: block;
+          width: 250px;
+          height: auto;
         }
-        .ft-top {
-          display: grid;
-          grid-template-columns: minmax(500px, 0.9fr) minmax(0, 1.1fr);
-          gap: 56px;
-          padding-bottom: 56px;
-        }
-        @media (max-width: 880px) { .ft-top { grid-template-columns: 1fr; } }
-        .ft-tag {
+        .ft-description {
           color: var(--dark-ink-soft);
-          font-size: 15px;
-          max-width: 56ch;
-          margin-top: 16px;
+          font-size: 16px;
+          line-height: 1.65;
+          max-width: 465px;
+          margin: var(--space-5) 0 0;
         }
-        .ft-cols {
-          display: grid;
-          grid-template-columns: repeat(3, max-content);
-          justify-self: end;
-          justify-content: end;
-          gap: clamp(44px, 5vw, 80px);
-        }
-        @media (max-width: 880px) {
-          .ft-cols {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            justify-self: stretch;
-            justify-content: stretch;
-            gap: 32px;
-          }
-        }
-        @media (max-width: 700px) { .ft-cols { grid-template-columns: repeat(2, 1fr); } }
-        .ft-cols h5 {
-          font-family: var(--font-body);
-          font-size: 13px;
-          letter-spacing: 0.01em;
-          color: var(--dark-ink-mute);
-          margin: 0 0 16px;
+        .ft-status {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-top: var(--space-4);
+          color: var(--dark-ink);
+          font-size: 14px;
           font-weight: 500;
         }
-        .ft-cols a {
-          display: flex;
-          align-items: center;
-          font-size: 14.5px;
-          font-family: var(--font-body);
-          font-weight: 400;
-          color: var(--dark-ink-soft);
-          min-height: 34px;
-          width: fit-content;
-          padding: 5px 10px;
-          margin-left: -10px;
-          border: 1px solid transparent;
-          border-radius: var(--r-sm);
-          transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        .ft-status-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--accent-2);
+          flex: 0 0 auto;
         }
-        .ft-cols a:hover {
+        .ft-navigation {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: clamp(32px, 4vw, 56px);
+        }
+        .ft-navigation h5 {
+          font-family: var(--font-display);
+          font-size: 16px;
+          line-height: 1.3;
+          letter-spacing: 0;
+          color: var(--dark-ink);
+          margin: 0 0 var(--space-4);
+          font-weight: 500;
+        }
+        .ft-link-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .ft-link-list a,
+        .ft-policy a {
+          display: inline-flex;
+          align-items: center;
+          min-height: 48px;
+          font-size: 15px;
+          line-height: 1.2;
+          font-family: var(--font-body);
+          font-weight: 500;
+          color: var(--dark-ink-soft);
+          width: fit-content;
+          padding: 8px 12px;
+          margin-left: -12px;
+          border-radius: var(--radius-pill);
+          transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+          white-space: nowrap;
+        }
+        .ft-link-list a:hover,
+        .ft-link-list a:focus-visible,
+        .ft-policy a:hover,
+        .ft-policy a:focus-visible {
           color: var(--dark-ink);
           background: oklch(99% 0.006 250 / 0.055);
-          border-color: oklch(99% 0.006 250 / 0.08);
           transform: translateX(2px);
         }
-        .ft-bottom {
-          padding: 22px 0 32px;
-          font-size: 13.5px;
-          color: var(--dark-ink-mute);
-          position: relative;
-          top: -38px;
-          z-index: 2;
+        .ft-link-list a:active,
+        .ft-policy a:active {
+          transform: translateX(0);
         }
-        .ft-legal {
+        .ft-bottom {
           display: flex;
-          flex-direction: row;
           align-items: center;
           justify-content: space-between;
-          gap: 24px;
-          width: 100%;
-        }
-        .ft-legal span {
-          color: var(--dark-ink-soft);
-          opacity: 0.78;
-          line-height: 1.4;
+          gap: var(--space-5);
+          border-top: 1px solid var(--dark-border);
+          padding-top: var(--space-5);
+          font-size: 13.5px;
+          color: var(--dark-ink-mute);
         }
         .ft-policy {
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          gap: 34px;
+          gap: var(--space-5);
+          flex-wrap: wrap;
         }
-        .ft-policy a {
-          color: var(--dark-ink-soft);
-          line-height: 1.4;
-          opacity: 0.58;
-          transition: color 0.18s ease, opacity 0.18s ease;
-        }
-        .ft-policy a:hover {
-          color: var(--dark-ink);
-          opacity: 1;
+        @media (max-width: 880px) {
+          .ft-upper {
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+          }
+          .ft-navigation {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
         }
         @media (max-width: 640px) {
-          .ft-legal {
+          .ft {
+            padding-top: var(--space-8);
+          }
+          .ft-upper {
+            gap: var(--space-6);
+            padding-bottom: var(--space-8);
+          }
+          .ft-navigation {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+          }
+          .ft-logo-img {
+            width: 150px;
+          }
+          .ft-bottom {
             flex-direction: column;
-            justify-content: center;
-            gap: 12px;
-            text-align: center;
+            align-items: flex-start;
+            gap: var(--space-3);
           }
           .ft-policy {
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
           }
-        }
-        .ft-bigword {
-          position: absolute;
-          bottom: calc(-1 * var(--ft-wordmark-drop));
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 0;
-          width: min(1600px, 118vw);
-          height: clamp(160px, 22vw, 320px);
-          pointer-events: none;
-          user-select: none;
-          text-align: center;
-          opacity: 0.03;
-        }
-        .ft-bigword::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 34%;
-          background: linear-gradient(180deg, oklch(16% 0.012 255 / 0), oklch(16% 0.012 255 / 0.68));
-        }
-        .ft-bigword img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          object-position: center bottom;
-          filter: brightness(1.65) saturate(1.18);
         }
       `}</style>
     </footer>
