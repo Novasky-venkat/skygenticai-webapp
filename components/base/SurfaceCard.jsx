@@ -2,14 +2,13 @@ import React from 'react';
 
 export const SurfaceCard = ({
   children,
-  variant = 'light', // 'light' | 'dark-glass' | 'gradient-hero'
+  variant = 'light',
   className = '',
   ...props
 }) => {
   const variantClass = {
     light: 'card-light',
-    'dark-glass': 'card-dark-glass',
-    'gradient-hero': 'card-gradient-hero'
+    'dark-glass': 'card-dark-glass'
   }[variant] || 'card-light';
 
   return (

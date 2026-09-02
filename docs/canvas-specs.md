@@ -35,6 +35,26 @@ The marquee in `index.html` uses two identical, adjacent logo groups. Its transf
 - Hover: movement pauses so a logo can be inspected.
 - Reduced motion: the first logo group remains visible without animation.
 
+## Website Footer
+
+The footer in `index.html`, `components/footer.jsx`, and `components/shared.jsx` follows the approved SkyGentic AI Footer Specification v1.0.
+
+- Bounds: the standard `.container` governs max-width and horizontal padding.
+- Layout: upper grid uses `0.45fr 0.55fr`, with the left brand area and right three-column navigation area aligned to the top.
+- Surface: solid dark footer background from `--color-footer-background`; no gradients, artwork, particles, or watermark typography.
+- Divider: exactly one container-width divider separates the upper and lower sections.
+- Brand: reuses the header wordmark image via the existing `.nav-brand` and `.nav-wordmark` pattern; a token-bound isolation surface preserves logo contrast on the dark footer without changing the image asset.
+- Navigation: exactly three columns in this order: Services, Quick Links, Follow Us.
+- Mobile order: logo, description, status, Services, Quick Links, Follow Us, divider, copyright, legal links.
+
+State matrix:
+- Idle: static dark surface, footer links inherit `--color-footer-text`, status dot uses `--color-footer-status`.
+- Hover: footer links reuse the capsule radius, token padding, transform, and transition timing used by the site interaction system.
+- Focus-visible: links inherit the global focus ring.
+- Active: links retain the same stable capsule geometry to avoid layout shifts.
+- Disabled: not used; footer links remain standard anchors.
+- Loading: not used; footer is static by specification.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
