@@ -942,100 +942,17 @@
       </div>
     </section>
 
-     <!-- Section 8: Integrations (Tools)  -->
-    <section id="integrations" class="section-integrations" aria-label="Integrations">
-      <div class="container integrations-layout">
-        <div class="integrations-copy">
-          <h2 class="integrations-title">
-            Connects to 120+ tools your team already uses.
-          </h2>
-          <p class="integrations-description">
-            n8n, UiPath, Zendesk, Slack, Gmail, Stripe, Notion, Codex, Google Workspace and your custom internal APIs via webhooks or our SDK.
-          </p>
-        </div>
-
-        <div class="integrations-grid" aria-label="Supported integration tools">
-          <article class="integration-card" aria-label="n8n">
-            <span class="integration-logo logo-n8n" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/n8n.png?v=horizontal-1" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="UiPath">
-            <span class="integration-logo logo-uipath" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/uipath.png?v=clean-2" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Gmail">
-            <span class="integration-logo logo-gmail" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/gmail.png" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Google Workspace">
-            <span class="integration-logo logo-google" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/google.png" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Codex">
-            <span class="integration-logo logo-codex" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/codex.png?v=horizontal-1" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card integration-card-sageway" aria-label="SageWay.ai">
-            <span class="integration-logo logo-sageway" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/sageway.png?v=wordmark-3" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Jira">
-            <span class="integration-logo logo-jira" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/jira.png" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Stripe">
-            <span class="integration-logo logo-stripe" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/stripe.png" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Twilio">
-            <span class="integration-logo logo-twilio" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/twilio.png?v=clean-2" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Notion">
-            <span class="integration-logo logo-notion" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/notion.png" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Zendesk">
-            <span class="integration-logo logo-zendesk" aria-hidden="true">
-              <img class="integration-logo-img" src="assets/integrations/zendesk.png?v=clean-2" alt="">
-            </span>
-          </article>
-
-          <article class="integration-card" aria-label="Slack">
-            <span class="integration-logo logo-slack" aria-hidden="true">
-              <img class="integration-logo-img logo-slack-mark" src="assets/integrations/slack.png?v=clean-2" alt="">
-              <span class="logo-slack-word">Slack</span>
-            </span>
-          </article>
-    <!-- Pre-Footer CTA Section (Replaces FAQ) -->
-    <section id="cta" class="section-pre-footer-cta" aria-label="Ready to Deploy Autonomous AI Workforce">
+    <!-- Pre-Footer CTA Section -->
+    <section id="cta" class="section-pre-footer-cta" aria-label="Ready to Build Your Autonomous Enterprise Workforce">
       <div class="container-focus">
         <div class="pre-footer-cta-composition">
           <h2 class="pre-footer-cta-title">
-            Ready to Deploy Your Autonomous AI Workforce?
+            Ready to Build Your Autonomous Enterprise Workforce?
           </h2>
           <p class="pre-footer-cta-desc">
-            Transform enterprise operations with intelligent agents that execute multi-intent workflows, reference vector knowledge base in real time, and scale alongside your team.
+            Deploy AI agents that work 24/7, automate operations,<br>
+            and scale alongside your business&mdash;without adding<br>
+            operational complexity.
           </p>
           <div class="pre-footer-cta-actions">
             <a href="#demo" class="btn-primary" aria-label="Schedule a Demo with SkyGentic AI">
@@ -1313,21 +1230,6 @@
       });
     });
 
- </script>
-    // FAQ Accordion Script
-    const faqTriggers = document.querySelectorAll('.accordion-trigger');
-    faqTriggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-
-        btn.setAttribute('aria-expanded', !isExpanded);
-        if (panel) {
-          panel.style.display = isExpanded ? 'none' : 'block';
-        }
-      });
-    });
   </script>
 </body>
 

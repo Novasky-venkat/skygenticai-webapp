@@ -39,11 +39,46 @@ fs.copyFileSync(path.join(srcDir, 'sitemap.xml'), path.join(distDir, 'sitemap.xm
 fs.copyFileSync(path.join(srcDir, 'robots.txt'), path.join(distDir, 'robots.txt'));
 
 // CSS Minification function
+function getUsedClasses(html) {
+  const classes = new Set();
+  for (const match of html.matchAll(/class=["']([^"']+)["']/g)) {
+    match[1].trim().split(/\s+/).forEach(className => classes.add(className));
+  }
+
+  [
+    'feed-item--enter',
+    'is-active',
+    'is-dispatching',
+    'is-done',
+    'is-mobile-menu-open',
+    'is-open',
+    'is-pulsing',
+    'is-reporting',
+    'is-scrolled',
+    'is-visible',
+    'mobile-menu-open'
+  ].forEach(className => classes.add(className));
+
+  return classes;
+}
+
+function purgeUnusedCSS(css, usedClasses) {
+  return css.replace(/([^{}@][^{}]*)\{([^{}]*)\}/g, (rule, selectorText, declarations) => {
+    const keptSelectors = selectorText.split(',').filter(selector => {
+      const classNames = [...selector.matchAll(/\.([_a-zA-Z][-_a-zA-Z0-9]*)/g)].map(match => match[1]);
+      return classNames.length === 0 || classNames.every(className => usedClasses.has(className));
+    });
+
+    return keptSelectors.length > 0 ? `${keptSelectors.join(',')}{${declarations}}` : '';
+  });
+}
+
 function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
     .replace(/\s+/g, ' ')                   // collapse whitespace
     .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*,\s*/g, ',')                 // remove selector/value comma padding
     .replace(/;\}/g, '}')                   // remove trailing semicolons
     .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // collapse 0 units
     .replace(/(:|\s)0\.(\d+)/g, '$1.$2')    // 0.5s -> .5s
@@ -59,6 +94,11 @@ function minifyHTML(html) {
     .trim();
 }
 
+const rawIndexHTML = fs.existsSync(path.join(srcDir, 'index.html'))
+  ? fs.readFileSync(path.join(srcDir, 'index.html'), 'utf-8')
+  : '';
+const usedClasses = getUsedClasses(rawIndexHTML);
+
 // Process and minify CSS files
 const stylesDist = path.join(distDir, 'styles');
 if (fs.existsSync(stylesDist)) {
@@ -66,7 +106,10 @@ if (fs.existsSync(stylesDist)) {
   cssFiles.forEach(file => {
     const filePath = path.join(stylesDist, file);
     const rawCSS = fs.readFileSync(filePath, 'utf-8');
-    const minified = minifyCSS(rawCSS);
+    const purgedCSS = file === 'design-system.css' || file === 'typography.css'
+      ? purgeUnusedCSS(rawCSS, usedClasses)
+      : rawCSS;
+    const minified = minifyCSS(purgedCSS);
     fs.writeFileSync(filePath, minified, 'utf-8');
     console.log(`  ✓ Minified CSS: styles/${file} (${rawCSS.length}B -> ${minified.length}B)`);
   });
@@ -75,8 +118,8 @@ if (fs.existsSync(stylesDist)) {
 // Process and minify index.html
 const indexSrc = path.join(srcDir, 'index.html');
 const indexDist = path.join(distDir, 'index.html');
-if (fs.existsSync(indexSrc)) {
-  const rawHTML = fs.readFileSync(indexSrc, 'utf-8');
+if (rawIndexHTML) {
+  const rawHTML = rawIndexHTML;
   const minifiedHTML = minifyHTML(rawHTML);
   fs.writeFileSync(indexDist, minifiedHTML, 'utf-8');
   console.log(`  ✓ Minified HTML: index.html (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
