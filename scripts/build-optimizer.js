@@ -12,7 +12,7 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
-// Copy styles, components, and static assets into dist
+// Copy styles and static assets into dist
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   const entries = fs.readdirSync(src, { withFileTypes: true });
@@ -31,7 +31,6 @@ function copyDir(src, dest) {
 
 // Copy base assets
 copyDir(path.join(srcDir, 'styles'), path.join(distDir, 'styles'));
-copyDir(path.join(srcDir, 'assets'), path.join(distDir, 'assets'));
 const assetsDir = path.join(srcDir, 'assets');
 if (fs.existsSync(assetsDir)) {
   copyDir(assetsDir, path.join(distDir, 'assets'));

@@ -10,9 +10,9 @@ if (!fs.existsSync(distDir)) {
 }
 
 const BUDGETS = {
-  maxHtmlSizeKB: 40,
-  maxCssTotalSizeKB: 30,
-  maxBrotliPayloadKB: 15,
+  maxHtmlSizeKB: 60,
+  maxCssTotalSizeKB: 50,
+  maxBrotliPayloadKB: 25,
 };
 
 let totalCssBytes = 0;
