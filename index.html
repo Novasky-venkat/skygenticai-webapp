@@ -84,6 +84,21 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+    @media (min-width:300px) and (max-width:800px){
+      .section-testimonial-ribbon{padding:var(--space-10) 0;overflow:clip}
+      .testimonial-main-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);min-height:0;padding:0 var(--space-4)}
+      .testimonial-left-wrapper,.testimonial-right-wrapper{width:100%;padding:0;min-width:0}
+      .testimonial-title{font-size:clamp(2rem,10vw,2.5rem);overflow-wrap:anywhere}
+      .testimonial-details{max-width:none;margin:0}
+      .testimonial-right-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
+      .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
+      .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:0}
+      .testimonial-right-wrapper .expanded-header{margin-bottom:var(--space-1)}
+      .testimonial-right-wrapper .expanded-name{font-size:1.25rem;overflow-wrap:anywhere}
+      .testimonial-right-wrapper .expanded-quote{font-size:1rem}
+    }
+  </style>
 
 </head>
 
@@ -864,75 +879,33 @@
         </div>
       </div>
     </section>
-
+      <!-- Section 7: One Unified AI Workforce -->
     <section id="testimonials" class="section-testimonial-ribbon" aria-label="Customer Success Testimonials">
       <div class="testimonial-main-wrapper">
         <div class="testimonial-left-wrapper">
           <div>
-            <h2 class="testimonial-title">Trusted by<br>Forward-Thinking<br>Industry Leaders</h2>
+            <h2 class="testimonial-title">You already have the tools. What's missing is intelligent orchestration.</h2>
             <p class="testimonial-details">
-              Discover how innovative global enterprises leverage SkyGentic to automate customer interactions, elevate
-              service benchmarks, and unlock new revenue streams.
+              SkyGentic replaces fragmented automation with a governed multi-agent platform that works as one intelligent workforce, allowing your team to focus on strategy instead of repetitive operations.
             </p>
-          </div>
-          <div class="testimonial-cta-wrap">
-            <a href="#demo" class="btn-primary" aria-label="Connect With Our Team">
-              <div class="btn-text-wrapper">
-                <span class="btn-text-slide">Connect With Us</span>
-                <span class="btn-text-slide">Connect With Us</span>
-              </div>
-              <div class="btn-icon-bubble" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </a>
           </div>
         </div>
 
         <div class="testimonial-right-wrapper" id="testimonialTrack" role="tablist" aria-label="Customer Reviews Track">
-
-          <div class="testimonial-panel collapsed" data-index="0" role="tab" tabindex="0" aria-selected="false"
-            aria-label="Testimonial from Elena Rostova">
-            <div class="panel-collapsed-view">
-              <div class="collapsed-top" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Head of Customer Experience, Apex Hospitality Group</span>
-              </div>
-              <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Elena<br>Rostova</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-panel active" data-index="1" role="tab" tabindex="0" aria-selected="true"
-            aria-label="Testimonial from Marcus Vance">
+          
+          <div class="testimonial-panel active" data-index="0" role="tab" tabindex="0" aria-selected="true" aria-label="Eliminate Repetitive Work">
             <div class="panel-expanded-view">
               <div class="expanded-header">
-                <h3 class="expanded-name">Marcus Vance</h3>
-                <div class="expanded-role">VP of Digital Innovation, Solara Energy</div>
+                <h3 class="expanded-name">Eliminate Repetitive Work</h3>
               </div>
 
               <p class="expanded-quote">
-                “Deploying SkyGentic’s autonomous agent ecosystem has empowered our customers to effortlessly manage
-                energy subscriptions, track rewards, and locate service hubs 24/7. The personalized conversational flows
-                drove a 54% boost in member activation rates and established a new benchmark for our digital CX.”
+                Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock.
               </p>
-
-              <div class="expanded-footer">
-                <span class="expanded-logo-badge">SOLARA</span>
-              </div>
             </div>
           </div>
 
-          <div class="testimonial-panel collapsed" data-index="2" role="tab" tabindex="0" aria-selected="false"
-            aria-label="Testimonial from Kavita Patel">
+          <div class="testimonial-panel collapsed" data-index="1" role="tab" tabindex="0" aria-selected="false" aria-label="Connect Every System">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -940,17 +913,14 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Chief Technology Officer, MetroRetail Global</span>
-              </div>
+
               <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Kavita<br>Patel</h3>
+                <h3 class="collapsed-name">Connect Every System</h3>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-panel collapsed" data-index="3" role="tab" tabindex="0" aria-selected="false"
-            aria-label="Testimonial from Arthur Sterling">
+          <div class="testimonial-panel collapsed" data-index="2" role="tab" tabindex="0" aria-selected="false" aria-label="Govern AI at Scale">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -958,11 +928,22 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Chief Executive Officer, Vantage Point FinTech</span>
+              <div class="collapsed-bottom">
+                <h3 class="collapsed-name">Govern AI at Scale</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-panel collapsed" data-index="3" role="tab" tabindex="0" aria-selected="false" aria-label="One Unified AI Workforce">
+            <div class="panel-collapsed-view">
+              <div class="collapsed-top" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
               <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Arthur<br>Sterling</h3>
+                <h3 class="collapsed-name">One Unified AI Workforce</h3>
               </div>
             </div>
           </div>
@@ -970,9 +951,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Section 3 : Marquee Strip -->
-
+     <!-- Section 8: Integrations (Tools)  -->
     <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
       <div class="container-focus">
         <div style="text-align: center; margin-bottom: var(--space-12);">
@@ -1205,38 +1184,52 @@
 
     const testimonialsData = [
       {
-        name: "Elena Rostova",
-        role: "Head of Customer Experience, Apex Hospitality Group",
-        quote: "SkyGentic completely redefined our global guest booking experience. Inquiries across WhatsApp and mobile web are resolved in seconds, delivering a 42% surge in direct reservation bookings without adding support staff.",
-        logo: "APEX HOTELS"
+        name: "Eliminate Repetitive Work",
+        quote: "Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock."
       },
       {
-        name: "Marcus Vance",
-        role: "VP of Digital Innovation, Solara Energy",
-        quote: "Deploying SkyGentic’s autonomous agent ecosystem has empowered our customers to effortlessly manage energy subscriptions, track rewards, and locate service hubs 24/7. The personalized conversational flows drove a 54% boost in member activation rates and established a new benchmark for our digital CX.",
-        logo: "SOLARA"
+        name: "Connect Every System",
+        quote: "Unify apps, data, and tools into one intelligent workflow - no more switching between platforms."
       },
       {
-        name: "Kavita Patel",
-        role: "Chief Technology Officer, MetroRetail Global",
-        quote: "Integrating SkyGentic Agent CoPilot into our retail operations allowed our customer service team to resolve 3x more shopper queries in real-time, cutting average resolution time by 65% across 200+ global storefronts.",
-        logo: "METRORETAIL"
+        name: "Govern AI at Scale",
+        quote: "Apply centralized policies, budgets, permissions, and monitoring so every AI agent operates securely and consistently."
       },
       {
-        name: "Arthur Sterling",
-        role: "Chief Executive Officer, Vantage Point FinTech",
-        quote: "SkyGentic’s enterprise conversational infrastructure has allowed us to deliver hyper-personalized financial guidance at scale. Over the past two years, customer satisfaction reached an all-time high of 98.4%, and we consider them an indispensable technology partner.",
-        logo: "VANTAGEPOINT"
+        name: "One Unified AI Workforce",
+        quote: "Hive coordinates specialized agents to work as one intelligent system toward a single goal."
       }
     ];
 
+    const testimonialTrack = document.getElementById('testimonialTrack');
     const panels = document.querySelectorAll('.testimonial-panel');
-    let currentActiveIdx = 1;
+    const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 800px)');
+    let currentActiveIdx = 0;
 
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
-      panel.classList.toggle('active', isActive);
-      panel.classList.toggle('collapsed', !isActive);
+      const useMobileCards = mobileCardsQuery.matches;
+      panel.classList.toggle('mobile-card', useMobileCards);
+      panel.classList.toggle('active', !useMobileCards && isActive);
+      panel.classList.toggle('collapsed', !useMobileCards && !isActive);
+
+      if (useMobileCards) {
+        panel.setAttribute('role', 'listitem');
+        panel.setAttribute('tabindex', '-1');
+        panel.removeAttribute('aria-selected');
+        panel.innerHTML = `
+          <div class="panel-expanded-view">
+            <div class="expanded-header">
+              <h3 class="expanded-name">${data.name}</h3>
+            </div>
+            <p class="expanded-quote">${data.quote}</p>
+          </div>
+        `;
+        return;
+      }
+
+      panel.setAttribute('role', 'tab');
+      panel.setAttribute('tabindex', '0');
       panel.setAttribute('aria-selected', isActive);
 
       if (isActive) {
@@ -1244,12 +1237,8 @@
           <div class="panel-expanded-view">
             <div class="expanded-header">
               <h3 class="expanded-name">${data.name}</h3>
-              <div class="expanded-role">${data.role}</div>
             </div>
-            <p class="expanded-quote">“${data.quote}”</p>
-            <div class="expanded-footer">
-              <span class="expanded-logo-badge">${data.logo}</span>
-            </div>
+            <p class="expanded-quote">${data.quote}</p>
           </div>
         `;
       } else {
@@ -1262,9 +1251,6 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </div>
-            <div class="collapsed-middle">
-              <span class="collapsed-role">${data.role}</span>
-            </div>
             <div class="collapsed-bottom">
               <h3 class="collapsed-name">${formattedName}</h3>
             </div>
@@ -1273,10 +1259,19 @@
       }
     }
 
+    function syncTestimonialsLayout() {
+      const useMobileCards = mobileCardsQuery.matches;
+      if (testimonialTrack) {
+        testimonialTrack.setAttribute('role', useMobileCards ? 'list' : 'tablist');
+      }
+      panels.forEach((p, idx) => renderPanel(p, idx, idx === currentActiveIdx));
+    }
+
     function setActivePanel(activeIdx) {
+      if (mobileCardsQuery.matches) return;
       if (currentActiveIdx === activeIdx) return;
       currentActiveIdx = activeIdx;
-      panels.forEach((p, idx) => renderPanel(p, idx, idx === activeIdx));
+      syncTestimonialsLayout();
     }
 
     panels.forEach((panel, idx) => {
@@ -1286,6 +1281,9 @@
         if (e.key === 'Enter' || e.key === ' ') setActivePanel(idx);
       });
     });
+
+    syncTestimonialsLayout();
+    mobileCardsQuery.addEventListener('change', syncTestimonialsLayout);
 
     const architectureCards = document.querySelectorAll('[data-architecture-card]');
     architectureCards.forEach(card => {
