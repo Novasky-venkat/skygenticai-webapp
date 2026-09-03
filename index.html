@@ -93,7 +93,8 @@
       .testimonial-details{max-width:none;margin:0}
       .testimonial-right-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
       .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
-      .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:var(--space-3)}
+      .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:0}
+      .testimonial-right-wrapper .expanded-header{margin-bottom:var(--space-1)}
       .testimonial-right-wrapper .expanded-name{font-size:1.25rem;overflow-wrap:anywhere}
       .testimonial-right-wrapper .expanded-quote{font-size:1rem}
     }
@@ -892,7 +893,19 @@
 
         <div class="testimonial-right-wrapper" id="testimonialTrack" role="tablist" aria-label="Customer Reviews Track">
           
-          <div class="testimonial-panel collapsed" data-index="0" role="tab" tabindex="0" aria-selected="false" aria-label="Eliminate Repetitive Work">
+          <div class="testimonial-panel active" data-index="0" role="tab" tabindex="0" aria-selected="true" aria-label="Eliminate Repetitive Work">
+            <div class="panel-expanded-view">
+              <div class="expanded-header">
+                <h3 class="expanded-name">Eliminate Repetitive Work</h3>
+              </div>
+
+              <p class="expanded-quote">
+                Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock.
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-panel collapsed" data-index="1" role="tab" tabindex="0" aria-selected="false" aria-label="Connect Every System">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -902,21 +915,8 @@
               </div>
 
               <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Eliminate Repetitive Work</h3>
+                <h3 class="collapsed-name">Connect Every System</h3>
               </div>
-            </div>
-          </div>
-
-          <div class="testimonial-panel active" data-index="1" role="tab" tabindex="0" aria-selected="true" aria-label="Connect Every System">
-            <div class="panel-expanded-view">
-              <div class="expanded-header">
-                <h3 class="expanded-name">Connect Every System</h3>
-              </div>
-
-              <p class="expanded-quote">
-                &ldquo;Unify apps, data, and tools into one intelligent workflow - no more switching between platforms.&rdquo;
-              </p>
-
             </div>
           </div>
 
@@ -1192,7 +1192,7 @@
       },
       {
         name: "Govern AI at Scale",
-        quote: "Apply centralized policies, budgets, permissions, and monitoring so every AI agent operates securely and consistently"
+        quote: "Apply centralized policies, budgets, permissions, and monitoring so every AI agent operates securely and consistently."
       },
       {
         name: "One Unified AI Workforce",
@@ -1203,7 +1203,7 @@
     const testimonialTrack = document.getElementById('testimonialTrack');
     const panels = document.querySelectorAll('.testimonial-panel');
     const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 800px)');
-    let currentActiveIdx = 1;
+    let currentActiveIdx = 0;
 
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
@@ -1221,7 +1221,7 @@
             <div class="expanded-header">
               <h3 class="expanded-name">${data.name}</h3>
             </div>
-            <p class="expanded-quote">&ldquo;${data.quote}&rdquo;</p>
+            <p class="expanded-quote">${data.quote}</p>
           </div>
         `;
         return;
@@ -1237,7 +1237,7 @@
             <div class="expanded-header">
               <h3 class="expanded-name">${data.name}</h3>
             </div>
-            <p class="expanded-quote">&ldquo;${data.quote}&rdquo;</p>
+            <p class="expanded-quote">${data.quote}</p>
           </div>
         `;
       } else {
