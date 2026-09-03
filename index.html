@@ -80,6 +80,20 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+    @media (min-width:300px) and (max-width:800px){
+      .section-testimonial-ribbon{padding:var(--space-10) 0;overflow:clip}
+      .testimonial-main-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);min-height:0;padding:0 var(--space-4)}
+      .testimonial-left-wrapper,.testimonial-right-wrapper{width:100%;padding:0;min-width:0}
+      .testimonial-title{font-size:clamp(2rem,10vw,2.5rem);overflow-wrap:anywhere}
+      .testimonial-details{max-width:none;margin:0}
+      .testimonial-right-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
+      .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
+      .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:var(--space-3)}
+      .testimonial-right-wrapper .expanded-name{font-size:1.25rem;overflow-wrap:anywhere}
+      .testimonial-right-wrapper .expanded-quote{font-size:1rem}
+    }
+  </style>
 
 </head>
 <body>
@@ -855,13 +869,35 @@
       }
     ];
 
+    const testimonialTrack = document.getElementById('testimonialTrack');
     const panels = document.querySelectorAll('.testimonial-panel');
+    const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 800px)');
     let currentActiveIdx = 1;
 
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
-      panel.classList.toggle('active', isActive);
-      panel.classList.toggle('collapsed', !isActive);
+      const useMobileCards = mobileCardsQuery.matches;
+      panel.classList.toggle('mobile-card', useMobileCards);
+      panel.classList.toggle('active', !useMobileCards && isActive);
+      panel.classList.toggle('collapsed', !useMobileCards && !isActive);
+
+      if (useMobileCards) {
+        panel.setAttribute('role', 'listitem');
+        panel.setAttribute('tabindex', '-1');
+        panel.removeAttribute('aria-selected');
+        panel.innerHTML = `
+          <div class="panel-expanded-view">
+            <div class="expanded-header">
+              <h3 class="expanded-name">${data.name}</h3>
+            </div>
+            <p class="expanded-quote">&ldquo;${data.quote}&rdquo;</p>
+          </div>
+        `;
+        return;
+      }
+
+      panel.setAttribute('role', 'tab');
+      panel.setAttribute('tabindex', '0');
       panel.setAttribute('aria-selected', isActive);
 
       if (isActive) {
@@ -891,10 +927,19 @@
       }
     }
 
+    function syncTestimonialsLayout() {
+      const useMobileCards = mobileCardsQuery.matches;
+      if (testimonialTrack) {
+        testimonialTrack.setAttribute('role', useMobileCards ? 'list' : 'tablist');
+      }
+      panels.forEach((p, idx) => renderPanel(p, idx, idx === currentActiveIdx));
+    }
+
     function setActivePanel(activeIdx) {
+      if (mobileCardsQuery.matches) return;
       if (currentActiveIdx === activeIdx) return;
       currentActiveIdx = activeIdx;
-      panels.forEach((p, idx) => renderPanel(p, idx, idx === activeIdx));
+      syncTestimonialsLayout();
     }
 
     panels.forEach((panel, idx) => {
@@ -904,6 +949,9 @@
         if (e.key === 'Enter' || e.key === ' ') setActivePanel(idx);
       });
     });
+
+    syncTestimonialsLayout();
+    mobileCardsQuery.addEventListener('change', syncTestimonialsLayout);
 
     const architectureCards = document.querySelectorAll('[data-architecture-card]');
     architectureCards.forEach(card => {
