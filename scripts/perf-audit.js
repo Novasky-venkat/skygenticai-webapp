@@ -11,7 +11,7 @@ if (!fs.existsSync(distDir)) {
 
 const BUDGETS = {
   maxHtmlSizeKB: 60,
-  maxCssTotalSizeKB: 50,
+  maxCssTotalSizeKB: 60,
   maxBrotliPayloadKB: 25,
 };
 

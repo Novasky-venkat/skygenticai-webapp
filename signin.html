@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | SkyGentic AI Enterprise Portal</title>
+  <meta name="description"
+    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+  <link rel="canonical" href="https://skygentic.ai/signin.html">
+
+  <!-- OpenGraph Social Cards -->
+  <meta property="og:title" content="Sign In | SkyGentic AI Enterprise Portal">
+  <meta property="og:description"
+    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skygentic.ai/signin.html">
+  <meta property="og:image" content="https://skygentic.ai/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sign In | SkyGentic AI Enterprise Portal">
+  <meta name="twitter:description"
+    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+  <meta name="twitter:image" content="https://skygentic.ai/og-image.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "SkyGentic AI",
+        "url": "https://skygentic.ai",
+        "logo": "https://skygentic.ai/logo.png",
+        "sameAs": ["https://twitter.com/skygenticai", "https://linkedin.com/company/skygenticai"]
+      },
+      {
+        "@type": "WebPage",
+        "name": "SkyGentic AI Sign In Portal",
+        "url": "https://skygentic.ai/signin.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/design-system.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="navbar-wrapper" role="banner">
+    <nav class="navbar-container" aria-label="Main Navigation">
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span class="mobile-menu-icon mobile-menu-icon-open" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="mobile-menu-icon mobile-menu-icon-close" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
+        <img class="nav-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
+      </a>
+
+      <ul class="nav-menu">
+        <li class="services-menu">
+          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
+            aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
+            <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
+            <a class="service-dropdown-link" href="services.html#swarm" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">Swarm</a>
+            <a class="service-dropdown-link" href="services.html#skyflow" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">SkyFlow</a>
+            <a class="service-dropdown-link" href="services.html#hive" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-hive.png" alt="" width="32" height="32">Hive</a>
+            <a class="service-dropdown-link" href="services.html#nova-ops" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">Nova Ops</a>
+          </div>
+        </li>
+        <li>
+          <a href="resources.html" class="nav-link">
+            <span>Resources</span>
+          </a>
+        </li>
+        <li>
+          <a href="get-in-touch.html" class="nav-link">
+            <span>Get In Touch</span>
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="nav-link">
+            <span>About Us</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="signin.html" class="nav-signin" aria-current="page">Sign In</a>
+        <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule Demo</span>
+            <span class="btn-text-slide">Schedule Demo</span>
+          </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true" inert>
+      <div class="mobile-menu-content">
+        <a href="schedule-demo.html" class="btn-primary mobile-menu-demo" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule Demo</span>
+            <span class="btn-text-slide">Schedule Demo</span>
+          </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+        <div class="mobile-menu-list">
+          <div class="mobile-menu-item">
+            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+              <span>Services</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-submenu" id="mobile-services-panel" hidden>
+              <a class="mobile-submenu-link" href="services.html#forge">
+                <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
+                <span><strong>Forge</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#swarm">
+                <img class="service-icon-img" src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">
+                <span><strong>Swarm</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#skyflow">
+                <img class="service-icon-img" src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">
+                <span><strong>SkyFlow</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#hive">
+                <img class="service-icon-img" src="assets/architecture/icon-hive.png" alt="" width="32" height="32">
+                <span><strong>Hive</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#nova-ops">
+                <img class="service-icon-img" src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">
+                <span><strong>Nova Ops</strong></span>
+              </a>
+            </div>
+          </div>
+          <a class="mobile-menu-row" href="resources.html">
+            <span>Resources</span>
+          </a>
+          <a class="mobile-menu-row" href="get-in-touch.html">
+            <span>Get In Touch</span>
+          </a>
+          <a class="mobile-menu-row" href="about.html">
+            <span>About Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section style="padding-top: 140px; padding-bottom: 100px; min-height: calc(100vh - 300px); display: flex; align-items: center;">
+      <div class="container">
+        <div style="max-width: 480px; margin: 0 auto;" class="architecture-card">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <img src="assets/skygentic-wordmark.png" alt="SkyGentic" style="height: 32px; margin-bottom: 16px;">
+            <h1 style="font-family: var(--font-family-display); font-size: 1.8rem; color: var(--color-white); margin-bottom: 8px;">Enterprise Portal Sign In</h1>
+            <p style="color: var(--color-slate-400); font-size: 0.9rem;">Access your agent workspace &amp; telemetry dashboard</p>
+          </div>
+
+          <!-- Single Sign-On Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <button type="button" class="nav-signin" style="width: 100%; border: 1px solid var(--color-midnight-700); padding: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(15, 23, 42, 0.6); color: var(--color-white); font-weight: 500;">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              Continue with Google SSO
+            </button>
+            <button type="button" class="nav-signin" style="width: 100%; border: 1px solid var(--color-midnight-700); padding: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(15, 23, 42, 0.6); color: var(--color-white); font-weight: 500;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Continue with GitHub
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; margin: 24px 0; color: var(--color-slate-500); font-size: 0.85rem;">
+            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.08);"></div>
+            <span style="padding: 0 12px;">OR WORK EMAIL</span>
+            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.08);"></div>
+          </div>
+
+          <form id="signin-form" style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="signin-email" style="font-size: 0.85rem; color: var(--color-slate-200); font-weight: 500;">Work Email Address</label>
+              <input type="email" id="signin-email" name="email" required placeholder="name@company.com"
+                style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <label for="signin-password" style="font-size: 0.85rem; color: var(--color-slate-200); font-weight: 500;">Password</label>
+                <a href="#forgot" style="font-size: 0.8rem; color: var(--color-green-primary); text-decoration: none;">Forgot password?</a>
+              </div>
+              <input type="password" id="signin-password" name="password" required placeholder="••••••••••••"
+                style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">
+              <div class="btn-text-wrapper">
+                <span class="btn-text-slide">Sign In to Dashboard</span>
+                <span class="btn-text-slide">Sign In to Dashboard</span>
+              </div>
+            </button>
+
+            <div id="signin-notice" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--color-green-primary); border-radius: 8px; padding: 12px; color: var(--color-green-primary); font-size: 0.85rem; text-align: center;">
+              Authentication request initiated. Check your work email for two-factor verification code.
+            </div>
+          </form>
+
+          <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; font-size: 0.85rem; color: var(--color-slate-400);">
+            Don't have an enterprise account? <a href="schedule-demo.html" style="color: var(--color-green-primary); font-weight: 600;">Schedule Demo &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-wrapper" role="contentinfo">
+    <div class="container">
+      <div class="footer-upper">
+        <div class="footer-brand-section">
+          <a href="/" class="nav-brand footer-brand" aria-label="SkyGentic AI Homepage">
+            <img class="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
+          </a>
+          <p class="footer-description">
+            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
+          </p>
+          <div class="footer-status" aria-label="All systems operational">
+            <span class="footer-status-dot" aria-hidden="true"></span>
+            <span>All systems operational</span>
+          </div>
+        </div>
+
+        <nav class="footer-navigation" aria-label="Footer navigation">
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Services</h2>
+            <ul class="footer-link-list">
+              <li><a href="services.html#forge" class="footer-link">Forge</a></li>
+              <li><a href="services.html#swarm" class="footer-link">Swarm</a></li>
+              <li><a href="services.html#skyflow" class="footer-link">SkyFlow</a></li>
+              <li><a href="services.html#hive" class="footer-link">Hive</a></li>
+              <li><a href="services.html#nova-ops" class="footer-link">NovaOps</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Quick Links</h2>
+            <ul class="footer-link-list">
+              <li><a href="resources.html" class="footer-link">Resources</a></li>
+              <li><a href="get-in-touch.html" class="footer-link">Get in Touch</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="signin.html" class="footer-link">Sign in</a></li>
+              <li><a href="schedule-demo.html" class="footer-link">Schedule Demo</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Follow Us</h2>
+            <ul class="footer-link-list">
+              <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
+              <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
+              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
+        <nav class="footer-legal" aria-label="Footer legal links">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.querySelector('.navbar-wrapper');
+    let navbarScrollTicking = false;
+
+    function syncNavbarScrollState() {
+      navbarScrollTicking = false;
+      if (!navbar) return;
+      navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!navbarScrollTicking) {
+        navbarScrollTicking = true;
+        window.requestAnimationFrame(syncNavbarScrollState);
+      }
+    }, { passive: true });
+
+    const m = document.querySelector('.services-menu');
+    const t = document.querySelector('.services-menu-trigger');
+    const setServicesMenuOpen = (isOpen) => {
+      m?.classList.toggle('is-open', isOpen);
+      t?.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    t?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
+    });
+
+    m?.addEventListener('mouseenter', () => t?.setAttribute('aria-expanded', 'true'));
+    m?.addEventListener('mouseleave', () => {
+      if (!m?.classList.contains('is-open')) t?.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.service-dropdown-link') || !m?.contains(event.target)) {
+        setServicesMenuOpen(false);
+      }
+    });
+
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuPanel = document.querySelector('#mobile-menu');
+    const mobileMenuRows = document.querySelectorAll('.mobile-menu-row[aria-controls]');
+    const mobileNavLinks = document.querySelectorAll('.mobile-menu-panel a');
+
+    function setMobileMenuOpen(isOpen) {
+      navbar?.classList.toggle('is-mobile-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      mobileMenuButton?.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuPanel?.setAttribute('aria-hidden', String(!isOpen));
+      if (mobileMenuPanel) mobileMenuPanel.inert = !isOpen;
+    }
+
+    mobileMenuButton?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setMobileMenuOpen(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileMenuRows.forEach((row) => {
+      row.addEventListener('click', () => {
+        const panel = document.getElementById(row.getAttribute('aria-controls'));
+        const isExpanded = row.getAttribute('aria-expanded') === 'true';
+        row.setAttribute('aria-expanded', String(!isExpanded));
+        if (panel) panel.hidden = isExpanded;
+      });
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+
+    const signinForm = document.getElementById('signin-form');
+    const signinNotice = document.getElementById('signin-notice');
+    signinForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (signinNotice) {
+        signinNotice.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+
+</html>

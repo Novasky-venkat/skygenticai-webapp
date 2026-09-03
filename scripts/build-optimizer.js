@@ -45,8 +45,9 @@ function minifyCSS(css) {
     .replace(/\s+/g, ' ')                   // collapse whitespace
     .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
     .replace(/;\}/g, '}')                   // remove trailing semicolons
-    .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // collapse 0 units
-    .replace(/(:|\s)0\.(\d+)/g, '$1.$2')    // 0.5s -> .5s
+    .replace(/0\.(\d+)/g, '.$1')            // 0.5 -> .5
+    .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // 0px -> 0
+    .replace(/\s*!important/gi, '!important')
     .trim();
 }
 
@@ -72,15 +73,16 @@ if (fs.existsSync(stylesDist)) {
   });
 }
 
-// Process and minify index.html
-const indexSrc = path.join(srcDir, 'index.html');
-const indexDist = path.join(distDir, 'index.html');
-if (fs.existsSync(indexSrc)) {
-  const rawHTML = fs.readFileSync(indexSrc, 'utf-8');
+// Process and minify all HTML files
+const htmlFiles = fs.readdirSync(srcDir).filter(f => f.endsWith('.html'));
+htmlFiles.forEach(file => {
+  const htmlSrc = path.join(srcDir, file);
+  const htmlDist = path.join(distDir, file);
+  const rawHTML = fs.readFileSync(htmlSrc, 'utf-8');
   const minifiedHTML = minifyHTML(rawHTML);
-  fs.writeFileSync(indexDist, minifiedHTML, 'utf-8');
-  console.log(`  ✓ Minified HTML: index.html (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
-}
+  fs.writeFileSync(htmlDist, minifiedHTML, 'utf-8');
+  console.log(`  ✓ Minified HTML: ${file} (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
+});
 
 // Pre-compress all static assets with Gzip & Brotli for cloud CDNs
 function compressFile(filePath) {
