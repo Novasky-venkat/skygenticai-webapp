@@ -205,12 +205,10 @@ body {
   transition: transform var(--transition-fast);
 }
 
-.arrow-bubble.size-sm,
 .bento-action-bubble {
   width: 20px;
   height: 20px;
 }
-.arrow-bubble.variant-glass, .arrow-bubble.variant-white,
 .btn-glass .arrow-bubble, .btn-glass .btn-icon-bubble,
 .btn-white .arrow-bubble, .btn-white .btn-icon-bubble {
   background: var(--color-primary-blue); color: var(--color-card);
@@ -384,17 +382,6 @@ body {
 .connector-line--feed,
 .connector-line--summary {
   opacity: 0;
-}
-
-.connector-line--report {
-  opacity: 0;
-  stroke-dasharray: 3 5;
-}
-
-.connector-line--report.is-reporting {
-  opacity: 0.64;
-  stroke: var(--color-teal);
-  stroke-dasharray: none;
 }
 
 .connector-pulse {
@@ -1219,7 +1206,6 @@ body {
 
 .section-sticky-showcase {
   --lifecycle-sticky-top: 100px;
-  --lifecycle-rail-width: 320px;
   background: var(--color-section-alt);
   padding: 100px 0 160px 0;
   position: relative;
@@ -1374,6 +1360,24 @@ body {
   color: var(--color-heading);
 }
 
+@media (min-width: 992px) {
+  .section-sticky-showcase .mockup-topbar {
+    justify-content: space-between;
+  }
+
+  .section-sticky-showcase .mockup-tab-pill {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .section-sticky-showcase .mockup-status {
+    margin-left: auto;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+
 .mockup-split-layout {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -1421,6 +1425,11 @@ body {
   color: var(--color-heading);
 }
 
+.chat-bot-model {
+  font-size: 11px;
+  color: var(--color-secondary-text);
+}
+
 .chatgpt-messages {
   display: flex;
   flex-direction: column;
@@ -1446,6 +1455,13 @@ body {
   border: 1px solid var(--color-blue-100);
   color: var(--color-heading);
   align-self: flex-start;
+}
+
+.citation-badge {
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: var(--color-blue-900);
+  font-weight: 600;
 }
 
 .chatgpt-input-bar {
@@ -2386,6 +2402,7 @@ body {
 }
 .testimonial-title { font-size: 2.75rem; margin: 0 0 16px; }
 .testimonial-details { font-size: 1rem; margin: 0 0 32px; max-width: 380px; }
+.testimonial-cta-wrap { margin-top: auto; flex-shrink: 0; height: 48px; display: flex; align-items: center; }
 .testimonial-right-wrapper { width: 68%; display: flex; }
 .testimonial-panel {
   border-left: 1px solid var(--color-border); cursor: pointer; position: relative; overflow: hidden;
@@ -2397,6 +2414,8 @@ body {
 .panel-collapsed-view { height: 100%; padding: 34px 20px; display: flex; flex-direction: column; justify-content: space-between; }
 .collapsed-top { color: var(--color-body); transition: color var(--transition-fast), transform var(--transition-fast); }
 .testimonial-panel.collapsed:hover .collapsed-top { color: var(--color-primary-blue); transform: translateX(4px); }
+.collapsed-middle { margin: auto 0 40px; }
+.collapsed-role { font-size: 13px; line-height: 1.45; color: var(--color-body); display: block; }
 .collapsed-bottom { margin-top: auto; }
 .collapsed-name { font-family: var(--font-family-display); font-size: 1.35rem; font-weight: 500; color: var(--color-heading); margin: 0; line-height: 1.2; }
 .testimonial-panel.collapsed .collapsed-bottom {
@@ -2415,7 +2434,10 @@ body {
 .panel-expanded-view { height: 100%; padding: 42px 32px; display: flex; flex-direction: column; justify-content: flex-start; position: relative; z-index: 1; }
 .expanded-header { margin-bottom: 10px; }
 .expanded-name { font-family: var(--font-family-display); font-size: 1.75rem; font-weight: 500; color: var(--color-heading); margin: 0 0 6px; }
+.expanded-role { font-size: 14px; color: var(--color-secondary-text); }
 .expanded-quote { font-size: 1.05rem; line-height: 1.65; color: var(--color-body); margin: 0; letter-spacing: -0.01em; }
+.expanded-footer { margin-top: auto; }
+.expanded-logo-badge { font-family: var(--font-family-display); font-size: 1.25rem; font-weight: 700; color: var(--color-blue-900); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; }
 
 /* Integrations */
 .section-integrations {
@@ -2432,26 +2454,6 @@ body {
 }
 .integrations-copy {
   min-width: 0;
-}
-.integrations-label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin: 0 0 var(--space-10);
-  color: var(--color-blue-900);
-  font-family: var(--font-family-body);
-  font-size: .875rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
-.integrations-label-mark {
-  width: 10px;
-  height: 10px;
-  flex: 0 0 10px;
-  background: var(--color-primary-blue);
-  border-radius: var(--radius-line);
 }
 .integrations-heading {
   max-width: 820px;
