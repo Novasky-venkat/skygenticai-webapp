@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkyGentic AI | Autonomous Agentic CX &amp; Enterprise Intelligence</title>
-  <meta name="description" content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
+  <meta name="description"
+    content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
   <link rel="canonical" href="https://skygentic.ai/">
-  
+
   <!-- OpenGraph Social Cards -->
   <meta property="og:title" content="SkyGentic AI | Autonomous Agentic CX &amp; Enterprise Intelligence">
-  <meta property="og:description" content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
+  <meta property="og:description"
+    content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://skygentic.ai/">
   <meta property="og:image" content="https://skygentic.ai/og-image.png">
@@ -17,7 +20,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SkyGentic AI | Autonomous Agentic CX &amp; Enterprise Intelligence">
-  <meta name="twitter:description" content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
+  <meta name="twitter:description"
+    content="Deploy purpose-driven autonomous AI agents to transform customer journeys, automate enterprise workflows, and scale Conversational CX effortlessly.">
   <meta name="twitter:image" content="https://skygentic.ai/og-image.png">
 
   <!-- Schema.org JSON-LD Structured Data -->
@@ -42,35 +46,6 @@
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic Agentic AI differ from standard conversational chatbots?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What deployment options and enterprise integrations are supported?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic safeguard proprietary data and regulatory compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models."
-            }
-          }
-        ]
       }
     ]
   }
@@ -80,59 +55,89 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+    @media (min-width:300px) and (max-width:800px){
+      .section-testimonial-ribbon{padding:var(--space-10) 0;overflow:clip}
+      .testimonial-main-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);min-height:0;padding:0 var(--space-4)}
+      .testimonial-left-wrapper,.testimonial-right-wrapper{width:100%;padding:0;min-width:0}
+      .testimonial-title{font-size:clamp(2rem,10vw,2.5rem);overflow-wrap:anywhere}
+      .testimonial-details{max-width:none;margin:0}
+      .testimonial-right-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
+      .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
+      .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:0}
+      .testimonial-right-wrapper .expanded-header{margin-bottom:var(--space-1)}
+      .testimonial-right-wrapper .expanded-name{font-size:1.25rem;overflow-wrap:anywhere}
+      .testimonial-right-wrapper .expanded-quote{font-size:1rem}
+    }
+  </style>
+
 </head>
+
 <body>
-  <!-- Accessible Bypass Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Section 1: Floating Light Capsule Navbar -->
   <header class="navbar-wrapper" role="banner">
     <nav class="navbar-container" aria-label="Main Navigation">
-      <!-- Brand Logo -->
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span class="mobile-menu-icon mobile-menu-icon-open" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="mobile-menu-icon mobile-menu-icon-close" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
       <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-          <rect width="28" height="28" rx="8" fill="var(--color-primary-blue)"></rect>
-          <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14C21 17.866 17.866 21 14 21" stroke="var(--color-card)" stroke-width="2.5" stroke-linecap="round"></path>
-          <circle cx="14" cy="14" r="3" fill="var(--color-blue-100)"></circle>
-        </svg>
-        <span>SkyGentic</span>
+        <img class="nav-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
       </a>
 
-      <!-- Category Navigation Links with Dropdown Carets -->
       <ul class="nav-menu">
+        <li class="services-menu">
+          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
+            aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
+            <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
+            <a class="service-dropdown-link" href="services.html#swarn" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">Swarn</a>
+            <a class="service-dropdown-link" href="services.html#skyflow" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">SkyFlow</a>
+            <a class="service-dropdown-link" href="services.html#hive" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-hive.png" alt="" width="32" height="32">Hive</a>
+            <a class="service-dropdown-link" href="services.html#nova-ops" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">Nova Ops</a>
+          </div>
+        </li>
         <li>
-          <a href="#capabilities" class="nav-link">
-            <span>Solutions</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <a href="resources.html" class="nav-link">
+            <span>Resources</span>
           </a>
         </li>
         <li>
-          <a href="#capabilities" class="nav-link">
-            <span>Platform</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <a href="get-in-touch.html" class="nav-link">
+            <span>Get In Touch</span>
           </a>
         </li>
         <li>
-          <a href="#showcase" class="nav-link">
-            <span>Architecture</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <a href="about.html" class="nav-link">
+            <span>About Us</span>
           </a>
-        </li>
-        <li>
-          <a href="#about" class="nav-link">
-            <span>Enterprise</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-        </li>
-        <li>
-          <a href="#pricing" class="nav-link">Pricing</a>
         </li>
       </ul>
 
-      <!-- Navbar Action Group -->
       <div class="nav-actions">
-        <a href="#signin" class="nav-signin">Sign In</a>
-        <a href="#demo" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+        <a href="signin.html" class="nav-signin">Sign In</a>
+        <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
           <div class="btn-text-wrapper">
             <span class="btn-text-slide">Schedule Demo</span>
             <span class="btn-text-slide">Schedule Demo</span>
@@ -146,29 +151,86 @@
         </a>
       </div>
     </nav>
+
+    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true" inert>
+      <div class="mobile-menu-content">
+        <a href="schedule-demo.html" class="btn-primary mobile-menu-demo" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule Demo</span>
+            <span class="btn-text-slide">Schedule Demo</span>
+          </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+        <div class="mobile-menu-list">
+          <div class="mobile-menu-item">
+            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+              <span>Services</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-submenu" id="mobile-services-panel" hidden>
+              <a class="mobile-submenu-link" href="services.html#forge">
+                <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
+                <span><strong>Forge</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#swarm">
+                <img class="service-icon-img" src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">
+                <span><strong>Swarm</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#skyflow">
+                <img class="service-icon-img" src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">
+                <span><strong>SkyFlow</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#hive">
+                <img class="service-icon-img" src="assets/architecture/icon-hive.png" alt="" width="32" height="32">
+                <span><strong>Hive</strong></span>
+              </a>
+              <a class="mobile-submenu-link" href="services.html#nova-ops">
+                <img class="service-icon-img" src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">
+                <span><strong>Nova Ops</strong></span>
+              </a>
+            </div>
+          </div>
+          <a class="mobile-menu-row" href="resources.html">
+            <span>Resources</span>
+          </a>
+          <a class="mobile-menu-row" href="get-in-touch.html">
+            <span>Get In Touch</span>
+          </a>
+          <a class="mobile-menu-row" href="about.html">
+            <span>About Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Main Content Landmark -->
   <main id="main-content">
-    
-    <!-- Section 2: Hero Section (White Canvas + Cosmic Glow) -->
+
     <section id="hero" class="section-hero" aria-label="Hero Introduction">
       <div class="container">
         <div class="hero-grid">
-          <div>
-            <div class="hero-eyebrow">Introducing Vantage: Next-Gen Autonomous AI Agents</div>
+          <div class="hero-copy">
+            <div class="hero-eyebrow">SkyGentic AI - Agentic AI for ambitious businesses</div>
             <h1 class="headline-homepage">
-              Empower Enterprise<br>Customer Journeys with<br>Autonomous Agentic AI
+              AI Agents That<br>Run Your BUSINESS<br>While You SLEEP.
             </h1>
             <p class="hero-lead">
-              Deploy self-reasoning AI workforces that resolve complex requests, orchestrate omnichannel operations, and scale customer delight effortlessly.
+              SkyGentic AI deploys production-ready autonomous agents for Real Estate, Property Management, Real Estate Investment, Customer Care, Sales, and Operations -  built around your data , integrated with your tools.
             </p>
-            
+
             <div class="hero-cta-group">
               <a href="#demo" class="btn-primary" aria-label="Launch Interactive Demo with SkyGentic">
                 <div class="btn-text-wrapper">
-                  <span class="btn-text-slide">Experience Vantage</span>
-                  <span class="btn-text-slide">Experience Vantage</span>
+                  <span class="btn-text-slide">Explore SkyGentic AI</span>
+                  <span class="btn-text-slide">Explore SkyGentic AI</span>
                 </div>
                 <div class="btn-icon-bubble" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -179,38 +241,189 @@
               </a>
             </div>
           </div>
+          <div class="hero-agentic-visual" aria-hidden="true" data-stage="request">
+            <!-- Precision SVG Connectors with Traveling Signal Dots -->
+            <svg class="hero-connectors-svg" viewBox="0 0 600 560" fill="none" preserveAspectRatio="xMidYMid meet">
+              <path class="connector-line connector-line--req" d="M 255 128 Q 300 96 270 72" />
+              <path class="connector-line connector-line--plan" d="M 205 180 Q 228 176 195 168" />
+              <path class="connector-line connector-line--agent-1" d="M 390 142 Q 414 92 420 58" />
+              <path class="connector-line connector-line--agent-2" d="M 390 184 Q 406 184 420 184" />
+              <path class="connector-line connector-line--agent-3" d="M 390 224 Q 408 258 420 318" />
+              <path class="connector-line connector-line--agent-4" d="M 225 224 Q 182 282 180 318" />
+              <path class="connector-line connector-line--agent-5" d="M 292 240 Q 272 258 272 275" />
+              <path class="connector-line connector-line--feed" d="M 248 240 C 218 250, 198 270, 196 385" />
+              <path class="connector-line connector-line--summary" d="M 352 240 C 382 250, 400 270, 400 385" />
 
-          <div class="hero-visual-container" aria-hidden="true">
-            <div class="hero-3d-bot">
-              <div class="bot-eye-glow"></div>
-            </div>
+              <circle class="connector-pulse pulse-req" r="3.5" />
+              <circle class="connector-pulse pulse-plan" r="3.5" />
+              <circle class="connector-pulse pulse-core" r="3.5" />
+              <circle class="connector-pulse pulse-a1" r="3.5" />
+              <circle class="connector-pulse pulse-a2" r="3.5" />
+              <circle class="connector-pulse pulse-a3" r="3.5" />
+              <circle class="connector-pulse pulse-a4" r="3.5" />
+              <circle class="connector-pulse pulse-a5" r="3.5" />
+              <circle class="connector-pulse pulse-feed" r="3.5" />
+              <circle class="connector-pulse pulse-summary" r="3.5" />
+            </svg>
 
-            <div class="floating-mic-chip">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                <line x1="12" y1="19" x2="12" y2="23"></line>
-                <line x1="8" y1="23" x2="16" y2="23"></line>
-              </svg>
+            <div class="agent-scenario">
+              <div class="request-card">
+                <div class="request-card__header">
+                  <span class="request-card__badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                    Business Request
+                  </span>
+                </div>
+                <span class="request-card__text" data-hero-request>Automate employee onboarding for new hires.</span>
+              </div>
+
+              <div class="planning-card">
+                <span class="planning-card__label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  Execution Plan
+                </span>
+                <div class="planning-card__rows">
+                  <span class="planning-row" data-plan-row><i class="plan-check"></i>Understanding goal</span>
+                  <span class="planning-row" data-plan-row><i class="plan-check"></i>Identifying systems</span>
+                  <span class="planning-row" data-plan-row><i class="plan-check"></i>Selecting agents</span>
+                  <span class="planning-row" data-plan-row><i class="plan-check"></i>Creating execution plan</span>
+                </div>
+              </div>
+
+              <div class="orchestrator-node">
+                <div class="orchestrator-node__glow" aria-hidden="true"></div>
+                <div class="orchestrator-node__header">
+                  <img class="orchestrator-node__wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic AI">
+                </div>
+                <span class="orchestrator-node__state" data-hero-state>Understanding request</span>
+                <span class="orchestrator-node__typing"><i></i><i></i><i></i></span>
+              </div>
+
+              <div class="agent-field">
+                <div class="agent-card agent-card--1" data-agent-card>
+                  <div class="agent-card__header">
+                    <span class="agent-card__icon" data-agent-icon></span>
+                    <span class="agent-card__title"></span>
+                    <span class="agent-card__check" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  </div>
+                  <span class="agent-card__status"></span>
+                  <span class="agent-card__progress"><span></span></span>
+                </div>
+                <div class="agent-card agent-card--2" data-agent-card>
+                  <div class="agent-card__header">
+                    <span class="agent-card__icon" data-agent-icon></span>
+                    <span class="agent-card__title"></span>
+                    <span class="agent-card__check" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  </div>
+                  <span class="agent-card__status"></span>
+                  <span class="agent-card__progress"><span></span></span>
+                </div>
+                <div class="agent-card agent-card--3" data-agent-card>
+                  <div class="agent-card__header">
+                    <span class="agent-card__icon" data-agent-icon></span>
+                    <span class="agent-card__title"></span>
+                    <span class="agent-card__check" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  </div>
+                  <span class="agent-card__status"></span>
+                  <span class="agent-card__progress"><span></span></span>
+                </div>
+                <div class="agent-card agent-card--4" data-agent-card>
+                  <div class="agent-card__header">
+                    <span class="agent-card__icon" data-agent-icon></span>
+                    <span class="agent-card__title"></span>
+                    <span class="agent-card__check" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  </div>
+                  <span class="agent-card__status"></span>
+                  <span class="agent-card__progress"><span></span></span>
+                </div>
+                <div class="agent-card agent-card--5" data-agent-card>
+                  <div class="agent-card__header">
+                    <span class="agent-card__icon" data-agent-icon></span>
+                    <span class="agent-card__title"></span>
+                    <span class="agent-card__check" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  </div>
+                  <span class="agent-card__status"></span>
+                  <span class="agent-card__progress"><span></span></span>
+                </div>
+              </div>
+
+              <!-- Activity Feed Log Card -->
+              <div class="activity-feed-card" data-activity-feed>
+                <div class="activity-feed-card__header">
+                  <span class="activity-feed-card__title">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Live Feed
+                  </span>
+                  <span class="activity-feed-card__dot"></span>
+                </div>
+                <div class="activity-feed-card__list" data-feed-list></div>
+              </div>
+
+              <!-- Workflow Summary Card -->
+              <div class="completion-card">
+                <div class="completion-card__header">
+                  <span class="completion-card__badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="completion-card__title">Workflow Summary</span>
+                </div>
+                <div class="completion-card__grid" data-summary-grid></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Section 3 : Marquee Strip -->
 
-    <!-- Section 3: Skygentic Platform at a Glance -->
+     <section class="section-marquee" aria-label="Trusted Enterprise Clients">
+      <div class="marquee-container">
+        <div class="marquee-track" aria-hidden="true">
+          <div class="marquee-group">
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> NOVASKY LLC</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> VELOSYS CORPORATION</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"></polygon></svg> KATARI GROUP</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> NELAVANKA</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> M.Y.PILGRIMS</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> SENIOR REVIVAL</div>
+          <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> THE COIN LABS</div>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> NOVASKY LLC</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> VELOSYS CORPORATION</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"></polygon></svg> KATARI GROUP</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> NELAVANKA</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> M.Y.PILGRIMS</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> SENIOR REVIVAL</div>
+            <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> THE COIN LABS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Section 4 : Enterprise Impact Metrics -->
+
     <section id="features" class="section-metrics" aria-label="Enterprise Impact Metrics">
       <div class="container">
         <div class="features-composite-grid">
-          <!-- Left Column: Title & CTA -->
           <div>
             <h2 class="metrics-heading">
-              One unified platform to<br class="metrics-mobile-break"> Build, Deploy and<br class="metrics-tablet-break"> Govern Enterprise AI Agents at scale
+              One unified platform to<br class="metrics-mobile-break"> Build, Deploy and<br
+                class="metrics-tablet-break"> Govern Enterprise AI Agents at scale
             </h2>
           </div>
 
-          <!-- Middle Column: Metrics Statistics -->
           <div style="display: flex; gap: var(--space-8);">
             <div class="stat-block">
               <div class="stat-digit">5</div>
@@ -228,7 +441,6 @@
             </div>
           </div>
 
-          <!-- Right Column: Sleek Hallmark Pill Tags (1:1 Match) -->
           <div class="features-right-wrapper">
             <h3 class="features-right-title">Core Platform Modules</h3>
             <div class="features-chips-flex">
@@ -244,46 +456,38 @@
       </div>
     </section>
 
-    <!-- Section 4: Client Logo Marquee -->
-    <section class="section-marquee" aria-label="Trusted Enterprise Clients">
-      <div class="marquee-track" aria-hidden="true">
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> VERTEX GLOBAL</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> SYNAPSE HEALTH</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"></polygon></svg> AERO LOGISTICS</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> QUANTUM RETAIL</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> NOVACREST CAPITAL</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle></svg> VERTEX GLOBAL</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"></rect></svg> SYNAPSE HEALTH</div>
-        <div class="marquee-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"></polygon></svg> AERO LOGISTICS</div>
-      </div>
-    </section>
-
-    <!-- Section 5: Platform Capabilities Staggered Bento Grid (Original Bespoke Copy) -->
+    <!-- Section 5: Our Architecture- 5 layers -->
     <section id="capabilities" class="section-capabilities" aria-label="Platform Capabilities">
       <div class="container">
         <div class="capabilities-header">
-          <h2 class="capabilities-main-title">Elevate Every Touchpoint<br>with Purpose-Built<br>AI Architecture</h2>
+          <h2 class="capabilities-main-title">Where intelligent agents<br>become intelligent businesses.</h2>
           <p class="capabilities-main-desc">
-            SkyGentic equips modern enterprises with intelligent autonomous systems designed to automate workflows, accelerate conversions, and deepen customer loyalty.
+            Create Orchestrate, Govern and Deploy AI agents that work together like a digital workforce - sharing
+            context, automating decisions and delivering measurable business outcomes.
           </p>
         </div>
 
         <div class="bento-staggered-grid">
           <div class="bento-glow-backdrop" aria-hidden="true"></div>
 
-          <!-- Column 1: Left (Autonomous Agentic Intelligence) -->
+          <!-- Column 1: Left (Forge) -->
           <div class="bento-column col-1">
-            <div class="bento-feature-card">
-              <div class="bento-card-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                </svg>
+            <div class="bento-feature-card" data-architecture-card>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+                <div aria-hidden="true"
+                  style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <img src="assets/architecture/icon-forge.png" alt="" width="32" height="32" loading="lazy"
+                    decoding="async">
+                </div>
+                <span aria-hidden="true" data-architecture-number
+                  style="font:500 1.25rem/1 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);">1</span>
               </div>
-              <h3 class="bento-card-title">Autonomous Agentic Intelligence</h3>
-              <p class="bento-card-desc">Transform customer interactions with adaptive AI agents that understand context, solve multi-step inquiries dynamically, and deliver personalized experiences with human precision.</p>
+              <h3 class="bento-card-title">Forge</h3>
+              <p class="bento-card-desc">Describe what you need and Forge parses the request, wires up the right
+                connectors and deploys a named custom agent or activate a ready-made system agent like UBA, TBA,
+                MESSAGE AGENT and REDFIN etc..</p>
               <a href="#demo" class="bento-card-action-link" aria-label="Explore Autonomous Agentic Intelligence">
-                <span>Explore Architecture</span>
+                <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -294,21 +498,23 @@
             </div>
           </div>
 
-          <!-- Column 2: Middle (Conversational Voice AI & Cognitive Digital Concierge) -->
+          <!-- Column 2: Middle (Swarm & SkyFlow) -->
           <div class="bento-column col-2">
-            <div class="bento-feature-card">
-              <div class="bento-card-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="6" y1="9" x2="6" y2="15"></line>
-                  <line x1="10" y1="5" x2="10" y2="19"></line>
-                  <line x1="14" y1="7" x2="14" y2="17"></line>
-                  <line x1="18" y1="9" x2="18" y2="15"></line>
-                </svg>
+            <div class="bento-feature-card" data-architecture-card>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+                <div aria-hidden="true"
+                  style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <img src="assets/architecture/icon-swarm.png" alt="" width="32" height="32" loading="lazy"
+                    decoding="async">
+                </div>
+                <span aria-hidden="true" data-architecture-number
+                  style="font:500 1.25rem/1 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);">2</span>
               </div>
-              <h3 class="bento-card-title">Conversational Voice AI</h3>
-              <p class="bento-card-desc">Enable frictionless, hands-free verbal interactions with sub-100ms conversational voice agents that understand nuances and dialect in real time.</p>
+              <h3 class="bento-card-title">Swarm</h3>
+              <p class="bento-card-desc">Custom and system agents group into silos, each built around one shared
+                purpose with budget split top-down across silos and then across agents.</p>
               <a href="#demo" class="bento-card-action-link" aria-label="Explore Conversational Voice AI">
-                <span>Explore Architecture</span>
+                <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -318,17 +524,21 @@
               </a>
             </div>
 
-            <div class="bento-feature-card">
-              <div class="bento-card-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="7" r="4"></circle>
-                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
-                </svg>
+            <div class="bento-feature-card" data-architecture-card>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+                <div aria-hidden="true"
+                  style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <img src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32" loading="lazy"
+                    decoding="async">
+                </div>
+                <span aria-hidden="true" data-architecture-number
+                  style="font:500 1.25rem/1 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);">3</span>
               </div>
-              <h3 class="bento-card-title">Cognitive Digital Concierge</h3>
-              <p class="bento-card-desc">Deploy brand-aligned virtual specialists that proactively guide shoppers, resolve tier-1/2 tickets, and synchronize seamlessly across every channel.</p>
+              <h3 class="bento-card-title">Sky Flow</h3>
+              <p class="bento-card-desc">Every silo carries its own guardrails and an agent manager watching for
+                failures retrying, alerting or skipping work as the rules dictate.</p>
               <a href="#demo" class="bento-card-action-link" aria-label="Explore Cognitive Digital Concierge">
-                <span>Explore Architecture</span>
+                <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -339,19 +549,23 @@
             </div>
           </div>
 
-          <!-- Column 3: Right (Enterprise Knowledge RAG Engine & Omnichannel Revenue Automation) -->
+          <!-- Column 3: Right (The Hive & NovaOps ) -->
           <div class="bento-column col-3">
-            <div class="bento-feature-card">
-              <div class="bento-card-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
+            <div class="bento-feature-card" data-architecture-card>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+                <div aria-hidden="true"
+                  style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <img src="assets/architecture/icon-hive.png" alt="" width="32" height="32" loading="lazy"
+                    decoding="async">
+                </div>
+                <span aria-hidden="true" data-architecture-number
+                  style="font:500 1.25rem/1 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);">4</span>
               </div>
-              <h3 class="bento-card-title">Enterprise Knowledge RAG Engine</h3>
-              <p class="bento-card-desc">Instantly vectorize knowledge bases across internal docs, live URLs, and enterprise wikis to deliver instant, citation-grounded answers with zero hallucination.</p>
+              <h3 class="bento-card-title">Hive</h3>
+              <p class="bento-card-desc">All governed silos come together as one unified agentic application with a
+                real-time dashboard showing every agent across every silo.</p>
               <a href="#demo" class="bento-card-action-link" aria-label="Explore Enterprise Knowledge RAG Engine">
-                <span>Explore Architecture</span>
+                <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -361,17 +575,22 @@
               </a>
             </div>
 
-            <div class="bento-feature-card">
-              <div class="bento-card-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="12" y1="1" x2="12" y2="23"></line>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
+            <div class="bento-feature-card" data-architecture-card>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+                <div aria-hidden="true"
+                  style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <img src="assets/architecture/icon-novaops.png" alt="" width="32" height="32" loading="lazy"
+                    decoding="async">
+                </div>
+                <span aria-hidden="true" data-architecture-number
+                  style="font:500 1.25rem/1 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);">5</span>
               </div>
-              <h3 class="bento-card-title">Omnichannel Revenue Automation</h3>
-              <p class="bento-card-desc">Drive tailored 1-on-1 marketing journeys with intent-triggered WhatsApp vouchers, dynamic segmentation, and automated high-converting checkout flows.</p>
+              <h3 class="bento-card-title">NovaOps</h3>
+              <p class="bento-card-desc">Deploy agents into production with enterprise grade reliability. NovaOps
+                handles live operations, real-time data, scaling and continuous monitoring from one platform activated
+                for enterprise clients who need it.</p>
               <a href="#demo" class="bento-card-action-link" aria-label="Explore Omnichannel Revenue Automation">
-                <span>Explore Architecture</span>
+                <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -381,21 +600,6 @@
               </a>
             </div>
           </div>
-        </div>
-
-        <div class="capabilities-cta-wrap">
-          <a href="#demo" class="btn-primary" aria-label="Deploy Your Custom AI Agent">
-            <div class="btn-text-wrapper">
-              <span class="btn-text-slide">Deploy Your Custom Agent</span>
-              <span class="btn-text-slide">Deploy Your Custom Agent</span>
-            </div>
-            <div class="btn-icon-bubble" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-          </a>
         </div>
       </div>
     </section>
@@ -723,75 +927,33 @@
         </div>
       </div>
     </section>
-
-    <!-- Section 7: Expanding Testimonials Ribbon (Original Bespoke Copy) -->
+      <!-- Section 7: One Unified AI Workforce -->
     <section id="testimonials" class="section-testimonial-ribbon" aria-label="Customer Success Testimonials">
       <div class="testimonial-main-wrapper">
-        <!-- Left Column: Fixed Heading, Subtitle, and CTA Button -->
         <div class="testimonial-left-wrapper">
           <div>
-            <h2 class="testimonial-title">Trusted by<br>Forward-Thinking<br>Industry Leaders</h2>
+            <h2 class="testimonial-title">You already have the tools. What's missing is intelligent orchestration.</h2>
             <p class="testimonial-details">
-              Discover how innovative global enterprises leverage SkyGentic to automate customer interactions, elevate service benchmarks, and unlock new revenue streams.
+              SkyGentic replaces fragmented automation with a governed multi-agent platform that works as one intelligent workforce, allowing your team to focus on strategy instead of repetitive operations.
             </p>
-          </div>
-          <div class="testimonial-cta-wrap">
-            <a href="#demo" class="btn-primary" aria-label="Connect With Our Team">
-              <div class="btn-text-wrapper">
-                <span class="btn-text-slide">Connect With Us</span>
-                <span class="btn-text-slide">Connect With Us</span>
-              </div>
-              <div class="btn-icon-bubble" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </a>
           </div>
         </div>
 
-        <!-- Right Column: Horizontal Scrollable & Expanding Ribbon Track -->
         <div class="testimonial-right-wrapper" id="testimonialTrack" role="tablist" aria-label="Customer Reviews Track">
           
-          <!-- Panel 1: Elena Rostova (Collapsed) -->
-          <div class="testimonial-panel collapsed" data-index="0" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Elena Rostova">
-            <div class="panel-collapsed-view">
-              <div class="collapsed-top" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Head of Customer Experience, Apex Hospitality Group</span>
-              </div>
-              <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Elena<br>Rostova</h3>
-              </div>
-            </div>
-          </div>
-
-          <!-- Panel 2: Marcus Vance (Active Expanded Default) -->
-          <div class="testimonial-panel active" data-index="1" role="tab" tabindex="0" aria-selected="true" aria-label="Testimonial from Marcus Vance">
+          <div class="testimonial-panel active" data-index="0" role="tab" tabindex="0" aria-selected="true" aria-label="Eliminate Repetitive Work">
             <div class="panel-expanded-view">
               <div class="expanded-header">
-                <h3 class="expanded-name">Marcus Vance</h3>
-                <div class="expanded-role">VP of Digital Innovation, Solara Energy</div>
+                <h3 class="expanded-name">Eliminate Repetitive Work</h3>
               </div>
 
               <p class="expanded-quote">
-                “Deploying SkyGentic’s autonomous agent ecosystem has empowered our customers to effortlessly manage energy subscriptions, track rewards, and locate service hubs 24/7. The personalized conversational flows drove a 54% boost in member activation rates and established a new benchmark for our digital CX.”
+                Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock.
               </p>
-
-              <div class="expanded-footer">
-                <span class="expanded-logo-badge">SOLARA</span>
-              </div>
             </div>
           </div>
 
-          <!-- Panel 3: Kavita Patel (Collapsed) -->
-          <div class="testimonial-panel collapsed" data-index="2" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Kavita Patel">
+          <div class="testimonial-panel collapsed" data-index="1" role="tab" tabindex="0" aria-selected="false" aria-label="Connect Every System">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -799,17 +961,14 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Chief Technology Officer, MetroRetail Global</span>
-              </div>
+
               <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Kavita<br>Patel</h3>
+                <h3 class="collapsed-name">Connect Every System</h3>
               </div>
             </div>
           </div>
 
-          <!-- Panel 4: Arthur Sterling (Collapsed) -->
-          <div class="testimonial-panel collapsed" data-index="3" role="tab" tabindex="0" aria-selected="false" aria-label="Testimonial from Arthur Sterling">
+          <div class="testimonial-panel collapsed" data-index="2" role="tab" tabindex="0" aria-selected="false" aria-label="Govern AI at Scale">
             <div class="panel-collapsed-view">
               <div class="collapsed-top" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -817,209 +976,462 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </div>
-              <div class="collapsed-middle">
-                <span class="collapsed-role">Chief Executive Officer, Vantage Point FinTech</span>
+              <div class="collapsed-bottom">
+                <h3 class="collapsed-name">Govern AI at Scale</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-panel collapsed" data-index="3" role="tab" tabindex="0" aria-selected="false" aria-label="One Unified AI Workforce">
+            <div class="panel-collapsed-view">
+              <div class="collapsed-top" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
               <div class="collapsed-bottom">
-                <h3 class="collapsed-name">Arthur<br>Sterling</h3>
+                <h3 class="collapsed-name">One Unified AI Workforce</h3>
               </div>
             </div>
           </div>
 
         </div>
       </div>
+
     </section>
 
-    <!-- Section 8: FAQ Accordion Hub (Accessible ARIA Panels) -->
-    <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
-      <div class="container-focus">
-        <div style="text-align: center; margin-bottom: var(--space-12);">
-          <h2 style="font-family: var(--font-family-display); font-size: 2.75rem; font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-4);">
-            Frequently Asked Questions
+    <!-- Section 8: Integrations -->
+    <section id="integrations" class="section-integrations" aria-labelledby="integrations-title">
+      <div class="container integrations-layout">
+        <div class="integrations-copy">
+          <h2 id="integrations-title" class="integrations-heading">
+            Connects to 120+ tools your team already uses.
           </h2>
-          <p style="color: var(--color-body); font-size: 1.125rem;">
-            Clear answers on architecture, compliance, and enterprise integration.
+          <p class="integrations-description">
+            n8n, UI path, Zendesk, Slack, Gmail, Stripe, Notion, Codex and your custom internal APIs via webhooks or our SDK.
           </p>
         </div>
 
-        <div class="surface-card card-light" role="region" aria-label="FAQ Accordion">
-          <!-- Accordion Item 1 -->
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-1"
-              id="faq-btn-1"
-            >
-              <span>How does SkyGentic Agentic AI differ from standard conversational chatbots?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-1" class="accordion-panel" role="region" aria-labelledby="faq-btn-1" style="display: none;">
-              Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks.
-            </div>
+        <div class="integrations-grid" role="list" aria-label="Supported integrations">
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/n8n.png" alt="n8n" loading="lazy" decoding="async">
           </div>
 
-          <!-- Accordion Item 2 -->
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-2"
-              id="faq-btn-2"
-            >
-              <span>What deployment options and enterprise integrations are supported?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-2" class="accordion-panel" role="region" aria-labelledby="faq-btn-2" style="display: none;">
-              SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs.
-            </div>
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/ui-path.png" alt="UiPath" loading="lazy" decoding="async">
           </div>
 
-          <!-- Accordion Item 3 -->
-          <div class="accordion-item">
-            <button 
-              type="button" 
-              class="accordion-trigger" 
-              aria-expanded="false" 
-              aria-controls="faq-answer-3"
-              id="faq-btn-3"
-            >
-              <span>How does SkyGentic safeguard proprietary data and regulatory compliance?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-3" class="accordion-panel" role="region" aria-labelledby="faq-btn-3" style="display: none;">
-              We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models.
-            </div>
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/outlook.png" alt="Outlook" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/google-workspace.png" alt="Google workspace" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/codex.png" alt="codex" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/sageway-ai.png" alt="Sageway" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/jira.png" alt="Jira" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/linear.png" alt="Linear" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/twilio.png" alt="Twilio" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/office-365.png" alt="Office 365" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/zendesk.png" alt="Zendesk" loading="lazy" decoding="async">
+          </div>
+
+          <div class="integration-card" role="listitem">
+            <img class="integration-card-image" src="assets/integrations/slack.png" alt="Slack" loading="lazy" decoding="async">
           </div>
         </div>
+      </div>
+    </section>
+
+       <!-- Section 9 : Pre Footer -->
+    <section id="demo" class="section-prefooter-cta" aria-labelledby="prefooter-cta-title">
+      <div class="container-focus prefooter-cta-content">
+        <h2 id="prefooter-cta-title" class="prefooter-cta-title">
+          Ready to Build Your Autonomous Enterprise Workforce?
+        </h2>
+        <p class="prefooter-cta-copy">
+          Deploy AI agents that work 24/7, automate operations, and scale alongside your business without adding operational complexity.
+        </p>
+        <a href="schedule-demo.html" class="btn-primary prefooter-cta-button" aria-label="Schedule a Demo with SkyGentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule a Demo</span>
+            <span class="btn-text-slide">Schedule a Demo</span>
+          </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
       </div>
     </section>
 
   </main>
 
-  <!-- Section 9: Enterprise Dual-Card Footer -->
+    <!-- Section 10 : Footer -->
+
   <footer class="footer-wrapper" role="contentinfo">
     <div class="container">
-      <div class="footer-cards-grid">
-        <!-- Left Hero CTA Card -->
-        <div class="card-gradient-hero">
-          <h3 style="font-family: var(--font-family-display); font-size: 2.25rem; font-weight: 500; color: var(--color-heading); margin-bottom: var(--space-3);">
-            Ready to Build Your Autonomous CX Workforce?
-          </h3>
-          <p style="color: var(--color-body); font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-6);">
-            Supercharge customer engagement, automate complex support workflows, and accelerate enterprise growth with SkyGentic AI.
-          </p>
-          <a href="#demo" class="btn-white" aria-label="Schedule Enterprise Demo in Footer">
-            <div class="btn-text-wrapper">
-              <span class="btn-text-slide">Request Private Demo</span>
-              <span class="btn-text-slide">Request Private Demo</span>
-            </div>
-            <div class="btn-icon-bubble" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
+      <div class="footer-upper">
+        <div class="footer-brand-section">
+          <a href="/" class="nav-brand footer-brand" aria-label="SkyGentic AI Homepage">
+            <img class="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
           </a>
+          <p class="footer-description">
+            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
+          </p>
+          <div class="footer-status" aria-label="All systems operational">
+            <span class="footer-status-dot" aria-hidden="true"></span>
+            <span>All systems operational</span>
+          </div>
         </div>
 
-        <!-- Right Navigation Directory Card -->
-        <div class="footer-nav-card">
-          <div>
-            <div class="footer-col-title">Platform</div>
+        <nav class="footer-navigation" aria-label="Footer navigation">
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Services</h2>
             <ul class="footer-link-list">
-              <li><a href="#hero" class="footer-link">Agentic Intelligence</a></li>
-              <li><a href="#capabilities" class="footer-link">Conversational Voice</a></li>
-              <li><a href="#capabilities" class="footer-link">Knowledge RAG</a></li>
-              <li><a href="#showcase" class="footer-link">Omnichannel Suite</a></li>
+              <li><a href="services.html#forge" class="footer-link">Forge</a></li>
+              <li><a href="services.html#swarm" class="footer-link">Swarm</a></li>
+              <li><a href="services.html#skyflow" class="footer-link">SkyFlow</a></li>
+              <li><a href="services.html#hive" class="footer-link">Hive</a></li>
+              <li><a href="services.html#nova-ops" class="footer-link">NovaOps</a></li>
             </ul>
           </div>
-          <div>
-            <div class="footer-col-title">Solutions</div>
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Quick Links</h2>
             <ul class="footer-link-list">
-              <li><a href="#features" class="footer-link">Support Automation</a></li>
-              <li><a href="#features" class="footer-link">Revenue Acceleration</a></li>
-              <li><a href="#features" class="footer-link">Commerce Studio</a></li>
-              <li><a href="#features" class="footer-link">Security Governance</a></li>
+              <li><a href="resources.html" class="footer-link">Resources</a></li>
+              <li><a href="get-in-touch.html" class="footer-link">Get in Touch</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="signin.html" class="footer-link">Sign in</a></li>
+              <li><a href="schedule-demo.html" class="footer-link">Schedule Demo</a></li>
             </ul>
           </div>
-          <div>
-            <div class="footer-col-title">Company</div>
+          <div class="footer-nav-column">
+            <h2 class="footer-col-title">Follow Us</h2>
             <ul class="footer-link-list">
-              <li><a href="#about" class="footer-link">About SkyGentic</a></li>
-              <li><a href="#careers" class="footer-link">Careers</a></li>
-              <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
-              <li><a href="#contact" class="footer-link">Contact Solutions</a></li>
+              <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
+              <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
+              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
             </ul>
           </div>
-        </div>
+        </nav>
       </div>
 
-      <!-- Footer Bottom Bar -->
       <div class="footer-bottom-bar">
         <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
-        <div style="display: flex; gap: var(--space-6);">
-          <a href="#privacy" class="footer-link">Privacy Policy</a>
-          <a href="#terms" class="footer-link">Terms of Service</a>
-          <a href="#security" class="footer-link">Security &amp; Trust</a>
-        </div>
+        <nav class="footer-legal" aria-label="Footer legal links">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
+        </nav>
       </div>
     </div>
   </footer>
 
+  <script type="module" src="scripts/hero-animation.js"></script>
+
   <!-- Interactive Testimonials Accordion Script -->
   <script>
-    const lifecycleSection=document.querySelector('.section-sticky-showcase'),lifecycleGrid=document.querySelector('.sticky-showcase-grid'),lifecycleNavColumn=document.querySelector('.lifecycle-nav-column'),lifecycleCards=[...document.querySelectorAll('[data-lifecycle-card]')],lifecycleButtons=[...document.querySelectorAll('[data-lifecycle-index]')];let activeMenu=0,lifecycleFrameRequested=false;
-    function getLifecycleTop(card){return parseFloat(window.getComputedStyle(card).top||card.style.top)||0}
-    function getLifecycleRailTop(){const raw=window.getComputedStyle(lifecycleSection).getPropertyValue('--lifecycle-sticky-top');const parsed=parseFloat(raw);return Number.isFinite(parsed)?parsed:100}
-    function setLifecycleActive(index){if(!lifecycleCards.length||!lifecycleButtons.length)return;activeMenu=Math.max(0,Math.min(index,lifecycleCards.length-1));lifecycleButtons.forEach((button,n)=>{const active=n===activeMenu;button.classList.toggle('is-active',active);active?button.setAttribute('aria-current','step'):button.removeAttribute('aria-current')});lifecycleCards.forEach((card,n)=>{card.classList.toggle('is-active',n===activeMenu)})}
-    function syncLifecycleRail(){if(!lifecycleSection||!lifecycleGrid||!lifecycleNavColumn)return;const desktop=window.matchMedia('(min-width: 992px)').matches;if(!desktop){lifecycleNavColumn.classList.remove('is-fixed','is-pinned-bottom');lifecycleNavColumn.style.removeProperty('--lifecycle-rail-left');lifecycleNavColumn.style.removeProperty('--lifecycle-rail-current-width');return}const gridRect=lifecycleGrid.getBoundingClientRect(),navHeight=lifecycleNavColumn.offsetHeight,top=getLifecycleRailTop(),fallbackWidth=parseFloat(window.getComputedStyle(lifecycleSection).getPropertyValue('--lifecycle-rail-width'))||320,currentWidth=lifecycleNavColumn.getBoundingClientRect().width||fallbackWidth;lifecycleNavColumn.style.setProperty('--lifecycle-rail-left',`${gridRect.left}px`);lifecycleNavColumn.style.setProperty('--lifecycle-rail-current-width',`${currentWidth}px`);const lockToViewport=gridRect.top<=top&&gridRect.bottom-navHeight>top,lockToBottom=gridRect.top<=top&&gridRect.bottom-navHeight<=top;lifecycleNavColumn.classList.toggle('is-fixed',lockToViewport);lifecycleNavColumn.classList.toggle('is-pinned-bottom',lockToBottom)}
-    function readLifecycleFromScroll(){if(!lifecycleSection||!lifecycleCards.length)return;let nextActive=0;const sectionRect=lifecycleSection.getBoundingClientRect();if(sectionRect.top>window.innerHeight*.45){setLifecycleActive(0);syncLifecycleRail();return}lifecycleCards.forEach((card,index)=>{if(card.getBoundingClientRect().top<=getLifecycleTop(card)+2)nextActive=index});setLifecycleActive(nextActive);syncLifecycleRail()}
-    function requestLifecycleSync(){if(lifecycleFrameRequested)return;lifecycleFrameRequested=true;window.requestAnimationFrame(()=>{lifecycleFrameRequested=false;readLifecycleFromScroll()})}
-    if('IntersectionObserver'in window){const lifecycleObserver=new IntersectionObserver(requestLifecycleSync,{threshold:[0,.25,.5,.75,1]});lifecycleCards.forEach(card=>lifecycleObserver.observe(card))}
-    window.addEventListener('scroll',requestLifecycleSync,{passive:true});window.addEventListener('resize',requestLifecycleSync);setLifecycleActive(activeMenu);readLifecycleFromScroll();
+    const lifecycleSection = document.querySelector('.section-sticky-showcase');
+    const lifecycleNavColumn = document.querySelector('.lifecycle-nav-column');
+    const lifecycleCards = [...document.querySelectorAll('[data-lifecycle-card]')];
+    const lifecycleButtons = [...document.querySelectorAll('[data-lifecycle-index]')];
+    let activeMenu = 0;
+    let lifecycleFrameRequested = false;
+    let lifecycleClickLock = 0;
+    let lifecycleSettleFrame = 0;
+
+    function getLifecycleTop(card) {
+      return parseFloat(window.getComputedStyle(card).top || card.style.top) || 0;
+    }
+
+    function getLifecycleTargetY(card, index) {
+      const stack = card.closest('[data-lifecycle-stack]');
+      const stackTop = stack ? stack.getBoundingClientRect().top + window.scrollY : 0;
+      const stackStyle = stack ? window.getComputedStyle(stack) : null;
+      const stackGap = stackStyle ? parseFloat(stackStyle.rowGap || stackStyle.gap) || 0 : 0;
+      const firstCardHeight = lifecycleCards[0]?.offsetHeight || card.offsetHeight || 0;
+      const flowOffset = (firstCardHeight + stackGap) * index;
+      const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      return Math.min(maxScrollY, Math.max(0, stackTop + flowOffset - getLifecycleTop(card)));
+    }
+
+    function setLifecycleActive(index) {
+      if (!lifecycleCards.length || !lifecycleButtons.length) return;
+      activeMenu = Math.max(0, Math.min(index, lifecycleCards.length - 1));
+      lifecycleButtons.forEach((button, n) => {
+        const active = n === activeMenu;
+        button.classList.toggle('is-active', active);
+        if (active) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+      lifecycleCards.forEach((card, n) => {
+        card.classList.toggle('is-active', n === activeMenu);
+      });
+    }
+
+    function syncLifecycleRail() {
+      if (!lifecycleNavColumn) return;
+      lifecycleNavColumn.classList.remove('is-fixed', 'is-pinned-bottom');
+      lifecycleNavColumn.style.removeProperty('--lifecycle-rail-left');
+      lifecycleNavColumn.style.removeProperty('--lifecycle-rail-current-width');
+    }
+
+    function readLifecycleFromScroll() {
+      if (!lifecycleSection || !lifecycleCards.length) return;
+      if (Date.now() < lifecycleClickLock) {
+        syncLifecycleRail();
+        return;
+      }
+
+      let nextActive = 0;
+      const sectionRect = lifecycleSection.getBoundingClientRect();
+      if (sectionRect.top > window.innerHeight * .45) {
+        setLifecycleActive(0);
+        syncLifecycleRail();
+        return;
+      }
+
+      lifecycleCards.forEach((card, index) => {
+        if (card.getBoundingClientRect().top <= getLifecycleTop(card) + 2) nextActive = index;
+      });
+      setLifecycleActive(nextActive);
+      syncLifecycleRail();
+    }
+
+    function requestLifecycleSync() {
+      if (lifecycleFrameRequested) return;
+      lifecycleFrameRequested = true;
+      window.requestAnimationFrame(() => {
+        lifecycleFrameRequested = false;
+        readLifecycleFromScroll();
+      });
+    }
+
+    function settleLifecycleClick(index, targetY) {
+      if (lifecycleSettleFrame) window.cancelAnimationFrame(lifecycleSettleFrame);
+      const startedAt = performance.now();
+      const tick = () => {
+        const hasArrived = Math.abs(window.scrollY - targetY) <= 2;
+        const hasTimedOut = performance.now() - startedAt > 1800;
+        setLifecycleActive(index);
+        syncLifecycleRail();
+
+        if (hasArrived || hasTimedOut) {
+          lifecycleClickLock = 0;
+          lifecycleSettleFrame = 0;
+          readLifecycleFromScroll();
+          return;
+        }
+
+        lifecycleSettleFrame = window.requestAnimationFrame(tick);
+      };
+
+      lifecycleSettleFrame = window.requestAnimationFrame(tick);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const lifecycleObserver = new IntersectionObserver(requestLifecycleSync, { threshold: [0, .25, .5, .75, 1] });
+      lifecycleCards.forEach(card => lifecycleObserver.observe(card));
+    }
+
+    lifecycleButtons.forEach((button, index) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const card = lifecycleCards[index];
+        setLifecycleActive(index);
+        syncLifecycleRail();
+        if (!card) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const targetY = getLifecycleTargetY(card, index);
+        lifecycleClickLock = Date.now() + (reduceMotion ? 80 : 2000);
+        window.scrollTo({ top: targetY, behavior: reduceMotion ? 'auto' : 'smooth' });
+
+        if (reduceMotion) {
+          lifecycleClickLock = 0;
+          setLifecycleActive(index);
+          requestLifecycleSync();
+          return;
+        }
+
+        settleLifecycleClick(index, targetY);
+      });
+    });
+
+    window.addEventListener('scroll', requestLifecycleSync, { passive: true });
+    window.addEventListener('resize', requestLifecycleSync);
+    setLifecycleActive(activeMenu);
+    readLifecycleFromScroll();
+    const navbar = document.querySelector('.navbar-wrapper');
+    let navbarScrollTicking = false;
+
+    function syncNavbarScrollState() {
+      navbarScrollTicking = false;
+      if (!navbar) return;
+      navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+    }
+
+    function scheduleNavbarScrollState() {
+      if (navbarScrollTicking) return;
+      navbarScrollTicking = true;
+      window.requestAnimationFrame(syncNavbarScrollState);
+    }
+
+    window.addEventListener('scroll', scheduleNavbarScrollState, { passive: true });
+    window.addEventListener('resize', scheduleNavbarScrollState);
+    syncNavbarScrollState();
+
+    const m = document.querySelector('.services-menu');
+    const t = document.querySelector('.services-menu-trigger');
+    const setServicesMenuOpen = (isOpen) => {
+      m?.classList.toggle('is-open', isOpen);
+      t?.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    t?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
+    });
+
+    m?.addEventListener('mouseenter', () => {
+      t?.setAttribute('aria-expanded', 'true');
+    });
+    m?.addEventListener('mouseleave', () => {
+      if (!m?.classList.contains('is-open')) {
+        t?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.service-dropdown-link') || !m?.contains(event.target)) {
+        setServicesMenuOpen(false);
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && (t?.getAttribute('aria-expanded') === 'true' || m?.classList.contains('is-open'))) {
+        setServicesMenuOpen(false);
+        t?.focus();
+      }
+    });
+
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuPanel = document.querySelector('#mobile-menu');
+    const mobileMenuRows = document.querySelectorAll('.mobile-menu-row[aria-controls]');
+    const mobileNavLinks = document.querySelectorAll('.mobile-menu-panel a');
+    const tabletQuery = window.matchMedia('(max-width: 991px)');
+
+    function setMobileMenuOpen(isOpen) {
+      navbar?.classList.toggle('is-mobile-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      mobileMenuButton?.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuButton?.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      mobileMenuPanel?.setAttribute('aria-hidden', String(!isOpen));
+      if (mobileMenuPanel) mobileMenuPanel.inert = !isOpen;
+    }
+
+    mobileMenuButton?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setMobileMenuOpen(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileMenuRows.forEach((row) => {
+      row.addEventListener('click', () => {
+        const panel = document.getElementById(row.getAttribute('aria-controls'));
+        const isExpanded = row.getAttribute('aria-expanded') === 'true';
+        row.setAttribute('aria-expanded', String(!isExpanded));
+        if (panel) panel.hidden = isExpanded;
+      });
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileMenuButton?.getAttribute('aria-expanded') === 'true') {
+        setMobileMenuOpen(false);
+        mobileMenuButton.focus();
+      }
+    });
+
+    tabletQuery.addEventListener('change', (event) => {
+      if (!event.matches) setMobileMenuOpen(false);
+    });
+
     const testimonialsData = [
       {
-        name: "Elena Rostova",
-        role: "Head of Customer Experience, Apex Hospitality Group",
-        quote: "SkyGentic completely redefined our global guest booking experience. Inquiries across WhatsApp and mobile web are resolved in seconds, delivering a 42% surge in direct reservation bookings without adding support staff.",
-        logo: "APEX HOTELS"
+        name: "Eliminate Repetitive Work",
+        quote: "Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock."
       },
       {
-        name: "Marcus Vance",
-        role: "VP of Digital Innovation, Solara Energy",
-        quote: "Deploying SkyGentic’s autonomous agent ecosystem has empowered our customers to effortlessly manage energy subscriptions, track rewards, and locate service hubs 24/7. The personalized conversational flows drove a 54% boost in member activation rates and established a new benchmark for our digital CX.",
-        logo: "SOLARA"
+        name: "Connect Every System",
+        quote: "Unify apps, data, and tools into one intelligent workflow - no more switching between platforms."
       },
       {
-        name: "Kavita Patel",
-        role: "Chief Technology Officer, MetroRetail Global",
-        quote: "Integrating SkyGentic Agent CoPilot into our retail operations allowed our customer service team to resolve 3x more shopper queries in real-time, cutting average resolution time by 65% across 200+ global storefronts.",
-        logo: "METRORETAIL"
+        name: "Govern AI at Scale",
+        quote: "Apply centralized policies, budgets, permissions, and monitoring so every AI agent operates securely and consistently."
       },
       {
-        name: "Arthur Sterling",
-        role: "Chief Executive Officer, Vantage Point FinTech",
-        quote: "SkyGentic’s enterprise conversational infrastructure has allowed us to deliver hyper-personalized financial guidance at scale. Over the past two years, customer satisfaction reached an all-time high of 98.4%, and we consider them an indispensable technology partner.",
-        logo: "VANTAGEPOINT"
+        name: "One Unified AI Workforce",
+        quote: "Hive coordinates specialized agents to work as one intelligent system toward a single goal."
       }
     ];
 
+    const testimonialTrack = document.getElementById('testimonialTrack');
     const panels = document.querySelectorAll('.testimonial-panel');
-    let currentActiveIdx = 1;
+    const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 800px)');
+    let currentActiveIdx = 0;
 
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
-      panel.classList.toggle('active', isActive);
-      panel.classList.toggle('collapsed', !isActive);
+      const useMobileCards = mobileCardsQuery.matches;
+      panel.classList.toggle('mobile-card', useMobileCards);
+      panel.classList.toggle('active', !useMobileCards && isActive);
+      panel.classList.toggle('collapsed', !useMobileCards && !isActive);
+
+      if (useMobileCards) {
+        panel.setAttribute('role', 'listitem');
+        panel.setAttribute('tabindex', '-1');
+        panel.removeAttribute('aria-selected');
+        panel.innerHTML = `
+          <div class="panel-expanded-view">
+            <div class="expanded-header">
+              <h3 class="expanded-name">${data.name}</h3>
+            </div>
+            <p class="expanded-quote">${data.quote}</p>
+          </div>
+        `;
+        return;
+      }
+
+      panel.setAttribute('role', 'tab');
+      panel.setAttribute('tabindex', '0');
       panel.setAttribute('aria-selected', isActive);
 
       if (isActive) {
@@ -1027,12 +1439,8 @@
           <div class="panel-expanded-view">
             <div class="expanded-header">
               <h3 class="expanded-name">${data.name}</h3>
-              <div class="expanded-role">${data.role}</div>
             </div>
-            <p class="expanded-quote">“${data.quote}”</p>
-            <div class="expanded-footer">
-              <span class="expanded-logo-badge">${data.logo}</span>
-            </div>
+            <p class="expanded-quote">${data.quote}</p>
           </div>
         `;
       } else {
@@ -1045,9 +1453,6 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </div>
-            <div class="collapsed-middle">
-              <span class="collapsed-role">${data.role}</span>
-            </div>
             <div class="collapsed-bottom">
               <h3 class="collapsed-name">${formattedName}</h3>
             </div>
@@ -1056,10 +1461,19 @@
       }
     }
 
+    function syncTestimonialsLayout() {
+      const useMobileCards = mobileCardsQuery.matches;
+      if (testimonialTrack) {
+        testimonialTrack.setAttribute('role', useMobileCards ? 'list' : 'tablist');
+      }
+      panels.forEach((p, idx) => renderPanel(p, idx, idx === currentActiveIdx));
+    }
+
     function setActivePanel(activeIdx) {
+      if (mobileCardsQuery.matches) return;
       if (currentActiveIdx === activeIdx) return;
       currentActiveIdx = activeIdx;
-      panels.forEach((p, idx) => renderPanel(p, idx, idx === activeIdx));
+      syncTestimonialsLayout();
     }
 
     panels.forEach((panel, idx) => {
@@ -1070,20 +1484,21 @@
       });
     });
 
-    // FAQ Accordion Script
-    const faqTriggers = document.querySelectorAll('.accordion-trigger');
-    faqTriggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-        
-        btn.setAttribute('aria-expanded', !isExpanded);
-        if (panel) {
-          panel.style.display = isExpanded ? 'none' : 'block';
-        }
+    syncTestimonialsLayout();
+    mobileCardsQuery.addEventListener('change', syncTestimonialsLayout);
+
+    const architectureCards = document.querySelectorAll('[data-architecture-card]');
+    architectureCards.forEach(card => {
+      const number = card.querySelector('[data-architecture-number]');
+      card.addEventListener('mouseenter', () => {
+        if (number) number.style.opacity = '1';
+      });
+      card.addEventListener('mouseleave', () => {
+        if (number) number.style.opacity = '.16';
       });
     });
+
   </script>
 </body>
+
 </html>

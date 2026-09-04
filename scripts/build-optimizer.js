@@ -7,12 +7,13 @@ console.log('\x1b[32m%s\x1b[0m', '⚡ Starting SkyGentic AI Asset & Bundle Optim
 const distDir = path.resolve(__dirname, '../dist');
 const srcDir = path.resolve(__dirname, '..');
 
-// Ensure dist directory exists
-if (!fs.existsSync(distDir)) {
-  fs.mkdirSync(distDir, { recursive: true });
+// Ensure dist starts clean so stale Vite assets are not counted in bundle audits.
+if (fs.existsSync(distDir)) {
+  fs.rmSync(distDir, { recursive: true, force: true });
 }
+fs.mkdirSync(distDir, { recursive: true });
 
-// Copy styles, components, and static assets into dist
+// Copy styles and static assets into dist
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   const entries = fs.readdirSync(src, { withFileTypes: true });
@@ -31,6 +32,10 @@ function copyDir(src, dest) {
 
 // Copy base assets
 copyDir(path.join(srcDir, 'styles'), path.join(distDir, 'styles'));
+const assetsDir = path.join(srcDir, 'assets');
+if (fs.existsSync(assetsDir)) {
+  copyDir(assetsDir, path.join(distDir, 'assets'));
+}
 fs.copyFileSync(path.join(srcDir, 'sitemap.xml'), path.join(distDir, 'sitemap.xml'));
 fs.copyFileSync(path.join(srcDir, 'robots.txt'), path.join(distDir, 'robots.txt'));
 
@@ -39,8 +44,11 @@ function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
     .replace(/\s+/g, ' ')                   // collapse whitespace
-    .replace(/\s*([{}:;,])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
     .replace(/;\}/g, '}')                   // remove trailing semicolons
+    .replace(/0\.(\d+)/g, '.$1')            // 0.5 -> .5
+    .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // 0px -> 0
+    .replace(/\s*!important/gi, '!important')
     .trim();
 }
 
@@ -66,15 +74,16 @@ if (fs.existsSync(stylesDist)) {
   });
 }
 
-// Process and minify index.html
-const indexSrc = path.join(srcDir, 'index.html');
-const indexDist = path.join(distDir, 'index.html');
-if (fs.existsSync(indexSrc)) {
-  const rawHTML = fs.readFileSync(indexSrc, 'utf-8');
+// Process and minify all HTML files
+const htmlFiles = fs.readdirSync(srcDir).filter(f => f.endsWith('.html'));
+htmlFiles.forEach(file => {
+  const htmlSrc = path.join(srcDir, file);
+  const htmlDist = path.join(distDir, file);
+  const rawHTML = fs.readFileSync(htmlSrc, 'utf-8');
   const minifiedHTML = minifyHTML(rawHTML);
-  fs.writeFileSync(indexDist, minifiedHTML, 'utf-8');
-  console.log(`  ✓ Minified HTML: index.html (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
-}
+  fs.writeFileSync(htmlDist, minifiedHTML, 'utf-8');
+  console.log(`  ✓ Minified HTML: ${file} (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
+});
 
 // Pre-compress all static assets with Gzip & Brotli for cloud CDNs
 function compressFile(filePath) {

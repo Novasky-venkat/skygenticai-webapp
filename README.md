@@ -102,7 +102,7 @@ skygenticai-webapp/
 ├── sitemap.xml                 # SEO sitemap
 ├── robots.txt                  # Search engine crawler directives
 ├── tailwind.config.js          # Tailwind CSS tokens configuration
-├── vite.config.js              # Production bundler configuration
+├── vite.config.mjs             # Production bundler configuration
 ├── package.json                # Project scripts & metadata
 ├── scripts/
 │   ├── build-optimizer.js      # Static optimizer & Brotli/Gzip compressor
