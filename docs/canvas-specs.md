@@ -35,6 +35,25 @@ The marquee in `index.html` uses two identical, adjacent logo groups. Its transf
 - Hover: movement pauses so a logo can be inspected.
 - Reduced motion: the first logo group remains visible without animation.
 
+## Pre-Footer CTA
+
+The pre-footer CTA in `index.html` replaces the previous FAQ section and sits immediately before the approved footer.
+
+- Bounds: centered `.container-focus`, matching the hero copy width with a maximum heading measure of `635px`.
+- Surface: unchanged page background from `--color-background`; no card, panel, boxed layout, overlay, or full-section gradient.
+- Ambient lighting: a single non-animated blue-white radial glow is centered behind the CTA content, heavily blurred, clipped inside the section, and kept separate from the footer.
+- Content: `h2` heading, supporting paragraph, then the reused `.btn-primary` CTA with the existing slide-text and arrow-bubble structure.
+- Desktop and tablet: centered copy stack with restrained spacing from the preceding section and footer.
+- Mobile: natural vertical stack, preserved typography hierarchy, no CTA label wrapping, and stable 48px minimum button target.
+
+State matrix:
+- Idle: static page surface, readable centered heading and paragraph, reused primary CTA baseline.
+- Hover: CTA inherits the production `.btn-primary` hover lift, shadow, icon rotation, and text slide.
+- Focus-visible: CTA inherits the global focus ring.
+- Active: CTA inherits the stable primary button press geometry.
+- Disabled: not used; CTA remains a standard navigation link.
+- Loading: not used; section is static by specification.
+
 ## Website Footer
 
 The footer in `index.html`, `components/footer.jsx`, and `components/shared.jsx` follows the approved SkyGentic AI Footer Specification v1.0.

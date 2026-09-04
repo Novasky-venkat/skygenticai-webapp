@@ -46,35 +46,6 @@
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic Agentic AI differ from standard conversational chatbots?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with sub-50ms latency, and independently execute end-to-end tasks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What deployment options and enterprise integrations are supported?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SkyGentic safeguard proprietary data and regulatory compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance. All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is never used to train public models."
-            }
-          }
-        ]
       }
     ]
   }
@@ -950,71 +921,30 @@
 
         </div>
       </div>
+
+       <!-- Section 10 : Pre Footer -->
+      
     </section>
-     <!-- Section 8: Integrations (Tools)  -->
-    <section id="faq" class="section-faq" aria-label="Frequently Asked Questions">
-      <div class="container-focus">
-        <div style="text-align: center; margin-bottom: var(--space-12);">
-          <h2
-            style="font-family: var(--font-family-display); font-size: 2.75rem; font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-4);">
-            Frequently Asked Questions
-          </h2>
-          <p style="color: var(--color-body); font-size: 1.125rem;">
-            Clear answers on architecture, compliance, and enterprise integration.
-          </p>
-        </div>
-
-        <div class="surface-card card-light" role="region" aria-label="FAQ Accordion">
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-answer-1"
-              id="faq-btn-1">
-              <span>How does SkyGentic Agentic AI differ from standard conversational chatbots?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-1" class="accordion-panel" role="region" aria-labelledby="faq-btn-1"
-              style="display: none;">
-              Unlike script-driven legacy bots, SkyGentic employs autonomous reasoning loops that interpret complex
-              multi-intent requests, query enterprise APIs in real time, reference internal document vector stores with
-              sub-50ms latency, and independently execute end-to-end tasks.
-            </div>
+    <section id="demo" class="section-prefooter-cta" aria-labelledby="prefooter-cta-title">
+      <div class="container-focus prefooter-cta-content">
+        <h2 id="prefooter-cta-title" class="prefooter-cta-title">
+          Ready to Build Your Autonomous Enterprise Workforce?
+        </h2>
+        <p class="prefooter-cta-copy">
+          Deploy AI agents that work 24/7, automate operations, and scale alongside your business&mdash;without adding operational complexity.
+        </p>
+        <a href="schedule-demo.html" class="btn-primary prefooter-cta-button" aria-label="Schedule a Demo with SkyGentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule a Demo</span>
+            <span class="btn-text-slide">Schedule a Demo</span>
           </div>
-
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-answer-2"
-              id="faq-btn-2">
-              <span>What deployment options and enterprise integrations are supported?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-2" class="accordion-panel" role="region" aria-labelledby="faq-btn-2"
-              style="display: none;">
-              SkyGentic provides plug-and-play SDKs for React, Next.js, and mobile applications, alongside native
-              integrations for WhatsApp Business, Salesforce CRM, HubSpot, Zendesk, and custom REST/GraphQL APIs.
-            </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
           </div>
-
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-answer-3"
-              id="faq-btn-3">
-              <span>How does SkyGentic safeguard proprietary data and regulatory compliance?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="faq-answer-3" class="accordion-panel" role="region" aria-labelledby="faq-btn-3"
-              style="display: none;">
-              We enforce strict enterprise data governance with SOC-2 Type II, ISO 27001, HIPAA, and GDPR compliance.
-              All communications are protected with AES-256 and TLS 1.3 encryption, and enterprise customer data is
-              never used to train public models.
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -1296,20 +1226,6 @@
       });
     });
 
-    // FAQ Accordion Script
-    const faqTriggers = document.querySelectorAll('.accordion-trigger');
-    faqTriggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-
-        btn.setAttribute('aria-expanded', !isExpanded);
-        if (panel) {
-          panel.style.display = isExpanded ? 'none' : 'block';
-        }
-      });
-    });
   </script>
 </body>
 
