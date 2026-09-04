@@ -400,17 +400,32 @@
       </div>
     </section>
 
-    <!-- Section 6: Business Messaging Sticky Scrollable Showcase with Real UI Screens (Original Bespoke Copy) -->
+    <!-- Section 6:How SkyGentic Works -->
     <section id="showcase" class="section-sticky-showcase" aria-label="Business Messaging Showcase">
       <div class="container">
         <div class="sticky-showcase-grid">
-          <!-- Left Column: Vertically Stacking Scrollable Cards -->
-          <div class="sticky-cards-column">
+          <!-- Left Column: Lifecycle Navigation -->
+          <div class="lifecycle-nav-column">
+            <nav class="lifecycle-nav" aria-label="SkyGentic lifecycle stages">
+              <button type="button" class="lifecycle-nav-button is-active" data-lifecycle-index="0" aria-controls="lifecycle-stage-1" aria-current="step">
+                AI Planning
+              </button>
+              <button type="button" class="lifecycle-nav-button" data-lifecycle-index="1" aria-controls="lifecycle-stage-2">
+                Workflow Orchestration
+              </button>
+              <button type="button" class="lifecycle-nav-button" data-lifecycle-index="2" aria-controls="lifecycle-stage-3">
+                Enterprise Governance
+              </button>
+            </nav>
+          </div>
+
+          <!-- Right Column: Interactive Lifecycle Panels -->
+          <div class="sticky-cards-column" data-lifecycle-stack>
             
-            <!-- Card 1: Dynamic Knowledge Retrieval -->
-            <div class="sticky-card-item" style="position: sticky; top: 140px; z-index: 1;">
+            <!-- Card 1: AI Planning Engine -->
+            <div id="lifecycle-stage-1" class="sticky-card-item is-active" data-lifecycle-card data-lifecycle-panel="0" data-base-z="1" style="position: sticky; top: var(--lifecycle-sticky-top); z-index: 1;">
               <div class="sticky-card-surface">
-                <div class="sticky-card-mockup mockup-knowledge">
+                <div class="sticky-card-mockup mockup-knowledge mockup-onboarding-reference">
                   <div class="sticky-wave-mesh" aria-hidden="true"></div>
 
                   <div class="mockup-topbar">
@@ -420,80 +435,114 @@
                       <span class="dot green"></span>
                     </div>
                     <div class="mockup-tab-pill">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                      </svg>
-                      <span>Dynamic Knowledge RAG Engine</span>
+                      <span>AI Planning Engine</span>
                     </div>
-                    <span class="mockup-status">● Live &amp; Vectorized</span>
+                    <span class="mockup-status">Intent Understood</span>
                   </div>
 
-                  <div class="mockup-split-layout">
-                    <!-- ChatGPT Style Grounded Console -->
-                    <div class="chatgpt-window">
+
+                  <div class="mockup-split-layout onboarding-planner-layout">
+                    <!-- ChatGPT Style Ground                            ed Console -->
+                    <div class="chatgpt-window onboarding-chat-window">
                       <div class="chatgpt-header">
                         <div class="avatar-chip">AI</div>
                         <div>
-                          <div class="chat-bot-name">SkyGentic Vantage-Core</div>
-                          <div class="chat-bot-model">Enterprise Knowledge Grounded</div>
+                          <div class="chat-bot-name">SkyGentic AI</div>
                         </div>
                       </div>
-                      <div class="chatgpt-messages">
-                        <div class="bubble-chat user">
-                          What are the pre-qualification guidelines in the 2026 Commercial Portfolio?
+                      <div class="chatgpt-messages onboarding-chat-body">
+                        <div class="bubble-chat user onboarding-request-bubble">
+                          <span class="planning-request-text">Automate employee onboarding for new hires.</span>
                         </div>
-                        <div class="bubble-chat bot">
-                          According to your enterprise knowledge base, tier-1 applicants qualify for prime rates starting at <strong>5.75% APR</strong> with automated underwriting in under 3 minutes.
-                          <div class="citation-badge">
-                            <span>Source: 2026_Commercial_Underwriting_Policy.pdf (p. 12)</span>
+                        <div class="planning-analyzing-line" aria-hidden="true">
+                          <span class="planning-pulse-dot"></span>
+                          <span>AI analyzing request</span>
+                        </div>
+                        <div class="onboarding-analysis-card">
+                          <div class="planning-card-label">AI understanding</div>
+                          <div class="analysis-row intent-row">
+                            <span>Intent</span>
+                            <strong>Employee Onboarding</strong>
+                          </div>
+                          <div class="analysis-row department-row">
+                            <span>Department</span>
+                            <strong>Human Resources</strong>
+                          </div>
+                          <div class="understanding-system-chips">
+                            <span class="system-discovery-item system-workday">Workday</span>
+                            <span class="system-discovery-item system-microsoft">Microsoft 365</span>
+                            <span class="system-discovery-item system-slack">Slack</span>
+                            <span class="system-discovery-item system-okta">Okta</span>
                           </div>
                         </div>
                       </div>
                       <div class="chatgpt-input-bar">
-                        <span>Ask anything about your documents...</span>
-                        <div class="send-arrow">↗</div>
+                        <span>Ask SkyGentic to automate a workflow...</span>
+                        <div class="send-arrow">&nearr;</div>
                       </div>
                     </div>
 
                     <!-- Documents Sidebar -->
-                    <div class="docs-sidebar">
-                      <div class="sidebar-header">Vectorized Repositories (3)</div>
-                      <div class="doc-item active">
-                        <span class="doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></span>
+                    <div class="docs-sidebar onboarding-workflow-sidebar">
+                      <div class="sidebar-header">Workflow Generated</div>
+                      <div class="doc-item blueprint-metric metric-tasks">
+                        <svg class="doc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path>
+                          <path d="M14 2v5h5"></path>
+                        </svg>
                         <div class="doc-info">
-                          <span class="doc-title">2026_Underwriting_Policy.pdf</span>
-                          <span class="doc-meta">320 chunks • Real-time indexed</span>
+                          <span class="doc-title">8 Tasks</span>
+                          <span class="doc-meta">Provisioning, training, payroll, access</span>
                         </div>
                       </div>
-                      <div class="doc-item">
-                        <span class="doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
+                      <div class="doc-item blueprint-metric metric-integrations">
+                        <svg class="doc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M2 12h20"></path>
+                          <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+                          <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+                        </svg>
                         <div class="doc-info">
-                          <span class="doc-title">https://skygentic.ai/docs</span>
-                          <span class="doc-meta">Auto-crawled hourly</span>
+                          <span class="doc-title">4 Integrations</span>
+                          <span class="doc-meta">Workday, Microsoft 365, Slack, Okta</span>
                         </div>
                       </div>
-                      <div class="doc-item">
-                        <span class="doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></span>
+                      <div class="doc-item blueprint-metric metric-agents">
+                        <svg class="doc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                          <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path>
+                        </svg>
                         <div class="doc-info">
-                          <span class="doc-title">Global_Compliance_Matrix.docx</span>
-                          <span class="doc-meta">110 chunks • Synced</span>
+                          <span class="doc-title">2 AI Agents</span>
+                          <span class="doc-meta">HR coordinator and access agent</span>
                         </div>
+                      </div>
+                      <div class="doc-item blueprint-metric metric-approval">
+                        <svg class="doc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                          <path d="M9 11l3 3L22 4"></path>
+                          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <div class="doc-info">
+                          <span class="doc-title">1 Approval Flow</span>
+                          <span class="doc-meta">Manager confirmation before launch</span>
+                        </div>
+                      </div>
+                      <div class="ready-deploy-card">
+                        <span>Ready to Deploy</span>
+                        <strong>Onboarding automation drafted</strong>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="sticky-card-caption">
-                  <h3 class="sticky-caption-title">Dynamic Enterprise Knowledge Grounding</h3>
+                  <h3 class="sticky-caption-title">Natural Language Planning</h3>
                 </div>
               </div>
             </div>
-
             <!-- Card 2: Visual Journey & Revenue Flow Studio -->
-            <div class="sticky-card-item" style="position: sticky; top: 180px; z-index: 2;">
+            <div id="lifecycle-stage-2" class="sticky-card-item" data-lifecycle-card data-lifecycle-panel="1" data-base-z="2" style="position: sticky; top: calc(var(--lifecycle-sticky-top) + 40px); z-index: 2;">
               <div class="sticky-card-surface">
-                <div class="sticky-card-mockup mockup-marketing">
+                <div class="sticky-card-mockup mockup-marketing workflow-steps-mockup">
                   <div class="sticky-wave-mesh" aria-hidden="true"></div>
 
                   <div class="mockup-topbar">
@@ -503,110 +552,171 @@
                       <span class="dot green"></span>
                     </div>
                     <div class="mockup-tab-pill">
-                      <span>Visual Journey &amp; Revenue Flow Studio</span>
+                      <span>Workflow Orchestrator</span>
                     </div>
-                    <span class="mockup-status">● 52.4% Conversion Rate</span>
+                    <span class="mockup-status">Live Execution</span>
                   </div>
 
-                  <div class="flow-canvas-grid">
-                    <div class="flow-node node-trigger">
-                      <div class="node-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
-                      <div class="node-text">
-                        <strong>Trigger: High-Value Inbound Lead</strong>
-                        <span>Source = Enterprise Omnichannel Campaign</span>
+                  <div class="workflow-step-list" aria-label="Generated onboarding workflow steps">
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Incoming Request</strong>
+                        <span>Automate employee onboarding for new hires.</span>
                       </div>
                     </div>
-
-                    <div class="flow-arrow-down">↓</div>
-
-                    <div class="flow-node node-condition">
-                      <div class="node-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-                      <div class="node-text">
-                        <strong>AI Intent &amp; Propensity Classifier</strong>
-                        <span>Score: High Conversion Intent (94%)</span>
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Understand Intent</strong>
+                        <span>Classify Human Resources onboarding needs.</span>
                       </div>
                     </div>
-
-                    <div class="flow-arrow-down">↓</div>
-
-                    <div class="flow-node node-action">
-                      <div class="node-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
-                      <div class="node-text">
-                        <strong>Interactive WhatsApp Concierge</strong>
-                        <span>Dispatched tailored onboarding suite with 1-tap booking</span>
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Select AI Agents</strong>
+                        <span>Assign HR coordinator and access agent.</span>
+                      </div>
+                    </div>
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Connect Enterprise Systems</strong>
+                        <span>Workday, Microsoft 365, Slack, and Okta.</span>
+                      </div>
+                    </div>
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Apply Governance Policies</strong>
+                        <span>Enforce approval, access, and audit controls.</span>
+                      </div>
+                    </div>
+                    <div class="workflow-step-item">
+                      <span class="workflow-step-marker" aria-hidden="true"></span>
+                      <div class="workflow-step-copy">
+                        <strong>Deploy Workflow</strong>
+                        <span>Production workflow is live.</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="sticky-card-caption">
-                  <h3 class="sticky-caption-title">Visual Journey &amp; Revenue Flow Studio</h3>
+                  <h3 class="sticky-caption-title">Intelligent Workflow Orchestration</h3>
                 </div>
               </div>
             </div>
-
             <!-- Card 3: Unified CoPilot & Agent Workspace -->
-            <div class="sticky-card-item" style="position: sticky; top: 220px; z-index: 3;">
+            <div id="lifecycle-stage-3" class="sticky-card-item" data-lifecycle-card data-lifecycle-panel="2" data-base-z="3" style="position: sticky; top: calc(var(--lifecycle-sticky-top) + 80px); z-index: 3;">
               <div class="sticky-card-surface">
-                <div class="sticky-card-mockup mockup-omnichannel">
+                <div class="sticky-card-mockup mockup-omnichannel governance-dashboard-mockup">
                   <div class="sticky-wave-mesh" aria-hidden="true"></div>
 
-                  <div class="mockup-topbar">
+                  <div class="mockup-topbar governance-topbar">
                     <div class="mockup-dots" aria-hidden="true">
                       <span class="dot red"></span>
                       <span class="dot yellow"></span>
                       <span class="dot green"></span>
                     </div>
                     <div class="mockup-tab-pill">
-                      <span>Unified CoPilot &amp; Agent Workspace</span>
+                      <span>Unified Control Plane</span>
                     </div>
-                    <span class="mockup-status">● Real-time Agent Assist</span>
+                    <span class="mockup-status">Live Monitoring</span>
                   </div>
 
-                  <div class="agent-workspace-grid">
-                    <div class="agent-chat-pane">
-                      <div class="chat-thread-item user">
-                        <div class="user-avatar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-                        <div class="thread-content">
-                          <strong>Jordan Hayes (Enterprise VIP)</strong>
-                          <p>We want to expand our automated seat license from 500 to 2,000 for the upcoming fiscal cycle.</p>
-                        </div>
+                  <div class="governance-dashboard">
+                    <div class="governance-stat-grid" aria-label="Governance metrics">
+                      <div class="governance-stat-card">
+                        <span class="governance-status-dot" aria-hidden="true"></span>
+                        <strong>245</strong>
+                        <span>Active Agents</span>
                       </div>
-
-                      <div class="copilot-suggestion-card">
-                        <div class="copilot-badge">CoPilot Suggested Resolution</div>
-                        <p>Verified account tier agreement #E-48102. Generated customized enterprise volume tier quote with 1-click execution.</p>
-                        <button class="copilot-apply-btn">Insert Resolution (1-Click)</button>
+                      <div class="governance-stat-card">
+                        <span class="governance-status-dot" aria-hidden="true"></span>
+                        <strong>89</strong>
+                        <span>Running Workflows</span>
+                      </div>
+                      <div class="governance-stat-card">
+                        <span class="governance-status-dot" aria-hidden="true"></span>
+                        <strong>99.98%</strong>
+                        <span>Success Rate</span>
                       </div>
                     </div>
 
-                    <div class="customer-crm-pane">
-                      <div class="crm-title">Account Intelligence</div>
-                      <div class="crm-row"><span>Sentiment:</span> <strong style="color: var(--color-heading);">Exceptional (96%)</strong></div>
-                      <div class="crm-row"><span>Account Value:</span> <strong>$18,500/yr</strong></div>
-                      <div class="crm-row"><span>Seat Scale:</span> <strong>2,000 Active</strong></div>
-                      <div class="crm-row"><span>Channel:</span> <strong>Omnichannel Suite</strong></div>
+                    <div class="governance-detail-grid">
+                      <section class="governance-panel" aria-labelledby="recent-activity-title">
+                        <h4 id="recent-activity-title">Recent Activity</h4>
+                        <div class="governance-activity-list">
+                          <div class="governance-activity-item">
+                            <span class="governance-activity-dot" aria-hidden="true"></span>
+                            <div>
+                              <strong>HR Agent Completed</strong>
+                              <span>Onboarding task closed</span>
+                            </div>
+                          </div>
+                          <div class="governance-activity-item">
+                            <span class="governance-activity-dot" aria-hidden="true"></span>
+                            <div>
+                              <strong>Invoice Processed</strong>
+                              <span>Finance workflow reconciled</span>
+                            </div>
+                          </div>
+                          <div class="governance-activity-item">
+                            <span class="governance-activity-dot" aria-hidden="true"></span>
+                            <div>
+                              <strong>CRM Updated</strong>
+                              <span>Customer record synchronized</span>
+                            </div>
+                          </div>
+                          <div class="governance-activity-item">
+                            <span class="governance-activity-dot" aria-hidden="true"></span>
+                            <div>
+                              <strong>Customer Replied</strong>
+                              <span>Support thread routed</span>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="governance-panel" aria-labelledby="enterprise-governance-title">
+                        <h4 id="enterprise-governance-title">Enterprise Governance</h4>
+                        <div class="governance-check-list">
+                          <div class="governance-check-item">
+                            <span class="governance-check-icon" aria-hidden="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5"></path>
+                              </svg>
+                            </span>
+                            <strong>Policies Active</strong>
+                          </div>
+                          <div class="governance-check-item">
+                            <span class="governance-check-icon" aria-hidden="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5"></path>
+                              </svg>
+                            </span>
+                            <strong>Audit Logs Enabled</strong>
+                          </div>
+                          <div class="governance-check-item">
+                            <span class="governance-check-icon" aria-hidden="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5"></path>
+                              </svg>
+                            </span>
+                            <strong>Human Approval Ready</strong>
+                          </div>
+                        </div>
+                      </section>
                     </div>
                   </div>
                 </div>
 
                 <div class="sticky-card-caption">
-                  <h3 class="sticky-caption-title">Unified CoPilot &amp; Live Agent Workspace</h3>
+                  <h3 class="sticky-caption-title">Govern Every AI Agent</h3>
                 </div>
               </div>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Sticky Title & Description Panel -->
-          <div class="sticky-content-column">
-            <div class="sticky-white-panel">
-              <h2 class="sticky-panel-title">
-                Intelligent<br>Systems<br>Engineered for<br>Enterprise<br>Scale
-              </h2>
-              <p class="sticky-panel-desc">
-                Automate complex workflows, engage high-intent leads, and empower human teams with contextual AI copilots. SkyGentic combines state-of-the-art foundation models with real-time knowledge retrieval to deliver unmatched operational velocity.
-              </p>
             </div>
           </div>
         </div>
@@ -866,6 +976,15 @@
 
   <!-- Interactive Testimonials Accordion Script -->
   <script>
+    const lifecycleSection=document.querySelector('.section-sticky-showcase'),lifecycleGrid=document.querySelector('.sticky-showcase-grid'),lifecycleNavColumn=document.querySelector('.lifecycle-nav-column'),lifecycleCards=[...document.querySelectorAll('[data-lifecycle-card]')],lifecycleButtons=[...document.querySelectorAll('[data-lifecycle-index]')];let activeMenu=0,lifecycleFrameRequested=false;
+    function getLifecycleTop(card){return parseFloat(window.getComputedStyle(card).top||card.style.top)||0}
+    function getLifecycleRailTop(){const raw=window.getComputedStyle(lifecycleSection).getPropertyValue('--lifecycle-sticky-top');const parsed=parseFloat(raw);return Number.isFinite(parsed)?parsed:100}
+    function setLifecycleActive(index){if(!lifecycleCards.length||!lifecycleButtons.length)return;activeMenu=Math.max(0,Math.min(index,lifecycleCards.length-1));lifecycleButtons.forEach((button,n)=>{const active=n===activeMenu;button.classList.toggle('is-active',active);active?button.setAttribute('aria-current','step'):button.removeAttribute('aria-current')});lifecycleCards.forEach((card,n)=>{card.classList.toggle('is-active',n===activeMenu)})}
+    function syncLifecycleRail(){if(!lifecycleSection||!lifecycleGrid||!lifecycleNavColumn)return;const desktop=window.matchMedia('(min-width: 992px)').matches;if(!desktop){lifecycleNavColumn.classList.remove('is-fixed','is-pinned-bottom');lifecycleNavColumn.style.removeProperty('--lifecycle-rail-left');lifecycleNavColumn.style.removeProperty('--lifecycle-rail-current-width');return}const gridRect=lifecycleGrid.getBoundingClientRect(),navHeight=lifecycleNavColumn.offsetHeight,top=getLifecycleRailTop(),fallbackWidth=parseFloat(window.getComputedStyle(lifecycleSection).getPropertyValue('--lifecycle-rail-width'))||320,currentWidth=lifecycleNavColumn.getBoundingClientRect().width||fallbackWidth;lifecycleNavColumn.style.setProperty('--lifecycle-rail-left',`${gridRect.left}px`);lifecycleNavColumn.style.setProperty('--lifecycle-rail-current-width',`${currentWidth}px`);const lockToViewport=gridRect.top<=top&&gridRect.bottom-navHeight>top,lockToBottom=gridRect.top<=top&&gridRect.bottom-navHeight<=top;lifecycleNavColumn.classList.toggle('is-fixed',lockToViewport);lifecycleNavColumn.classList.toggle('is-pinned-bottom',lockToBottom)}
+    function readLifecycleFromScroll(){if(!lifecycleSection||!lifecycleCards.length)return;let nextActive=0;const sectionRect=lifecycleSection.getBoundingClientRect();if(sectionRect.top>window.innerHeight*.45){setLifecycleActive(0);syncLifecycleRail();return}lifecycleCards.forEach((card,index)=>{if(card.getBoundingClientRect().top<=getLifecycleTop(card)+2)nextActive=index});setLifecycleActive(nextActive);syncLifecycleRail()}
+    function requestLifecycleSync(){if(lifecycleFrameRequested)return;lifecycleFrameRequested=true;window.requestAnimationFrame(()=>{lifecycleFrameRequested=false;readLifecycleFromScroll()})}
+    if('IntersectionObserver'in window){const lifecycleObserver=new IntersectionObserver(requestLifecycleSync,{threshold:[0,.25,.5,.75,1]});lifecycleCards.forEach(card=>lifecycleObserver.observe(card))}
+    window.addEventListener('scroll',requestLifecycleSync,{passive:true});window.addEventListener('resize',requestLifecycleSync);setLifecycleActive(activeMenu);readLifecycleFromScroll();
     const testimonialsData = [
       {
         name: "Elena Rostova",
