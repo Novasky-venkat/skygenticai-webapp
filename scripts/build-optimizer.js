@@ -7,10 +7,11 @@ console.log('\x1b[32m%s\x1b[0m', '⚡ Starting SkyGentic AI Asset & Bundle Optim
 const distDir = path.resolve(__dirname, '../dist');
 const srcDir = path.resolve(__dirname, '..');
 
-// Ensure dist directory exists
-if (!fs.existsSync(distDir)) {
-  fs.mkdirSync(distDir, { recursive: true });
+// Ensure dist starts clean so stale Vite assets are not counted in bundle audits.
+if (fs.existsSync(distDir)) {
+  fs.rmSync(distDir, { recursive: true, force: true });
 }
+fs.mkdirSync(distDir, { recursive: true });
 
 // Copy styles and static assets into dist
 function copyDir(src, dest) {

@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   root: './',
@@ -17,15 +17,15 @@ export default defineConfig({
     cssMinify: 'lightningcss',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        services: resolve(__dirname, 'services.html'),
-        resources: resolve(__dirname, 'resources.html'),
-        getInTouch: resolve(__dirname, 'get-in-touch.html'),
-        about: resolve(__dirname, 'about.html'),
-        signin: resolve(__dirname, 'signin.html'),
-        scheduleDemo: resolve(__dirname, 'schedule-demo.html'),
-        privacy: resolve(__dirname, 'privacy.html'),
-        terms: resolve(__dirname, 'terms.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        services: resolve(import.meta.dirname, 'services.html'),
+        resources: resolve(import.meta.dirname, 'resources.html'),
+        getInTouch: resolve(import.meta.dirname, 'get-in-touch.html'),
+        about: resolve(import.meta.dirname, 'about.html'),
+        signin: resolve(import.meta.dirname, 'signin.html'),
+        scheduleDemo: resolve(import.meta.dirname, 'schedule-demo.html'),
+        privacy: resolve(import.meta.dirname, 'privacy.html'),
+        terms: resolve(import.meta.dirname, 'terms.html'),
       },
       output: {
         entryFileNames: 'assets/js/[name].[hash].js',
