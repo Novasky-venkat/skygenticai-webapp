@@ -3320,7 +3320,6 @@ body {
   .nav-wordmark { width: 150px; }
   .mobile-menu-row { min-height: 54px; font-size: 1rem; }
   .section-metrics .metrics-heading { font-size: 1.95rem; }
-  .section-metrics .metrics-mobile-break { display: block; }
   .section-metrics .metrics-tablet-break { display: none; }
   .footer-wrapper {
     padding: var(--space-20) 0 var(--space-8);
