@@ -64,6 +64,7 @@ Gradients are two-stop only. No purple-to-cyan, purple-to-blue, or orange-to-pin
 | Testimonials | `--color-section-alt`; active panel uses soft gradient | Dark ink |
 | FAQ | `--color-background` | Dark ink |
 | Footer | `--color-card`; CTA card uses soft gradient | Dark ink |
+| About | `--bg-gradient-hero` and `--bg-hero-composition`; cards use `--color-card` | Dark text with teal and blue data accents |
 
 ## Accent Discipline
 
