@@ -5,6 +5,7 @@
   --color-teal: oklch(60% .12 190);
   --color-teal-soft: oklch(94% .035 190);
   --color-amber: oklch(72% .14 75);
+  --color-error: oklch(58% .2 25);
   --color-primary-blue: oklch(53% .2 258);
   --color-secondary-blue: oklch(70% .14 250);
   --color-soft-sky: var(--color-blue-100);
