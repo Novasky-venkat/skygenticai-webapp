@@ -74,6 +74,38 @@ State matrix:
 - Disabled: not used; footer links remain standard anchors.
 - Loading: not used; footer is static by specification.
 
+## Sign In Page
+
+The sign-in page in `signin.html` follows a Split Studio auth canvas that reuses the landing page background language, wordmark asset, typography, gradients, input rhythm, button motion, card surfaces, and an adapted current-homepage `.hero-agentic-visual` layer from `styles/design-system.css` and `scripts/hero-animation.js`.
+
+Canvas specification:
+- Desktop: full-viewport, no-scroll grid with authentication at 42% and brand workflow at 58%.
+- Tablet: full-viewport grid with authentication at 40% and brand workflow at 60%.
+- Mobile: single-column stack with the form first and the brand workflow below at reduced workflow depth.
+- Surface: `--color-background`, `--bg-gradient-hero`, `--bg-hero-composition`, `--bg-hero-scrim`, and existing blue ambient depth only.
+- Header: a reused secondary `btn-glass` Back to Home control sits in the natural right-panel header position and navigates to `index.html`.
+- Auth column: logo, Welcome Back heading, description, email field, password field, remember/forgot row, primary sign-in, subtle divider, Google/Microsoft sign-in, create-account link, and trust indicators only.
+- Brand column: headline, supporting copy, subtle curve artwork, five workflow cards, and the bottom signature. It explains what happens after sign-in rather than decorating the page.
+- Right-panel balance: headline and copy introduce the experience; the workflow cards own the visual mass; the background, waves, curve, and nodes remain secondary.
+
+State matrix:
+- Idle: card/input surfaces use `--color-card`, `--color-border`, `--radius-md`/`--radius-lg`, and existing typography tokens.
+- Hover: buttons and social sign-in controls lift by the existing 2px CTA pattern with `--transition-fast`.
+- Focus-visible: interactive controls inherit `--focus-ring-color` and `--focus-ring-offset`.
+- Active: buttons and icon controls return to stable pressed geometry without scale.
+- Disabled: submit and social controls reduce opacity and remove transforms.
+- Loading: submit uses `aria-busy="true"`, disabled state, inline spinner, and stable button dimensions.
+- Error: fields set `aria-invalid="true"`, switch helper text to an instruction, and use the existing amber signal token.
+- Success: field helpers and status message use the existing teal signal token without celebratory motion.
+
+Motion specification:
+- Page reveal uses a single fade-up sequence.
+- Background and ambient glow use the existing hero gradient language with slow token-derived durations.
+- The adapted current homepage hero animation runs via `scripts/hero-animation.js`.
+- The sign-in wrapper adds only slow token-derived float and ambient motion around that existing animation.
+- Pointer movement is capped by `--space-2`.
+- `prefers-reduced-motion` disables spatial motion and keeps state changes visible.
+
 ## About Page Narrative
 
 The about page in `about.html` follows the supplied reference structure while using SkyGentic tokens and typography.
@@ -169,3 +201,19 @@ A modular, reusable component specification designed according to **Hallmark UI 
    - `outline: 2px solid var(--color-green-primary); outline-offset: 4px;`
 4. **Active State (`:active`)**:
    - `transform: scale(0.99) translateY(-2px);`
+
+## Sign in — approved image master, 2026-09-08
+
+The user explicitly approved the attached 1536 × 1024 image; no new design approval is required. Preserve its composition over Hallmark's discretionary design suggestions, with the current locked override that the right panel must not include an orb, sphere, planet, crystal, particle field, sparkle layer, floating geometry, or any large glowing object. Desktop split: x=606 (39.45%), left form x=89–540, logo y=44, welcome y=178. Right story starts near x=678/y=194, with the five workflow cards as the visual hero, following a subtle clockwise curve through Describe the Goal, SkyGentic Understands, Plans the Workflow, Deploys the Automation, and Real Impact in your Business. Artwork coordinates use a 930 × 1024 SVG viewBox; UI spacing uses existing spacing tokens. The sole brand palette and gradients remain styles/tokens.css; Clash Display/Satoshi and shared primary button/slide behavior are inherited. No token additions.
+
+States: idle existing card surface/border; hover existing button lift and slide; focus existing 2px focus token and offset; active scale(.98); disabled opacity .45/no transform; loading aria-busy/spinner; validation errors announced through existing field helpers and status region. Reduced-motion disables decorative movement. Five cards remain an ordered list, with decorative artwork hidden from assistive technology. Mobile puts the form first and retains the proportional curved composition below it.
+
+Research: WCAG 2.2 https://www.w3.org/TR/WCAG22/ and MDN prefers-reduced-motion https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion. The existing form has no authentication endpoint; submission/SSO must disclose that state instead of claiming email verification was sent.
+
+### Verification and remaining differences
+
+- Direct Lighthouse on `/signin.html`: accessibility 100/100, SEO 100/100. Repository Hallmark, accessibility and SEO commands also pass (the latter two inspect the homepage, so they are not substitutes for the direct run).
+- Browser checks: no horizontal document overflow at 320, 375, 414, 768, 1024, 1536 pixels; all five cards retained; no broken page images. Empty-field validation, password visibility, and loading/unavailable-auth feedback checked.
+- Side-by-side review: `/tmp/signin-comparison.png`; desktop capture `/tmp/signin-desktop.png`. Form geometry follows the master; the current right-panel pass keeps the workflow cards dominant and the ambient waves/curve secondary. This is not certified as an identical artwork reproduction without the approved screenshot present in the workspace.
+- `npm test` passes the aggregate asset budget: total CSS is approximately 79.93 KB against the 80 KB budget, with Brotli CSS approximately 12.55 KB against the 25 KB budget.
+- Authentication/SSO endpoints are absent in the existing implementation. The page does not claim a successful authentication or a sent verification email.
