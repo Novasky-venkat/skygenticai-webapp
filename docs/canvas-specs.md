@@ -106,6 +106,24 @@ Motion specification:
 - Pointer movement is capped by `--space-2`.
 - `prefers-reduced-motion` disables spatial motion and keeps state changes visible.
 
+## About Page Narrative
+
+The about page in `about.html` follows the supplied reference structure while using SkyGentic tokens and typography.
+
+- Bounds: standard `.container`, with the intro constrained to a centered readable measure and the mission/CTA sections using two-column desktop grids.
+- Layout order: centered page title and lead, mission split row, three-cell metric strip, guiding principles card row, then a divider-led next-step CTA.
+- Surface: light home-page canvas using `--bg-hero-composition` and `--bg-gradient-hero`; metric and principle cards use `--color-card`, `--color-border`, and `--shadow-ambient-card`.
+- Typography: all display text uses `var(--font-family-display)`; body, labels, metrics captions, and CTA use `var(--font-family-body)`.
+- Mobile: hero copy becomes left-aligned, mission and CTA grids collapse to one column, metric cells stack vertically, and CTA remains a 48px minimum target.
+
+State matrix:
+- Idle: light SkyGentic canvas with readable dark text and blue/teal data emphasis.
+- Hover: about CTA lifts with transform only and uses the standard primary CTA hover treatment.
+- Focus-visible: about CTA and nav controls inherit the global focus ring.
+- Active: about CTA returns to baseline transform.
+- Disabled: about CTA supports `aria-disabled="true"` with reduced opacity and no pointer interaction.
+- Loading: about CTA supports `data-state="loading"` with reduced opacity and progress cursor.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
