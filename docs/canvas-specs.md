@@ -151,3 +151,18 @@ A modular, reusable component specification designed according to **Hallmark UI 
    - `outline: 2px solid var(--color-green-primary); outline-offset: 4px;`
 4. **Active State (`:active`)**:
    - `transform: scale(0.99) translateY(-2px);`
+# Services: Compact Service Kicker
+
+- Scope: the service name label above each service heading.
+- Layout: intrinsic content width with 16px inline padding; no inherited minimum width.
+- Height: retain the existing 42px minimum for readable spacing.
+- States: static informational label; hover, focus, active, disabled, and loading states do not apply.
+- Color and contrast: retain the existing primary-blue border and text on the services background.
+
+## Services: Unnumbered Capability Badges
+
+- Scope: the capability badge below each service description.
+- Content: remove the decorative `01` through `05` prefixes and retain only the capability name.
+- Layout: intrinsic desktop width with 24px inline padding; full-width and centered text on small screens.
+- Height: retain the existing 54px desktop and 56px mobile minimums.
+- States: static informational content; interactive states do not apply.
