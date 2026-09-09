@@ -49,6 +49,121 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+    /* Hallmark - macrostructure: Workbench - tone: technical-light - anchor hue: cobalt */
+    /* Hallmark - pre-emit critique: P5 H5 E5 S5 R5 V4 */
+    .schedule-page-shell {
+      background-color: var(--color-background);
+      background-image: var(--bg-hero-composition), var(--bg-gradient-hero);
+      background-repeat: no-repeat;
+      background-size: 100% auto, 100% 760px;
+      color: var(--color-body);
+      overflow-x: clip;
+    }
+
+    .schedule-hero {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+
+    .schedule-hero-copy {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .schedule-hero-title {
+      max-width: 620px;
+      min-width: 0;
+      margin: 0 auto;
+      color: var(--color-primary-blue);
+      font-family: var(--font-family-display);
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .schedule-hero-lead {
+      max-width: 880px;
+      margin: var(--space-6) auto 0;
+      color: var(--color-body);
+      font-family: var(--font-family-body);
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .schedule-booking {
+      padding: var(--space-10) 0 var(--space-24);
+    }
+
+    .schedule-card {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: var(--space-10);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-card);
+      color: var(--color-body);
+      box-shadow: var(--shadow-ambient-card);
+    }
+
+    .schedule-embed-card {
+      min-height: 720px;
+    }
+
+    .reclaim-scheduler-shell {
+      width: 100%;
+      min-height: 640px;
+      border-radius: var(--radius-sm);
+      background: var(--color-background);
+      overflow: visible;
+    }
+
+    .reclaim-scheduler-shell > * {
+      max-width: 100%;
+    }
+
+    .reclaim-scheduler-shell iframe,
+    .reclaim-scheduler-shell object {
+      display: block;
+      width: 100%;
+      min-height: 640px;
+      border: 0;
+    }
+
+    @media (max-width: 720px) {
+      .schedule-hero-copy {
+        text-align: left;
+      }
+
+      .schedule-hero-title,
+      .schedule-hero-lead {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .schedule-hero-title {
+        font-size: 2.4rem;
+      }
+
+      .schedule-hero-lead {
+        font-size: 1rem;
+      }
+
+      .schedule-card {
+        padding: var(--space-6);
+      }
+
+      .schedule-embed-card,
+      .reclaim-scheduler-shell,
+      .reclaim-scheduler-shell iframe,
+      .reclaim-scheduler-shell object {
+        min-height: 680px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -190,111 +305,26 @@
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="section-hero" style="padding-top: 140px; padding-bottom: 40px;">
+  <main id="main-content" class="schedule-page-shell">
+    <section class="schedule-hero" aria-labelledby="schedule-hero-title">
       <div class="container">
-        <div style="max-width: 840px; margin: 0 auto; text-align: center;">
-          <div class="hero-eyebrow" style="margin: 0 auto 16px;">Enterprise Live Session</div>
-          <h1 style="font-family: var(--font-family-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--color-white);">
-            Schedule a Custom Agentic Demo
-          </h1>
-          <p class="hero-lead" style="margin: 0 auto 32px; max-width: 680px;">
-            Book a 30-minute tailored technical walkthrough with a SkyGentic Solutions Architect to explore live agent reasoning loops, vector RAG benchmarking, and custom API integration.
+        <div class="schedule-hero-copy">
+          <h1 id="schedule-hero-title" class="schedule-hero-title">Schedule Demo</h1>
+          <p class="schedule-hero-lead">
+            Book a 30-minute technical walkthrough with a SkyGentic solutions architect. We will focus the session on
+            your workflow, data, agent requirements and integration priorities.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Scheduler -->
-    <section style="padding: 40px 0 100px;">
+    <section class="schedule-booking" aria-label="Demo scheduling calendar">
       <div class="container">
-        <div style="max-width: 760px; margin: 0 auto;" class="architecture-card">
-
-          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 24px; margin-bottom: 32px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-green-primary); color: #000; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</span>
-              <span style="color: var(--color-white); font-weight: 600;">Select Focus</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-midnight-700); color: var(--color-slate-300); font-weight: 700; display: flex; align-items: center; justify-content: center;">2</span>
-              <span style="color: var(--color-slate-400); font-weight: 500;">Select Time</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-midnight-700); color: var(--color-slate-300); font-weight: 700; display: flex; align-items: center; justify-content: center;">3</span>
-              <span style="color: var(--color-slate-400); font-weight: 500;">Confirm</span>
-            </div>
+        <div class="schedule-card schedule-embed-card">
+          <div class="reclaim-scheduler-shell" data-reclaim-scheduler>
+            <script src="https://meet.reclaimai.com/scripts/embed-scheduling-link.0.x.x.js"
+              data-id="a01537f7-c5f4-43b4-9a94-2785c813c6b7" data-redirect="NONE"></script>
           </div>
-
-          <form id="demo-form" style="display: flex; flex-direction: column; gap: 24px;">
-
-            <div>
-              <label style="font-size: 0.95rem; color: var(--color-white); font-weight: 600; display: block; margin-bottom: 12px;">1. What is your primary architectural objective?</label>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-                <label style="border: 1px solid var(--color-green-primary); background: rgba(16, 185, 129, 0.08); border-radius: 12px; padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 4px;">
-                  <input type="radio" name="demo-goal" value="cx-automation" checked style="margin-bottom: 8px;">
-                  <strong style="color: var(--color-white); font-size: 0.95rem;">Conversational CX Automation</strong>
-                  <span style="color: var(--color-slate-300); font-size: 0.85rem;">Autonomous support &amp; booking agents</span>
-                </label>
-                <label style="border: 1px solid var(--color-midnight-700); background: rgba(15, 23, 42, 0.6); border-radius: 12px; padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 4px;">
-                  <input type="radio" name="demo-goal" value="multi-agent" style="margin-bottom: 8px;">
-                  <strong style="color: var(--color-white); font-size: 0.95rem;">Multi-Agent Swarm Logic</strong>
-                  <span style="color: var(--color-slate-300); font-size: 0.85rem;">Complex consensus task dispatch</span>
-                </label>
-                <label style="border: 1px solid var(--color-midnight-700); background: rgba(15, 23, 42, 0.6); border-radius: 12px; padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 4px;">
-                  <input type="radio" name="demo-goal" value="vector-rag" style="margin-bottom: 8px;">
-                  <strong style="color: var(--color-white); font-size: 0.95rem;">Enterprise RAG &amp; Vector Base</strong>
-                  <span style="color: var(--color-slate-300); font-size: 0.85rem;">Sub-50ms document retrieval</span>
-                </label>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="demo-name" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Full Name *</label>
-                <input type="text" id="demo-name" required placeholder="Jane Doe"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="demo-email" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Work Email *</label>
-                <input type="email" id="demo-email" required placeholder="jane@company.com"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="demo-date" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Preferred Date *</label>
-                <input type="date" id="demo-date" required value="2026-09-08"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="demo-time" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Preferred Time Slot *</label>
-                <select id="demo-time"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
-                  <option value="10am">10:00 AM EST (US East)</option>
-                  <option value="2pm">02:00 PM EST (US East)</option>
-                  <option value="5pm">05:00 PM PST (US West)</option>
-                </select>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-primary" style="margin-top: 12px;">
-              <div class="btn-text-wrapper">
-                <span class="btn-text-slide">Confirm Demo Booking</span>
-                <span class="btn-text-slide">Confirm Demo Booking</span>
-              </div>
-            </button>
-
-            <div id="demo-confirmation" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--color-green-primary); border-radius: 12px; padding: 24px; color: var(--color-white); text-align: center;">
-              <h3 style="color: var(--color-green-primary); font-size: 1.3rem; margin-bottom: 8px;">Demo Scheduled Successfully!</h3>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; margin-bottom: 12px;">A calendar invitation with Google Meet &amp; architectural prep notes has been dispatched to your email.</p>
-              <div style="font-size: 0.85rem; color: var(--color-slate-400);">Ref ID: #SKY-DEMO-2026</div>
-            </div>
-
-          </form>
-
         </div>
       </div>
     </section>
@@ -431,15 +461,6 @@
       link.addEventListener('click', () => setMobileMenuOpen(false));
     });
 
-    const demoForm = document.getElementById('demo-form');
-    const demoConfirmation = document.getElementById('demo-confirmation');
-    demoForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (demoConfirmation) {
-        demoConfirmation.style.display = 'block';
-        demoForm.reset();
-      }
-    });
   </script>
 </body>
 

@@ -124,6 +124,26 @@ State matrix:
 - Disabled: about CTA supports `aria-disabled="true"` with reduced opacity and no pointer interaction.
 - Loading: about CTA supports `data-state="loading"` with reduced opacity and progress cursor.
 
+## Schedule Demo Page
+
+The schedule demo page in `schedule-demo.html` follows the approved About-page intro format while embedding the Reclaim scheduling workflow.
+
+- Bounds: the hero copy is centered within a `980px` maximum measure; the Reclaim scheduler is constrained to `880px` inside the standard `.container`.
+- Layout order: unchanged site navbar, centered `Schedule Demo` title and lead, then the embedded scheduling calendar.
+- Surface: light SkyGentic canvas using `--bg-hero-composition` and `--bg-gradient-hero`; the embed frame uses `--color-card`, `--color-border`, and `--shadow-ambient-card`.
+- Typography: the page title uses `var(--font-family-display)` at `3rem`; the lead uses `var(--font-family-body)`.
+- Mobile: the hero becomes left-aligned and the scheduler keeps a stable minimum height while fitting the viewport width.
+
+State matrix:
+- Idle: the embed card uses a constant 1px token-bound border and stable calendar bounds.
+- Hover: inherited external scheduler behavior only; the local shell does not shift geometry.
+- Focus-visible: global page navigation remains focus-ring controlled; scheduler focus is owned by the Reclaim embed.
+- Active: inherited external scheduler behavior only.
+- Disabled: inherited external scheduler behavior only.
+- Loading: the shell reserves vertical space while the external scheduler initializes.
+- Error: inherited external scheduler behavior only.
+- Success: inherited external scheduler behavior only.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
