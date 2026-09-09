@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-10",
   "font_stack": "Clash Display + Satoshi via styles/tokens.css",
   "palette": "OKLCH SkyGentic blue system in styles/tokens.css",
-  "motion": "CSS-only motion; no animation library in package.json",
+  "motion": "CSS-only motion; no animation library in package.json; existing IntersectionObserver and requestAnimationFrame patterns",
   "spacing": "4px token scale in styles/tokens.css",
   "framework": "Static HTML entrypoint with React component mirrors",
   "preserve": [
     "existing typography tokens",
     "existing SkyGentic blue palette",
-    "fixed capsule navbar",
-    "static index.html build flow"
+    "canonical SaaS navbar and approved shared footer",
+    "static HTML production pages with React component mirrors"
   ]
 }
