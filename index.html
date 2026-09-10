@@ -97,19 +97,19 @@
 
       <ul class="nav-menu">
         <li class="services-menu">
-          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
+          <a href="services.html" class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
             aria-haspopup="true">
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </button>
+          </a>
           <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
             <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
                 src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
-            <a class="service-dropdown-link" href="services.html#swarn" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">Swarn</a>
+            <a class="service-dropdown-link" href="services.html#swarm" role="menuitem"><img class="service-icon-img"
+                src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">Swarm</a>
             <a class="service-dropdown-link" href="services.html#skyflow" role="menuitem"><img class="service-icon-img"
                 src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">SkyFlow</a>
             <a class="service-dropdown-link" href="services.html#hive" role="menuitem"><img class="service-icon-img"
@@ -168,13 +168,9 @@
         </a>
         <div class="mobile-menu-list">
           <div class="mobile-menu-item">
-            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+            <a class="mobile-menu-row" href="services.html">
               <span>Services</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <polyline points="9 6 15 12 9 18"></polyline>
-              </svg>
-            </button>
+            </a>
             <div class="mobile-submenu" id="mobile-services-panel" hidden>
               <a class="mobile-submenu-link" href="services.html#forge">
                 <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
@@ -486,7 +482,7 @@
               <p class="bento-card-desc">Describe what you need and Forge parses the request, wires up the right
                 connectors and deploys a named custom agent or activate a ready-made system agent like UBA, TBA,
                 MESSAGE AGENT and REDFIN etc..</p>
-              <a href="#demo" class="bento-card-action-link" aria-label="Explore Autonomous Agentic Intelligence">
+              <a href="services.html#forge" class="bento-card-action-link" aria-label="Explore Forge service">
                 <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -513,7 +509,7 @@
               <h3 class="bento-card-title">Swarm</h3>
               <p class="bento-card-desc">Custom and system agents group into silos, each built around one shared
                 purpose with budget split top-down across silos and then across agents.</p>
-              <a href="#demo" class="bento-card-action-link" aria-label="Explore Conversational Voice AI">
+              <a href="services.html#swarm" class="bento-card-action-link" aria-label="Explore Swarm service">
                 <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -537,7 +533,7 @@
               <h3 class="bento-card-title">Sky Flow</h3>
               <p class="bento-card-desc">Every silo carries its own guardrails and an agent manager watching for
                 failures retrying, alerting or skipping work as the rules dictate.</p>
-              <a href="#demo" class="bento-card-action-link" aria-label="Explore Cognitive Digital Concierge">
+              <a href="services.html#skyflow" class="bento-card-action-link" aria-label="Explore SkyFlow service">
                 <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -564,7 +560,7 @@
               <h3 class="bento-card-title">Hive</h3>
               <p class="bento-card-desc">All governed silos come together as one unified agentic application with a
                 real-time dashboard showing every agent across every silo.</p>
-              <a href="#demo" class="bento-card-action-link" aria-label="Explore Enterprise Knowledge RAG Engine">
+              <a href="services.html#hive" class="bento-card-action-link" aria-label="Explore Hive service">
                 <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -589,7 +585,7 @@
               <p class="bento-card-desc">Deploy agents into production with enterprise grade reliability. NovaOps
                 handles live operations, real-time data, scaling and continuous monitoring from one platform activated
                 for enterprise clients who need it.</p>
-              <a href="#demo" class="bento-card-action-link" aria-label="Explore Omnichannel Revenue Automation">
+              <a href="services.html#nova-ops" class="bento-card-action-link" aria-label="Explore NovaOps service">
                 <span>Explore More</span>
                 <div class="bento-action-bubble" aria-hidden="true">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -1312,11 +1308,6 @@
       m?.classList.toggle('is-open', isOpen);
       t?.setAttribute('aria-expanded', String(isOpen));
     };
-
-    t?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
-    });
 
     m?.addEventListener('mouseenter', () => {
       t?.setAttribute('aria-expanded', 'true');
