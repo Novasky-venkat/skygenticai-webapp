@@ -43,7 +43,7 @@ export const Footer = () => (
               <li><a href="https://linkedin.com/company/skygenticai" className="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/skygenticai" className="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
               <li><a href="https://x.com/skygenticai" className="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" className="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              <li><a aria-disabled="true" className="footer-link" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
             </ul>
           </div>
         </nav>
@@ -54,7 +54,6 @@ export const Footer = () => (
         <nav className="footer-legal" aria-label="Footer legal links">
           <a href="#privacy" className="footer-link">Privacy Policy</a>
           <a href="#terms" className="footer-link">Terms of Service</a>
-          <a href="#security" className="footer-link">Security & Trust</a>
         </nav>
       </div>
     </div>
