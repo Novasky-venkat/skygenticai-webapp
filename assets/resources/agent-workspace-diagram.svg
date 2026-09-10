@@ -1,45 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1675 825" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1675 725" role="img" aria-labelledby="title desc">
   <title id="title">System agents workspace resource diagram</title>
   <desc id="desc">Diagram showing pre-fabricated agents, workspace agents, custom agents, and the resource documentation workspace containing documentation, versions, logs, and case studies.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 10 0 L 0 5 L 10 10" fill="#1f6feb"/>
+    <filter id="cardShadow" x="-12%" y="-22%" width="124%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0b5fe8" flood-opacity="0.10"/>
+    </filter>
+    <filter id="panelShadow" x="-14%" y="-14%" width="128%" height="132%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0b5fe8" flood-opacity="0.11"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="3" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M11 1 2 6l9 5" fill="none" stroke="#1269ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
   </defs>
-  <rect width="1675" height="825" rx="44" fill="#fff"/>
-  <g fill="none" stroke="#1f6feb" stroke-width="3" marker-end="url(#arrow)" opacity=".7">
+
+  <g fill="none" stroke="#a8ccff" stroke-width="2" stroke-dasharray="10 16" opacity="0.48">
+    <path d="M512 412H1068"/>
+    <path d="M834 124V684"/>
+    <ellipse cx="836" cy="412" rx="360" ry="278"/>
+  </g>
+
+  <g fill="none" stroke="#1269ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" marker-end="url(#arrow)" opacity=".82">
     <path d="M1000 225H558"/>
     <path d="M1100 225H1000"/>
     <path d="M812 305V520H552"/>
   </g>
-  <g>
-    <rect x="96" y="144" width="456" height="160" rx="18" fill="#fff" stroke="#1f6feb" stroke-width="4"/>
-    <text x="324" y="213" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#0b2a57">Pre-fabricated agents</text>
-    <text x="324" y="263" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#1f6feb">(PFA)</text>
+
+  <g fill="#1269ff">
+    <circle cx="558" cy="225" r="7"/>
+    <circle cx="1000" cy="225" r="7"/>
+    <circle cx="1100" cy="225" r="7"/>
+    <circle cx="812" cy="305" r="7"/>
+    <circle cx="812" cy="520" r="7"/>
+    <circle cx="552" cy="520" r="7"/>
   </g>
-  <g>
-    <rect x="624" y="144" width="378" height="160" rx="18" fill="#fff" stroke="#1f6feb" stroke-width="4"/>
-    <text x="813" y="213" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#0b2a57">Workspace agent</text>
-    <text x="813" y="263" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#1f6feb">(PFA+CA)</text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="96" y="144" width="456" height="160" rx="34" fill="#ffffff" stroke="#c8e0ff" stroke-width="2"/>
+    <text x="324" y="213" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#07163d">Pre-fabricated agents</text>
+    <text x="324" y="263" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#52647f">(PFA)</text>
   </g>
-  <g>
-    <rect x="96" y="440" width="456" height="160" rx="18" fill="#fff" stroke="#1f6feb" stroke-width="4"/>
-    <text x="324" y="508" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#0b2a57">Custom agents</text>
-    <text x="324" y="558" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#1f6feb">(CA)</text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="624" y="144" width="378" height="160" rx="34" fill="#ffffff" stroke="#c8e0ff" stroke-width="2"/>
+    <text x="813" y="213" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#07163d">Workspace agent</text>
+    <text x="813" y="263" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#1269ff">(PFA+CA)</text>
   </g>
-  <g>
-    <rect x="1100" y="92" width="498" height="620" rx="40" fill="#fff" stroke="#1f6feb" stroke-width="4"/>
-    <text x="1349" y="163" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="34" font-weight="700" fill="#1f6feb">System agents</text>
-    <text x="1349" y="207" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="34" font-weight="700" fill="#1f6feb">workspace</text>
-    <rect x="1176" y="280" width="344" height="320" rx="18" fill="#fff" stroke="#1f6feb" stroke-width="3"/>
-    <g font-family="Satoshi, Arial, sans-serif" font-size="29" fill="#0b2a57">
-      <circle cx="1223" cy="336" r="5" fill="#1f6feb"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="96" y="440" width="456" height="160" rx="34" fill="#ffffff" stroke="#c8e0ff" stroke-width="2"/>
+    <text x="324" y="508" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="33" font-weight="700" fill="#07163d">Custom agents</text>
+    <text x="324" y="558" text-anchor="middle" font-family="Satoshi, Arial, sans-serif" font-size="30" font-weight="500" fill="#1269ff">(CA)</text>
+  </g>
+
+  <g filter="url(#panelShadow)">
+    <rect x="1100" y="92" width="498" height="620" rx="44" fill="#ffffff" stroke="#c8e0ff" stroke-width="2"/>
+    <text x="1349" y="163" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="34" font-weight="700" fill="#1269ff">System agents</text>
+    <text x="1349" y="207" text-anchor="middle" font-family="Clashdisplay, Arial, sans-serif" font-size="34" font-weight="700" fill="#1269ff">workspace</text>
+    <rect x="1176" y="280" width="344" height="320" rx="28" fill="#ffffff" stroke="#c8e0ff" stroke-width="2"/>
+    <g font-family="Satoshi, Arial, sans-serif" font-size="29" fill="#07163d">
+      <circle cx="1223" cy="336" r="7" fill="#1269ff"/>
       <text x="1244" y="346">Documentation</text>
-      <circle cx="1223" cy="400" r="5" fill="#1f6feb"/>
+      <circle cx="1223" cy="400" r="7" fill="#1269ff"/>
       <text x="1244" y="410">Versions</text>
-      <circle cx="1223" cy="465" r="5" fill="#1f6feb"/>
+      <circle cx="1223" cy="465" r="7" fill="#1269ff"/>
       <text x="1244" y="475">Logs</text>
-      <circle cx="1223" cy="529" r="5" fill="#1f6feb"/>
+      <circle cx="1223" cy="529" r="7" fill="#1269ff"/>
       <text x="1244" y="539">Case studies</text>
     </g>
   </g>
