@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Resources, SDKs &amp; Whitepapers | SkyGentic AI</title>
+  <title>SkyGentic AI | Resources </title>
   <meta name="description"
     content="Access SkyGentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and customer case studies.">
   <link rel="canonical" href="https://skygentic.ai/resources.html">
@@ -206,132 +206,536 @@
   </header>
 
   <main id="main-content">
-    <section class="section-hero" style="padding-top: 140px; padding-bottom: 40px;">
-      <div class="container">
-        <div style="max-width: 840px; margin: 0 auto; text-align: center;">
-          <div class="hero-eyebrow" style="margin: 0 auto 16px;">Knowledge &amp; Developer Hub</div>
-          <h1 style="font-family: var(--font-family-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--color-white);">
-            Developer Resources &amp; Documentation
-          </h1>
-          <p class="hero-lead" style="margin: 0 auto 32px; max-width: 680px;">
-            Explore API references, SDK installation guides, benchmark reports, and enterprise security whitepapers to supercharge your agentic implementation.
-          </p>
+    <style>
+      /* Hallmark - pre-emit critique: P5 H5 E4 S5 R5 V4 */
+      /* Hallmark - macrostructure: Long Document - tone: technical - anchor hue: blue-teal */
+      .resources-page {
+        background: var(--color-background);
+        color: var(--color-body);
+        overflow-x: clip;
+      }
+
+      .resources-page h1,
+      .resources-page h2,
+      .resources-page h3 {
+        font-family: var(--font-family-display);
+        color: var(--color-heading);
+        letter-spacing: 0;
+      }
+
+      .resources-hero {
+        position: relative;
+        padding: var(--space-8) 0 var(--space-10);
+        background-color: var(--color-background);
+        background-image: var(--bg-hero-composition), var(--bg-gradient-hero);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        isolation: isolate;
+        overflow: clip;
+      }
+
+      .resources-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--bg-hero-scrim-mobile);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .resources-hero__inner {
+        display: block;
+        max-width: var(--container-max-width);
+      }
+
+      .resources-hero__copy {
+        max-width: 1040px;
+        margin: 0 auto;
+        min-width: 0;
+        text-align: center;
+      }
+
+      .resources-hero__intro {
+        max-width: 960px;
+        margin: var(--space-6) auto 0;
+        color: var(--color-body);
+        font-size: clamp(1.03rem, 1.4vw, 1.18rem);
+        line-height: 1.68;
+      }
+
+      .resource-log-footer a:focus-visible {
+        outline: 2px solid var(--focus-ring-color);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      .resources-hero__diagram {
+        position: relative;
+        width: min(100%, 880px);
+        min-width: 0;
+        margin: var(--space-6) auto 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+      }
+
+      .resources-hero__diagram img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: transparent;
+      }
+
+      .resource-panel {
+        position: relative;
+        padding: var(--space-20) 0;
+        scroll-margin-top: 104px;
+      }
+
+      .resource-panel:nth-of-type(odd) {
+        background: var(--color-section-alt);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .resource-shell {
+        max-width: none;
+        margin: 0 auto;
+      }
+
+      .resource-capsule {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        min-height: 40px;
+        margin: 0 0 var(--space-5);
+        padding: var(--space-2) var(--space-4);
+        border: 1px solid var(--color-primary-blue);
+        border-radius: var(--radius-pill);
+        background: var(--color-blue-50);
+        color: var(--color-primary-blue);
+        font-family: var(--font-family-body);
+        font-size: .95rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .resource-capsule svg {
+        flex: 0 0 auto;
+        width: 14px;
+        height: 14px;
+      }
+
+      .resource-shell h2 {
+        max-width: 780px;
+        margin: 0;
+        font-size: 2.25rem;
+        font-weight: 500;
+        line-height: 1.1;
+        overflow-wrap: anywhere;
+      }
+
+      .resource-lede {
+        max-width: 760px;
+        margin: var(--space-5) 0 0;
+        color: var(--color-body);
+        font-size: clamp(1rem, 1.35vw, 1.15rem);
+        line-height: 1.65;
+      }
+
+      .resource-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+        margin-top: var(--space-8);
+      }
+
+      .resource-card,
+      .resource-featured {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        background: var(--color-card);
+        box-shadow: 0 12px 40px color-mix(in oklch, var(--color-heading) 7%, transparent);
+      }
+
+      .resource-card {
+        min-height: 156px;
+        padding: var(--space-6);
+      }
+
+      .resource-card--tall {
+        min-height: 168px;
+      }
+
+      .resource-card span,
+      .resource-featured span,
+      .resource-version__label {
+        display: block;
+        color: var(--color-primary-blue);
+        font-family: var(--font-family-body);
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+
+      .resource-card h3,
+      .resource-version h3,
+      .resource-featured h3 {
+        margin: var(--space-3) 0 0;
+        font-size: 1.18rem;
+        font-weight: 500;
+        line-height: 1.22;
+      }
+
+      .resource-card p,
+      .resource-version p,
+      .resource-featured p,
+      .resource-log-footer p {
+        margin: var(--space-3) 0 0;
+        color: var(--color-body);
+        font-size: .95rem;
+        line-height: 1.6;
+      }
+
+      .resource-timeline {
+        --timeline-rail-x: 18px;
+        --timeline-dot-size: 22px;
+        position: relative;
+        display: grid;
+        max-width: 720px;
+        margin: var(--space-10) 0 0;
+        padding-left: var(--space-16);
+        text-align: left;
+      }
+
+      .resource-timeline::before {
+        content: "";
+        position: absolute;
+        left: var(--timeline-rail-x);
+        top: calc(var(--timeline-dot-size) / 2);
+        bottom: 0;
+        width: 3px;
+        border-radius: var(--radius-line);
+      }
+
+      .resource-timeline::before {
+        z-index: 1;
+        background: var(--color-primary-blue);
+      }
+
+      .resource-version {
+        position: relative;
+        z-index: 2;
+        padding: var(--space-8) 0;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .resource-version:first-of-type {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .resource-version:last-child {
+        padding-bottom: 0;
+      }
+
+      .resource-version__dot {
+        position: absolute;
+        left: calc((var(--timeline-rail-x) - var(--space-16)) - (var(--timeline-dot-size) / 2) + 1.5px);
+        top: 28px;
+        width: var(--timeline-dot-size);
+        height: var(--timeline-dot-size);
+        border: 2px solid var(--color-primary-blue);
+        border-radius: 50%;
+        background: var(--color-card);
+        box-shadow: 0 0 0 7px var(--color-blue-50);
+      }
+
+      .resource-version:first-of-type .resource-version__dot {
+        top: 0;
+      }
+
+      .resource-version:last-child .resource-version__dot {
+        border-color: var(--color-primary-blue);
+        box-shadow: 0 0 0 7px var(--color-blue-50);
+      }
+
+      .resource-log-footer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: var(--space-8);
+        margin-top: var(--space-8);
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--color-border);
+      }
+
+      .resource-log-footer p {
+        max-width: 920px;
+        margin: 0;
+      }
+
+      .resource-log-footer a {
+        color: var(--color-primary-blue);
+        font-family: var(--font-family-body);
+        font-size: .95rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .resource-log-footer a:hover {
+        color: var(--color-blue-900);
+        transform: translateX(4px);
+      }
+
+      .resource-featured {
+        margin-top: var(--space-8);
+        padding: var(--space-8);
+        text-align: left;
+      }
+
+      .resource-featured h3 {
+        max-width: 960px;
+        font-size: clamp(1.35rem, 2vw, 1.75rem);
+      }
+
+      .resource-featured p {
+        max-width: 980px;
+      }
+
+      @media (max-width: 980px) {
+        .resources-hero__copy {
+          max-width: 780px;
+        }
+
+        .resource-card-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .resource-card,
+        .resource-card--tall {
+          min-height: auto;
+        }
+
+        .resource-log-footer {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .resource-log-footer a {
+          width: fit-content;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .resources-hero {
+          padding-top: var(--space-6);
+          padding-bottom: var(--space-12);
+        }
+
+        .documentation-title-break {
+          display: none;
+        }
+
+        .resource-panel {
+          padding: var(--space-16) 0;
+          scroll-margin-top: 88px;
+        }
+
+        .resource-card,
+        .resource-featured {
+          padding: var(--space-5);
+        }
+
+        .resource-timeline {
+          --timeline-rail-x: 15px;
+          --timeline-dot-size: 24px;
+          padding-left: var(--space-12);
+        }
+
+        .resource-version__dot {
+          left: calc((var(--timeline-rail-x) - var(--space-12)) - (var(--timeline-dot-size) / 2) + 1.5px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .resource-log-footer a {
+          transition: none;
+        }
+
+      }
+    </style>
+
+    <div class="resources-page">
+      <section class="resources-hero" aria-labelledby="resources-hero-title">
+        <div class="container resources-hero__inner">
+          <div class="resources-hero__copy">
+            <h1 class="resources-hero__title" id="resources-hero-title">Resources</h1>
+            <p class="resources-hero__intro">
+              Documentation, versions, logs and case studies for every agent kept together in one place. From the
+              moment an agent is created, its setup, updates and behavior are recorded automatically, giving you a
+              clear history from first draft to production outcome.
+            </p>
+          </div>
+          <figure class="resources-hero__diagram">
+            <img
+              src="assets/resources/agent-workspace-diagram.svg"
+              alt="System agents workspace diagram showing pre-fabricated agents, workspace agents, custom agents, and resource documentation."
+              width="1675"
+              height="725"
+              decoding="async">
+          </figure>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Resource Grid Section -->
-    <section style="padding: 40px 0 100px;">
-      <div class="container">
-
-        <!-- Category Filters -->
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
-          <button class="nav-signin" style="border: 1px solid var(--color-green-primary); color: var(--color-green-primary); background: rgba(16, 185, 129, 0.1);">All Resources</button>
-          <button class="nav-signin" style="border: 1px solid var(--color-midnight-700); color: var(--color-slate-300);">Developer SDKs</button>
-          <button class="nav-signin" style="border: 1px solid var(--color-midnight-700); color: var(--color-slate-300);">Whitepapers</button>
-          <button class="nav-signin" style="border: 1px solid var(--color-midnight-700); color: var(--color-slate-300);">Case Studies</button>
-          <button class="nav-signin" style="border: 1px solid var(--color-midnight-700); color: var(--color-slate-300);">Security &amp; Trust</button>
+      <section id="documentation" class="resource-panel" aria-labelledby="documentation-title">
+        <div class="container">
+          <div class="resource-shell">
+            <div class="resource-capsule" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
+              </svg>
+              <span>Documentation</span>
+            </div>
+            <h2 id="documentation-title">You built the agent. <br class="documentation-title-break"> Now document how it works.</h2>
+            <p class="resource-lede">
+              Once your agent is created in Forge, record its setup, behavior and configuration so anyone on your team
+              can understand or rebuild it.
+            </p>
+            <div class="resource-card-grid">
+              <article class="resource-card">
+                <span>Setup</span>
+                <h3>Agent configuration guide</h3>
+                <p>Inputs, permissions and connected tools.</p>
+              </article>
+              <article class="resource-card">
+                <span>Behavior</span>
+                <h3>Workflow and logic reference</h3>
+                <p>How the agent makes decisions step by step.</p>
+              </article>
+              <article class="resource-card">
+                <span>Maintenance</span>
+                <h3>Ownership and update log</h3>
+                <p>Who maintains it and when it was last reviewed.</p>
+              </article>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
-
-          <!-- Resource Card 1 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">Developer SDK</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">SkyGentic Python SDK Documentation</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                Complete guide to instantiating autonomous agent loops, custom tool decorators, streaming responses, and async vector RAG queries in Python 3.10+.
-              </p>
+      <section id="versions" class="resource-panel" aria-labelledby="versions-title">
+        <div class="container">
+          <div class="resource-shell">
+            <div class="resource-capsule" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
+              </svg>
+              <span>Versions</span>
             </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">v2.4.0 Updated</span>
-              <a href="https://github.com/skygenticai" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">Read Docs →</a>
+            <h2 id="versions-title">Agent changed? Every update becomes a new version.</h2>
+            <p class="resource-lede">
+              Whenever the agent's logic, prompts, or connections change, it's saved as a new version so you always
+              know what changed and can roll back if needed.
+            </p>
+            <div class="resource-timeline">
+              <article class="resource-version">
+                <span class="resource-version__dot" aria-hidden="true"></span>
+                <div>
+                  <span class="resource-version__label">v1.0</span>
+                  <h3>Initial agent created</h3>
+                  <p>Base logic and first documentation set.</p>
+                </div>
+              </article>
+              <article class="resource-version">
+                <span class="resource-version__dot" aria-hidden="true"></span>
+                <div>
+                  <span class="resource-version__label">v1.1</span>
+                  <h3>Workflow updated</h3>
+                  <p>Refined decision steps based on testing.</p>
+                </div>
+              </article>
+              <article class="resource-version">
+                <span class="resource-version__dot" aria-hidden="true"></span>
+                <div>
+                  <span class="resource-version__label">v2.0</span>
+                  <h3>New integration added</h3>
+                  <p>Documentation and case study updated to match.</p>
+                </div>
+              </article>
             </div>
-          </article>
-
-          <!-- Resource Card 2 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">Whitepaper</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">Sub-50ms RAG Architecture &amp; Indexing</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                Deep technical dive into dense vector embeddings, hybrid graph retrieval, and caching strategies that enable sub-50ms latency across 100M+ documents.
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">PDF Guide (18 Pages)</span>
-              <a href="schedule-demo.html" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">Download Whitepaper →</a>
-            </div>
-          </article>
-
-          <!-- Resource Card 3 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">Case Study</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">Solara Energy: 54% Member Activation Boost</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                How Solara Energy deployed SkyGentic multi-agent swarms across web and mobile channels to automate member onboarding and support inquiries.
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">Customer Story</span>
-              <a href="about.html" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">Read Case Study →</a>
-            </div>
-          </article>
-
-          <!-- Resource Card 4 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">Security &amp; Trust</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">Enterprise SOC-2 &amp; HIPAA Governance</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                Learn about SkyGentic zero-retention data isolation policies, automated PII masking, AES-256 encryption at rest, and third-party audit reports.
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">Security Briefing</span>
-              <a href="privacy.html" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">Security Standards →</a>
-            </div>
-          </article>
-
-          <!-- Resource Card 5 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">API Reference</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">REST &amp; WebSocket Event API Spec</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                Complete OpenAPI 3.0 specification for invoking agent tasks, streaming agent thoughts, managing session memory, and webhooks integration.
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">OpenAPI v3</span>
-              <a href="https://github.com/skygenticai" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">Explore API Spec →</a>
-            </div>
-          </article>
-
-          <!-- Resource Card 6 -->
-          <article class="architecture-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; color: var(--color-green-primary); display: inline-block; margin-bottom: 12px;">React &amp; Next.js</span>
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 12px;">SkyGentic UI Component Kit</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-                Pre-styled React hooks, chat windows, status indicators, and live telemetry widgets designed specifically for Hallmark UI standards.
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-              <span style="font-size: 0.85rem; color: var(--color-slate-400);">npm package</span>
-              <a href="https://github.com/skygenticai" class="nav-link" style="color: var(--color-green-primary); font-weight: 600;">View npm Package →</a>
-            </div>
-          </article>
-
+          </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <section id="logs" class="resource-panel" aria-labelledby="logs-title">
+        <div class="container">
+          <div class="resource-shell">
+            <div class="resource-capsule" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
+              </svg>
+              <span>Logs</span>
+            </div>
+            <h2 id="logs-title">A complete record of what your agent does.</h2>
+            <p class="resource-lede">
+              Logs capture every run, decision and change your agent makes, giving you visibility into its behavior
+              and a reliable trail to review when something needs attention.
+            </p>
+            <div class="resource-card-grid">
+              <article class="resource-card resource-card--tall">
+                <span>Activity logs</span>
+                <h3>What the agent did</h3>
+                <p>A timestamped history of every task the agent ran.</p>
+              </article>
+              <article class="resource-card resource-card--tall">
+                <span>Error logs</span>
+                <h3>Where something went wrong</h3>
+                <p>Failures and retries with the reason behind each one.</p>
+              </article>
+              <article class="resource-card resource-card--tall">
+                <span>Change logs</span>
+                <h3>What changed, and when</h3>
+                <p>Every update linked back to its version.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="case-studies" class="resource-panel" aria-labelledby="case-studies-title">
+        <div class="container">
+          <div class="resource-shell">
+            <div class="resource-capsule" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
+              </svg>
+              <span>Case Studies</span>
+            </div>
+            <h2 id="case-studies-title">See the finished result, from real clients.</h2>
+            <p class="resource-lede">
+              Once an agent is built, documented and versioned, here's what it looks like in production with the
+              outcomes it delivered.
+            </p>
+            <article class="resource-featured">
+              <span>Featured</span>
+              <h3>How one client went from idea to a fully versioned agent.</h3>
+              <p>
+                This study examines the complete lifecycle from initial agent design and documentation through four
+                layers iterations and the operational improvements observed at each stage.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer-wrapper" role="contentinfo">
+  <footer class="footer-wrapper footer-compact" role="contentinfo">
     <div class="container">
       <div class="footer-upper">
         <div class="footer-brand-section">
@@ -374,7 +778,7 @@
               <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
               <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              <li><a aria-disabled="true" class="footer-link" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
             </ul>
           </div>
         </nav>
@@ -385,7 +789,6 @@
         <nav class="footer-legal" aria-label="Footer legal links">
           <a href="privacy.html" class="footer-link">Privacy Policy</a>
           <a href="terms.html" class="footer-link">Terms of Service</a>
-          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
         </nav>
       </div>
     </div>

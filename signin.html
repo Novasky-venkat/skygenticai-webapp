@@ -4,24 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In | SkyGentic AI Enterprise Portal</title>
+  <title>Sign In | SkyGentic AI Workspace</title>
   <meta name="description"
-    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+    content="Sign in to the SkyGentic AI workspace to review active automations, refine business goals, and deploy trusted enterprise workflows.">
+  <link rel="icon" href="data:,">
   <link rel="canonical" href="https://skygentic.ai/signin.html">
 
   <!-- OpenGraph Social Cards -->
-  <meta property="og:title" content="Sign In | SkyGentic AI Enterprise Portal">
+  <meta property="og:title" content="Sign In | SkyGentic AI Workspace">
   <meta property="og:description"
-    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+    content="Sign in to the SkyGentic AI workspace to review active automations, refine business goals, and deploy trusted enterprise workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://skygentic.ai/signin.html">
   <meta property="og:image" content="https://skygentic.ai/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sign In | SkyGentic AI Enterprise Portal">
+  <meta name="twitter:title" content="Sign In | SkyGentic AI Workspace">
   <meta name="twitter:description"
-    content="Sign in to your SkyGentic AI enterprise portal to manage autonomous agent swarms, monitor token telemetry, and configure API integrations.">
+    content="Sign in to the SkyGentic AI workspace to review active automations, refine business goals, and deploy trusted enterprise workflows.">
   <meta name="twitter:image" content="https://skygentic.ai/og-image.png">
 
   <!-- Schema.org JSON-LD Structured Data -->
@@ -38,8 +39,14 @@
       },
       {
         "@type": "WebPage",
-        "name": "SkyGentic AI Sign In Portal",
+        "name": "SkyGentic AI Sign In Workspace",
         "url": "https://skygentic.ai/signin.html"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SkyGentic AI",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web"
       }
     ]
   }
@@ -49,341 +56,519 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+.form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-label { color: var(--color-heading); font-family: var(--font-family-body); font-size: 1rem; line-height: 1.2; }
+.input-shell { position: relative; display: flex; align-items: center; }
+.form-input { width: 100%; border: 1px solid var(--color-border); color: var(--color-heading); font: inherit; font-size: 1rem; line-height: 1.2; padding: var(--space-3) var(--space-12); outline: 0; box-shadow: none; -webkit-appearance: none; appearance: none; transition: background var(--transition-fast),border-color var(--transition-fast); }
+.form-input::placeholder { color: var(--color-secondary-text); }
+.form-input:hover { background: var(--color-blue-50); }
+.form-input:focus,.form-input:focus-visible { outline: 0; border-color: var(--color-primary-blue); box-shadow: none; }
+.form-field[data-state=error] .form-input { border-color: var(--color-error); }
+.form-field[data-state=error] .form-input:focus,.form-field[data-state=error] .form-input:focus-visible { border-color: var(--color-error); box-shadow: none; }
+.form-field[data-state=success] .form-input { border-color: var(--color-teal); }
+.password-toggle { position: absolute; right: var(--space-2); display: grid; place-items: center; width: var(--space-12); height: var(--space-12); border: 0; background: transparent; color: var(--color-secondary-text); border-radius: 50%; cursor: pointer; }
+.password-toggle:hover { color: var(--color-primary-blue); }
+.password-toggle .icon-eye-closed,.password-toggle[aria-pressed=true] .icon-eye-open { display: none; }
+.password-toggle[aria-pressed=true] .icon-eye-closed { display: block; }
+.field-helper,.signin-notice { margin: 0; min-height: 1.35em; font-size: .875rem; line-height: 1.35; color: var(--color-body); }
+.signin-options { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); }
+.remember-choice { position: relative; display: inline-flex; align-items: center; gap: var(--space-3); min-height: var(--space-12); font-size: 1rem; cursor: pointer; }
+.remember-choice input { position: absolute; left: calc(-1 * var(--space-3)); width: var(--space-12); height: var(--space-12); margin: 0; opacity: 0; cursor: pointer; }
+.remember-box { display: grid; place-items: center; width: var(--space-5); height: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-card); }
+.remember-choice input:checked + .remember-box { background: var(--color-primary-blue); border-color: var(--color-primary-blue); }
+.remember-choice input:checked + .remember-box::after { content: ''; width: var(--space-2); height: var(--space-1); border-left: 2px solid var(--color-card); border-bottom: 2px solid var(--color-card); transform: rotate(-45deg); }
+.remember-choice input:focus-visible + .remember-box { outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); }
+.signin-text-link { display: inline-flex; align-items: center; min-height: var(--space-12); font-size: 1rem; color: var(--color-primary-blue); text-decoration: none; white-space: nowrap; transition: color var(--transition-fast); }
+.signin-text-link:hover { color: var(--color-cta-hover); }
+.signin-submit { width: 100%; }
+.auth-submit-spinner { display: none; width: var(--space-4); height: var(--space-4); border: 1px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: signinSpin var(--transition-normal) infinite; }
+.signin-submit[data-state=loading] .auth-submit-spinner { display: block; }
+.signin-submit[data-state=loading] .btn-icon-bubble { display: none; }
+.signin-divider { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: var(--space-4); color: var(--color-secondary-text); font-size: .875rem; line-height: 1.2; }
+.signin-divider span { height: 1px; background: var(--color-border); }
+.signin-divider strong { font-weight: 500; }
+.social-signin-group { display: grid; gap: var(--space-3); }
+.social-signin { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); color: var(--color-heading); font-family: var(--font-family-body); font-size: 1rem; font-weight: 500; line-height: 1.2; cursor: pointer; white-space: nowrap; transition: background var(--transition-fast),border-color var(--transition-fast),transform var(--transition-fast),box-shadow var(--transition-fast); }
+.social-signin:hover { background: var(--color-blue-50); border-color: var(--color-primary-blue); transform: translateY(calc(-1 * var(--space-1) / 2)); box-shadow: var(--shadow-ambient-card); }
+.social-signin:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.create-account { margin-bottom: 0; color: var(--color-secondary-text); font-size: 1rem; line-height: 1.3; }
+.trust-indicators { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); list-style: none; margin-bottom: 0; padding: 0; }
+.trust-indicators li { display: flex; align-items: center; min-width: 0; color: var(--color-secondary-text); line-height: 1.4; white-space: nowrap; }
+.trust-indicators svg { flex-shrink: 0; }
+/* Hallmark · pre-emit critique: P4 H4 E3 S4 R4 V4 · macrostructure: approved split authentication · approved master: split authentication / curved five-step workflow · SkyGentic existing tokens. */
+/* Master coordinates are proportional illustration geometry, not new spacing tokens. */
+html, body.signin-body { overflow-x: clip; }
+body.signin-body { margin: 0; background: var(--color-background); }
+.signin-body .skip-link { position: fixed; top: var(--space-4); left: var(--space-4); width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; transform: none; }
+.signin-body .skip-link:focus { top: var(--space-4); }
+.signin-body .skip-link:focus-visible { width: auto; height: auto; padding: var(--space-3) var(--space-6); overflow: visible; clip: auto; clip-path: none; outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); }
+.signin-page { position: relative; isolation: isolate; }
+.signin-shell { display: grid; grid-template-columns: minmax(0, 39.45%) minmax(0, 60.55%); min-height: 100vh; }
+.signin-auth { position: relative; z-index: 2; display: flex; height: 100vh; min-height: 100vh; padding: var(--space-10) 10.9% var(--space-8) 14.65%; overflow: clip; background: var(--color-background); }
+.signin-auth-inner { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; row-gap: var(--space-4); width: 100%; min-width: 0; height: 100%; min-height: 0; }
+.signin-auth-body { align-self: center; display: flex; flex-direction: column; gap: var(--space-5); width: 100%; min-width: 0; min-height: 0; }
+.signin-logo-link { display: inline-flex; align-items: center; min-height: var(--space-12); width: calc(var(--space-24) * 3); }
+.signin-wordmark { width: 100%; height: auto; }
+.signin-copy { margin: 0; }
+.signin-title { margin-bottom: var(--space-2); white-space: nowrap; min-width: 0; }
+.signin-title span, .brand-story h2 span { color: var(--color-primary-blue); }
+.signin-description { font-size: inherit; margin: 0; max-width: 100%; }
+.signin-form { display: flex; flex-direction: column; gap: var(--space-3); }
+.form-input { min-height: calc(var(--space-12) + var(--space-2)); padding-left: calc(var(--space-12) + var(--space-1)); border-radius: var(--radius-md); background: var(--bg-gradient-testimonials); }
+.input-leading-icon { position: absolute; left: var(--space-4); width: var(--space-6); height: var(--space-6); color: var(--color-secondary-text); pointer-events: none; }
+.field-helper:empty, .signin-notice:empty { visibility: hidden; }
+.form-field[data-state=success] .field-helper { visibility: hidden; }
+.form-field[data-state=error] .input-shell { color: var(--color-heading); }
+.signin-options { margin-block: 0; }
+.signin-submit { margin: 0; min-height: calc(var(--space-12) + var(--space-2)); border-radius: var(--radius-xl); }
+.signin-submit .btn-icon-bubble { transform: rotate(45deg); }
+.signin-submit:disabled { opacity: .45; cursor: not-allowed; }
+.signin-divider { margin-block: var(--space-1) 0; }
+.signin-divider span { opacity: 1; }
+.social-signin-group { grid-template-columns: minmax(0, 1fr); }
+.social-signin { position: relative; min-height: calc(var(--space-12) + var(--space-2)); border-radius: var(--radius-lg); background: transparent; }
+.social-signin svg { position: absolute; left: var(--space-5); width: var(--space-8); height: var(--space-8); color: var(--color-primary-blue); }
+.create-account { margin-top: 0; text-align: center; }
+.create-account a { text-decoration: underline; font-weight: inherit; }
+.create-account .signin-text-link { min-height: auto; }
+.trust-indicators { display: flex; align-items: center; justify-content: space-between; align-self: end; margin-top: 0; margin-inline: 0; padding-top: var(--space-3); border: 0; gap: var(--space-2); }
+.trust-indicators li { flex: 0 0 auto; justify-content: center; font-size: .75rem; line-height: 1.2; gap: var(--space-1); white-space: nowrap; overflow-wrap: normal; }
+.trust-indicators li span { white-space: nowrap; }
+.trust-indicators svg { width: var(--space-6); height: var(--space-6); color: var(--color-secondary-text); }
+.signin-header { position: absolute; top: var(--space-8); right: calc(var(--space-16) + var(--space-1)); display: flex; align-items: center; z-index: 5; }
+.signin-back-home { background: transparent; color: var(--color-secondary-text); padding: 0; gap: var(--space-3); }
+.signin-back-home .btn-icon-bubble { order: -1; }
+.signin-back-home:hover .btn-text-slide { transform: translateY(calc(-1 * var(--space-5))); }
+.signin-back-home:hover { color: var(--color-primary-blue); }
+.signin-page :is(button,a,input:not(.form-input)):focus-visible { outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); }
+.signin-page button:active { transform: scale(.98); }
+.signin-brand-experience { position: relative; min-width: 0; overflow: clip; border-left: 1px solid var(--color-border); background: radial-gradient(ellipse 74% 58% at 78% 8%, color-mix(in oklch, var(--color-blue-100) 42%, transparent) 0%, color-mix(in oklch, var(--color-blue-100) 12%, transparent) 44%, transparent 76%), radial-gradient(ellipse 66% 54% at 62% 47%, color-mix(in oklch, var(--color-blue-50) 72%, transparent) 0%, color-mix(in oklch, var(--color-blue-100) 14%, transparent) 50%, transparent 80%), radial-gradient(ellipse 78% 36% at 48% 102%, color-mix(in oklch, var(--color-blue-100) 20%, transparent) 0%, transparent 74%), var(--bg-gradient-hero); }
+.signin-brand-experience::before, .signin-brand-experience::after { content: ''; position: absolute; pointer-events: none; }
+.signin-brand-experience::before { inset: -2% -12% 4% 8%; background: radial-gradient(ellipse 56% 46% at 66% 34%, color-mix(in oklch, var(--color-blue-100) 34%, transparent) 0%, color-mix(in oklch, var(--color-blue-100) 10%, transparent) 44%, transparent 78%), radial-gradient(ellipse 48% 38% at 49% 73%, color-mix(in oklch, var(--color-blue-50) 64%, transparent) 0%, transparent 72%); opacity: .54; transform: translate3d(var(--space-1),var(--space-1),0); z-index: 1; animation: signin-ribbon-drift calc(var(--motion-marquee-duration) * .82) ease-in-out infinite alternate; }
+.signin-brand-experience::after { inset: -8% -10% 30% 4%; background: var(--bg-hero-composition); opacity: .16; z-index: 0; animation: signin-haze-drift calc(var(--motion-marquee-duration) * .78) ease-in-out infinite alternate; }
+.ambient-mesh { position: absolute; inset: 0; background: var(--bg-hero-composition); opacity: .24; animation: signin-haze-drift calc(var(--motion-marquee-duration) * .78) ease-in-out infinite alternate; z-index: 0; }
+.ambient-art { position: absolute; width: 100%; height: calc(100% + var(--space-24) + var(--space-10)); inset: 0 0 auto; pointer-events: none; z-index: 1; transform: translate3d(0,calc(-1 * (var(--space-24) + var(--space-10))),0); }
+.wave-light { animation: signin-wave-breathe calc(var(--motion-marquee-duration) * .84) ease-in-out infinite alternate; stroke: var(--color-secondary-blue); opacity: .118; }
+.wave-filaments { animation: signin-wave-breathe calc(var(--motion-marquee-duration) * .84) ease-in-out infinite alternate; stroke: var(--color-secondary-blue); stroke-width: .8; opacity: .054; }
+.brand-story { position: absolute; top: 16.3%; left: 7%; z-index: 2; }
+.brand-eyebrow { display: flex; align-items: center; gap: var(--space-3); font-size: .75rem; letter-spacing: .25em; color: var(--color-secondary-text); margin: 0 0 var(--space-10); }
+.brand-story h2 { margin: 0 0 var(--space-6); max-width: none; }
+.brand-story .hero-lead { margin: 0; }
+.workflow-connector { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; overflow: visible; mix-blend-mode: multiply; opacity: .82; }
+.workflow-connector__arc { stroke-width: 2; stroke-linecap: round; fill: none; vector-effect: non-scaling-stroke; }
+.workflow-connector__arc--mobile { display: none; }
+.workflow { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; z-index: 3; }
+.workflow-card { position: absolute; z-index: 1; display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--bg-gradient-testimonials); box-shadow: var(--shadow-ambient-card); color: var(--color-heading); font-size: 1rem; line-height: 1.35; animation: workflow-drift var(--workflow-float-duration, calc(var(--motion-marquee-duration) * .42)) ease-in-out infinite alternate; }
+.workflow-card svg { flex: 0 0 var(--space-8); width: var(--space-8); height: var(--space-8); color: var(--color-primary-blue); }
+.workflow-card--1 { left: 50.8%; top: 10.8%; width: 26.8%; min-height: 8.3%; --workflow-float-duration: calc(var(--motion-marquee-duration) * .4); animation-delay: -.8s; }
+.workflow-card--2 { left: 62.4%; top: 24.5%; width: 27.4%; min-height: 8.3%; --workflow-float-duration: calc(var(--motion-marquee-duration) * .43); animation-delay: -2.4s; animation-direction: alternate-reverse; }
+.workflow-card--3 { left: 60.8%; top: 37.9%; width: 26%; min-height: 8.3%; --workflow-float-duration: calc(var(--motion-marquee-duration) * .46); animation-delay: -4.1s; }
+.workflow-card--4 { left: 56.4%; top: 50.4%; width: 26.2%; min-height: 8.3%; --workflow-float-duration: calc(var(--motion-marquee-duration) * .49); animation-delay: -5.7s; animation-direction: alternate-reverse; }
+.workflow-card--5 { left: 48.3%; top: 62%; width: 26.6%; min-height: 9.2%; color: var(--color-heading); --workflow-float-duration: calc(var(--motion-marquee-duration) * .51); animation-delay: -7.2s; }
+.brand-signature { position: absolute; right: 7.5%; bottom: 6.4%; display: flex; align-items: center; gap: var(--space-4); font-size: .75rem; letter-spacing: .25em; color: var(--color-secondary-text); margin: 0; }
+.brand-signature span { width: var(--space-20); height: 1px; background: var(--color-border); }
+@keyframes workflow-drift { to { transform: translate3d(0,calc(-1 * var(--space-1)),0); } }
+@keyframes signin-float { to { transform: translate3d(0,calc(-1 * var(--space-2)),0); } }
+@keyframes signin-ribbon-drift { to { opacity: .46; transform: translate3d(var(--space-2),calc(var(--space-1) / 2),0); } }
+@keyframes signin-haze-drift { to { opacity: .2; transform: translate3d(0,calc(-1 * var(--space-1) / 2),0); } }
+@keyframes signin-breathe { to { opacity: .66; transform: translate3d(0,calc(-1 * var(--space-1) / 2),0); } }
+@keyframes signin-wave-breathe { to { opacity: .045; transform: translate3d(0,calc(-1 * var(--space-1) / 2),0); } }
+@keyframes signinSpin { to { transform: rotate(360deg); } }
+@media (min-width: 1024px) {
+ .signin-shell { grid-template-rows: minmax(0, 100vh); height: 100vh; min-height: 100vh; overflow: clip; }
+ .signin-brand-experience { height: 100vh; min-height: 100vh; }
+}
+@media (min-width: 1024px) and (max-width: 1399px) {
+ .signin-auth { padding-inline: var(--space-10); }
+ .signin-title { font-size: 2.5rem; }
+ .workflow-card { padding: var(--space-4); gap: var(--space-3); font-size: .875rem; }
+ .brand-story h2 { font-size: 2.5rem; }
+ .brand-story .hero-lead { font-size: 1rem; }
+ .brand-eyebrow { font-size: .75rem; letter-spacing: .1em; gap: var(--space-2); }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+ .signin-title { font-size: 2rem; }
+ .brand-story h2 { font-size: 2rem; }
+ .brand-story .hero-lead { font-size: .875rem; }
+ .trust-indicators { gap: var(--space-1); }
+ .trust-indicators li { font-size: .6875rem; line-height: 1.12; gap: calc(var(--space-1) / 2); }
+}
+@media (min-width: 1024px) and (max-height: 900px) {
+ .signin-auth { padding-block: var(--space-6); }
+ .signin-auth-inner { row-gap: var(--space-2); }
+ .signin-auth-body { align-self: stretch; justify-content: center; gap: var(--space-2); }
+ .signin-form { gap: var(--space-1); }
+ .form-field { gap: var(--space-1); }
+ .signin-options { margin-block: 0; }
+ .signin-divider { margin-block: 0; }
+ .social-signin svg { left: var(--space-4); }
+ .trust-indicators { padding-top: var(--space-2); }
+}
+@media (min-width: 1200px) and (max-height: 900px) {
+ .social-signin-group { grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--space-2); }
+}
+@media (max-width: 1199px) {
+ .signin-shell { display: flex; flex-direction: column; min-height: 100vh; }
+ .signin-header { top: var(--space-4); right: var(--space-5); }
+ .signin-auth { min-height: 100vh; padding: var(--space-16) var(--space-6) var(--space-4); }
+ .signin-auth-inner { max-width: calc(var(--space-24) * 5); margin-inline: auto; }
+ .signin-logo-link { min-height: var(--space-10); max-width: 72%; }
+ .signin-copy { margin: 0; }
+ .signin-title { font-size: 2rem; }
+ .signin-description { font-size: .9375rem; line-height: 1.4; }
+ .signin-form { gap: var(--space-3); }
+ .form-field { gap: var(--space-1); }
+ .form-label,.remember-choice,.signin-text-link,.social-signin,.create-account { font-size: .875rem; }
+ .form-input,.signin-submit,.social-signin { min-height: var(--space-12); }
+ .signin-options { margin-block: 0; }
+ .signin-divider { margin-block: 0; }
+ .create-account { margin-top: 0; }
+ .trust-indicators { justify-content: space-between; margin-inline: 0; gap: var(--space-2); }
+ .trust-indicators li { font-size: .6875rem; line-height: 1.2; gap: var(--space-1); }
+ .signin-brand-experience { display: none; }
+ .brand-story { top: 9%; left: var(--space-6); }
+ .brand-story h2 { font-size: 2.5rem; }
+ .brand-story .hero-lead { font-size: 1rem; }
+ .brand-eyebrow { font-size: .6875rem; margin-bottom: var(--space-6); gap: var(--space-2); letter-spacing: .16em; }
+ .workflow-connector__arc--desktop { display: none; }
+ .workflow-connector__arc--mobile { display: block; }
+ .workflow-card { font-size: .875rem; padding: var(--space-3) var(--space-4); gap: var(--space-3); border-radius: var(--radius-xl); }
+ .workflow-card svg { flex-basis: var(--space-6); width: var(--space-6); height: var(--space-6); }
+ .workflow-card--1 { left: 24%; top: 34%; width: 50%; }
+ .workflow-card--2 { left: 32%; top: 47%; width: 59%; }
+ .workflow-card--3 { left: 38%; top: 60%; width: 55%; }
+ .workflow-card--4 { left: 31%; top: 72%; width: 62%; }
+ .workflow-card--5 { left: 22%; top: 84%; width: 68%; }
+ .brand-signature { left: var(--space-6); right: auto; bottom: var(--space-8); z-index: 4; font-size: .6875rem; gap: var(--space-2); }
+ .brand-signature span { width: var(--space-8); }
+}
+@media (min-width: 768px) and (max-width: 1199px) and (max-height: 900px) {
+ .signin-auth { padding-block: var(--space-6); }
+ .signin-auth-inner { row-gap: var(--space-2); }
+ .signin-auth-body { align-self: stretch; justify-content: center; gap: var(--space-1); }
+ .signin-form { gap: var(--space-1); }
+ .signin-options { margin-block: 0; }
+ .signin-divider { margin-block: 0; }
+}
+@media (max-width: 374px) {
+ .signin-auth { padding-inline: var(--space-4); }
+ .signin-title { font-size: 1.75rem; }
+ .signin-text-link,.remember-choice { font-size: .875rem; }
+ .signin-options { gap: var(--space-2); }
+ .social-signin svg { left: var(--space-3); width: var(--space-6); height: var(--space-6); }
+}
+@media (max-width: 767px) {
+ .signin-auth-inner { row-gap: var(--space-2); }
+ .signin-auth-body { align-self: stretch; justify-content: center; gap: var(--space-1); }
+ .signin-form { gap: var(--space-1); }
+ .social-signin-group { gap: var(--space-1); }
+ .trust-indicators { flex-direction: column; justify-content: center; padding-top: var(--space-1); gap: var(--space-1); }
+}
+@media (max-width: 767px) and (max-height: 740px) {
+ .signin-header { top: var(--space-2); right: var(--space-3); }
+ .signin-auth { padding: var(--space-6) var(--space-4) var(--space-2); }
+ .signin-auth-inner { row-gap: var(--space-2); }
+ .signin-auth-body { align-self: stretch; justify-content: center; gap: var(--space-1); }
+ .signin-copy { margin: 0; }
+ .signin-form { gap: var(--space-1); }
+ .form-field { gap: var(--space-1); }
+ .signin-options { margin-block: 0; }
+ .signin-divider { margin-block: 0; }
+ .social-signin-group { gap: var(--space-1); }
+ .create-account .signin-text-link { min-height: auto; }
+ .trust-indicators { padding-top: var(--space-1); gap: var(--space-1); }
+}
+@media (prefers-reduced-motion: reduce) {
+ .signin-page *, .signin-page *::before, .signin-page *::after { animation: none !important; transition: none !important; }
+}
+  </style>
 </head>
 
-<body>
+<body class="signin-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="navbar-wrapper" role="banner">
-    <nav class="navbar-container" aria-label="Main Navigation">
-      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
-        aria-controls="mobile-menu">
-        <span class="mobile-menu-icon mobile-menu-icon-open" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="mobile-menu-icon mobile-menu-icon-close" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-
-      <a href="/" class="nav-brand" aria-label="SkyGentic AI Homepage">
-        <img class="nav-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
-      </a>
-
-      <ul class="nav-menu">
-        <li class="services-menu">
-          <a href="services.html" class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
-            aria-haspopup="true">
-            Services
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </a>
-          <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
-            <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
-            <a class="service-dropdown-link" href="services.html#swarm" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">Swarm</a>
-            <a class="service-dropdown-link" href="services.html#skyflow" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">SkyFlow</a>
-            <a class="service-dropdown-link" href="services.html#hive" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-hive.png" alt="" width="32" height="32">Hive</a>
-            <a class="service-dropdown-link" href="services.html#nova-ops" role="menuitem"><img class="service-icon-img"
-                src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">Nova Ops</a>
-          </div>
-        </li>
-        <li>
-          <a href="resources.html" class="nav-link">
-            <span>Resources</span>
-          </a>
-        </li>
-        <li>
-          <a href="get-in-touch.html" class="nav-link">
-            <span>Get In Touch</span>
-          </a>
-        </li>
-        <li>
-          <a href="about.html" class="nav-link">
-            <span>About Us</span>
-          </a>
-        </li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="signin.html" class="nav-signin" aria-current="page">Sign In</a>
-        <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+  <main id="main-content" class="signin-main">
+    <section class="signin-page" aria-labelledby="signin-title">
+      <header class="signin-header" role="banner">
+        <a href="index.html" class="btn-secondary signin-back-home" aria-label="Back to home">
           <div class="btn-text-wrapper">
-            <span class="btn-text-slide">Schedule Demo</span>
-            <span class="btn-text-slide">Schedule Demo</span>
+            <span class="btn-text-slide">Back to home</span>
+            <span class="btn-text-slide" aria-hidden="true">Back to home</span>
           </div>
           <div class="btn-icon-bubble" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
           </div>
         </a>
-      </div>
-    </nav>
+      </header>
 
-    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true" inert>
-      <div class="mobile-menu-content">
-        <a href="schedule-demo.html" class="btn-primary mobile-menu-demo" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
-          <div class="btn-text-wrapper">
-            <span class="btn-text-slide">Schedule Demo</span>
-            <span class="btn-text-slide">Schedule Demo</span>
-          </div>
-          <div class="btn-icon-bubble" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </div>
-        </a>
-        <div class="mobile-menu-list">
-          <div class="mobile-menu-item">
-            <a class="mobile-menu-row" href="services.html">
-              <span>Services</span>
+      <div class="signin-shell">
+        <section class="signin-auth" aria-label="SkyGentic account access">
+          <div class="signin-auth-inner">
+            <a href="/" class="signin-logo-link" aria-label="SkyGentic AI homepage">
+              <img class="nav-wordmark signin-wordmark" src="assets/skygentic-wordmark.png" width="250" height="45" alt="SkyGentic">
             </a>
-            <div class="mobile-submenu" id="mobile-services-panel" hidden>
-              <a class="mobile-submenu-link" href="services.html#forge">
-                <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
-                <span><strong>Forge</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="services.html#swarm">
-                <img class="service-icon-img" src="assets/architecture/icon-swarm.png" alt="" width="32" height="32">
-                <span><strong>Swarm</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="services.html#skyflow">
-                <img class="service-icon-img" src="assets/architecture/icon-skyflow.png" alt="" width="32" height="32">
-                <span><strong>SkyFlow</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="services.html#hive">
-                <img class="service-icon-img" src="assets/architecture/icon-hive.png" alt="" width="32" height="32">
-                <span><strong>Hive</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="services.html#nova-ops">
-                <img class="service-icon-img" src="assets/architecture/icon-novaops.png" alt="" width="32" height="32">
-                <span><strong>Nova Ops</strong></span>
-              </a>
-            </div>
-          </div>
-          <a class="mobile-menu-row" href="resources.html">
-            <span>Resources</span>
-          </a>
-          <a class="mobile-menu-row" href="get-in-touch.html">
-            <span>Get In Touch</span>
-          </a>
-          <a class="mobile-menu-row" href="about.html">
-            <span>About Us</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <main id="main-content">
-    <section style="padding-top: 140px; padding-bottom: 100px; min-height: calc(100vh - 300px); display: flex; align-items: center;">
-      <div class="container">
-        <div style="max-width: 480px; margin: 0 auto;" class="architecture-card">
-          <div style="text-align: center; margin-bottom: 32px;">
-            <img src="assets/skygentic-wordmark.png" alt="SkyGentic" style="height: 32px; margin-bottom: 16px;">
-            <h1 style="font-family: var(--font-family-display); font-size: 1.8rem; color: var(--color-white); margin-bottom: 8px;">Enterprise Portal Sign In</h1>
-            <p style="color: var(--color-slate-400); font-size: 0.9rem;">Access your agent workspace &amp; telemetry dashboard</p>
-          </div>
-
-          <!-- Single Sign-On Buttons -->
-          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-            <button type="button" class="nav-signin" style="width: 100%; border: 1px solid var(--color-midnight-700); padding: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(15, 23, 42, 0.6); color: var(--color-white); font-weight: 500;">
-              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-              Continue with Google SSO
-            </button>
-            <button type="button" class="nav-signin" style="width: 100%; border: 1px solid var(--color-midnight-700); padding: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(15, 23, 42, 0.6); color: var(--color-white); font-weight: 500;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Continue with GitHub
-            </button>
-          </div>
-
-          <div style="display: flex; align-items: center; margin: 24px 0; color: var(--color-slate-500); font-size: 0.85rem;">
-            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.08);"></div>
-            <span style="padding: 0 12px;">OR WORK EMAIL</span>
-            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.08);"></div>
-          </div>
-
-          <form id="signin-form" style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label for="signin-email" style="font-size: 0.85rem; color: var(--color-slate-200); font-weight: 500;">Work Email Address</label>
-              <input type="email" id="signin-email" name="email" required placeholder="name@company.com"
-                style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <label for="signin-password" style="font-size: 0.85rem; color: var(--color-slate-200); font-weight: 500;">Password</label>
-                <a href="#forgot" style="font-size: 0.8rem; color: var(--color-green-primary); text-decoration: none;">Forgot password?</a>
+            <div class="signin-auth-body">
+              <div class="signin-copy reveal-on-load" style="--i: 0">
+                <h1 id="signin-title" class="display-1 signin-title">Welcome <span>Back</span></h1>
+                <p class="signin-description">Sign in to continue building intelligent automations with SkyGentic.</p>
               </div>
-              <input type="password" id="signin-password" name="password" required placeholder="••••••••••••"
-                style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 0.95rem; outline: none;">
+
+              <form id="signin-form" class="signin-form reveal-on-load" style="--i: 1" novalidate>
+                <div class="form-field" data-field="email">
+                  <label class="form-label" for="signin-email">Email</label>
+                  <div class="input-shell">
+                    <svg class="input-leading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+                    <input class="form-input" type="email" id="signin-email" name="email" autocomplete="username"
+                      inputmode="email" placeholder="name@example.com" aria-describedby="email-helper" aria-required="true" required>
+                    <span class="input-state-icon" aria-hidden="true"></span>
+                  </div>
+                  <p class="field-helper" id="email-helper"></p>
+                </div>
+
+                <div class="form-field" data-field="password">
+                  <label class="form-label" for="signin-password">Password</label>
+                  <div class="input-shell">
+                    <svg class="input-leading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>
+                    <input class="form-input" type="password" id="signin-password" name="password" autocomplete="current-password"
+                      placeholder="Enter your password" aria-describedby="password-helper" aria-required="true" required minlength="8">
+                    <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+                      <svg class="icon-eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                      <svg class="icon-eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 3l18 18"></path>
+                        <path d="M10.6 10.6A3 3 0 0 0 12 15a3 3 0 0 0 2.4-1.2"></path>
+                        <path d="M9.9 4.6A10.8 10.8 0 0 1 12 4c6 0 10 8 10 8a15.5 15.5 0 0 1-3 4.1"></path>
+                        <path d="M6.6 6.6C3.8 8.5 2 12 2 12s4 8 10 8a9.8 9.8 0 0 0 4.4-1.1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="field-helper" id="password-helper"></p>
+                </div>
+
+                <div class="signin-options">
+                  <label class="remember-choice" for="remember-me">
+                    <input type="checkbox" id="remember-me" name="remember" autocomplete="off" checked>
+                    <span class="remember-box" aria-hidden="true"></span>
+                    <span>Remember me</span>
+                  </label>
+                  <a class="signin-text-link" href="get-in-touch.html">Forgot password?</a>
+                </div>
+
+                <button id="signin-submit" type="submit" class="btn-primary signin-submit">
+                  <span class="auth-submit-spinner" aria-hidden="true"></span>
+                  <div class="btn-text-wrapper">
+                    <span class="btn-text-slide" data-submit-label>Continue</span>
+                    <span class="btn-text-slide" data-submit-label-clone aria-hidden="true">Continue</span>
+                  </div>
+                  <div class="btn-icon-bubble" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </button>
+
+                <div class="signin-divider" aria-hidden="true">
+                  <span></span>
+                  <strong>OR</strong>
+                  <span></span>
+                </div>
+
+                <div class="social-signin-group" aria-label="Single sign-on options">
+                  <button class="social-signin" type="button" data-provider="Google">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor" d="M12.2 10.4v3.8h5.3c-.3 1.3-1.1 2.4-2.2 3.1l2.7 2.1c1.6-1.5 2.6-3.7 2.6-6.3 0-.6-.1-1.2-.2-1.7h-8.2Z"></path>
+                      <path fill="currentColor" d="M12.2 21c2.3 0 4.3-.8 5.8-2.1l-2.7-2.1c-.8.5-1.8.8-3.1.8-2.2 0-4.1-1.5-4.8-3.5H4.6v2.2A8.8 8.8 0 0 0 12.2 21Z"></path>
+                      <path fill="currentColor" d="M7.4 14.1a5.4 5.4 0 0 1 0-3.4V8.5H4.6a8.8 8.8 0 0 0 0 7.8l2.8-2.2Z"></path>
+                      <path fill="currentColor" d="M12.2 7.2c1.3 0 2.4.4 3.3 1.3l2.5-2.4A8.4 8.4 0 0 0 12.2 4a8.8 8.8 0 0 0-7.6 4.5l2.8 2.2c.7-2 2.6-3.5 4.8-3.5Z"></path>
+                    </svg>
+                    <span>Continue with Google</span>
+                  </button>
+                  <button class="social-signin" type="button" data-provider="Microsoft">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor" d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"></path>
+                    </svg>
+                    <span>Continue with Microsoft</span>
+                  </button>
+                </div>
+
+                <p id="signin-notice" class="signin-notice" role="status" aria-live="polite"></p>
+              </form>
+
+              <p class="create-account reveal-on-load" style="--i: 2">
+                Don’t have an account?
+                <a class="signin-text-link" href="schedule-demo.html">Schedule Demo</a>
+              </p>
             </div>
 
-            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">
-              <div class="btn-text-wrapper">
-                <span class="btn-text-slide">Sign In to Dashboard</span>
-                <span class="btn-text-slide">Sign In to Dashboard</span>
-              </div>
-            </button>
-
-            <div id="signin-notice" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--color-green-primary); border-radius: 8px; padding: 12px; color: var(--color-green-primary); font-size: 0.85rem; text-align: center;">
-              Authentication request initiated. Check your work email for two-factor verification code.
-            </div>
-          </form>
-
-          <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; font-size: 0.85rem; color: var(--color-slate-400);">
-            Don't have an enterprise account? <a href="schedule-demo.html" style="color: var(--color-green-primary); font-weight: 600;">Schedule Demo &rarr;</a>
+            <ul class="trust-indicators reveal-on-load" style="--i: 3" aria-label="SkyGentic trust indicators">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                </svg>
+                <span>Enterprise-grade security</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>End-to-end encryption</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3M5 5a3 3 0 0 0 0 6m14-6a3 3 0 0 1 0 6M2 20v-3a4 4 0 0 1 3-4m17 7v-3a4 4 0 0 0-3-4"/>
+                </svg>
+                <span>Trusted by forward-thinking teams</span>
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
+
+        <section class="signin-brand-experience" aria-labelledby="signin-brand-title">
+          <div class="ambient-mesh" aria-hidden="true"></div>
+          <svg class="ambient-art" viewBox="0 0 930 1024" preserveAspectRatio="none" fill="none" aria-hidden="true"><defs><filter id="ambient-blur"><feGaussianBlur stdDeviation="24"/></filter></defs><g class="wave-light" filter="url(#ambient-blur)"><path d="M-50 742C170 625 245 735 395 835S690 855 1010 685" stroke-width="100"/><path d="M-50 995C170 810 250 760 430 920S670 1140 980 1020" stroke-width="80"/></g><g class="wave-filaments"><path d="M-50 650.0 C180.0 590.0 260.0 785.0 400.0 820.0 S670.0 810.0 1010 620.0"/><path d="M-50 652.7 C179.8 590.9 259.8 783.2 399.9 820.5 S670.3 811.4 1010 622.0"/><path d="M-50 655.3 C179.7 591.9 259.5 781.4 399.8 820.9 S670.6 812.8 1010 624.1"/><path d="M-50 658.0 C179.5 592.8 259.3 779.6 399.8 821.4 S670.9 814.2 1010 626.1"/><path d="M-50 660.6 C179.4 593.8 259.1 777.8 399.7 821.9 S671.2 815.6 1010 628.1"/><path d="M-50 663.3 C179.2 594.7 258.8 776.0 399.6 822.3 S671.6 817.0 1010 630.2"/><path d="M-50 665.9 C179.1 595.6 258.6 774.2 399.5 822.8 S671.9 818.4 1010 632.2"/><path d="M-50 668.6 C178.9 596.6 258.4 772.4 399.5 823.3 S672.2 819.8 1010 634.2"/><path d="M-50 671.2 C178.8 597.5 258.1 770.6 399.4 823.8 S672.5 821.2 1010 636.2"/><path d="M-50 673.9 C178.6 598.4 257.9 768.8 399.3 824.2 S672.8 822.7 1010 638.3"/><path d="M-50 676.6 C178.4 599.4 257.7 767.0 399.2 824.7 S673.1 824.1 1010 640.3"/><path d="M-50 679.2 C178.3 600.3 257.4 765.2 399.1 825.2 S673.4 825.5 1010 642.3"/><path d="M-50 681.9 C178.1 601.2 257.2 763.4 399.1 825.6 S673.8 826.9 1010 644.4"/><path d="M-50 684.5 C178.0 602.2 257.0 761.6 399.0 826.1 S674.1 828.3 1010 646.4"/><path d="M-50 687.2 C177.8 603.1 256.7 759.8 398.9 826.6 S674.4 829.7 1010 648.4"/><path d="M-50 689.8 C177.7 604.1 256.5 758.0 398.8 827.0 S674.7 831.1 1010 650.5"/><path d="M-50 692.5 C177.5 605.0 256.2 756.2 398.8 827.5 S675.0 832.5 1010 652.5"/><path d="M-50 695.2 C177.3 605.9 256.0 754.5 398.7 828.0 S675.3 833.9 1010 654.5"/><path d="M-50 697.8 C177.2 606.9 255.8 752.7 398.6 828.4 S675.6 835.3 1010 656.6"/><path d="M-50 700.5 C177.0 607.8 255.5 750.9 398.5 828.9 S675.9 836.7 1010 658.6"/><path d="M-50 703.1 C176.9 608.8 255.3 749.1 398.4 829.4 S676.2 838.1 1010 660.6"/><path d="M-50 705.8 C176.7 609.7 255.1 747.3 398.4 829.8 S676.6 839.5 1010 662.7"/><path d="M-50 708.4 C176.6 610.6 254.8 745.5 398.3 830.3 S676.9 840.9 1010 664.7"/><path d="M-50 711.1 C176.4 611.6 254.6 743.7 398.2 830.8 S677.2 842.3 1010 666.7"/><path d="M-50 713.8 C176.2 612.5 254.4 741.9 398.1 831.2 S677.5 843.8 1010 668.8"/><path d="M-50 716.4 C176.1 613.4 254.1 740.1 398.0 831.7 S677.8 845.2 1010 670.8"/><path d="M-50 719.1 C175.9 614.4 253.9 738.3 398.0 832.2 S678.1 846.6 1010 672.8"/><path d="M-50 721.7 C175.8 615.3 253.7 736.5 397.9 832.7 S678.4 848.0 1010 674.8"/><path d="M-50 724.4 C175.6 616.2 253.4 734.7 397.8 833.1 S678.8 849.4 1010 676.9"/><path d="M-50 727.0 C175.5 617.2 253.2 732.9 397.7 833.6 S679.1 850.8 1010 678.9"/><path d="M-50 729.7 C175.3 618.1 253.0 731.1 397.7 834.1 S679.4 852.2 1010 680.9"/><path d="M-50 732.3 C175.2 619.1 252.7 729.3 397.6 834.5 S679.7 853.6 1010 683.0"/><path d="M-50 735.0 C175.0 620.0 252.5 727.5 397.5 835.0 S680.0 855.0 1010 685.0"/><path d="M-50 737.7 C174.8 620.9 252.3 725.7 397.4 835.5 S680.3 856.4 1010 687.0"/><path d="M-50 740.3 C174.7 621.9 252.0 723.9 397.3 835.9 S680.6 857.8 1010 689.1"/><path d="M-50 743.0 C174.5 622.8 251.8 722.1 397.3 836.4 S680.9 859.2 1010 691.1"/><path d="M-50 745.6 C174.4 623.8 251.6 720.3 397.2 836.9 S681.2 860.6 1010 693.1"/><path d="M-50 748.3 C174.2 624.7 251.3 718.5 397.1 837.3 S681.6 862.0 1010 695.2"/><path d="M-50 750.9 C174.1 625.6 251.1 716.7 397.0 837.8 S681.9 863.4 1010 697.2"/><path d="M-50 753.6 C173.9 626.6 250.9 714.9 397.0 838.3 S682.2 864.8 1010 699.2"/><path d="M-50 756.2 C173.8 627.5 250.6 713.1 396.9 838.8 S682.5 866.2 1010 701.2"/><path d="M-50 758.9 C173.6 628.4 250.4 711.3 396.8 839.2 S682.8 867.7 1010 703.3"/><path d="M-50 761.6 C173.4 629.4 250.2 709.5 396.7 839.7 S683.1 869.1 1010 705.3"/><path d="M-50 764.2 C173.3 630.3 249.9 707.7 396.6 840.2 S683.4 870.5 1010 707.3"/><path d="M-50 766.9 C173.1 631.2 249.7 705.9 396.6 840.6 S683.8 871.9 1010 709.4"/><path d="M-50 769.5 C173.0 632.2 249.5 704.1 396.5 841.1 S684.1 873.3 1010 711.4"/><path d="M-50 772.2 C172.8 633.1 249.2 702.3 396.4 841.6 S684.4 874.7 1010 713.4"/><path d="M-50 774.8 C172.7 634.1 249.0 700.5 396.3 842.0 S684.7 876.1 1010 715.5"/><path d="M-50 777.5 C172.5 635.0 248.8 698.8 396.2 842.5 S685.0 877.5 1010 717.5"/><path d="M-50 780.2 C172.3 635.9 248.5 697.0 396.2 843.0 S685.3 878.9 1010 719.5"/><path d="M-50 782.8 C172.2 636.9 248.3 695.2 396.1 843.4 S685.6 880.3 1010 721.6"/><path d="M-50 785.5 C172.0 637.8 248.0 693.4 396.0 843.9 S685.9 881.7 1010 723.6"/><path d="M-50 788.1 C171.9 638.8 247.8 691.6 395.9 844.4 S686.2 883.1 1010 725.6"/><path d="M-50 790.8 C171.7 639.7 247.6 689.8 395.9 844.8 S686.6 884.5 1010 727.7"/><path d="M-50 793.4 C171.6 640.6 247.3 688.0 395.8 845.3 S686.9 885.9 1010 729.7"/><path d="M-50 796.1 C171.4 641.6 247.1 686.2 395.7 845.8 S687.2 887.3 1010 731.7"/><path d="M-50 798.8 C171.2 642.5 246.9 684.4 395.6 846.2 S687.5 888.8 1010 733.8"/><path d="M-50 801.4 C171.1 643.4 246.6 682.6 395.5 846.7 S687.8 890.2 1010 735.8"/><path d="M-50 804.1 C170.9 644.4 246.4 680.8 395.5 847.2 S688.1 891.6 1010 737.8"/><path d="M-50 806.7 C170.8 645.3 246.2 679.0 395.4 847.7 S688.4 893.0 1010 739.8"/><path d="M-50 809.4 C170.6 646.2 245.9 677.2 395.3 848.1 S688.8 894.4 1010 741.9"/><path d="M-50 812.0 C170.5 647.2 245.7 675.4 395.2 848.6 S689.1 895.8 1010 743.9"/><path d="M-50 814.7 C170.3 648.1 245.5 673.6 395.2 849.1 S689.4 897.2 1010 745.9"/><path d="M-50 817.3 C170.2 649.1 245.2 671.8 395.1 849.5 S689.7 898.6 1010 748.0"/><path d="M-50 820.0 C170.0 650.0 245.0 670.0 395.0 850.0 S690.0 900.0 1010 750.0"/><path d="M-50 965.0 C170 780.0 250 730.0 430 880.0 S670 1110.0 980 980.0"/><path d="M-50 969.7 C170 784.7 250 733.5 430 885.3 S670 1114.4 980 984.1"/><path d="M-50 974.4 C170 789.4 250 737.1 430 890.6 S670 1118.8 980 988.2"/><path d="M-50 979.1 C170 794.1 250 740.6 430 895.9 S670 1123.2 980 992.4"/><path d="M-50 983.8 C170 798.8 250 744.1 430 901.2 S670 1127.6 980 996.5"/><path d="M-50 988.5 C170 803.5 250 747.6 430 906.5 S670 1132.1 980 1000.6"/><path d="M-50 993.2 C170 808.2 250 751.2 430 911.8 S670 1136.5 980 1004.7"/><path d="M-50 997.9 C170 812.9 250 754.7 430 917.1 S670 1140.9 980 1008.8"/><path d="M-50 1002.6 C170 817.6 250 758.2 430 922.4 S670 1145.3 980 1012.9"/><path d="M-50 1007.4 C170 822.4 250 761.8 430 927.6 S670 1149.7 980 1017.1"/><path d="M-50 1012.1 C170 827.1 250 765.3 430 932.9 S670 1154.1 980 1021.2"/><path d="M-50 1016.8 C170 831.8 250 768.8 430 938.2 S670 1158.5 980 1025.3"/><path d="M-50 1021.5 C170 836.5 250 772.4 430 943.5 S670 1162.9 980 1029.4"/><path d="M-50 1026.2 C170 841.2 250 775.9 430 948.8 S670 1167.4 980 1033.5"/><path d="M-50 1030.9 C170 845.9 250 779.4 430 954.1 S670 1171.8 980 1037.6"/><path d="M-50 1035.6 C170 850.6 250 782.9 430 959.4 S670 1176.2 980 1041.8"/><path d="M-50 1040.3 C170 855.3 250 786.5 430 964.7 S670 1180.6 980 1045.9"/><path d="M-50 1045.0 C170 860.0 250 790.0 430 970.0 S670 1185.0 980 1050.0"/><path d="M-50 1049.7 C170 864.7 250 793.5 430 975.3 S670 1189.4 980 1054.1"/><path d="M-50 1054.4 C170 869.4 250 797.1 430 980.6 S670 1193.8 980 1058.2"/><path d="M-50 1059.1 C170 874.1 250 800.6 430 985.9 S670 1198.2 980 1062.4"/><path d="M-50 1063.8 C170 878.8 250 804.1 430 991.2 S670 1202.6 980 1066.5"/><path d="M-50 1068.5 C170 883.5 250 807.6 430 996.5 S670 1207.1 980 1070.6"/><path d="M-50 1073.2 C170 888.2 250 811.2 430 1001.8 S670 1211.5 980 1074.7"/><path d="M-50 1077.9 C170 892.9 250 814.7 430 1007.1 S670 1215.9 980 1078.8"/><path d="M-50 1082.6 C170 897.6 250 818.2 430 1012.4 S670 1220.3 980 1082.9"/><path d="M-50 1087.4 C170 902.4 250 821.8 430 1017.6 S670 1224.7 980 1087.1"/><path d="M-50 1092.1 C170 907.1 250 825.3 430 1022.9 S670 1229.1 980 1091.2"/><path d="M-50 1096.8 C170 911.8 250 828.8 430 1028.2 S670 1233.5 980 1095.3"/><path d="M-50 1101.5 C170 916.5 250 832.4 430 1033.5 S670 1237.9 980 1099.4"/><path d="M-50 1106.2 C170 921.2 250 835.9 430 1038.8 S670 1242.4 980 1103.5"/><path d="M-50 1110.9 C170 925.9 250 839.4 430 1044.1 S670 1246.8 980 1107.6"/><path d="M-50 1115.6 C170 930.6 250 842.9 430 1049.4 S670 1251.2 980 1111.8"/><path d="M-50 1120.3 C170 935.3 250 846.5 430 1054.7 S670 1255.6 980 1115.9"/><path d="M-50 1125.0 C170 940.0 250 850.0 430 1060.0 S670 1260.0 980 1120.0"/></g></svg><div class="brand-story"><p class="brand-eyebrow">IDEAS <span>→</span> AUTOMATIONS <span>→</span> IMPACT</p><h2 id="signin-brand-title" class="display-1">Turn<br><span>Possibilities</span><br>into Progress</h2><p class="hero-lead">With SkyGentic, every idea can<br>be automated, augmented, and<br>accelerated.</p></div>
+          <svg class="workflow-connector" viewBox="0 0 930 1024" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false"><defs><linearGradient id="workflow-connector-gradient" x1="0" y1="56" x2="0" y2="724" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--color-blue-900)" stop-opacity="0"/><stop offset=".18" stop-color="var(--color-blue-900)" stop-opacity=".12"/><stop offset=".46" stop-color="var(--color-secondary-blue)" stop-opacity=".34"/><stop offset=".66" stop-color="var(--color-blue-900)" stop-opacity=".2"/><stop offset="1" stop-color="var(--color-blue-900)" stop-opacity="0"/></linearGradient><linearGradient id="workflow-connector-gradient-mobile" x1="0" y1="334" x2="0" y2="902" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--color-blue-900)" stop-opacity="0"/><stop offset=".18" stop-color="var(--color-blue-900)" stop-opacity=".12"/><stop offset=".46" stop-color="var(--color-secondary-blue)" stop-opacity=".34"/><stop offset=".66" stop-color="var(--color-blue-900)" stop-opacity=".2"/><stop offset="1" stop-color="var(--color-blue-900)" stop-opacity="0"/></linearGradient></defs><path class="workflow-connector__arc workflow-connector__arc--desktop" d="M545 74 A520 520 0 0 1 548 704" stroke="url(#workflow-connector-gradient)"/><path class="workflow-connector__arc workflow-connector__arc--mobile" d="M420 334 A500 500 0 0 1 478 902" stroke="url(#workflow-connector-gradient-mobile)"/></svg><ol class="workflow" aria-label="From idea to business impact"><li class="workflow-card workflow-card--1"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="m14 2-10 13h8l-2 11 12-16h-9l1-8Z"/></svg><span>Describe<br>the goal</span></li><li class="workflow-card workflow-card--2"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 2c0 8-4 12-12 12 8 0 12 4 12 12 0-8 4-12 12-12C18 14 14 10 14 2Z"/><path d="M25 2v6m-3-3h6"/></svg><span>SkyGentic understands</span></li><li class="workflow-card workflow-card--3"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="m14 2 12 7v14l-12 7-12-7V9l12-7Zm0 14v14M2 9l12 7 12-7"/></svg><span>Plans the workflow</span></li><li class="workflow-card workflow-card--4"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="m5 3 21 12L5 27V3Z"/></svg><span>Deploys the automation</span></li><li class="workflow-card workflow-card--5"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h4v11H2zm12-10h4v21h-4zm12-9h4v30h-4z"/></svg><span>Real impact<br>in your business</span></li></ol>
+          <p class="brand-signature"><span></span>A MORE CAPABLE TOMORROW</p>
+        </section>
       </div>
     </section>
   </main>
 
-  <footer class="footer-wrapper" role="contentinfo">
-    <div class="container">
-      <div class="footer-upper">
-        <div class="footer-brand-section">
-          <a href="/" class="nav-brand footer-brand" aria-label="SkyGentic AI Homepage">
-            <img class="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
-          </a>
-          <p class="footer-description">
-            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
-          </p>
-          <div class="footer-status" aria-label="All systems operational">
-            <span class="footer-status-dot" aria-hidden="true"></span>
-            <span>All systems operational</span>
-          </div>
-        </div>
-
-        <nav class="footer-navigation" aria-label="Footer navigation">
-          <div class="footer-nav-column">
-            <h2 class="footer-col-title">Services</h2>
-            <ul class="footer-link-list">
-              <li><a href="services.html#forge" class="footer-link">Forge</a></li>
-              <li><a href="services.html#swarm" class="footer-link">Swarm</a></li>
-              <li><a href="services.html#skyflow" class="footer-link">SkyFlow</a></li>
-              <li><a href="services.html#hive" class="footer-link">Hive</a></li>
-              <li><a href="services.html#nova-ops" class="footer-link">NovaOps</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h2 class="footer-col-title">Quick Links</h2>
-            <ul class="footer-link-list">
-              <li><a href="resources.html" class="footer-link">Resources</a></li>
-              <li><a href="get-in-touch.html" class="footer-link">Get in Touch</a></li>
-              <li><a href="about.html" class="footer-link">About Us</a></li>
-              <li><a href="signin.html" class="footer-link">Sign in</a></li>
-              <li><a href="schedule-demo.html" class="footer-link">Schedule Demo</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h2 class="footer-col-title">Follow Us</h2>
-            <ul class="footer-link-list">
-              <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
-              <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
-              <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <div class="footer-bottom-bar">
-        <div>© 2026 SkyGentic AI / Novasky. All rights reserved.</div>
-        <nav class="footer-legal" aria-label="Footer legal links">
-          <a href="privacy.html" class="footer-link">Privacy Policy</a>
-          <a href="terms.html" class="footer-link">Terms of Service</a>
-          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    const navbar = document.querySelector('.navbar-wrapper');
-    let navbarScrollTicking = false;
+    (() => {
+      const form = document.getElementById('signin-form');
+      const email = document.getElementById('signin-email');
+      const password = document.getElementById('signin-password');
+      const submit = document.getElementById('signin-submit');
+      const notice = document.getElementById('signin-notice');
+      const toggle = document.querySelector('.password-toggle');
+      const labels = document.querySelectorAll('[data-submit-label], [data-submit-label-clone]');
+      const helpers = {
+        email: document.getElementById('email-helper'),
+        password: document.getElementById('password-helper')
+      };
+      const defaults = {
+        email: helpers.email?.textContent || '',
+        password: helpers.password?.textContent || ''
+      };
+      const touched = { email: false, password: false };
+      let loadingTimer;
 
-    function syncNavbarScrollState() {
-      navbarScrollTicking = false;
-      if (!navbar) return;
-      navbar.classList.toggle('is-scrolled', window.scrollY > 24);
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!navbarScrollTicking) {
-        navbarScrollTicking = true;
-        window.requestAnimationFrame(syncNavbarScrollState);
+      function setNotice(message, state) {
+        if (!notice) return;
+        notice.textContent = message;
+        notice.dataset.state = state || '';
       }
-    }, { passive: true });
 
-    const m = document.querySelector('.services-menu');
-    const t = document.querySelector('.services-menu-trigger');
-    const setServicesMenuOpen = (isOpen) => {
-      m?.classList.toggle('is-open', isOpen);
-      t?.setAttribute('aria-expanded', String(isOpen));
-    };
-
-    m?.addEventListener('mouseenter', () => t?.setAttribute('aria-expanded', 'true'));
-    m?.addEventListener('mouseleave', () => {
-      if (!m?.classList.contains('is-open')) t?.setAttribute('aria-expanded', 'false');
-    });
-
-    document.addEventListener('click', (event) => {
-      if (event.target.closest('.service-dropdown-link') || !m?.contains(event.target)) {
-        setServicesMenuOpen(false);
+      function setFieldState(input, state, message) {
+        const key = input?.name;
+        const field = input?.closest('.form-field');
+        if (!key || !field) return;
+        field.dataset.state = state || '';
+        input.setAttribute('aria-invalid', state === 'error' ? 'true' : 'false');
+        if (helpers[key]) helpers[key].textContent = message || defaults[key];
       }
-    });
 
-    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
-    const mobileMenuPanel = document.querySelector('#mobile-menu');
-    const mobileMenuRows = document.querySelectorAll('.mobile-menu-row[aria-controls]');
-    const mobileNavLinks = document.querySelectorAll('.mobile-menu-panel a');
+      function validateField(input) {
+        if (!input) return false;
+        const value = input.value.trim();
+        if (input === email) {
+          if (!value) {
+            setFieldState(input, 'error', 'Email is required.');
+            return false;
+          }
+          if (!input.validity.valid) {
+            setFieldState(input, 'error', 'Email address is not valid.');
+            return false;
+          }
+          setFieldState(input, 'success', 'Email format looks ready.');
+          return true;
+        }
 
-    function setMobileMenuOpen(isOpen) {
-      navbar?.classList.toggle('is-mobile-menu-open', isOpen);
-      document.body.classList.toggle('mobile-menu-open', isOpen);
-      mobileMenuButton?.setAttribute('aria-expanded', String(isOpen));
-      mobileMenuPanel?.setAttribute('aria-hidden', String(!isOpen));
-      if (mobileMenuPanel) mobileMenuPanel.inert = !isOpen;
-    }
+        if (!value) {
+          setFieldState(input, 'error', 'Password is required.');
+          return false;
+        }
+        if (value.length < Number(input.getAttribute('minlength'))) {
+          setFieldState(input, 'error', 'Password is too short. Use at least eight characters.');
+          return false;
+        }
+        setFieldState(input, 'success', 'Password is ready.');
+        return true;
+      }
 
-    mobileMenuButton?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setMobileMenuOpen(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
-    });
+      function setLoading(isLoading) {
+        submit?.toggleAttribute('disabled', isLoading);
+        submit?.setAttribute('aria-busy', String(isLoading));
+        if (submit) submit.dataset.state = isLoading ? 'loading' : '';
+        labels.forEach((label) => {
+          label.textContent = isLoading ? 'Signing In' : 'Continue';
+        });
+      }
 
-    mobileMenuRows.forEach((row) => {
-      row.addEventListener('click', () => {
-        const panel = document.getElementById(row.getAttribute('aria-controls'));
-        const isExpanded = row.getAttribute('aria-expanded') === 'true';
-        row.setAttribute('aria-expanded', String(!isExpanded));
-        if (panel) panel.hidden = isExpanded;
+      [email, password].forEach((input) => {
+        input?.addEventListener('blur', () => {
+          touched[input.name] = true;
+          validateField(input);
+        });
+        input?.addEventListener('input', () => {
+          if (touched[input.name]) validateField(input);
+          if (notice) {
+            notice.textContent = '';
+            notice.dataset.state = '';
+          }
+        });
       });
-    });
 
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener('click', () => setMobileMenuOpen(false));
-    });
+      toggle?.addEventListener('click', () => {
+        const showing = password?.type === 'text';
+        if (!password) return;
+        password.type = showing ? 'password' : 'text';
+        toggle.setAttribute('aria-pressed', String(!showing));
+        toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+        password.focus();
+      });
 
-    const signinForm = document.getElementById('signin-form');
-    const signinNotice = document.getElementById('signin-notice');
-    signinForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (signinNotice) {
-        signinNotice.style.display = 'block';
-      }
-    });
+      form?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        touched.email = true;
+        touched.password = true;
+        const valid = [validateField(email), validateField(password)].every(Boolean);
+        if (!valid) {
+          setNotice('Check the highlighted fields.', 'error');
+          return;
+        }
+        window.clearTimeout(loadingTimer);
+        setLoading(true);
+        setNotice('', '');
+        loadingTimer = window.setTimeout(() => {
+          setLoading(false);
+          setNotice('Sign in is not connected yet. Please contact SkyGentic for workspace access.', 'error');
+        }, 900);
+      });
+
+      document.querySelectorAll('.social-signin').forEach((button) => {
+        button.addEventListener('click', () => {
+          setNotice(`${button.dataset.provider} sign in is not connected yet. Please contact SkyGentic for workspace access.`, 'error');
+        });
+      });
+
+    })();
   </script>
 </body>
 

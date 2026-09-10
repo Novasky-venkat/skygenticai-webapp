@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-09-10",
+    "macrostructure": "Split Studio",
+    "theme": "SkyGentic Cobalt Night",
+    "enrichment": "Sparse particles and grain using existing blue tokens",
+    "brief": "User-specified contact split: context left, form right, compact discovery CTA, existing footer"
+  },
+  {
+    "date": "2026-09-10",
+    "macrostructure": "Workbench",
+    "theme": "SkyGentic Cobalt Light",
+    "enrichment": "none",
+    "brief": "Schedule demo page matched to the approved light centered reference format with Reclaim scheduler embed"
+  },
+  {
+    "date": "2026-09-04",
+    "macrostructure": "Split Studio",
+    "theme": "SkyGentic Cobalt",
+    "enrichment": "Adapted current homepage hero animation",
+    "brief": "Production sign-in page using adapted live homepage animation primitives and SkyGentic design tokens"
+  },
+  {
+    "date": "2026-09-08",
+    "macrostructure": "Stat-Led Narrative",
+    "theme": "SkyGentic Cobalt Light",
+    "enrichment": "none",
+    "brief": "About page content and placement matched to supplied reference image"
+  },
+  {
     "date": "2026-08-31",
     "macrostructure": "Narrative Workflow",
     "theme": "SkyGentic Cobalt",
