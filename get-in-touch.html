@@ -60,12 +60,13 @@
     .contact-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; background: var(--bg-hero-composition); }
     .contact-atmosphere::before { content: ''; position: absolute; inset: 0; opacity: .08; background-image: radial-gradient(circle at 12% 18%, var(--color-primary-blue) 1px, transparent 2px), radial-gradient(circle at 84% 33%, var(--color-teal) 1px, transparent 2px), radial-gradient(circle at 37% 71%, var(--color-blue-100) 1px, transparent 2px); background-size: 420px 390px, 530px 470px, 610px 510px; animation: contact-drift 24s var(--ease-out) infinite alternate; }
     .contact-atmosphere::after { content: ''; position: absolute; inset: 0; opacity: .025; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' opacity='.5' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); animation: contact-grain 18s var(--ease-out) infinite alternate; }
-    .contact-hero { display: grid; gap: var(--space-12); padding-block: var(--space-16); align-items: center; }
+    .contact-hero { padding-block: var(--space-8) var(--space-16); }
+    .contact-hero-header { text-align: center; margin-bottom: var(--space-10); }
+    .contact-columns { display: grid; gap: var(--space-12); align-items: center; }
     .contact-copy, .contact-form { min-width: 0; }
     .contact-page h1, .contact-page h2 { color: var(--color-heading); font-style: normal; }
-    .contact-page h1 { font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.15; margin: 0 0 var(--space-6); overflow-wrap: anywhere; }
+    .contact-page .contact-headline { font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.15; margin: 0 0 var(--space-6); overflow-wrap: anywhere; }
     .contact-page p { color: var(--color-body); }
-    .contact-page .contact-eyebrow { color: var(--color-primary-blue); font-size: .875rem; letter-spacing: .12em; margin-bottom: var(--space-6); }
     .contact-lead { max-width: 48ch; line-height: 1.7; margin-bottom: var(--space-10); }
     .contact-info { display: grid; gap: var(--space-4); }
     .contact-info-card, .contact-form { background: var(--contact-surface); border: 1px solid var(--contact-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-ambient-card); }
@@ -93,8 +94,9 @@
     .contact-cta { text-align: center; padding-block: var(--space-20) var(--space-24); }
     .contact-cta h2 { font-size: clamp(1.75rem, 2.8vw, 2.5rem); margin-bottom: var(--space-4); }
     .contact-cta p { max-width: 62ch; margin: 0 auto var(--space-8); }
-    @media (min-width: 60rem) { .contact-hero { grid-template-columns: minmax(0, 43fr) minmax(0, 57fr); min-height: calc(100svh - 72px); gap: var(--space-16); padding-block: var(--space-8); } .contact-form { padding: var(--space-8); } }
-    @media (min-width: 60rem) and (max-height: 800px) { .contact-hero { padding-block: var(--space-6); } .contact-form { padding: var(--space-6); gap: var(--space-1); } }
+    @media (max-width: 620px) { .contact-hero { padding-block: var(--space-6) var(--space-12); } }
+    @media (min-width: 60rem) { .contact-columns { grid-template-columns: minmax(0, 43fr) minmax(0, 57fr); gap: var(--space-16); } .contact-form { padding: var(--space-8); } }
+    @media (min-width: 60rem) and (max-height: 800px) { .contact-form { padding: var(--space-6); gap: var(--space-1); } }
     @media (hover: hover) { .contact-info-card:hover { transform: translateY(-2px); } .contact-field :is(input,select,textarea):hover { background: var(--contact-surface); } }
     @keyframes contact-reveal { from { opacity: 0; transform: translateY(var(--space-2)); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
     @keyframes contact-drift { to { transform: translateY(var(--space-2)); opacity: .28; } }
@@ -246,9 +248,12 @@
   <main id="main-content" class="contact-page">
     <div class="contact-atmosphere" aria-hidden="true"></div>
     <section class="contact-hero container" aria-labelledby="contact-title">
+      <header class="contact-hero-header">
+        <h1 class="resources-hero__title" id="contact-title">Get In Touch</h1>
+      </header>
+      <div class="contact-columns">
       <div class="contact-copy contact-reveal">
-        <p class="contact-eyebrow">GET IN TOUCH</p>
-        <h1 id="contact-title">Ready to Transform<br>Your Business?</h1>
+        <h2 class="contact-headline display-1">Ready to Transform<br>Your Business?</h2>
         <p class="contact-lead">Partner with Skygentic AI to automate operations, build intelligent solutions, and accelerate your business growth. Let's discuss how we can turn your vision into reality.</p>
         <div class="contact-info">
           <div class="contact-info-card"><h2>Response Time</h2><p>Within 1 Business Day</p></div>
@@ -265,6 +270,7 @@
         <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         <noscript><p class="contact-status">Please enable JavaScript to use this form. You can also email sales@skygentic.ai.</p></noscript>
       </form>
+      </div>
     </section>
     <section class="contact-cta container contact-reveal" aria-labelledby="discovery-title">
       <h2 id="discovery-title">Ready to Build Something Intelligent?</h2>
@@ -273,7 +279,7 @@
     </section>
   </main>
 
-  <footer class="footer-wrapper" role="contentinfo">
+  <footer class="footer-wrapper footer-compact" role="contentinfo">
     <div class="container">
       <div class="footer-upper">
         <div class="footer-brand-section">
@@ -316,7 +322,7 @@
               <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
               <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              <li><a aria-disabled="true" class="footer-link" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
             </ul>
           </div>
         </nav>
@@ -327,7 +333,6 @@
         <nav class="footer-legal" aria-label="Footer legal links">
           <a href="privacy.html" class="footer-link">Privacy Policy</a>
           <a href="terms.html" class="footer-link">Terms of Service</a>
-          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
         </nav>
       </div>
     </div>
