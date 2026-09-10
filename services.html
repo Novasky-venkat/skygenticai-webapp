@@ -82,7 +82,6 @@
       --services-bg: var(--color-background);
       --services-surface: var(--color-card);
       --services-surface-strong: var(--color-card);
-      --services-line: var(--color-border);
       --services-cyan: var(--color-primary-blue);
       --services-cyan-bright: var(--color-primary-blue);
       --services-ink: var(--color-heading);
@@ -99,25 +98,9 @@
       position: relative;
       isolation: isolate;
       overflow: clip;
-      background:
-        radial-gradient(ellipse 820px 560px at 52% 12%, oklch(70% .14 250 / .18), transparent 66%),
-        var(--bg-gradient-hero);
-      padding: 42px 0 88px;
-    }
-
-    .services-recreation::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 11% 7%, var(--services-cyan) 0 1px, transparent 2px),
-        radial-gradient(circle at 46% 13%, var(--services-cyan) 0 1px, transparent 2px),
-        radial-gradient(circle at 73% 4%, var(--services-cyan) 0 1px, transparent 2px),
-        radial-gradient(circle at 58% 55%, var(--services-cyan) 0 1px, transparent 2px),
-        radial-gradient(circle at 91% 92%, var(--services-cyan) 0 1px, transparent 2px);
-      opacity: 0.14;
-      pointer-events: none;
-      z-index: -1;
+      background-color: var(--services-bg);
+      background-image: var(--bg-hero-composition), var(--bg-gradient-hero);
+      padding: var(--space-8) 0 72px;
     }
 
     .services-stage {
@@ -127,30 +110,57 @@
     }
 
     .services-intro {
-      max-width: 1340px;
-      margin: 0 auto 52px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: auto;
+      margin: 0 auto var(--space-10);
+      padding: var(--space-3) 0 var(--space-8);
+      text-align: center;
+    }
+
+    .services-intro::before {
+      content: "";
+      position: absolute;
+      inset: 50% auto auto 50%;
+      z-index: -1;
+      width: min(760px, 92vw);
+      aspect-ratio: 1.7;
+      background: var(--bg-prefooter-cta-glow);
+      opacity: 0.72;
+      transform: translate(-50%, -54%);
+      pointer-events: none;
+    }
+
+    .services-intro-copy {
+      max-width: var(--container-focus-width);
+      min-width: 0;
+      margin: 0 auto;
       text-align: center;
     }
 
     .services-title {
-      width: 100%;
-      max-width: none;
-      margin: 0 0 46px;
-      color: var(--services-cyan-bright);
+      max-width: var(--container-focus-width);
+      margin: 0 auto var(--space-6);
+      color: var(--color-primary-blue);
       font-family: var(--font-family-display);
-      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
-      font-weight: 500;
+      font-size: 3rem;
+      font-weight: 700;
       line-height: 1;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      letter-spacing: 0;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
     }
 
     .services-summary {
-      max-width: 1290px;
+      max-width: 920px;
       margin: 0 auto;
-      color: var(--services-copy);
-      font-size: 1rem;
-      line-height: 1.48;
+      color: var(--services-ink);
+      font-size: clamp(1.06rem, 1.22vw, 1.16rem);
+      font-weight: 400;
+      line-height: 1.7;
+      text-wrap: balance;
     }
 
     .services-tabs-wrap {
@@ -193,6 +203,7 @@
       font-weight: 500;
       line-height: 1;
       text-decoration: none;
+      overflow: hidden;
       transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
       white-space: nowrap;
     }
@@ -200,14 +211,37 @@
     .services-tab.is-active {
       background: var(--bg-gradient-primary-cta);
       color: var(--color-card);
+      box-shadow: var(--shadow-btn-primary);
+    }
+
+    .services-tab .btn-text-wrapper {
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .services-tab .btn-text-slide {
+      flex: 0 0 20px;
+      color: inherit;
+      line-height: 20px;
     }
 
     .services-tab:hover {
       color: var(--color-primary-blue);
     }
 
+    .services-tab:focus-visible {
+      color: var(--color-primary-blue);
+    }
+
+    .services-tab.is-active:hover,
+    .services-tab.is-active:focus-visible {
+      background: var(--bg-gradient-primary-cta);
+      color: var(--color-card);
+      box-shadow: var(--shadow-btn-primary-hover);
+    }
+
     .services-tab:active {
-      transform: translateY(1px);
+      transform: translateY(0);
     }
 
     .services-tab:focus-visible {
@@ -227,7 +261,7 @@
 
     .service-top-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(520px, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.86fr);
       gap: clamp(48px, 5vw, 72px);
       align-items: center;
     }
@@ -237,9 +271,7 @@
       padding-top: 8px;
     }
 
-    .service-kicker,
-    .principle-kicker,
-    .service-visual-label {
+    .service-kicker {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -267,9 +299,7 @@
       margin-bottom: 22px;
     }
 
-    .service-kicker::before,
-    .principle-kicker::before,
-    .service-visual-label::before {
+    .service-kicker::before {
       content: "";
       width: 12px;
       height: 12px;
@@ -283,7 +313,7 @@
       margin: 0 0 24px;
       color: var(--services-ink);
       font-family: var(--font-family-display);
-      font-size: clamp(2.5rem, 4vw, 3.75rem);
+      font-size: 2.25rem;
       font-weight: 500;
       letter-spacing: 0;
       line-height: 0.99;
@@ -321,43 +351,20 @@
     }
 
     .service-visual {
-      --service-visual-pad: 18px;
       position: relative;
-      display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
-      gap: 10px;
+      display: block;
       justify-self: end;
-      width: min(100%, 640px);
-      aspect-ratio: 1.45 / 1;
-      padding: var(--service-visual-pad);
+      width: min(100%, 520px);
+      height: clamp(280px, 28vw, 360px);
       overflow: hidden;
-      border: 1px solid var(--services-line);
-      border-radius: var(--radius-md);
-      background:
-        linear-gradient(135deg, oklch(70% .14 250 / .18), transparent 34%),
-        var(--color-card);
-      box-shadow:
-        inset 0 1px 0 oklch(100% 0 0 / .72),
-        0 0 0 1px oklch(53% .2 258 / .05),
-        var(--shadow-ambient-card);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .service-visual::after {
-      content: "";
-      position: absolute;
-      top: var(--service-visual-pad);
-      right: var(--service-visual-pad);
-      bottom: calc(var(--service-visual-pad) + 44px);
-      left: var(--service-visual-pad);
-      pointer-events: none;
-      border-radius: var(--radius-sm);
-      background-image:
-        linear-gradient(oklch(100% 0 0 / .035) 1px, transparent 1px),
-        linear-gradient(90deg, oklch(100% 0 0 / .035) 1px, transparent 1px),
-        radial-gradient(ellipse at center, oklch(70% .14 250 / .12), transparent 68%);
-      background-size: 32px 32px, 32px 32px, 100% 100%;
-      opacity: 0.6;
-      mix-blend-mode: screen;
+      display: none;
     }
 
     .service-visual-image {
@@ -366,105 +373,103 @@
       width: 100%;
       height: 100%;
       min-height: 0;
-      object-fit: fill;
+      object-fit: contain;
       object-position: center;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      background: var(--color-white);
-      box-shadow: inset 0 0 70px oklch(70% .14 250 / .1);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
-    .service-visual-label {
-      position: relative;
-      z-index: 2;
-      justify-self: center;
-      max-width: calc(100% - 24px);
+    #nova-ops .service-visual {
+      aspect-ratio: 1360 / 1156;
+      height: auto;
     }
 
-    .service-bottom-grid {
-      display: grid;
-      grid-template-columns: minmax(300px, 493px) minmax(0, 1fr);
-      gap: clamp(48px, 6vw, 72px);
-      align-items: stretch;
+    .working-principle-card {
+      width: 100%;
       margin-top: 104px;
-    }
-
-    .principle-card {
-      min-height: 292px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 46px 48px 48px;
+      padding: clamp(32px, 4vw, 48px);
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      background: var(--color-card);
-      box-shadow: var(--shadow-ambient-card), inset 0 -3px 0 var(--color-primary-blue);
-    }
-
-    .principle-kicker {
-      align-self: flex-start;
-      width: fit-content;
-      min-width: 0;
-      padding: 0 16px;
-      margin-bottom: 38px;
-    }
-
-    .principle-title {
-      margin: 0 0 28px;
-      color: var(--services-ink);
-      font-family: var(--font-family-display);
-      font-size: clamp(2.1rem, 3.2vw, 3.25rem);
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .principle-copy {
-      max-width: 330px;
-      margin: 0;
-      color: var(--services-copy);
-      font-size: 1rem;
-      line-height: 1.55;
-    }
-
-    .steps-card {
-      min-height: 292px;
-      padding: 26px 36px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
       background: var(--color-card);
       box-shadow: var(--shadow-ambient-card);
     }
 
-    .step-row {
+    .working-principle-header {
       display: grid;
-      grid-template-columns: 68px minmax(0, 1fr);
-      gap: 24px;
-      min-height: 94px;
-      align-items: start;
-      padding: 0 0 26px;
-      position: relative;
+      gap: 14px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .step-row + .step-row {
-      padding-top: 26px;
-      border-top: 1px solid var(--color-border);
+    .principle-title {
+      margin: 0;
+      color: var(--services-ink);
+      font-family: var(--font-family-display);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: 0.99;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .principle-copy {
+      max-width: 720px;
+      margin: 0;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .principle-steps {
+      --principle-step-gap: clamp(44px, 5vw, 72px);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--principle-step-gap);
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .principle-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      min-width: 0;
+    }
+
+    .principle-step:not(:last-child)::after {
+      content: "\2192";
+      position: absolute;
+      top: 25px;
+      right: calc(var(--principle-step-gap) / -2);
+      color: var(--services-muted);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1;
+      transform: translate(50%, -50%);
+      opacity: 0.48;
+      pointer-events: none;
     }
 
     .step-num {
-      width: 46px;
-      height: 46px;
+      width: 50px;
+      height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--color-primary-blue);
       border-radius: 999px;
-      background: var(--color-blue-50);
+      background: var(--color-card);
       color: var(--color-primary-blue);
       font-size: 0.78rem;
       font-weight: 700;
       line-height: 1;
-      box-shadow: 0 0 0 7px oklch(53% .2 258 / .08), 0 12px 26px oklch(53% .2 258 / .16);
+      box-shadow: var(--shadow-nav);
     }
 
     .step-copy strong {
@@ -478,99 +483,100 @@
 
     .step-copy p {
       margin: 0;
-      color: var(--services-copy);
-      font-size: 1rem;
+      color: var(--services-muted);
+      font-size: 0.96rem;
       line-height: 1.5;
     }
 
-    .service-panel .steps-card {
-      --service-stepper-fill: 0;
-      --service-stepper-line-left: 59px;
-      --service-stepper-line-top: 49px;
-      --service-stepper-line-height: 188px;
-      position: relative;
+    .all-together-section {
+      padding: 24px 0 0;
     }
 
-    .service-panel .steps-card::before,
-    .service-panel .steps-card::after {
-      content: "";
-      position: absolute;
-      left: var(--service-stepper-line-left);
-      top: var(--service-stepper-line-top);
-      width: 2px;
-      height: var(--service-stepper-line-height);
-      border-radius: var(--radius-line);
-      pointer-events: none;
-      transform: translateX(-50%);
-      transform-origin: top;
-      z-index: 0;
+    .all-together-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: clamp(var(--space-12), 6vw, var(--space-24));
+      align-items: center;
+      padding: 48px 0 72px;
     }
 
-    .service-panel .steps-card::before {
-      background: var(--color-border);
-      opacity: 0.72;
+    .all-together-copy {
+      max-width: 640px;
+      min-width: 0;
     }
 
-    .service-panel .steps-card::after {
-      background: var(--color-primary-blue);
-      box-shadow: 0 0 18px oklch(53% .2 258 / .26);
-      transform: translateX(-50%) scaleY(var(--service-stepper-fill));
-      transition: transform .48s var(--ease-out);
+    .all-together-title {
+      max-width: 650px;
+      margin: 0 0 var(--space-6);
+      color: var(--services-ink);
+      font-family: var(--font-family-display);
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
     }
 
-    .service-panel .step-row {
-      z-index: 1;
-    }
-
-    .service-panel .step-num {
-      border-color: var(--color-border);
-      background: var(--color-card);
+    .all-together-subcopy {
+      max-width: 620px;
+      margin: 0 0 var(--space-8);
       color: var(--services-muted);
-      box-shadow: 0 0 0 7px oklch(53% .2 258 / 0), 0 12px 26px oklch(53% .2 258 / 0);
-      opacity: 0.58;
-      transform: scale(0.96);
-      transition:
-        border-color .48s var(--ease-out),
-        background-color .48s var(--ease-out),
-        color .48s var(--ease-out),
-        box-shadow .48s var(--ease-out),
-        opacity .48s var(--ease-out),
-        transform .48s var(--ease-out);
+      font-size: clamp(1rem, 1.2vw, 1.14rem);
+      font-weight: 500;
+      line-height: 1.55;
     }
 
-    .service-panel .step-row.is-lit .step-num {
-      border-color: var(--color-primary-blue);
-      background: var(--color-blue-50);
-      color: var(--color-primary-blue);
-      box-shadow: 0 0 0 7px oklch(53% .2 258 / .08), 0 12px 26px oklch(53% .2 258 / .16);
-      opacity: 1;
-      transform: scale(1);
-      animation: forge-step-glow .62s var(--ease-out) both;
+    .all-together-visual-reserve {
+      width: min(100%, 500px);
+      height: clamp(280px, 30vw, 390px);
+      min-height: 0;
+      justify-self: end;
     }
 
-    @keyframes forge-step-glow {
-      0% {
-        box-shadow: 0 0 0 0 oklch(53% .2 258 / .16), 0 8px 18px oklch(53% .2 258 / .08);
-      }
-
-      56% {
-        box-shadow: 0 0 0 11px oklch(53% .2 258 / .1), 0 14px 32px oklch(53% .2 258 / .18);
-      }
-
-      100% {
-        box-shadow: 0 0 0 7px oklch(53% .2 258 / .08), 0 12px 26px oklch(53% .2 258 / .16);
-      }
+    .services-reserve-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .service-panel .steps-card::after,
-      .service-panel .step-num {
-        transition-duration: .12s;
-      }
+    .services-closing-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-10);
+      align-items: center;
+      margin: 0 0 16px;
+      padding: clamp(32px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: var(--color-footer-background);
+      color: var(--color-footer-text);
+      box-shadow: var(--shadow-ambient-card);
+    }
 
-      .service-panel .step-row.is-lit .step-num {
-        animation: none;
-      }
+    .services-closing-title {
+      max-width: 720px;
+      margin: 0 0 var(--space-3);
+      color: var(--color-footer-heading);
+      font-family: var(--font-family-display);
+      font-size: clamp(1.8rem, 2.8vw, 3rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .services-closing-copy {
+      margin: 0;
+      color: var(--color-footer-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .services-closing-button {
+      white-space: nowrap;
     }
 
     @media (max-width: 1180px) {
@@ -579,12 +585,12 @@
       }
 
       .service-top-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(460px, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(380px, 0.86fr);
         gap: 48px;
       }
 
       .service-heading {
-        font-size: clamp(2.8rem, 4.6vw, 4rem);
+        font-size: 2.25rem;
       }
 
       .service-description,
@@ -592,9 +598,10 @@
         font-size: 1.08rem;
       }
 
-      .service-bottom-grid {
-        gap: 48px;
+      .principle-steps {
+        --principle-step-gap: 44px;
       }
+
     }
 
     @media (max-width: 920px) {
@@ -603,7 +610,23 @@
       }
 
       .services-recreation {
-        padding-top: 32px;
+        padding-top: var(--space-6);
+      }
+
+      .services-intro {
+        min-height: auto;
+        margin-bottom: var(--space-8);
+        padding: var(--space-3) 0 var(--space-8);
+      }
+
+      .services-intro-copy,
+      .services-title,
+      .services-summary {
+        max-width: none;
+      }
+
+      .services-title {
+        font-size: 3rem;
       }
 
       .services-tabs-wrap {
@@ -628,8 +651,7 @@
         padding-bottom: 80px;
       }
 
-      .service-top-grid,
-      .service-bottom-grid {
+      .service-top-grid {
         grid-template-columns: 1fr;
         gap: 32px;
       }
@@ -639,21 +661,77 @@
       }
 
       .service-heading {
-        font-size: clamp(2.7rem, 10vw, 4.4rem);
+        font-size: 2.25rem;
       }
 
       .service-visual {
-        justify-self: stretch;
-        width: 100%;
+        justify-self: center;
+        width: min(100%, 560px);
+        height: clamp(260px, 56vw, 400px);
       }
 
-      .service-bottom-grid {
+      .working-principle-card {
         margin-top: 56px;
       }
 
-      .principle-card,
-      .steps-card {
-        min-height: auto;
+      .principle-steps {
+        --principle-step-gap: 26px;
+        grid-template-columns: 1fr;
+      }
+
+      .principle-step:not(:last-child)::after {
+        content: "";
+        top: auto;
+        right: auto;
+        left: 25px;
+        bottom: -22px;
+        width: 1px;
+        height: 18px;
+        background: var(--color-border);
+        transform: translateX(-50%);
+        opacity: 1;
+      }
+
+      .all-together-intro {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding: 16px 0 56px;
+      }
+
+      .all-together-copy,
+      .all-together-title,
+      .all-together-subcopy {
+        max-width: none;
+      }
+
+      .all-together-visual-reserve {
+        justify-self: center;
+        width: min(100%, 520px);
+        height: clamp(260px, 58vw, 420px);
+        min-height: 0;
+      }
+
+      .services-closing-cta {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+    }
+
+    @media (min-width: 700px) and (max-width: 920px) {
+      .services-tabs-wrap {
+        overflow-x: visible;
+        justify-content: center;
+        margin-inline: 0;
+        padding-inline: 0;
+      }
+
+      .services-tabs {
+        width: min(100%, 548px);
+        min-width: 0;
+      }
+
+      .services-tab {
+        flex: 1 0 0;
       }
     }
 
@@ -666,13 +744,9 @@
         padding: 0 18px;
       }
 
-      .services-title {
-        font-size: 1.72rem;
-        letter-spacing: 0.22em;
-      }
-
       .services-summary {
-        font-size: 0.98rem;
+        font-size: 1rem;
+        line-height: 1.62;
       }
 
       .services-tabs-wrap {
@@ -687,7 +761,7 @@
       }
 
       .service-heading {
-        font-size: clamp(2.35rem, 12vw, 3.5rem);
+        font-size: 2.25rem;
       }
 
       .service-description {
@@ -705,32 +779,61 @@
       }
 
       .service-visual {
-        aspect-ratio: 1.12 / 1;
-        --service-visual-pad: 12px;
+        height: clamp(220px, 68vw, 340px);
       }
 
-      .service-visual-label {
-        max-width: calc(100% - 32px);
-        min-height: 42px;
-        padding: 0 16px;
-        font-size: 0.875rem;
-        line-height: 1;
-        letter-spacing: 0;
-        text-align: center;
-        white-space: nowrap;
+      .working-principle-card {
+        padding: 28px 20px;
       }
 
-      .principle-card {
-        padding: 36px 28px;
+      .working-principle-header {
+        padding-bottom: 24px;
       }
 
-      .steps-card {
-        padding: 24px 18px;
-      }
-
-      .step-row {
-        grid-template-columns: 52px minmax(0, 1fr);
+      .principle-step {
+        grid-template-columns: 50px minmax(0, 1fr);
         gap: 16px;
+      }
+
+      .all-together-title {
+        font-size: 2.25rem;
+      }
+
+      .services-closing-button {
+        width: 100%;
+      }
+
+      .services-closing-cta {
+        padding: 30px 22px;
+      }
+    }
+
+    @media (max-width: 699px) {
+      .services-tabs-wrap {
+        overflow-x: visible;
+        justify-content: center;
+        margin-inline: 0;
+        padding-inline: 0;
+      }
+
+      .services-tabs {
+        width: 100%;
+        min-width: 0;
+        gap: 0;
+        padding: var(--space-1);
+      }
+
+      .services-tab {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0 var(--space-1);
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .services-tab {
+        font-size: 0.72rem;
       }
     }
   </style>
@@ -760,14 +863,17 @@
 
       <ul class="nav-menu">
         <li class="services-menu">
-          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
+          <a href="services.html" class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
             aria-haspopup="true">
-            Services
+            <span class="nav-text-wrapper">
+              <span class="nav-text-slide">Services</span>
+              <span class="nav-text-slide" aria-hidden="true">Services</span>
+            </span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </button>
+          </a>
           <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
             <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
                 src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
@@ -783,23 +889,37 @@
         </li>
         <li>
           <a href="resources.html" class="nav-link">
-            <span>Resources</span>
+            <span class="nav-text-wrapper">
+              <span class="nav-text-slide">Resources</span>
+              <span class="nav-text-slide" aria-hidden="true">Resources</span>
+            </span>
           </a>
         </li>
         <li>
           <a href="get-in-touch.html" class="nav-link">
-            <span>Get In Touch</span>
+            <span class="nav-text-wrapper">
+              <span class="nav-text-slide">Get In Touch</span>
+              <span class="nav-text-slide" aria-hidden="true">Get In Touch</span>
+            </span>
           </a>
         </li>
         <li>
           <a href="about.html" class="nav-link">
-            <span>About Us</span>
+            <span class="nav-text-wrapper">
+              <span class="nav-text-slide">About Us</span>
+              <span class="nav-text-slide" aria-hidden="true">About Us</span>
+            </span>
           </a>
         </li>
       </ul>
 
       <div class="nav-actions">
-        <a href="signin.html" class="nav-signin">Sign In</a>
+        <a href="signin.html" class="nav-signin">
+          <span class="nav-text-wrapper">
+            <span class="nav-text-slide">Sign In</span>
+            <span class="nav-text-slide" aria-hidden="true">Sign In</span>
+          </span>
+        </a>
         <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
           <div class="btn-text-wrapper">
             <span class="btn-text-slide">Schedule Demo</span>
@@ -831,13 +951,9 @@
         </a>
         <div class="mobile-menu-list">
           <div class="mobile-menu-item">
-            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+            <a class="mobile-menu-row" href="services.html">
               <span>Services</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <polyline points="9 6 15 12 9 18"></polyline>
-              </svg>
-            </button>
+            </a>
             <div class="mobile-submenu" id="mobile-services-panel" hidden>
               <a class="mobile-submenu-link" href="services.html#forge">
                 <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
@@ -879,20 +995,47 @@
     <section class="services-recreation" aria-labelledby="services-title">
       <div class="services-stage">
         <div class="services-intro">
-          <h1 id="services-title" class="services-title">SERVICES</h1>
-          <p class="services-summary">
-            Create, orchestrate, and scale AI agents. One platform. From creation to operation, built to work together.<br>
-            Forge creates agents, Swarm organizes, SkyFlow governs, Hive combines and NovaOps operates them at scale.
-          </p>
+          <div class="services-intro-copy">
+            <h1 id="services-title" class="services-title">Services</h1>
+            <p class="services-summary">
+              From a single agent to enterprise-scale operations. A unified platform to create, organize, govern and
+              operate AI agents across your organization with built-in reliability, control and scale.
+            </p>
+          </div>
         </div>
 
         <div class="services-tabs-wrap">
           <nav class="services-tabs" aria-label="Service navigation">
-            <a class="services-tab" href="#forge">Forge</a>
-            <a class="services-tab" href="#swarm">Swarm</a>
-            <a class="services-tab" href="#skyflow">SkyFlow</a>
-            <a class="services-tab" href="#hive">Hive</a>
-            <a class="services-tab" href="#nova-ops">NovaOps</a>
+            <a class="services-tab" href="#forge">
+              <span class="btn-text-wrapper">
+                <span class="btn-text-slide">Forge</span>
+                <span class="btn-text-slide" aria-hidden="true">Forge</span>
+              </span>
+            </a>
+            <a class="services-tab" href="#swarm">
+              <span class="btn-text-wrapper">
+                <span class="btn-text-slide">Swarm</span>
+                <span class="btn-text-slide" aria-hidden="true">Swarm</span>
+              </span>
+            </a>
+            <a class="services-tab" href="#skyflow">
+              <span class="btn-text-wrapper">
+                <span class="btn-text-slide">SkyFlow</span>
+                <span class="btn-text-slide" aria-hidden="true">SkyFlow</span>
+              </span>
+            </a>
+            <a class="services-tab" href="#hive">
+              <span class="btn-text-wrapper">
+                <span class="btn-text-slide">Hive</span>
+                <span class="btn-text-slide" aria-hidden="true">Hive</span>
+              </span>
+            </a>
+            <a class="services-tab" href="#nova-ops">
+              <span class="btn-text-wrapper">
+                <span class="btn-text-slide">NovaOps</span>
+                <span class="btn-text-slide" aria-hidden="true">NovaOps</span>
+              </span>
+            </a>
           </nav>
         </div>
 
@@ -900,54 +1043,52 @@
           <div class="service-top-grid">
             <div class="service-copy">
               <div class="service-kicker">Forge</div>
-              <h2 class="service-heading">Forge turns intent<br>into a working agent.</h2>
+              <h2 class="service-heading">Forge turns intent into a working agent.</h2>
               <p class="service-description">
-                Describe the work you need done and Forge parses the request, selects the right tools, wires connectors, and deploys a named custom agent. Client can also activate ready-made system agents like UBA, TBA, MESSAGE AGENT, REDFIN and many more when the workflow already matches a proven pattern.
+                Describe the work you need done and Forge parses the request, selects the right tools, wires connectors and deploys a named custom agent. Client can also activate ready-made system agents and many more when the workflow already matches a proven pattern.
               </p>
               <div class="service-badge"><strong>Custom agents + ready-made systems</strong></div>
             </div>
             <div class="service-visual">
               <img class="service-visual-image" src="assets/services/forge-fit.png" alt="Forge agent data pipeline diagram" loading="lazy" decoding="async">
-              <span class="service-visual-label">Data Pipeline Live</span>
             </div>
           </div>
-          <div class="service-bottom-grid">
-            <div class="principle-card">
-              <div class="principle-kicker">Forge</div>
-              <h3 class="principle-title">Working<br>principle<br>of Forge</h3>
-              <p class="principle-copy">A production path with checks, handoffs, and feedback built into every stage.</p>
+          <section class="working-principle-card" aria-labelledby="forge-principle-title" data-product="Forge">
+            <div class="working-principle-header">
+              <h3 id="forge-principle-title" class="principle-title">Working principle of Forge</h3>
+              <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <div class="steps-card">
-              <div class="step-row">
+            <ol class="principle-steps" aria-label="Forge working principle steps">
+              <li class="principle-step">
                 <span class="step-num">01</span>
                 <div class="step-copy">
                   <strong>Capture</strong>
-                  <p>Captures the user's request and extracts the job, data sources, permissions, and expected outcome.</p>
+                  <p>Captures the user's request and extracts the job, data sources, permissions and expected outcome.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">02</span>
                 <div class="step-copy">
                   <strong>Configure</strong>
-                  <p>Maps the request to connectors, memory, skills, prompts, and guardrails before deployment.</p>
+                  <p>Maps the request to connectors, memory, skills, prompts and guardrails before deployment.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">03</span>
                 <div class="step-copy">
                   <strong>Operate</strong>
-                  <p>Ships the agent into the client account with a clear name, purpose, and testable operating path.</p>
+                  <p>Ships the agent into the client account with a clear name, purpose and testable operating path.</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </li>
+            </ol>
+          </section>
         </article>
 
         <article id="swarm" class="service-panel">
           <div class="service-top-grid">
             <div class="service-copy">
               <div class="service-kicker">Swarm</div>
-              <h2 class="service-heading">Swarm groups<br>agents around one<br>shared purpose.</h2>
+              <h2 class="service-heading">Swarm groups agents around one shared purpose.</h2>
               <p class="service-description">
                 Custom and system agents do not live as scattered bots. Swarm organizes them into silos, each focused on a business outcome, then distributes budget and context from the silo level down to the agents doing the work.
               </p>
@@ -955,181 +1096,207 @@
             </div>
             <div class="service-visual">
               <img class="service-visual-image" src="assets/services/swarm-fit.png" alt="Swarm silo budget diagram" loading="lazy" decoding="async">
-              <span class="service-visual-label">Shared Budget Model</span>
             </div>
           </div>
-          <div class="service-bottom-grid">
-            <div class="principle-card">
-              <div class="principle-kicker">Swarm</div>
-              <h3 class="principle-title">Working<br>principle<br>of Swarm</h3>
-              <p class="principle-copy">A production path with checks, handoffs, and feedback built into every stage.</p>
+          <section class="working-principle-card" aria-labelledby="swarm-principle-title" data-product="Swarm">
+            <div class="working-principle-header">
+              <h3 id="swarm-principle-title" class="principle-title">Working principle of Swarm</h3>
+              <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <div class="steps-card">
-              <div class="step-row">
+            <ol class="principle-steps" aria-label="Swarm working principle steps">
+              <li class="principle-step">
                 <span class="step-num">01</span>
                 <div class="step-copy">
                   <strong>Capture</strong>
-                  <p>Groups related agents into a silo based on goal, department, or workflow.</p>
+                  <p>Groups related agents into a silo based on goal, department or workflow.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">02</span>
                 <div class="step-copy">
                   <strong>Configure</strong>
                   <p>Shares context between agents so handoffs stay coherent instead of restarting from zero.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">03</span>
                 <div class="step-copy">
                   <strong>Operate</strong>
                   <p>Splits budget top-down across silos and then across the agents inside each silo.</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </li>
+            </ol>
+          </section>
         </article>
 
         <article id="skyflow" class="service-panel">
           <div class="service-top-grid">
             <div class="service-copy">
               <div class="service-kicker">SkyFlow</div>
-              <h2 class="service-heading">SkyFlow keeps<br>every silo governed<br>and moving.</h2>
+              <h2 class="service-heading">SkyFlow keeps every silo governed and moving.</h2>
               <p class="service-description">
-                SkyFlow adds the automation rules, guardrails, and agent managers that make production work reliable. Each silo gets its own operating policy for retries, alerts, approvals, skips, and escalation paths.
+                SkyFlow adds the automation rules, guardrails and agent managers that make production work reliable. Each silo gets its own operating policy for retries, alerts, approvals, skips and escalation paths.
               </p>
               <div class="service-badge"><strong>Per-silo guardrails</strong></div>
             </div>
             <div class="service-visual">
               <img class="service-visual-image" src="assets/services/skyflow-fit.png" alt="SkyFlow automation layer chart" loading="lazy" decoding="async">
-              <span class="service-visual-label">Live Automation</span>
             </div>
           </div>
-          <div class="service-bottom-grid">
-            <div class="principle-card">
-              <div class="principle-kicker">SkyFlow</div>
-              <h3 class="principle-title">Working<br>principle<br>of SkyFlow</h3>
-              <p class="principle-copy">A production path with checks, handoffs, and feedback built into every stage.</p>
+          <section class="working-principle-card" aria-labelledby="skyflow-principle-title" data-product="SkyFlow">
+            <div class="working-principle-header">
+              <h3 id="skyflow-principle-title" class="principle-title">Working principle of SkyFlow</h3>
+              <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <div class="steps-card">
-              <div class="step-row">
+            <ol class="principle-steps" aria-label="SkyFlow working principle steps">
+              <li class="principle-step">
                 <span class="step-num">01</span>
                 <div class="step-copy">
                   <strong>Capture</strong>
                   <p>Attaches guardrails to each silo before agents run production work.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">02</span>
                 <div class="step-copy">
                   <strong>Configure</strong>
-                  <p>Watches failures, timeouts, and risky actions through an agent manager.</p>
+                  <p>Watches failures, timeouts and risky actions through an agent manager.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">03</span>
                 <div class="step-copy">
                   <strong>Operate</strong>
-                  <p>Retries, alerts, pauses, skips, or escalates based on the rules the client defines.</p>
+                  <p>Retries, alerts, pauses, skips or escalates based on the rules the client defines.</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </li>
+            </ol>
+          </section>
         </article>
 
         <article id="hive" class="service-panel">
           <div class="service-top-grid">
             <div class="service-copy">
               <div class="service-kicker">Hive</div>
-              <h2 class="service-heading">Hive brings<br>governed silos into<br>one application.</h2>
+              <h2 class="service-heading">Hive brings governed silos into one application.</h2>
               <p class="service-description">
-                The Hive is the unified operating layer where every governed silo comes together. Leaders can see what agents are active, what they are doing, where work is blocked, and how each silo contributes to the larger client system.
+                The Hive is the unified operating layer where every governed silo comes together. Leaders can see what agents are active, what they are doing, where work is blocked and how each silo contributes to the larger client system.
               </p>
               <div class="service-badge"><strong>The hive, fully governed</strong></div>
             </div>
             <div class="service-visual">
               <img class="service-visual-image" src="assets/services/hive1.png" alt="Hive collaborative agents diagram" loading="lazy" decoding="async">
-              <span class="service-visual-label">Collaborative Agents</span>
             </div>
           </div>
-          <div class="service-bottom-grid">
-            <div class="principle-card">
-              <div class="principle-kicker">Hive</div>
-              <h3 class="principle-title">Working<br>principle<br>of Hive</h3>
-              <p class="principle-copy">A production path with checks, handoffs, and feedback built into every stage.</p>
+          <section class="working-principle-card" aria-labelledby="hive-principle-title" data-product="Hive">
+            <div class="working-principle-header">
+              <h3 id="hive-principle-title" class="principle-title">Working principle of Hive</h3>
+              <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <div class="steps-card">
-              <div class="step-row">
+            <ol class="principle-steps" aria-label="Hive working principle steps">
+              <li class="principle-step">
                 <span class="step-num">01</span>
                 <div class="step-copy">
                   <strong>Capture</strong>
                   <p>Combines every silo into a single real-time agentic application.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">02</span>
                 <div class="step-copy">
                   <strong>Configure</strong>
-                  <p>Shows agent status, workload, exceptions, and performance from one dashboard.</p>
+                  <p>Shows agent status, workload, exceptions and performance from one dashboard.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">03</span>
                 <div class="step-copy">
                   <strong>Operate</strong>
                   <p>Lets teams coordinate cross-silo work without losing ownership or governance boundaries.</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </li>
+            </ol>
+          </section>
         </article>
 
         <article id="nova-ops" class="service-panel">
           <div class="service-top-grid">
             <div class="service-copy">
               <div class="service-kicker">NovaOps</div>
-              <h2 class="service-heading">NovaOps runs<br>agents with<br>enterprise reliability.</h2>
+              <h2 class="service-heading">NovaOps runs agents with enterprise reliability.</h2>
               <p class="service-description">
-                NovaOps is built for enterprise clients who need mission-critical reliability, always-on visibility, and continuity from one platform keeping high-volume agent systems healthy after launch.
+                NovaOps is built for enterprise clients who need mission-critical reliability, always-on visibility and continuity from one platform keeping high-volume agent systems healthy after launch.
               </p>
               <div class="service-badge"><strong>Available for enterprise accounts</strong></div>
             </div>
             <div class="service-visual">
               <img class="service-visual-image" src="assets/services/novaops-fit.png" alt="NovaOps enterprise architecture diagram" loading="lazy" decoding="async">
-              <span class="service-visual-label">Enterprise Architecture</span>
             </div>
           </div>
-          <div class="service-bottom-grid">
-            <div class="principle-card">
-              <div class="principle-kicker">NovaOps</div>
-              <h3 class="principle-title">Working<br>principle<br>of NovaOps</h3>
-              <p class="principle-copy">A production path with checks, handoffs, and feedback built into every stage.</p>
+          <section class="working-principle-card" aria-labelledby="novaops-principle-title" data-product="NovaOps">
+            <div class="working-principle-header">
+              <h3 id="novaops-principle-title" class="principle-title">Working principle of NovaOps</h3>
+              <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <div class="steps-card">
-              <div class="step-row">
+            <ol class="principle-steps" aria-label="NovaOps working principle steps">
+              <li class="principle-step">
                 <span class="step-num">01</span>
                 <div class="step-copy">
                   <strong>Capture</strong>
-                  <p>Monitors live agent systems across usage, latency, exceptions, and data freshness.</p>
+                  <p>Monitors live agent systems across usage, latency, exceptions and data freshness.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">02</span>
                 <div class="step-copy">
                   <strong>Configure</strong>
-                  <p>Scales operational capacity as workflows, clients, and volume grow.</p>
+                  <p>Scales operational capacity as workflows, clients and volume grow.</p>
                 </div>
-              </div>
-              <div class="step-row">
+              </li>
+              <li class="principle-step">
                 <span class="step-num">03</span>
                 <div class="step-copy">
                   <strong>Operate</strong>
-                  <p>Keeps production teams informed with alerts, run status, and continuous oversight.</p>
+                  <p>Keeps production teams informed with alerts, run status and continuous oversight.</p>
                 </div>
-              </div>
+              </li>
+            </ol>
+          </section>
+        </article>
+
+        <section class="all-together-section" aria-labelledby="all-together-title">
+          <div class="all-together-intro">
+            <div class="all-together-copy">
+              <div class="service-kicker">All together</div>
+              <h2 id="all-together-title" class="all-together-title">One architecture. Endless possibilities.</h2>
+              <p class="all-together-subcopy">
+                Every layer builds on the one below. From a single AI agent to enterprise-scale operations, the platform grows without changing its operating model.
+              </p>
+            </div>
+            <div class="all-together-visual-reserve" aria-hidden="true">
+              <img class="services-reserve-image" src="assets/services/architecture.png" alt="" loading="lazy" decoding="async">
             </div>
           </div>
-        </article>
+
+          <div class="services-closing-cta">
+            <div>
+              <h3 class="services-closing-title">Transform how your business works with AI agents.</h3>
+              <p class="services-closing-copy">Start small. Scale with confidence. Built for real operations.</p>
+            </div>
+            <a href="schedule-demo.html" class="btn-white services-closing-button" aria-label="Get started with SkyGentic AI">
+              <div class="btn-text-wrapper">
+                <span class="btn-text-slide">Get started</span>
+                <span class="btn-text-slide">Get started</span>
+              </div>
+              <div class="btn-icon-bubble" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -1217,11 +1384,6 @@
       m?.classList.toggle('is-open', isOpen);
       t?.setAttribute('aria-expanded', String(isOpen));
     };
-
-    t?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
-    });
 
     m?.addEventListener('mouseenter', () => t?.setAttribute('aria-expanded', 'true'));
     m?.addEventListener('mouseleave', () => {
@@ -1370,116 +1532,6 @@
     window.addEventListener('load', requestServiceTabSync);
     window.setTimeout(requestServiceTabSync, 90);
 
-    const serviceStepperStates = Array.from(document.querySelectorAll('.service-panel .steps-card')).map((stepper) => ({
-      stepper,
-      rows: Array.from(stepper.querySelectorAll('.step-row')),
-      isVisible: false,
-      timers: []
-    }));
-
-    if (serviceStepperStates.length) {
-      const serviceStepperByNode = new Map(serviceStepperStates.map((state) => [state.stepper, state]));
-
-      function clearServiceStepperTimers(state) {
-        state.timers.forEach((timer) => window.clearTimeout(timer));
-        state.timers = [];
-      }
-
-      function resetServiceStepper({ stepper, rows }) {
-        stepper.style.setProperty('--service-stepper-fill', '0');
-        rows.forEach((row) => row.classList.remove('is-lit'));
-      }
-
-      function syncServiceStepperGeometry({ stepper, rows }) {
-        const stepNums = rows
-          .map((row) => row.querySelector('.step-num'))
-          .filter(Boolean);
-
-        if (stepNums.length < 2) return;
-
-        const cardRect = stepper.getBoundingClientRect();
-        const firstRect = stepNums[0].getBoundingClientRect();
-        const lastRect = stepNums[stepNums.length - 1].getBoundingClientRect();
-        const lineTop = firstRect.top - cardRect.top + firstRect.height / 2;
-        const lineLeft = firstRect.left - cardRect.left + firstRect.width / 2;
-        const lineHeight = lastRect.top - firstRect.top + (lastRect.height - firstRect.height) / 2;
-
-        stepper.style.setProperty('--service-stepper-line-top', `${lineTop}px`);
-        stepper.style.setProperty('--service-stepper-line-left', `${lineLeft}px`);
-        stepper.style.setProperty('--service-stepper-line-height', `${Math.max(lineHeight, 0)}px`);
-      }
-
-      function setServiceStepperStage(state, litCount, fill) {
-        syncServiceStepperGeometry(state);
-        state.stepper.style.setProperty('--service-stepper-fill', String(fill));
-        state.rows.forEach((row, index) => {
-          row.classList.toggle('is-lit', index < litCount);
-        });
-      }
-
-      function playServiceStepper(state) {
-        clearServiceStepperTimers(state);
-        resetServiceStepper(state);
-        syncServiceStepperGeometry(state);
-
-        [
-          [120, 1, 0],
-          [360, 1, 0.5],
-          [840, 2, 0.5],
-          [960, 2, 1],
-          [1440, 3, 1]
-        ].forEach(([delay, litCount, fill]) => {
-          const timer = window.setTimeout(() => {
-            if (state.isVisible) setServiceStepperStage(state, litCount, fill);
-          }, delay);
-
-          state.timers.push(timer);
-        });
-      }
-
-      const serviceStepperObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const state = serviceStepperByNode.get(entry.target);
-
-          if (!state || state.isVisible === entry.isIntersecting) return;
-
-          state.isVisible = entry.isIntersecting;
-
-          if (state.isVisible) {
-            playServiceStepper(state);
-          } else {
-            clearServiceStepperTimers(state);
-            resetServiceStepper(state);
-          }
-        });
-      }, { threshold: [0, 0.22, 0.5, 0.75, 1] });
-
-      function replayVisibleServiceSteppers() {
-        serviceStepperStates.forEach((state) => {
-          const rect = state.stepper.getBoundingClientRect();
-          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-          state.isVisible = isVisible;
-
-          if (isVisible) {
-            playServiceStepper(state);
-          } else {
-            clearServiceStepperTimers(state);
-            resetServiceStepper(state);
-          }
-        });
-      }
-
-      serviceStepperStates.forEach(({ stepper }) => serviceStepperObserver.observe(stepper));
-      window.addEventListener('resize', () => {
-        serviceStepperStates.forEach((state) => {
-          if (state.isVisible) syncServiceStepperGeometry(state);
-        });
-      });
-      window.addEventListener('pageshow', replayVisibleServiceSteppers);
-      window.addEventListener('hashchange', replayVisibleServiceSteppers);
-      window.setTimeout(replayVisibleServiceSteppers, 90);
-    }
   </script>
 </body>
 
