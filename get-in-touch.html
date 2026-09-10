@@ -26,42 +26,82 @@
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "SkyGentic AI",
-        "url": "https://skygentic.ai",
-        "logo": "https://skygentic.ai/logo.png",
-        "sameAs": ["https://twitter.com/skygenticai", "https://linkedin.com/company/skygenticai"]
-      },
-      {
-        "@type": "ContactPage",
-        "name": "SkyGentic AI Get In Touch",
-        "url": "https://skygentic.ai/get-in-touch.html"
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the typical response time for enterprise sales inquiries?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our dedicated solutions engineering team responds to enterprise inquiries within 2 business hours."
-            }
-          }
-        ]
-      }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "SkyGentic AI",
+      "url": "https://skygentic.ai",
+      "logo": "https://skygentic.ai/logo.png",
+      "sameAs": [
+        "https://twitter.com/skygenticai",
+        "https://linkedin.com/company/skygenticai"
+      ]
+    },
+    {
+      "@type": "ContactPage",
+      "name": "SkyGentic AI Get In Touch",
+      "url": "https://skygentic.ai/get-in-touch.html"
+    }
+  ]
+}
   </script>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+
+  <style>
+    /* Hallmark · macrostructure: Split Studio · theme: SkyGentic Light · tone: premium enterprise
+       User-specified composition and existing tokens. Pre-emit critique: P5 H5 E4 S5 R5 V4. */
+    .contact-page { --contact-surface: var(--color-card); --contact-border: var(--color-border); position: relative; isolation: isolate; background: var(--color-background); color: var(--color-body); }
+    .contact-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; background: var(--bg-hero-composition); }
+    .contact-atmosphere::before { content: ''; position: absolute; inset: 0; opacity: .08; background-image: radial-gradient(circle at 12% 18%, var(--color-primary-blue) 1px, transparent 2px), radial-gradient(circle at 84% 33%, var(--color-teal) 1px, transparent 2px), radial-gradient(circle at 37% 71%, var(--color-blue-100) 1px, transparent 2px); background-size: 420px 390px, 530px 470px, 610px 510px; animation: contact-drift 24s var(--ease-out) infinite alternate; }
+    .contact-atmosphere::after { content: ''; position: absolute; inset: 0; opacity: .025; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' opacity='.5' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); animation: contact-grain 18s var(--ease-out) infinite alternate; }
+    .contact-hero { display: grid; gap: var(--space-12); padding-block: var(--space-16); align-items: center; }
+    .contact-copy, .contact-form { min-width: 0; }
+    .contact-page h1, .contact-page h2 { color: var(--color-heading); font-style: normal; }
+    .contact-page h1 { font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.15; margin: 0 0 var(--space-6); overflow-wrap: anywhere; }
+    .contact-page p { color: var(--color-body); }
+    .contact-page .contact-eyebrow { color: var(--color-primary-blue); font-size: .875rem; letter-spacing: .12em; margin-bottom: var(--space-6); }
+    .contact-lead { max-width: 48ch; line-height: 1.7; margin-bottom: var(--space-10); }
+    .contact-info { display: grid; gap: var(--space-4); }
+    .contact-info-card, .contact-form { background: var(--contact-surface); border: 1px solid var(--contact-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-ambient-card); }
+    .contact-info-card { padding: var(--space-6); transition: transform var(--transition-normal); }
+    .contact-info-card h2 { display: flex; align-items: center; gap: var(--space-2); font: 500 .875rem var(--font-family-body); color: var(--color-teal); margin: 0 0 var(--space-2); }
+    .contact-info-card h2::before { content: ''; flex: 0 0 var(--space-1); width: var(--space-1); height: var(--space-1); border-radius: var(--radius-pill); background: var(--color-teal); }
+    .contact-info-card p { color: var(--color-heading); margin: 0; }
+    .contact-info-card ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); list-style: none; padding: 0; margin: 0; font-size: 1rem; }
+    .contact-form { display: flex; flex-direction: column; padding: var(--space-6); gap: var(--space-2); color-scheme: light; }
+    .contact-field { display: flex; flex-direction: column; gap: var(--space-1); }
+    .contact-field label { font-size: .875rem; font-weight: 500; color: var(--color-heading); }
+    .contact-field :is(input, select, textarea) { width: 100%; min-width: 0; min-height: var(--space-12); padding: var(--space-3) var(--space-4); border: 1px solid var(--contact-border); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-heading); font: 400 1rem/1.5 var(--font-family-body); }
+    .contact-field textarea { resize: vertical; }
+    .contact-field ::placeholder { color: var(--color-secondary-text); opacity: .8; }
+    .contact-page :is(button,a):focus-visible { outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); }
+    .contact-field :is(input,select,textarea):focus, .contact-field :is(input,select,textarea):focus-visible { outline: 0; border-color: var(--focus-ring-color); box-shadow: var(--shadow-ambient-card); }
+    .contact-field [aria-invalid="true"] { border-color: var(--color-error); }
+    .contact-error { min-height: 1rem; font-size: .75rem; line-height: 1.3; color: var(--color-error); }
+    .contact-page .btn-primary { white-space: nowrap; flex-shrink: 0; }
+    .contact-page .btn-primary:active { transform: translateY(0); }
+    .contact-page :is(input,select,textarea,button):disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .contact-page .contact-status { font-size: .875rem; line-height: 1.5; margin: 0; }
+    .contact-status:empty { display: none; }
+    .contact-status a { color: var(--color-primary-blue); }
+    .contact-cta { text-align: center; padding-block: var(--space-20) var(--space-24); }
+    .contact-cta h2 { font-size: clamp(1.75rem, 2.8vw, 2.5rem); margin-bottom: var(--space-4); }
+    .contact-cta p { max-width: 62ch; margin: 0 auto var(--space-8); }
+    @media (min-width: 60rem) { .contact-hero { grid-template-columns: minmax(0, 43fr) minmax(0, 57fr); min-height: calc(100svh - 72px); gap: var(--space-16); padding-block: var(--space-8); } .contact-form { padding: var(--space-8); } }
+    @media (min-width: 60rem) and (max-height: 800px) { .contact-hero { padding-block: var(--space-6); } .contact-form { padding: var(--space-6); gap: var(--space-1); } }
+    @media (hover: hover) { .contact-info-card:hover { transform: translateY(-2px); } .contact-field :is(input,select,textarea):hover { background: var(--contact-surface); } }
+    @keyframes contact-reveal { from { opacity: 0; transform: translateY(var(--space-2)); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
+    @keyframes contact-drift { to { transform: translateY(var(--space-2)); opacity: .28; } }
+    @keyframes contact-grain { to { opacity: .04; } }
+    @media (prefers-reduced-motion: no-preference) { .contact-reveal.is-visible { animation: contact-reveal .6s var(--ease-out) both; } }
+    @media (prefers-reduced-motion: reduce) { .contact-page *, .contact-page *::before, .contact-page *::after { animation: none !important; transition: none !important; } .contact-page .btn-text-slide { transform: none !important; } .contact-page .btn-text-slide + .btn-text-slide { visibility: hidden; } }
+  </style>
 </head>
 
 <body>
@@ -203,123 +243,33 @@
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="section-hero" style="padding-top: 140px; padding-bottom: 40px;">
-      <div class="container">
-        <div style="max-width: 840px; margin: 0 auto; text-align: center;">
-          <div class="hero-eyebrow" style="margin: 0 auto 16px;">Direct Communication</div>
-          <h1 style="font-family: var(--font-family-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--color-white);">
-            Get In Touch With SkyGentic AI
-          </h1>
-          <p class="hero-lead" style="margin: 0 auto 32px; max-width: 680px;">
-            Whether you are evaluating autonomous agent deployment for your enterprise or need customized API architectural advice, our team is here to assist.
-          </p>
+  <main id="main-content" class="contact-page">
+    <div class="contact-atmosphere" aria-hidden="true"></div>
+    <section class="contact-hero container" aria-labelledby="contact-title">
+      <div class="contact-copy contact-reveal">
+        <p class="contact-eyebrow">GET IN TOUCH</p>
+        <h1 id="contact-title">Ready to Transform<br>Your Business?</h1>
+        <p class="contact-lead">Partner with Skygentic AI to automate operations, build intelligent solutions, and accelerate your business growth. Let's discuss how we can turn your vision into reality.</p>
+        <div class="contact-info">
+          <div class="contact-info-card"><h2>Response Time</h2><p>Within 1 Business Day</p></div>
+          <div class="contact-info-card"><h2>Enterprise Services</h2><ul><li>Forge</li><li>Swarm</li><li>Hive</li><li>SkyFlow</li><li>NovaOps</li></ul></div>
         </div>
       </div>
+      <form id="contact-form" class="contact-form contact-reveal" aria-label="Request a consultation">
+        <div class="contact-field"><label for="contact-name">Full Name</label><input id="contact-name" name="name" type="text" autocomplete="name" required aria-required="true" aria-describedby="name-error" placeholder="John Smith"><span class="contact-error" id="name-error"></span></div>
+            <div class="contact-field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="email-error" placeholder="john@company.com"><span class="contact-error" id="email-error"></span></div>
+            <div class="contact-field"><label for="contact-company">Company</label><input id="contact-company" name="company" type="text" autocomplete="organization"  aria-describedby="company-error" placeholder="Acme Inc."><span class="contact-error" id="company-error"></span></div>
+        <div class="contact-field"><label for="contact-solution">What would you like to discuss?</label><select id="contact-solution" name="solution" required aria-required="true" aria-describedby="solution-error"><option value="" disabled selected>Select a topic</option><option>AI Agent Development</option><option>Workflow Automation</option><option>Enterprise Software</option><option>Digital Transformation</option><option>Managed Services</option><option>General Inquiry</option></select><span class="contact-error" id="solution-error"></span></div>
+        <div class="contact-field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" required aria-required="true" aria-describedby="message-error" placeholder="Tell us about your business, current workflow, or the challenge you'd like Skygentic to help solve."></textarea><span class="contact-error" id="message-error"></span></div>
+        <button type="submit" class="btn-primary"><span class="btn-text-wrapper"><span class="btn-text-slide">Request Consultation</span><span class="btn-text-slide" aria-hidden="true">Request Consultation</span></span><span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></button>
+        <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+        <noscript><p class="contact-status">Please enable JavaScript to use this form. You can also email sales@skygentic.ai.</p></noscript>
+      </form>
     </section>
-
-    <!-- Contact Form & Info Grid -->
-    <section style="padding: 40px 0 100px;">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: start;">
-
-          <!-- Contact Form Panel -->
-          <div class="architecture-card" style="padding: 40px;">
-            <h2 style="font-family: var(--font-family-display); font-size: 1.8rem; color: var(--color-white); margin-bottom: 8px;">Send Us a Message</h2>
-            <p style="color: var(--color-slate-400); font-size: 0.95rem; margin-bottom: 32px;">Fill out the details below and an enterprise architect will reach out shortly.</p>
-
-            <form id="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="contact-name" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Full Name *</label>
-                <input type="text" id="contact-name" name="name" required placeholder="Alex Mercer"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 1rem; outline: none;">
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="contact-email" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Work Email *</label>
-                <input type="email" id="contact-email" name="email" required placeholder="alex@company.com"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 1rem; outline: none;">
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="contact-company" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Company Name</label>
-                <input type="text" id="contact-company" name="company" placeholder="Acme Enterprises"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 1rem; outline: none;">
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="contact-solution" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Primary Interest</label>
-                <select id="contact-solution" name="solution"
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 1rem; outline: none;">
-                  <option value="forge">Forge - Autonomous Agent Creation</option>
-                  <option value="swarm">Swarm - Multi-Agent Orchestration</option>
-                  <option value="skyflow">SkyFlow - Enterprise Workflow Integration</option>
-                  <option value="hive">Hive - Vector RAG Knowledge Base</option>
-                  <option value="novaops">NovaOps - Governance &amp; Telemetry</option>
-                </select>
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label for="contact-message" style="font-size: 0.9rem; color: var(--color-slate-200); font-weight: 500;">Project Details / Inquiries *</label>
-                <textarea id="contact-message" name="message" rows="4" required placeholder="Describe your operational goals or technical requirements..."
-                  style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--color-midnight-700); border-radius: 8px; padding: 12px 16px; color: var(--color-white); font-size: 1rem; outline: none; resize: vertical;"></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary" style="margin-top: 12px;">
-                <div class="btn-text-wrapper">
-                  <span class="btn-text-slide">Submit Inquiry</span>
-                  <span class="btn-text-slide">Submit Inquiry</span>
-                </div>
-              </button>
-
-              <div id="contact-success" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--color-green-primary); border-radius: 8px; padding: 16px; color: var(--color-green-primary); font-size: 0.95rem; text-align: center;">
-                Thank you! Your message has been routed to our solutions team. We will reply within 2 business hours.
-              </div>
-            </form>
-          </div>
-
-          <!-- Enterprise Office & Support Details -->
-          <div style="display: flex; flex-direction: column; gap: 32px;">
-
-            <div class="architecture-card" style="padding: 32px;">
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 16px;">Enterprise Communications</h2>
-              <div style="display: flex; flex-direction: column; gap: 20px; color: var(--color-slate-300); font-size: 0.95rem;">
-                <div style="display: flex; align-items: start; gap: 16px;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  <div>
-                    <strong style="color: var(--color-white); display: block;">Sales Inquiries</strong>
-                    <span>sales@skygentic.ai</span>
-                  </div>
-                </div>
-                <div style="display: flex; align-items: start; gap: 16px;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  <div>
-                    <strong style="color: var(--color-white); display: block;">Global Enterprise Line</strong>
-                    <span>+1 (800) 594-4368</span>
-                  </div>
-                </div>
-                <div style="display: flex; align-items: start; gap: 16px;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <div>
-                    <strong style="color: var(--color-white); display: block;">Global Headquarters</strong>
-                    <span>500 Howard Street, Suite 800<br>San Francisco, CA 94105</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="architecture-card" style="padding: 32px;">
-              <h2 style="font-family: var(--font-family-display); font-size: 1.4rem; color: var(--color-white); margin-bottom: 16px;">Technical Support SLA</h2>
-              <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
-                All SkyGentic enterprise deployments include 24/7 Priority Support with guaranteed sub-15 minute critical event response SLAs.
-              </p>
-              <a href="schedule-demo.html" class="footer-link" style="color: var(--color-green-primary); font-weight: 600;">View Support Tiers &amp; SLA →</a>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
+    <section class="contact-cta container contact-reveal" aria-labelledby="discovery-title">
+      <h2 id="discovery-title">Ready to Build Something Intelligent?</h2>
+      <p>Whether you're exploring AI agents, workflow automation, or enterprise software, our team is ready to help you build the right solution.</p>
+      <a class="btn-primary" href="schedule-demo.html"><span class="btn-text-wrapper"><span class="btn-text-slide">Book a Discovery Call</span><span class="btn-text-slide" aria-hidden="true">Book a Discovery Call</span></span><span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
     </section>
   </main>
 
@@ -455,13 +405,44 @@
     });
 
     const contactForm = document.getElementById('contact-form');
-    const contactSuccess = document.getElementById('contact-success');
-    contactForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (contactSuccess) {
-        contactSuccess.style.display = 'block';
-        contactForm.reset();
+    const contactStatus = document.getElementById('contact-status');
+    const contactFields = [...contactForm.querySelectorAll('input, select, textarea')];
+    contactForm.noValidate = true;
+    const touched = new Set();
+    function validateContactField(field) {
+      const invalid = !field.validity.valid || (field.required && !field.value.trim());
+      field.setAttribute('aria-invalid', String(invalid));
+      document.getElementById(field.getAttribute('aria-describedby')).textContent = invalid
+        ? (field.validity.typeMismatch ? 'Enter a valid work email address.' : 'Please complete this field.') : '';
+      return !invalid;
+    }
+    contactFields.forEach(field => {
+      field.addEventListener('blur', () => { touched.add(field); validateContactField(field); });
+      field.addEventListener('input', () => { if (touched.has(field)) validateContactField(field); });
+      field.addEventListener('change', () => { if (touched.has(field)) validateContactField(field); });
+    });
+    contactForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const results = contactFields.map(field => { touched.add(field); return validateContactField(field); });
+      if (results.includes(false)) {
+        contactStatus.textContent = 'Please check the highlighted fields.';
+        contactFields[results.indexOf(false)].focus();
+        return;
       }
+      contactStatus.replaceChildren(document.createTextNode('Your request has not been sent. Please email '));
+      const email = document.createElement('a');
+      email.href = 'mailto:sales@skygentic.ai';
+      email.textContent = 'sales@skygentic.ai';
+      contactStatus.append(email, document.createTextNode(' to discuss your project. Your details remain in the form.'));
+    });
+    if ('IntersectionObserver' in window) {
+      const contactObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); contactObserver.unobserve(entry.target); }
+      }), { threshold: .12 });
+      document.querySelectorAll('.contact-reveal').forEach(element => contactObserver.observe(element));
+    }
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { setServicesMenuOpen(false); setMobileMenuOpen(false); }
     });
   </script>
 </body>

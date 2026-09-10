@@ -74,6 +74,76 @@ State matrix:
 - Disabled: not used; footer links remain standard anchors.
 - Loading: not used; footer is static by specification.
 
+## Sign In Page
+
+The sign-in page in `signin.html` follows a Split Studio auth canvas that reuses the landing page background language, wordmark asset, typography, gradients, input rhythm, button motion, card surfaces, and an adapted current-homepage `.hero-agentic-visual` layer from `styles/design-system.css` and `scripts/hero-animation.js`.
+
+Canvas specification:
+- Desktop: full-viewport, no-scroll grid with authentication at 42% and brand workflow at 58%.
+- Tablet: full-viewport grid with authentication at 40% and brand workflow at 60%.
+- Mobile: single-column stack with the form first and the brand workflow below at reduced workflow depth.
+- Surface: `--color-background`, `--bg-gradient-hero`, `--bg-hero-composition`, `--bg-hero-scrim`, and existing blue ambient depth only.
+- Header: a reused secondary `btn-glass` Back to Home control sits in the natural right-panel header position and navigates to `index.html`.
+- Auth column: logo, Welcome Back heading, description, email field, password field, remember/forgot row, primary sign-in, subtle divider, Google/Microsoft sign-in, create-account link, and trust indicators only.
+- Brand column: headline, supporting copy, subtle curve artwork, five workflow cards, and the bottom signature. It explains what happens after sign-in rather than decorating the page.
+- Right-panel balance: headline and copy introduce the experience; the workflow cards own the visual mass; the background, waves, curve, and nodes remain secondary.
+
+State matrix:
+- Idle: card/input surfaces use `--color-card`, `--color-border`, `--radius-md`/`--radius-lg`, and existing typography tokens.
+- Hover: buttons and social sign-in controls lift by the existing 2px CTA pattern with `--transition-fast`.
+- Focus-visible: interactive controls inherit `--focus-ring-color` and `--focus-ring-offset`.
+- Active: buttons and icon controls return to stable pressed geometry without scale.
+- Disabled: submit and social controls reduce opacity and remove transforms.
+- Loading: submit uses `aria-busy="true"`, disabled state, inline spinner, and stable button dimensions.
+- Error: fields set `aria-invalid="true"`, switch helper text to an instruction, and use the existing amber signal token.
+- Success: field helpers and status message use the existing teal signal token without celebratory motion.
+
+Motion specification:
+- Page reveal uses a single fade-up sequence.
+- Background and ambient glow use the existing hero gradient language with slow token-derived durations.
+- The adapted current homepage hero animation runs via `scripts/hero-animation.js`.
+- The sign-in wrapper adds only slow token-derived float and ambient motion around that existing animation.
+- Pointer movement is capped by `--space-2`.
+- `prefers-reduced-motion` disables spatial motion and keeps state changes visible.
+
+## About Page Narrative
+
+The about page in `about.html` follows the supplied reference structure while using SkyGentic tokens and typography.
+
+- Bounds: standard `.container`, with the intro constrained to a centered readable measure and the mission/CTA sections using two-column desktop grids.
+- Layout order: centered page title and lead, mission split row, three-cell metric strip, guiding principles card row, then a divider-led next-step CTA.
+- Surface: light home-page canvas using `--bg-hero-composition` and `--bg-gradient-hero`; metric and principle cards use `--color-card`, `--color-border`, and `--shadow-ambient-card`.
+- Typography: all display text uses `var(--font-family-display)`; body, labels, metrics captions, and CTA use `var(--font-family-body)`.
+- Mobile: hero copy becomes left-aligned, mission and CTA grids collapse to one column, metric cells stack vertically, and CTA remains a 48px minimum target.
+
+State matrix:
+- Idle: light SkyGentic canvas with readable dark text and blue/teal data emphasis.
+- Hover: about CTA lifts with transform only and uses the standard primary CTA hover treatment.
+- Focus-visible: about CTA and nav controls inherit the global focus ring.
+- Active: about CTA returns to baseline transform.
+- Disabled: about CTA supports `aria-disabled="true"` with reduced opacity and no pointer interaction.
+- Loading: about CTA supports `data-state="loading"` with reduced opacity and progress cursor.
+
+## Schedule Demo Page
+
+The schedule demo page in `schedule-demo.html` follows the approved About-page intro format while embedding the Reclaim scheduling workflow.
+
+- Bounds: the hero copy is centered within a `980px` maximum measure; the Reclaim scheduler is constrained to `880px` inside the standard `.container`.
+- Layout order: unchanged site navbar, centered `Schedule Demo` title and lead, then the embedded scheduling calendar.
+- Surface: light SkyGentic canvas using `--bg-hero-composition` and `--bg-gradient-hero`; the embed frame uses `--color-card`, `--color-border`, and `--shadow-ambient-card`.
+- Typography: the page title uses `var(--font-family-display)` at `3rem`; the lead uses `var(--font-family-body)`.
+- Mobile: the hero becomes left-aligned and the scheduler keeps a stable minimum height while fitting the viewport width.
+
+State matrix:
+- Idle: the embed card uses a constant 1px token-bound border and stable calendar bounds.
+- Hover: inherited external scheduler behavior only; the local shell does not shift geometry.
+- Focus-visible: global page navigation remains focus-ring controlled; scheduler focus is owned by the Reclaim embed.
+- Active: inherited external scheduler behavior only.
+- Disabled: inherited external scheduler behavior only.
+- Loading: the shell reserves vertical space while the external scheduler initializes.
+- Error: inherited external scheduler behavior only.
+- Success: inherited external scheduler behavior only.
+
 
 # Hallmark Component Specification: Bento Feature Card (AiChat Match)
 
@@ -151,3 +221,121 @@ A modular, reusable component specification designed according to **Hallmark UI 
    - `outline: 2px solid var(--color-green-primary); outline-offset: 4px;`
 4. **Active State (`:active`)**:
    - `transform: scale(0.99) translateY(-2px);`
+
+## Sign in — approved image master, 2026-09-08
+
+The user explicitly approved the attached 1536 × 1024 image; no new design approval is required. Preserve its composition over Hallmark's discretionary design suggestions, with the current locked override that the right panel must not include an orb, sphere, planet, crystal, particle field, sparkle layer, floating geometry, or any large glowing object. Desktop split: x=606 (39.45%), left form x=89–540, logo y=44, welcome y=178. Right story starts near x=678/y=194, with the five workflow cards as the visual hero, following a subtle clockwise curve through Describe the Goal, SkyGentic Understands, Plans the Workflow, Deploys the Automation, and Real Impact in your Business. Artwork coordinates use a 930 × 1024 SVG viewBox; UI spacing uses existing spacing tokens. The sole brand palette and gradients remain styles/tokens.css; Clash Display/Satoshi and shared primary button/slide behavior are inherited. No token additions.
+
+States: idle existing card surface/border; hover existing button lift and slide; focus existing 2px focus token and offset; active scale(.98); disabled opacity .45/no transform; loading aria-busy/spinner; validation errors announced through existing field helpers and status region. Reduced-motion disables decorative movement. Five cards remain an ordered list, with decorative artwork hidden from assistive technology. Mobile puts the form first and retains the proportional curved composition below it.
+
+Research: WCAG 2.2 https://www.w3.org/TR/WCAG22/ and MDN prefers-reduced-motion https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion. The existing form has no authentication endpoint; submission/SSO must disclose that state instead of claiming email verification was sent.
+
+### Verification and remaining differences
+
+- Direct Lighthouse on `/signin.html`: accessibility 100/100, SEO 100/100. Repository Hallmark, accessibility and SEO commands also pass (the latter two inspect the homepage, so they are not substitutes for the direct run).
+- Browser checks: no horizontal document overflow at 320, 375, 414, 768, 1024, 1536 pixels; all five cards retained; no broken page images. Empty-field validation, password visibility, and loading/unavailable-auth feedback checked.
+- Side-by-side review: `/tmp/signin-comparison.png`; desktop capture `/tmp/signin-desktop.png`. Form geometry follows the master; the current right-panel pass keeps the workflow cards dominant and the ambient waves/curve secondary. This is not certified as an identical artwork reproduction without the approved screenshot present in the workspace.
+- `npm test` passes the aggregate asset budget: total CSS is approximately 79.93 KB against the 80 KB budget, with Brotli CSS approximately 12.55 KB against the 25 KB budget.
+- Authentication/SSO endpoints are absent in the existing implementation. The page does not claim a successful authentication or a sent verification email.
+
+## Get in Touch Page — Visual Approval Specification, 2026-09-10
+
+The production target is `get-in-touch.html`. This is a scoped redesign of the existing route, not a new page or a homepage-Hero clone. The page has one conversion goal: a qualified consultation request. Its approved content boundary is the shared site header, a contact-first split hero with two informational cards and one form, one compact discovery-call CTA, and the existing footer. No FAQ, testimonial, metric, timeline, map, office block, support-SLA block, company narrative, or additional marketing section is permitted.
+
+### Design direction and reuse contract
+
+- Audience: business leaders, enterprise decision-makers, and organizations evaluating AI, automation, and digital transformation work.
+- Tone: premium, minimal, sophisticated, atmospheric, confident, and restrained rather than sales-heavy.
+- Genre: SkyGentic atmospheric enterprise minimalism.
+- Macrostructure: user-directed Split Studio reuse. Unlike the prior sign-in composition, the right half is a functional form and the left half carries all context and service orientation; there are no alternating modules below it.
+- Theme: SkyGentic Cobalt Night. This changes the paper band from the recent Cobalt Light page while preserving the existing cool-blue hue, Clash Display/Satoshi pairing, radii, 4px spacing scale, and button language.
+- Header: reuse the current production navbar structure and behavior. Do not create a new nav language.
+- Footer: preserve the existing `get-in-touch.html` footer byte-for-byte and do not modify shared footer CSS.
+- Enrichment: E7-style Tier-A atmosphere only—scoped two-stop blue depth, sparse tiny points, and a barely visible grain layer. No illustration, orb, mesh blob, colorful gradient, dashboard mockup, or product animation.
+
+### Desktop canvas
+
+- Header remains the existing 72px production navbar.
+- The contact hero begins directly below the header and uses the standard `--container-max-width` boundary with existing horizontal padding.
+- Hero height is content-led with a target visual depth of roughly one viewport: `min-height` may use `100svh` minus the header, but content must never be clipped and the section may grow naturally.
+- Grid: asymmetric two-column composition, approximately 43% left / 57% right, both tracks written with `minmax(0, ...)`, separated by an existing large spacing token.
+- Left column: vertically centered relative to the form. Order is exact: eyebrow `GET IN TOUCH`; two-line H1 `Ready to Transform / Your Business?`; supplied supporting paragraph; Response Time card; Enterprise Services card.
+- H1: Clash Display, roman, two lines at desktop, solid light ink, no gradient text, no italic emphasis, and a readable wrap at all widths.
+- Supporting copy: Satoshi with a 45–65 character measure and existing light-on-dark text tokens.
+- Information cards: two stacked single-layer surfaces. Response Time uses one title and one value. Enterprise Services uses one title and the exact five-item order: Forge, Swarm, Hive, SkyFlow, NovaOps. The services are compact text items, not separate nested cards or badges.
+- Right column: one elevated dark form surface with a crisp 1px boundary, `--radius-xl`, and generous but token-bound padding. It contains no nested card.
+- Form order is exact: Full Name, Work Email, Company, What would you like to discuss?, Message, Request Consultation.
+- Dropdown options are exact and ordered: AI Agent Development; Workflow Automation; Enterprise Software; Digital Transformation; Managed Services; General Inquiry.
+- Message placeholder is exact: `Tell us about your business, current workflow, or the challenge you'd like Skygentic to help solve.`
+- Fields share one height with the primary button; textarea keeps `resize: vertical` and a minimum six-line-feeling surface without forcing the hero beyond its content.
+- The page before the footer targets approximately 1.3–1.5 common desktop viewport heights: contact hero roughly 0.95–1.05 viewport and CTA roughly 0.3–0.4 viewport.
+
+### Compact CTA canvas
+
+- The CTA follows the hero without any intervening content and stays on the same dark canvas so the footer transition is quiet.
+- Content is centered and constrained to the existing focus-container measure.
+- Exact order: H2 `Ready to Build Something Intelligent?`; supplied description; one reused `.btn-primary` control labelled `Book a Discovery Call` linking to `schedule-demo.html`.
+- No enclosing card, secondary action, decorative illustration, or extra label.
+- Vertical padding uses existing `--space-20` / `--space-24` scale values and may be tightened only if browser validation shows the page exceeds the specified compact height.
+
+### Responsive behavior
+
+- At the content-driven desktop collapse near 60rem, the hero becomes one column with content first and form second; the CTA and footer remain in document order.
+- At 768px, the form uses the full available width and keeps generous padding without creating horizontal overflow.
+- At 414px, 375px, and 320px, page gutters remain at least `var(--space-4)`, H1 steps down fluidly, services wrap as a compact list, and every field/button remains at least 48px tall.
+- No clickable label may wrap. `Request Consultation` and `Book a Discovery Call` stay on one line; their parent layout reflows instead.
+- `html` and `body` retain `overflow-x: clip`; no `100vw`, desktop-first breakpoint dependency, or fixed-height mobile hero.
+
+### Color and contrast targets
+
+- Canvas: existing `--color-blue-900`; heading: existing `--color-blue-50`. Expected WCAG contrast is approximately 13.02:1.
+- Body and label text: existing `--color-border` on `--color-blue-900`. Expected contrast is approximately 9.91:1.
+- Secondary light text: existing `--color-blue-100` on `--color-blue-900`. Expected contrast is approximately 11.91:1.
+- Focus indicator: existing `--color-secondary-blue` against `--color-blue-900`. Expected contrast is approximately 5.34:1, exceeding the 3:1 non-text target.
+- Primary CTA label: existing light card/blue-50 text over the existing primary CTA surface. Expected contrast is approximately 4.98–5.28:1, meeting WCAG AA for normal text.
+- New contact-specific variables, if needed, must be semantic aliases or `color-mix()` derivatives of existing primitives in `styles/tokens.css`; no new hue family, hex value, RGB value, or ad-hoc inline color is allowed.
+
+### Interaction and state matrix
+
+| State | Fields and native select | Primary submit button | Information cards |
+| --- | --- | --- | --- |
+| Idle | Constant 1px boundary, dark inset surface, visible label, stable helper slot | Existing primary CTA surface and fixed 48px minimum height | Static raised surface with crisp 1px boundary |
+| Hover | Under `hover: hover`, a slight surface-lightness change; border width never changes | Existing 2px lift and slide-text behavior | Under `hover: hover`, translate upward by no more than 2px |
+| Focus-visible | Instant 2px outline with token offset and soft blue focus halo; no animated focus ring | Instant high-contrast outline; hover transform does not obscure focus | Not applicable because cards are informational and not focusable |
+| Active | Same geometry as focus while typing; native select behavior retained | Returns to baseline/pressed geometry with no bounce | Returns to baseline if pointer is pressed; no functional state |
+| Disabled | Opacity reduction, disabled cursor, and semantic disabled attribute | Stable dimensions, no lift, disabled cursor | Not applicable |
+| Loading | Field remains editable; submit is disabled while the button exposes `aria-busy="true"` and an inline progress label | Label changes without resizing; no success animation | Not applicable |
+| Error | `aria-invalid="true"`; instructional error replaces helper text in a reserved-height status row; color is never the only signal | Error state is exposed through the form status region | Not applicable |
+| Success | Quiet field reset only after a confirmed delivery response | Stable confirmation label/status; no toast or celebration | Not applicable |
+
+The repository currently contains no contact-delivery endpoint. Production code must not claim that a request was routed, emailed, booked, or received unless a real endpoint is supplied. Until then, the form will use native/touched validation and an honest live-region message that delivery is not connected.
+
+### Motion and atmosphere
+
+- Primitive 1: one orchestrated hero entrance using opacity plus a maximum `var(--space-2)` vertical offset; total stagger stays below 500ms.
+- Primitive 2: existing button/card hover translation only.
+- Primitive 3: an extremely slow opacity drift on the decorative atmosphere. Particles and grain remain `aria-hidden` and non-interactive.
+- Scroll reveal is limited to the compact CTA and fires once through `IntersectionObserver`; no scroll listener, parallax, cursor follower, or repeated section reveal.
+- `prefers-reduced-motion: reduce` removes spatial motion and atmosphere drift, renders content visible immediately, and preserves functional validation/status changes.
+
+### Accessibility, SEO, and validation contract
+
+- Keep the skip link first in `body`, exactly one `main#main-content`, sequential H1 → H2 → footer H2 structure, and the existing header/footer landmarks.
+- Use visible `<label>` elements, `required`/`aria-required`, `autocomplete="name"`, `autocomplete="email"`, and `autocomplete="organization"` where applicable.
+- Keep the discussion selector as a native `<select>` with a disabled empty first option and `required`; do not replace it with a custom combobox.
+- Use `aria-describedby` for helper/error associations and a polite form-level status region.
+- Validate on blur after first touch, then on input. Do not validate every keystroke from first focus.
+- Update the page metadata and structured data to match the exact route purpose; remove the existing FAQ schema because no FAQ exists on the page.
+- Verification after implementation: focused route inspection, keyboard traversal, native validation/error/loading/unavailable-delivery states, reduced-motion mode, 320/375/414/768/1024/1440/1920px geometry, footer byte comparison, console errors, `npm run audit:hallmark`, `npm run audit:a11y`, `npm run audit:seo`, and final `npm test`.
+
+Research references: WCAG 2.2 target size, focus appearance, focus order, error identification, and input purpose guidance; MDN native `select`, client-side form validation, and `prefers-reduced-motion` guidance.
+
+### Implementation and verification — 2026-09-10
+
+- Implemented in `get-in-touch.html` with page-scoped styles, existing typography/palette/button primitives, exact requested copy and option order, two information cards, and one discovery CTA.
+- Existing header retained. Footer markup is byte-identical to the original; shared footer styles are unchanged.
+- Short desktop adaptation uses 24px hero/form padding and 4px form gaps; wider/taller desktops use 32px padding. At 1280×800 the hero is 728px high and the submit button ends at 747px; the footer begins at 1169px (1.46 viewports). At 1440×900 the footer begins at 1274px (1.42 viewports). Mobile height follows content naturally.
+- No document overflow or broken images at 320, 375, 414, 768, 1024, 1440, or 1920px. Empty submission identifies four required fields, valid input stays intact, and reduced motion disables the atmosphere animation. No browser script errors observed.
+- Direct Lighthouse on the contact route: accessibility 100/100 and SEO 100/100. Repository `npm test` passes. The repository's aggregate CSS budget excludes inline page styles; this page follows the existing standalone-page style convention.
+- Delivery remains unconnected: valid submission explicitly states that nothing was sent and offers the existing sales email address. No artificial loading or success state is triggered without an actual delivery operation.
+- Research: [MDN constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation) and [reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion).

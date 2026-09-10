@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About SkyGentic AI | Autonomous Agent Leadership &amp; Mission</title>
+  <title>SkyGentic AI | About Us</title>
   <meta name="description"
-    content="Learn about SkyGentic AI's mission to pioneer autonomous agentic intelligence for global enterprise operations, customer experience, and workflow scaling.">
+    content="Learn how SkyGentic AI builds governed autonomous agent teams for real estate, support, sales, finance, and operations workflows.">
   <link rel="canonical" href="https://skygentic.ai/about.html">
 
   <!-- OpenGraph Social Cards -->
-  <meta property="og:title" content="About SkyGentic AI | Autonomous Agent Leadership &amp; Mission">
+  <meta property="og:title" content="About SkyGentic AI | Governed Autonomous Agent Teams">
   <meta property="og:description"
-    content="Learn about SkyGentic AI's mission to pioneer autonomous agentic intelligence for global enterprise operations, customer experience, and workflow scaling.">
+    content="Learn how SkyGentic AI builds governed autonomous agent teams for real estate, support, sales, finance, and operations workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://skygentic.ai/about.html">
   <meta property="og:image" content="https://skygentic.ai/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About SkyGentic AI | Autonomous Agent Leadership &amp; Mission">
+  <meta name="twitter:title" content="About SkyGentic AI | Governed Autonomous Agent Teams">
   <meta name="twitter:description"
-    content="Learn about SkyGentic AI's mission to pioneer autonomous agentic intelligence for global enterprise operations, customer experience, and workflow scaling.">
+    content="Learn how SkyGentic AI builds governed autonomous agent teams for real estate, support, sales, finance, and operations workflows.">
   <meta name="twitter:image" content="https://skygentic.ai/og-image.png">
 
   <!-- Schema.org JSON-LD Structured Data -->
@@ -46,10 +46,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is SkyGentic AI's core mission?",
+            "name": "What is SkyGentic AI's mission?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "SkyGentic AI builds resilient autonomous agents that seamlessly integrate into enterprise workflows, driving productivity and customer satisfaction."
+              "text": "SkyGentic AI builds production-ready agentic AI systems that understand business data, follow operating rules, and deliver measurable work across everyday workflows."
             }
           }
         ]
@@ -62,9 +62,357 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+    /* Hallmark - macrostructure: Stat-Led Narrative - tone: technical-light - anchor hue: cobalt */
+    /* Hallmark - pre-emit critique: P5 H5 E5 S5 R4 V4 */
+    .page-about {
+      background: var(--color-background);
+      color: var(--color-body);
+    }
+
+    .about-page-shell {
+      background-color: var(--color-background);
+      background-image: var(--bg-hero-composition), var(--bg-gradient-hero);
+      background-repeat: no-repeat;
+      background-size: 100% auto, 100% 760px;
+      color: var(--color-body);
+      overflow-x: clip;
+    }
+
+    .about-hero {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+
+    .about-hero-copy {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-hero-title {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--color-primary-blue);
+      font-family: var(--font-family-display);
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0;
+      text-shadow: 0 14px 36px oklch(53% .2 258 / .18);
+      overflow-wrap: anywhere;
+    }
+
+    .about-hero-lead {
+      max-width: 880px;
+      margin: var(--space-6) auto 0;
+      color: var(--color-body);
+      font-family: var(--font-family-body);
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .about-mission {
+      padding: var(--space-10) 0 var(--space-20);
+    }
+
+    .about-mission-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1fr);
+      align-items: start;
+      gap: var(--space-16);
+    }
+
+    .about-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      width: fit-content;
+      min-height: 40px;
+      margin: 0 0 var(--space-5);
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--color-secondary-blue);
+      border-radius: var(--radius-pill);
+      background: var(--color-blue-50);
+      color: var(--color-primary-blue);
+      box-shadow: 0 8px 24px oklch(53% .2 258 / .1);
+      font-family: var(--font-family-body);
+      font-size: .875rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .about-section-label::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 12px;
+      height: 12px;
+      background: currentColor;
+      clip-path: polygon(50% 0%, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0% 50%, 38% 36%);
+    }
+
+    .about-mission-title,
+    .about-guides-title,
+    .about-next-title {
+      margin: 0;
+      color: var(--color-heading);
+      font-family: var(--font-family-display);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .about-mission-title,
+    .about-next-title {
+      max-width: 620px;
+    }
+
+    .about-mission-copy {
+      max-width: 600px;
+      margin: calc(var(--space-10) + var(--space-5)) 0 0;
+      color: var(--color-body);
+      font-family: var(--font-family-body);
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+
+    .about-stat-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: var(--space-12) 0 0;
+      padding: 0;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-ambient-card);
+      overflow: clip;
+    }
+
+    .about-stat-item {
+      min-height: 140px;
+      padding: var(--space-8);
+    }
+
+    .about-stat-item+.about-stat-item {
+      border-left: 1px solid var(--color-border);
+    }
+
+    .about-stat-item dt {
+      margin: 0;
+      color: var(--color-primary-blue);
+      font-family: var(--font-family-display);
+      font-size: 3.25rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .about-stat-item dd {
+      margin: var(--space-2) 0 0;
+      color: var(--color-body);
+      font-family: var(--font-family-body);
+      font-size: .9375rem;
+      line-height: 1.35;
+    }
+
+    .about-guides {
+      padding: var(--space-20) 0 var(--space-24);
+    }
+
+    .about-guides-heading {
+      max-width: 760px;
+    }
+
+    .about-guides-title {
+      max-width: 620px;
+    }
+
+    .about-principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    .about-principles-grid .bento-feature-card {
+      min-height: auto;
+    }
+
+    .about-principles-grid .bento-card-desc {
+      flex-grow: 0;
+      margin-bottom: 0;
+    }
+
+
+    .about-next-step {
+      position: relative;
+      padding: var(--space-20) 0 var(--space-24);
+      background: var(--color-background);
+      overflow: clip;
+    }
+
+    .about-next-step::before {
+      content: "";
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      width: min(72vw, 620px);
+      height: min(46vw, 360px);
+      transform: translate(-50%, -50%);
+      background: var(--bg-prefooter-cta-glow);
+      filter: blur(54px);
+      opacity: .58;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about-next-step-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-next-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-next-title {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 2.75rem;
+      line-height: 1.15;
+    }
+
+    .about-next-copy-text {
+      max-width: 680px;
+      margin: var(--space-5) 0 0;
+      color: var(--color-body);
+      font-family: var(--font-family-body);
+      font-size: 1.125rem;
+      line-height: 1.55;
+    }
+
+    .about-cta-button {
+      margin-top: var(--space-6);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 991px) {
+      .about-hero {
+        padding: var(--space-8) 0 var(--space-12);
+      }
+
+      .about-mission {
+        padding: var(--space-8) 0 var(--space-16);
+      }
+
+      .about-mission-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-8);
+      }
+
+      .about-mission-copy {
+        margin-top: 0;
+      }
+
+      .about-mission-title,
+      .about-next-title,
+      .about-guides-title {
+        font-size: 2.25rem;
+      }
+
+      .about-next-title {
+        font-size: 2.5rem;
+      }
+
+      .about-stat-panel {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-stat-item {
+        min-height: 116px;
+      }
+
+      .about-stat-item+.about-stat-item {
+        border-left: 0;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .about-principles-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-principles-grid .bento-feature-card {
+        min-height: auto;
+      }
+
+      .about-next-step {
+        padding: var(--space-16) 0 var(--space-20);
+      }
+
+    }
+
+    @media (max-width: 640px) {
+      .about-page-shell {
+        background-size: auto;
+      }
+
+      .about-hero-copy {
+        text-align: left;
+      }
+
+      .about-hero-title {
+        font-size: 2.4rem;
+      }
+
+      .about-hero-lead,
+      .about-mission-copy {
+        font-size: 1rem;
+      }
+
+      .about-mission-title,
+      .about-next-title {
+        font-size: 1.65rem;
+      }
+
+      .about-next-title {
+        font-size: 2.15rem;
+      }
+
+      .about-next-copy-text {
+        font-size: 1rem;
+      }
+
+      .about-guides {
+        padding: var(--space-16) 0 var(--space-20);
+      }
+
+      .about-guides-title {
+        font-size: 1.65rem;
+      }
+
+      .about-stat-panel {
+        margin-top: var(--space-10);
+      }
+
+      .about-stat-item,
+      .about-principles-grid .bento-feature-card {
+        padding: var(--space-6);
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-about">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="navbar-wrapper" role="banner">
@@ -145,7 +493,8 @@
 
     <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true" inert>
       <div class="mobile-menu-content">
-        <a href="schedule-demo.html" class="btn-primary mobile-menu-demo" aria-label="Schedule an Enterprise Demo with SkyGentic AI">
+        <a href="schedule-demo.html" class="btn-primary mobile-menu-demo"
+          aria-label="Schedule an Enterprise Demo with SkyGentic AI">
           <div class="btn-text-wrapper">
             <span class="btn-text-slide">Schedule Demo</span>
             <span class="btn-text-slide">Schedule Demo</span>
@@ -203,86 +552,121 @@
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="section-hero" style="padding-top: 140px; padding-bottom: 40px;">
+  <main id="main-content" class="about-page-shell">
+    <section class="about-hero" aria-labelledby="about-hero-title">
       <div class="container">
-        <div style="max-width: 840px; margin: 0 auto; text-align: center;">
-          <div class="hero-eyebrow" style="margin: 0 auto 16px;">Pioneering Agentic CX</div>
-          <h1 style="font-family: var(--font-family-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--color-white);">
-            Empowering Ambitious Enterprises with Autonomous Intelligence
-          </h1>
-          <p class="hero-lead" style="margin: 0 auto 32px; max-width: 680px;">
-            Founded by AI research engineers and CX pioneers, SkyGentic is built to transition global organizations from static, scripted bots to resilient, purpose-driven autonomous agent swarms.
+        <div class="about-hero-copy">
+          <h1 id="about-hero-title" class="about-hero-title">About Us</h1>
+          <p class="about-hero-lead">
+            We build AI agents that become dependable parts of your team. SkyGenticAi helps ambitious businesses deploy
+            production-ready agentic AI across real estate, support, sales, finance and operations. Our focus is
+            simple: agents that understand your data, follow your rules and deliver measurable work every day.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Mission & Engineering Values -->
-    <section style="padding: 40px 0 80px;">
+    <section class="about-mission" aria-labelledby="about-mission-title">
       <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 80px;">
-
-          <div class="architecture-card">
-            <h2 style="font-family: var(--font-family-display); font-size: 1.5rem; color: var(--color-white); margin-bottom: 12px;">Our Mission</h2>
-            <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6;">
-              To engineer trustworthy agentic AI systems that run enterprise operations seamlessly, enabling teams to automate repetitive tasks while delivering empathetic customer experiences.
-            </p>
+        <div class="about-mission-grid">
+          <div class="about-section-header">
+            <p class="about-section-label">Our Mission</p>
+            <h2 id="about-mission-title" class="about-mission-title">
+              Make autonomous work visible, governed and useful.
+            </h2>
           </div>
-
-          <div class="architecture-card">
-            <h2 style="font-family: var(--font-family-display); font-size: 1.5rem; color: var(--color-white); margin-bottom: 12px;">Zero AI Slop Guarantee</h2>
-            <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6;">
-              We eliminate superficial chatbots and generic wrappers. Every agent deployed on SkyGentic is powered by verified multi-step reasoning, vector RAG accuracy, and audit-grade telemetry.
-            </p>
-          </div>
-
-          <div class="architecture-card">
-            <h2 style="font-family: var(--font-family-display); font-size: 1.5rem; color: var(--color-white); margin-bottom: 12px;">Uncompromising Security</h2>
-            <p style="color: var(--color-slate-300); font-size: 0.95rem; line-height: 1.6;">
-              Your proprietary enterprise data remains strictly private. We enforce AES-256 encryption, SOC-2 compliance, and zero public model training on customer data.
-            </p>
-          </div>
-
+          <p class="about-mission-copy">
+            Businesses do not need another disconnected AI demo. They need agents that can be created quickly, connected
+            to the right systems, grouped by business purpose and monitored with confidence. SkyGenticAi brings those
+            pieces together in one agentic operating layer.
+          </p>
         </div>
 
-        <!-- Leadership Showcase -->
-        <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-family: var(--font-family-display); font-size: 2.2rem; color: var(--color-white); margin-bottom: 16px;">Leadership &amp; Advisory Team</h2>
-          <p style="color: var(--color-slate-400); font-size: 1.05rem; max-width: 600px; margin: 0 auto;">Guided by veteran system architects, machine learning researchers, and customer operations executives.</p>
+        <dl class="about-stat-panel" aria-label="SkyGentic AI operating metrics">
+          <div class="about-stat-item">
+            <dt>1,200+</dt>
+            <dd>agents deployed globally</dd>
+          </div>
+          <div class="about-stat-item">
+            <dt>40+</dt>
+            <dd>industry workflows supported</dd>
+          </div>
+          <div class="about-stat-item">
+            <dt>14 days</dt>
+            <dd>typical pilot launch window</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="about-guides" aria-labelledby="about-guides-title">
+      <div class="container">
+        <div class="about-guides-heading">
+          <p class="about-section-label">What Guides Us</p>
+          <h2 id="about-guides-title" class="about-guides-title">
+            Built for teams that expect AI to do the work.
+          </h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
-
-          <div class="architecture-card" style="text-align: center;">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-midnight-700), var(--color-green-primary)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-white); font-size: 1.5rem;">
-              VR
+        <div class="about-principles-grid">
+          <article class="bento-feature-card" data-architecture-card>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;">
+              <h3 class="bento-card-title" style="margin:0;">Agents that work inside real businesses</h3>
+              <span aria-hidden="true" data-architecture-number
+                style="font:500 1.25rem/1.2 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);flex-shrink:0;">1</span>
             </div>
-            <h3 style="font-family: var(--font-family-display); font-size: 1.3rem; color: var(--color-white); margin-bottom: 6px;">Venkat R.</h3>
-            <span style="color: var(--color-green-primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; display: block; margin-bottom: 12px;">Founder &amp; Chief Architect</span>
-            <p style="color: var(--color-slate-300); font-size: 0.9rem; line-height: 1.5;">Pioneered multi-agent orchestration engines and autonomous workflow compilers across Fortune 500 systems.</p>
-          </div>
+            <p class="bento-card-desc" style="margin:0;">
+              SkyGenticAi is built for practical automation: customer care, sales follow-up, finance workflows,
+              operations alerts and the everyday decisions that slow teams down.
+            </p>
+          </article>
 
-          <div class="architecture-card" style="text-align: center;">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-midnight-700), var(--color-green-primary)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-white); font-size: 1.5rem;">
-              ER
+          <article class="bento-feature-card" data-architecture-card>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;">
+              <h3 class="bento-card-title" style="margin:0;">One platform, many agent layers</h3>
+              <span aria-hidden="true" data-architecture-number
+                style="font:500 1.25rem/1.2 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);flex-shrink:0;">2</span>
             </div>
-            <h3 style="font-family: var(--font-family-display); font-size: 1.3rem; color: var(--color-white); margin-bottom: 6px;">Elena Rostova</h3>
-            <span style="color: var(--color-green-primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; display: block; margin-bottom: 12px;">Head of CX Innovation</span>
-            <p style="color: var(--color-slate-300); font-size: 0.9rem; line-height: 1.5;">Former VP of Global Customer Experience with over 15 years scaling enterprise support infrastructure.</p>
-          </div>
+            <p class="bento-card-desc" style="margin:0;">
+              Forge creates agents, Swarm groups them into purpose-built silos, SkyFlow governs automation, Hive gives
+              teams a live command view and NovaOps supports enterprise scale.
+            </p>
+          </article>
 
-          <div class="architecture-card" style="text-align: center;">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-midnight-700), var(--color-green-primary)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-white); font-size: 1.5rem;">
-              MV
+          <article class="bento-feature-card" data-architecture-card>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;">
+              <h3 class="bento-card-title" style="margin:0;">Governance before growth</h3>
+              <span aria-hidden="true" data-architecture-number
+                style="font:500 1.25rem/1.2 var(--font-family-display);color:var(--color-primary-blue);opacity:.16;transition:opacity var(--transition-normal);flex-shrink:0;">3</span>
             </div>
-            <h3 style="font-family: var(--font-family-display); font-size: 1.3rem; color: var(--color-white); margin-bottom: 6px;">Marcus Vance</h3>
-            <span style="color: var(--color-green-primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; display: block; margin-bottom: 12px;">VP of Security &amp; Compliance</span>
-            <p style="color: var(--color-slate-300); font-size: 0.9rem; line-height: 1.5;">Specialist in zero-trust architectures, SOC-2 compliance, and enterprise cryptography standards.</p>
-          </div>
-
+            <p class="bento-card-desc" style="margin:0;">
+              Every deployment is designed with guardrails, monitoring, handoff logic and operational visibility so AI
+              can move quickly without drifting away from business intent.
+            </p>
+          </article>
         </div>
+      </div>
+    </section>
 
+    <section class="about-next-step" aria-labelledby="about-next-title">
+      <div class="container-focus about-next-step-inner">
+        <div class="about-next-copy">
+          <h2 id="about-next-title" class="about-next-title">
+            Ready to turn your workflows into agent teams?
+          </h2>
+        </div>
+        <a href="schedule-demo.html" class="btn-primary about-cta-button" aria-label="Schedule Demo with SkyGentic AI">
+          <span class="btn-text-wrapper">
+            <span class="btn-text-slide">Schedule Demo</span>
+            <span class="btn-text-slide">Schedule Demo</span>
+          </span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
       </div>
     </section>
   </main>
@@ -295,7 +679,8 @@
             <img class="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
           </a>
           <p class="footer-description">
-            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
+            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your
+            team.
           </p>
           <div class="footer-status" aria-label="All systems operational">
             <span class="footer-status-dot" aria-hidden="true"></span>
@@ -327,10 +712,13 @@
           <div class="footer-nav-column">
             <h2 class="footer-col-title">Follow Us</h2>
             <ul class="footer-link-list">
-              <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
-              <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
+              <li><a href="https://linkedin.com/company/skygenticai" class="footer-link"
+                  aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/skygenticai" class="footer-link"
+                  aria-label="SkyGentic AI on GitHub">GitHub</a></li>
               <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              <li><a href="https://youtube.com/@skygenticai" class="footer-link"
+                  aria-label="SkyGentic AI on YouTube">YouTube</a></li>
             </ul>
           </div>
         </nav>
@@ -416,6 +804,17 @@
 
     mobileNavLinks.forEach((link) => {
       link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+
+    const architectureCards = document.querySelectorAll('[data-architecture-card]');
+    architectureCards.forEach(card => {
+      const number = card.querySelector('[data-architecture-number]');
+      card.addEventListener('mouseenter', () => {
+        if (number) number.style.opacity = '1';
+      });
+      card.addEventListener('mouseleave', () => {
+        if (number) number.style.opacity = '.16';
+      });
     });
   </script>
 </body>
