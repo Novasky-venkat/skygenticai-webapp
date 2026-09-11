@@ -2816,6 +2816,65 @@ body {
 
 /* 16. Media Queries */
 @media (min-width: 992px) and (max-width: 1180px) {
+  .navbar-container {
+    min-height: 70px;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+  }
+
+  .nav-wordmark {
+    width: 220px;
+  }
+
+  .nav-menu {
+    gap: var(--space-5);
+  }
+
+  .nav-link,
+  .nav-signin,
+  .services-menu-trigger {
+    min-height: 48px;
+    max-width: 5.25rem;
+    padding: 0 var(--space-2);
+    font-size: .9375rem;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .nav-link[href="get-in-touch.html"] {
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .nav-link[href="get-in-touch.html"] > span,
+  .nav-link[href="get-in-touch.html"] .nav-text-slide {
+    white-space: nowrap;
+  }
+
+  .nav-text-wrapper {
+    height: auto;
+    overflow: visible;
+  }
+
+  .nav-text-slide {
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .nav-text-slide[aria-hidden="true"] {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: var(--space-4);
+    margin-left: var(--space-5);
+  }
+
+  .nav-actions .btn-primary {
+    padding-left: var(--space-4);
+  }
+
   .hero-grid {
     gap: var(--space-6);
   }
