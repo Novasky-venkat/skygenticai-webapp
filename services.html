@@ -176,20 +176,49 @@
     }
 
     .services-tabs {
+      --services-tabs-padding: 6px;
+      --services-active-tab-x: 0px;
+      --services-active-tab-width: 0px;
+      --services-active-tab-opacity: 0;
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 2px;
       width: min(100%, 548px);
       min-height: var(--services-tabs-height);
-      padding: 6px;
+      padding: var(--services-tabs-padding);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-pill);
       background: var(--color-card);
       box-shadow: var(--shadow-ambient-card);
+      isolation: isolate;
       pointer-events: auto;
     }
 
+    .services-tabs::before {
+      content: "";
+      position: absolute;
+      top: var(--services-tabs-padding);
+      bottom: var(--services-tabs-padding);
+      left: 0;
+      z-index: 0;
+      width: var(--services-active-tab-width);
+      border-radius: var(--radius-pill);
+      background: var(--bg-gradient-primary-cta);
+      box-shadow: var(--shadow-btn-primary);
+      opacity: var(--services-active-tab-opacity);
+      pointer-events: none;
+      transform: translate3d(var(--services-active-tab-x), 0, 0);
+      transition:
+        transform var(--transition-normal),
+        width var(--transition-normal),
+        opacity var(--transition-fast);
+      will-change: transform, width;
+    }
+
     .services-tab {
+      position: relative;
+      z-index: 1;
       flex: 1 0 0;
       min-width: 78px;
       min-height: 42px;
@@ -204,14 +233,12 @@
       line-height: 1;
       text-decoration: none;
       overflow: hidden;
-      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      transition: color var(--transition-fast), transform var(--transition-fast);
       white-space: nowrap;
     }
 
     .services-tab.is-active {
-      background: var(--bg-gradient-primary-cta);
       color: var(--color-card);
-      box-shadow: var(--shadow-btn-primary);
     }
 
     .services-tab .btn-text-wrapper {
@@ -225,19 +252,17 @@
       line-height: 20px;
     }
 
-    .services-tab:hover {
+    .services-tab:not(.is-active):hover {
       color: var(--color-primary-blue);
     }
 
-    .services-tab:focus-visible {
+    .services-tab:not(.is-active):focus-visible {
       color: var(--color-primary-blue);
     }
 
     .services-tab.is-active:hover,
     .services-tab.is-active:focus-visible {
-      background: var(--bg-gradient-primary-cta);
       color: var(--color-card);
-      box-shadow: var(--shadow-btn-primary-hover);
     }
 
     .services-tab:active {
@@ -247,6 +272,12 @@
     .services-tab:focus-visible {
       outline: 2px solid var(--focus-ring-color);
       outline-offset: var(--focus-ring-offset);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .services-tabs::before {
+        transition-duration: .01ms;
+      }
     }
 
     .service-panel {
@@ -817,10 +848,11 @@
       }
 
       .services-tabs {
+        --services-tabs-padding: var(--space-1);
         width: 100%;
         min-width: 0;
         gap: 0;
-        padding: var(--space-1);
+        padding: var(--services-tabs-padding);
       }
 
       .services-tab {
@@ -1429,18 +1461,47 @@
     const serviceTabs = document.querySelectorAll('.services-tab');
     const servicePanels = Array.from(document.querySelectorAll('.service-panel'));
     const serviceTabsWrap = document.querySelector('.services-tabs-wrap');
+    const serviceTabsContainer = document.querySelector('.services-tabs');
     let serviceTabsScrollTicking = false;
+    let serviceTabScrollTargetId = '';
+    let serviceTabScrollTargetTimer = 0;
+
+    function getServiceTabById(id) {
+      return Array.from(serviceTabs).find((link) => link.getAttribute('href') === `#${id}`) || null;
+    }
+
+    function updateServiceTabIndicator(activeLink) {
+      if (!serviceTabsContainer || !activeLink) return;
+
+      serviceTabsContainer.style.setProperty('--services-active-tab-x', `${activeLink.offsetLeft}px`);
+      serviceTabsContainer.style.setProperty('--services-active-tab-width', `${activeLink.offsetWidth}px`);
+      serviceTabsContainer.style.setProperty('--services-active-tab-opacity', '1');
+    }
+
+    function holdServiceTabSelection(id) {
+      serviceTabScrollTargetId = id;
+      window.clearTimeout(serviceTabScrollTargetTimer);
+      serviceTabScrollTargetTimer = window.setTimeout(() => {
+        serviceTabScrollTargetId = '';
+        requestServiceTabSync();
+      }, 900);
+    }
 
     function setActiveServiceTab(id) {
+      let activeLink = null;
+
       serviceTabs.forEach((link) => {
         const isActive = link.getAttribute('href') === `#${id}`;
         link.classList.toggle('is-active', isActive);
         if (isActive) {
+          activeLink = link;
           link.setAttribute('aria-current', 'true');
         } else {
           link.removeAttribute('aria-current');
         }
       });
+
+      updateServiceTabIndicator(activeLink || serviceTabs[0]);
     }
 
     function getServiceTabsViewportTop() {
@@ -1455,6 +1516,10 @@
     function syncActiveServiceTab() {
       serviceTabsScrollTicking = false;
       if (!servicePanels.length) return;
+      if (serviceTabScrollTargetId) {
+        updateServiceTabIndicator(getServiceTabById(serviceTabScrollTargetId));
+        return;
+      }
 
       const viewportTop = getServiceTabsViewportTop();
       const viewportBottom = window.innerHeight;
@@ -1512,6 +1577,7 @@
         const id = link.getAttribute('href')?.slice(1);
         if (id) {
           event.preventDefault();
+          holdServiceTabSelection(id);
           setActiveServiceTab(id);
           scrollToServicePanel(id);
           window.setTimeout(requestServiceTabSync, 120);
