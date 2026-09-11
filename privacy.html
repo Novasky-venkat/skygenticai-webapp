@@ -261,7 +261,7 @@
             <img class="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic">
           </a>
           <p class="footer-description">
-            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
+            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think and scale alongside your team.
           </p>
           <div class="footer-status" aria-label="All systems operational">
             <span class="footer-status-dot" aria-hidden="true"></span>
@@ -333,16 +333,27 @@
     const t = document.querySelector('.services-menu-trigger');
     const setServicesMenuOpen = (isOpen) => {
       m?.classList.toggle('is-open', isOpen);
+      if (isOpen) m?.classList.remove('is-selection-closed');
       t?.setAttribute('aria-expanded', String(isOpen));
     };
 
-    m?.addEventListener('mouseenter', () => t?.setAttribute('aria-expanded', 'true'));
+    m?.addEventListener('mouseenter', () => {
+      m?.classList.remove('is-selection-closed');
+      t?.setAttribute('aria-expanded', 'true');
+    });
     m?.addEventListener('mouseleave', () => {
+      m?.classList.remove('is-selection-closed');
       if (!m?.classList.contains('is-open')) t?.setAttribute('aria-expanded', 'false');
     });
 
     document.addEventListener('click', (event) => {
-      if (event.target.closest('.service-dropdown-link') || !m?.contains(event.target)) {
+      const selectedServiceLink = event.target.closest('.service-dropdown-link');
+      if (selectedServiceLink) {
+        m?.classList.add('is-selection-closed');
+        selectedServiceLink.blur();
+        t?.blur();
+      }
+      if (selectedServiceLink || !m?.contains(event.target)) {
         setServicesMenuOpen(false);
       }
     });
