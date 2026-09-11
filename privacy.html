@@ -58,16 +58,28 @@
     .privacy-introduction p:last-child, .privacy-section p:last-child { margin-bottom: 0; }
     .privacy-content { padding: var(--space-12) 0 var(--space-24); }
     .privacy-reading-column { max-width: var(--container-focus-width); margin: 0 auto; }
-    .privacy-section + .privacy-section { margin-top: var(--space-12); }
+    .privacy-section + .privacy-section { margin-top: var(--space-12); padding-top: var(--space-12); border-top: 1px solid var(--color-border); }
     .privacy-section h2 { margin: 0 0 var(--space-3); color: var(--color-heading); font-family: var(--font-family-display); font-size: 1.5rem; font-style: normal; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
     .privacy-section p, .privacy-section li { color: var(--color-body); font-family: var(--font-family-body); font-size: 1rem; line-height: 1.7; }
     .privacy-section ul { display: grid; gap: var(--space-2); margin: var(--space-3) 0 0; padding-left: var(--space-6); }
+    .privacy-help-section { margin-top: var(--space-12); }
+    .privacy-help-section::before { content: ""; display: block; max-width: var(--container-focus-width); margin: 0 auto; border-top: 1px solid var(--color-border); }
+    .privacy-help-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-6); max-width: var(--container-focus-width); margin: var(--space-16) auto 0; padding: var(--space-8); background: var(--color-blue-50); border: 1px solid var(--color-blue-100); border-radius: var(--radius-lg); box-shadow: var(--shadow-ambient-card); }
+    .privacy-help-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-card); color: var(--color-primary-blue); }
+    .privacy-help-icon svg { width: var(--space-6); height: var(--space-6); }
+    .privacy-help-copy { min-width: 0; }
+    .privacy-help-title { margin: 0 0 var(--space-2); color: var(--color-primary-blue); font-family: var(--font-family-display); font-size: 1.5rem; font-style: normal; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+    .privacy-help-copy p { margin: 0; color: var(--color-body); font-family: var(--font-family-body); font-size: 1rem; line-height: 1.6; }
+    .privacy-help-card .btn-primary { flex: 0 0 auto; }
     @media (max-width: 720px) {
       .privacy-hero { padding: var(--space-12) 0 var(--space-8); }
       .privacy-title { font-size: 2.4rem; }
       .privacy-introduction { font-size: 1rem; }
       .privacy-content { padding-top: var(--space-10); }
-      .privacy-section + .privacy-section { margin-top: var(--space-10); }
+      .privacy-section + .privacy-section { margin-top: var(--space-10); padding-top: var(--space-10); }
+      .privacy-help-section { margin-top: var(--space-10); }
+      .privacy-help-card { grid-template-columns: 1fr; gap: var(--space-4); margin-top: var(--space-12); padding: var(--space-6); }
+      .privacy-help-card .btn-primary { justify-self: start; }
     }
   </style>
 </head>
@@ -215,9 +227,9 @@
       </div></div>
     </section>
     <section class="privacy-content" aria-label="Privacy Policy"><div class="container"><div class="privacy-reading-column">
-      <section class="privacy-section"><h2>Information We Collect</h2><p>We may collect information that you provide directly to us, including:</p><ul><li>Name</li><li>Email address</li><li>Company or organization name</li><li>Contact information</li><li>Account information</li><li>Information submitted through forms or support requests</li><li>Information provided while using our AI agents and services</li></ul><p>We may also automatically collect certain technical information, such as:</p><ul><li>IP address</li><li>Browser and device information</li><li>Pages visited</li><li>Usage activity</li><li>Log and diagnostic information</li><li>Cookies and similar technologies</li></ul></section>
+      <section class="privacy-section"><h2>Information We Collect</h2><p>We may collect information that you provide directly to us, including:</p><ul><li>Name</li><li>Email address</li><li>Company or organization name</li><li>Contact information</li><li>Account information</li><li>Information submitted through forms or support requests</li><li>Information provided while using our AI agents and services</li></ul><p><br/>We may also automatically collect certain technical information, such as:</p><ul><li>IP address</li><li>Browser and device information</li><li>Pages visited</li><li>Usage activity</li><li>Log and diagnostic information</li><li>Cookies and similar technologies</li></ul></section>
       <section class="privacy-section"><h2>Information Processed Through Our AI Services</h2><p>Skygentic provides AI agents, workflow automation, orchestration and related enterprise AI services.</p><p>When customers use these services, information may be submitted to or processed by our systems to perform the requested tasks.</p><p>Depending on how a customer configures the service, this may include business information, documents, workflow data, prompts, instructions, system outputs and information received through connected third-party applications.</p><p>Customers are responsible for ensuring that they have the necessary rights and permissions to provide information to Skygentic for processing.</p></section>
-      <section class="privacy-section"><h2>How We Use Information</h2><p>We may use collected information to:</p><ul><li>Provide and operate Skygentic services</li><li>Create and manage user accounts</li><li>Process AI agent and automation requests</li><li>Improve the performance and reliability of our services</li><li>Provide customer support</li><li>Monitor security and prevent misuse</li><li>Communicate service updates</li><li>Understand how our website and services are used</li><li>Comply with legal obligations</li></ul><p>We do not sell personal information.</p></section>
+      <section class="privacy-section"><h2>How We Use Information</h2><p>We may use collected information to:</p><ul><li>Provide and operate Skygentic services</li><li>Create and manage user accounts</li><li>Process AI agent and automation requests</li><li>Improve the performance and reliability of our services</li><li>Provide customer support</li><li>Monitor security and prevent misuse</li><li>Communicate service updates</li><li>Understand how our website and services are used</li><li>Comply with legal obligations</li></ul><p><br/>We do not sell personal information.</p></section>
       <section class="privacy-section"><h2>AI-Generated Content</h2><p>Our services may use artificial intelligence to process information and generate responses, recommendations, workflows or other outputs.</p><p>AI-generated outputs may occasionally be incomplete, inaccurate or unexpected. Users should review important outputs before relying on them for business, financial, legal, medical or other significant decisions.</p></section>
       <section class="privacy-section"><h2>Third-Party Services and Integrations</h2><p>Skygentic may integrate with third-party applications, APIs, AI models, cloud platforms and business systems.</p><p>When you connect a third-party service to Skygentic, certain information may be exchanged with that provider as necessary to perform the requested workflow.</p><p>Those third parties operate under their own privacy policies and terms.</p></section>
       <section class="privacy-section"><h2>Cookies</h2><p>Our website may use cookies and similar technologies to operate the website, remember preferences, understand usage and improve the user experience.</p><p>You can control cookies through your browser settings, although disabling certain cookies may affect website functionality.</p></section>
@@ -227,8 +239,39 @@
       <section class="privacy-section"><h2>Your Privacy Choices</h2><p>Depending on where you live, you may have rights regarding your personal information, including the ability to request access, correction or deletion of certain information.</p><p>You may contact us to submit a privacy-related request.</p></section>
       <section class="privacy-section"><h2>Children's Privacy</h2><p>Skygentic services are intended for businesses and professional users and are not designed for children.</p><p>We do not knowingly collect personal information from children in violation of applicable law.</p></section>
       <section class="privacy-section"><h2>Changes to This Policy</h2><p>We may update this Privacy Policy periodically as our services, technologies or legal requirements change.</p><p>When changes are made, we will update the &quot;Last Updated&quot; date on this page.</p></section>
-      <section class="privacy-section"><h2>Contact Us</h2><p>If you have questions about this Privacy Policy or how Skygentic handles information, please contact us through the contact information provided on the Skygentic website.</p></section>
-    </div></div></section>
+    <section class="privacy-section privacy-contact-section" aria-labelledby="privacy-contact-title">
+      <h2 id="privacy-contact-title">Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how Skygentic handles information, please contact us through the contact information provided on the Skygentic website.</p>
+    </section>
+    </div>
+    <section class="privacy-help-section" aria-labelledby="privacy-help-title">
+      <div class="privacy-help-card">
+        <div class="privacy-help-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-4 3v-5.5A7.5 7.5 0 1 1 20 11.5Z"></path>
+            <path d="M8.5 11.5h7"></path>
+            <path d="M8.5 14.5h4.5"></path>
+          </svg>
+        </div>
+        <div class="privacy-help-copy">
+          <h3 id="privacy-help-title" class="privacy-help-title">Need Help?</h3>
+          <p>Have a question about this Privacy Policy or how Skygentic AI supports your organization? Our team is here to help.</p>
+        </div>
+        <a href="get-in-touch.html" class="btn-primary" aria-label="Contact Skygentic AI">
+          <div class="btn-text-wrapper">
+            <span class="btn-text-slide">Contact Us</span>
+            <span class="btn-text-slide">Contact Us</span>
+          </div>
+          <div class="btn-icon-bubble" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div></section>
   </main>
 
   <footer class="footer-wrapper footer-compact" role="contentinfo">
