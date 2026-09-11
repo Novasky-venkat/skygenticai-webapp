@@ -74,6 +74,44 @@ State matrix:
 - Disabled: not used; footer links remain standard anchors.
 - Loading: not used; footer is static by specification.
 
+### Compact internal-page footer — 2026-09-10
+
+- Scope: Resources, Services, About Us, Get In Touch, Schedule Demo, Privacy, and Terms reuse the identical existing static footer markup and shared `footer-compact` spacing variant. Preserve page-specific `aria-current` attributes. Sign In remains footer-free; homepage footer and pre-footer CTA remain unchanged.
+- User-requested spacing refinement preserves all text, links, logo dimensions, typography, colors, column widths, and responsive column order.
+- Existing token mapping: top padding 96 → 48px; bottom 40 → 24px; logo/description gap 32 → 16px; status gap 24 → 12px; heading/link gap 20 → 8px; link-list gap 8 → 4px; upper section bottom padding 64 → 32px; copyright top padding 32 → 16px.
+- Desktop link vertical padding becomes 4px and minimum height 32px. At 991px and below or on coarse-pointer devices, links retain 48px targets; at 640px and below, top padding becomes 32px. Keep all horizontal dimensions and existing responsive layouts.
+- Idle, hover, focus-visible, and active colors, outlines, transforms, and transitions remain inherited. Disabled/loading remain inapplicable to these static navigation links. Existing reduced-motion behavior remains inherited.
+- Contrast is unchanged because foreground/background tokens are unchanged. Preserve mobile touch targets per repository guidance; desktop minimum exceeds [WCAG 2.2 target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum).
+
+### Homepage compact ending — 2026-09-10
+
+- Follow-up authorization extends the existing `footer-compact` variant to the homepage. Preserve the CTA above it, all copy, logo dimensions, typography, colors, links, and layout. Sign In remains footer-free.
+- On desktop screens at most 800px tall, use `--space-8` for CTA top and bottom padding so the CTA and compact footer fit together within one viewport. Taller desktop screens retain the original CTA spacing. Mobile remains content-driven with existing touch targets.
+- All footer and CTA interaction states and contrast tokens remain unchanged.
+
+### Footer alignment and link refinement — 2026-09-10
+
+- Desktop navigation retains its existing grid area and uses three intrinsic-width columns with equal gaps and `--space-8` inset on the left. Remove the trailing capsule-padding allowance from column sizing so the final heading aligns to the container edge.
+- Privacy Policy and Terms of Service are the only legal links. Compensate for trailing `--space-3` capsule padding at widths above 640px so Terms of Service text aligns to the right container edge.
+- Replace YouTube with Instagram in the same position; Instagram is an inert anchor with `aria-disabled="true"` and no URL, as requested. Keep LinkedIn, GitHub, and X in order.
+- Preserve footer height and all vertical tokens. Reserve the former legal area's 120px below its measured 804px wrapping threshold, and 144px in the existing mobile stack. Keep retained links at the top of that area. Preserve existing stacking breakpoints, 48px mobile targets, fonts, colors, logo size, and interactive styling.
+
+### Shared navigation/legal centerline — 2026-09-10
+
+- Approved follow-up: shift Privacy Policy left as well, allowing subtle top-column movement. At desktop widths, Services moves `--space-6` (24px) right; Quick Links moves approximately 34px right. Branding, Follow Us, Terms of Service, divider, height, and all vertical spacing remain fixed.
+- Quick Links uses the navigation area's horizontal midpoint plus `--space-12`. Privacy Policy uses the equivalent point in the full-width bottom row: 72.5% plus 27.5% of the existing `--space-16` gutter plus `--space-12`. This follows the existing 45:55 upper grid rather than a viewport-specific offset.
+- Apply only at the existing 992px desktop breakpoint. Preserve intrinsic column widths, all tablet/mobile rules, link interaction states, typography, and color tokens.
+
+### Tighter desktop footer grouping — 2026-09-10
+
+- Shift Services another 40px right (`--space-6` → `--space-16` offset), and Quick Links another 16px right (`--space-12` → `--space-16` center offset). This reduces the two column gaps by 24px and 16px while retaining the right container boundary.
+- Move Privacy Policy with Quick Links to preserve their shared centerline. Follow Us, Terms of Service, branding, vertical dimensions, and tablet/mobile layouts remain unchanged.
+
+### Footer breathing-room refinement — 2026-09-10
+
+- All existing static footers retain their shared `footer-compact` class. Increase their top padding by `--space-2` (8px) and bottom padding by `--space-2` (8px), keeping every child layout, font, color, link, and responsive breakpoint unchanged.
+- On mobile, retain the compact 32px top baseline and add the same `--space-2` increment; the resulting 16px total increase keeps the existing mobile composition intact.
+
 ## Sign In Page
 
 The sign-in page in `signin.html` follows a Split Studio auth canvas that reuses the landing page background language, wordmark asset, typography, gradients, input rhythm, button motion, card surfaces, and an adapted current-homepage `.hero-agentic-visual` layer from `styles/design-system.css` and `scripts/hero-animation.js`.
@@ -221,6 +259,21 @@ A modular, reusable component specification designed according to **Hallmark UI 
    - `outline: 2px solid var(--color-green-primary); outline-offset: 4px;`
 4. **Active State (`:active`)**:
    - `transform: scale(0.99) translateY(-2px);`
+# Services: Compact Service Kicker
+
+- Scope: the service name label above each service heading.
+- Layout: intrinsic content width with 16px inline padding; no inherited minimum width.
+- Height: retain the existing 42px minimum for readable spacing.
+- States: static informational label; hover, focus, active, disabled, and loading states do not apply.
+- Color and contrast: retain the existing primary-blue border and text on the services background.
+
+## Services: Unnumbered Capability Badges
+
+- Scope: the capability badge below each service description.
+- Content: remove the decorative `01` through `05` prefixes and retain only the capability name.
+- Layout: intrinsic desktop width with 24px inline padding; full-width and centered text on small screens.
+- Height: retain the existing 54px desktop and 56px mobile minimums.
+- States: static informational content; interactive states do not apply.
 
 ## Sign in — approved image master, 2026-09-08
 
@@ -329,6 +382,13 @@ The repository currently contains no contact-delivery endpoint. Production code 
 - Verification after implementation: focused route inspection, keyboard traversal, native validation/error/loading/unavailable-delivery states, reduced-motion mode, 320/375/414/768/1024/1440/1920px geometry, footer byte comparison, console errors, `npm run audit:hallmark`, `npm run audit:a11y`, `npm run audit:seo`, and final `npm test`.
 
 Research references: WCAG 2.2 target size, focus appearance, focus order, error identification, and input purpose guidance; MDN native `select`, client-side form validation, and `prefers-reduced-motion` guidance.
+
+### Contact hero hierarchy revision - 2026-09-10
+
+- Center the primary H1 "Get In Touch" in the full-width header above the columns. Both pages use the shared `resources-hero__title` component in `styles/design-system.css`, with identical Resources typography, blue color, and margins. The left headline becomes H2 while preserving its original visual styling.
+- Match Resources hero padding: `--space-8` above and `--space-16` below; at 620px and below use `--space-6` and `--space-12`. Separate the header from the columns with `--space-10`.
+- Preserve the original dark, left-aligned H1 typography and explicit line break. Description, information cards, form markup, and interactive states remain unchanged.
+- Preserve the 43:57 desktop columns, `--space-16` desktop gutter, and stacked mobile layout. Height follows content after introducing the header.
 
 ### Implementation and verification — 2026-09-10
 

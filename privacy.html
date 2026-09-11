@@ -75,14 +75,14 @@
 
       <ul class="nav-menu">
         <li class="services-menu">
-          <button class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
+          <a href="services.html" class="services-menu-trigger" aria-expanded="false" aria-controls="services-dropdown"
             aria-haspopup="true">
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </button>
+          </a>
           <div class="service-dropdown" id="services-dropdown" role="menu" aria-label="Services List">
             <a class="service-dropdown-link" href="services.html#forge" role="menuitem"><img class="service-icon-img"
                 src="assets/architecture/icon-forge.png" alt="" width="32" height="32">Forge</a>
@@ -146,13 +146,9 @@
         </a>
         <div class="mobile-menu-list">
           <div class="mobile-menu-item">
-            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel">
+            <a class="mobile-menu-row" href="services.html">
               <span>Services</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <polyline points="9 6 15 12 9 18"></polyline>
-              </svg>
-            </button>
+            </a>
             <div class="mobile-submenu" id="mobile-services-panel" hidden>
               <a class="mobile-submenu-link" href="services.html#forge">
                 <img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32">
@@ -257,7 +253,7 @@
     </section>
   </main>
 
-  <footer class="footer-wrapper" role="contentinfo">
+  <footer class="footer-wrapper footer-compact" role="contentinfo">
     <div class="container">
       <div class="footer-upper">
         <div class="footer-brand-section">
@@ -300,7 +296,7 @@
               <li><a href="https://linkedin.com/company/skygenticai" class="footer-link" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
               <li><a href="https://x.com/skygenticai" class="footer-link" aria-label="SkyGentic AI on X">X</a></li>
-              <li><a href="https://youtube.com/@skygenticai" class="footer-link" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+              <li><a aria-disabled="true" class="footer-link" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
             </ul>
           </div>
         </nav>
@@ -311,7 +307,6 @@
         <nav class="footer-legal" aria-label="Footer legal links">
           <a href="privacy.html" class="footer-link" aria-current="page">Privacy Policy</a>
           <a href="terms.html" class="footer-link">Terms of Service</a>
-          <a href="get-in-touch.html" class="footer-link">Security &amp; Trust</a>
         </nav>
       </div>
     </div>
@@ -340,11 +335,6 @@
       m?.classList.toggle('is-open', isOpen);
       t?.setAttribute('aria-expanded', String(isOpen));
     };
-
-    t?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setServicesMenuOpen(t.getAttribute('aria-expanded') !== 'true');
-    });
 
     m?.addEventListener('mouseenter', () => t?.setAttribute('aria-expanded', 'true'));
     m?.addEventListener('mouseleave', () => {
