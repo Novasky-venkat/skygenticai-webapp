@@ -100,12 +100,10 @@
 /* Master coordinates are proportional illustration geometry, not new spacing tokens. */
 html, body.signin-body { overflow-x: clip; }
 body.signin-body { margin: 0; background: var(--color-background); }
-.signin-body .skip-link { position: fixed; top: var(--space-4); left: var(--space-4); width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; transform: none; }
-.signin-body .skip-link:focus { top: var(--space-4); }
-.signin-body .skip-link:focus-visible { width: auto; height: auto; padding: var(--space-3) var(--space-6); overflow: visible; clip: auto; clip-path: none; outline: 2px solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); }
+.signin-body .skip-link { position: fixed; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 .signin-page { position: relative; isolation: isolate; }
 .signin-shell { display: grid; grid-template-columns: minmax(0, 39.45%) minmax(0, 60.55%); min-height: 100vh; }
-.signin-auth { position: relative; z-index: 2; display: flex; height: 100vh; min-height: 100vh; padding: var(--space-10) 10.9% var(--space-8) 14.65%; overflow: clip; background: var(--color-background); }
+.signin-auth { position: relative; z-index: 2; display: flex; box-sizing: border-box; height: 100vh; min-height: 100vh; padding: var(--space-10) 10.9% var(--space-8) 14.65%; overflow: clip; background: var(--color-background); }
 .signin-auth-inner { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; row-gap: var(--space-4); width: 100%; min-width: 0; height: 100%; min-height: 0; }
 .signin-auth-body { align-self: center; display: flex; flex-direction: column; gap: var(--space-5); width: 100%; min-width: 0; min-height: 0; }
 .signin-logo-link { display: inline-flex; align-items: center; min-height: var(--space-12); width: calc(var(--space-24) * 3); }
@@ -205,10 +203,10 @@ body.signin-body { margin: 0; background: var(--color-background); }
  .social-signin svg { left: var(--space-4); }
  .trust-indicators { padding-top: var(--space-2); }
 }
-@media (min-width: 1200px) and (max-height: 900px) {
+@media (min-width: 1600px) and (max-height: 900px) {
  .social-signin-group { grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--space-2); }
 }
-@media (max-width: 1199px) {
+@media (max-width: 1599px) {
  .signin-shell { display: flex; flex-direction: column; min-height: 100vh; }
  .signin-header { top: var(--space-4); right: var(--space-5); }
  .signin-auth { min-height: 100vh; padding: var(--space-16) var(--space-6) var(--space-4); }
@@ -243,13 +241,38 @@ body.signin-body { margin: 0; background: var(--color-background); }
  .brand-signature { left: var(--space-6); right: auto; bottom: var(--space-8); z-index: 4; font-size: .6875rem; gap: var(--space-2); }
  .brand-signature span { width: var(--space-8); }
 }
-@media (min-width: 768px) and (max-width: 1199px) and (max-height: 900px) {
+@media (min-width: 768px) and (max-width: 1599px) {
+ .signin-logo-link { width: clamp(calc(var(--space-24) * 2.55),19.5vw,calc(var(--space-24) * 2.7)); }
+ .signin-title { font-size: clamp(1.8125rem,2.15vw,2rem); }
+ .signin-description { font-size: clamp(.75rem,.9vw,.8125rem); }
+ .form-label,.remember-choice,.signin-text-link,.social-signin,.create-account { font-size: clamp(.6875rem,.85vw,.75rem); }
+ .form-input { font-size: clamp(.75rem,1vw,.875rem); }
+ .trust-indicators li { font-size: clamp(.625rem,.8vw,.6875rem); }
+}
+@media (min-width: 768px) and (max-width: 1599px) and (max-height: 900px) {
  .signin-auth { padding-block: var(--space-6); }
  .signin-auth-inner { row-gap: var(--space-2); }
  .signin-auth-body { align-self: stretch; justify-content: center; gap: var(--space-1); }
  .signin-form { gap: var(--space-1); }
  .signin-options { margin-block: 0; }
  .signin-divider { margin-block: 0; }
+}
+@media (min-width: 768px) and (max-width: 1599px) and (max-height: 760px) {
+ .signin-auth { padding-block: var(--space-4) var(--space-2); }
+ .signin-auth-inner { row-gap: var(--space-1); }
+ .signin-logo-link { min-height: var(--space-8); }
+ .signin-auth-body { gap: var(--space-1); }
+ .signin-title { margin-bottom: var(--space-1); }
+ .signin-form { gap: 0; }
+ .trust-indicators { padding-top: 0; }
+}
+@media (min-width: 768px) and (max-width: 1599px) and (max-height: 600px) {
+ .signin-auth { padding-block: var(--space-2) 0; }
+ .signin-auth-inner { row-gap: 0; }
+ .signin-logo-link { min-height: var(--space-6); }
+ .signin-auth-body { gap: 0; }
+ .signin-title { margin-bottom: 0; }
+ .social-signin-group { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 374px) {
  .signin-auth { padding-inline: var(--space-4); }
@@ -310,7 +333,7 @@ body.signin-body { margin: 0; background: var(--color-background); }
         <section class="signin-auth" aria-label="Skygentic account access">
           <div class="signin-auth-inner">
             <a href="/" class="signin-logo-link" aria-label="Skygentic AI homepage">
-              <img class="nav-wordmark signin-wordmark" src="assets/Skygentic-wordmark.png" width="250" height="45" alt="Skygentic">
+              <img class="nav-wordmark signin-wordmark" src="assets/skygentic-wordmark.png" width="250" height="45" alt="Skygentic">
             </a>
 
             <div class="signin-auth-body">
