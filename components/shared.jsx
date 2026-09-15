@@ -605,7 +605,7 @@ function Footer() {
                 <li><a href="https://linkedin.com/company/skygenticai" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
                 <li><a href="https://github.com/skygenticai" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
                 <li><a href="https://x.com/skygenticai" aria-label="SkyGentic AI on X">X</a></li>
-                <li><a href="https://youtube.com/@skygenticai" aria-label="SkyGentic AI on YouTube">YouTube</a></li>
+                <li><a aria-disabled="true" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
               </ul>
             </div>
           </nav>
@@ -616,7 +616,6 @@ function Footer() {
           <nav className="ft-policy" aria-label="Footer legal links">
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>
-            <a href="#security">Security &amp; Trust</a>
           </nav>
         </div>
       </div>
