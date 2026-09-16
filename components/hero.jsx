@@ -230,7 +230,7 @@ const HeroAutomationVisual = () => {
         <div className="orchestrator-node">
           <div className="orchestrator-node__glow" aria-hidden="true"></div>
           <div className="orchestrator-node__header">
-            <img className="orchestrator-node__wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic AI" />
+            <img className="orchestrator-node__wordmark" src="assets/Skygentic-wordmark.png" alt="SkyGentic AI" />
           </div>
           <span className="orchestrator-node__state">{centerStates[step.state]}</span>
           <span className="orchestrator-node__typing">

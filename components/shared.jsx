@@ -151,7 +151,7 @@ function Header({ current = "home" }) {
     <header className={`hdr ${scrolled ? "hdr--scrolled" : ""}`}>
       <div className="container hdr-inner">
         <a href="index.html" className="hdr-logo" onClick={handleLogoClick}>
-          <img className="hdr-logo-img" src="uploads/skygentic-wordmark.png" alt="SkyGentic AI" />
+          <img className="hdr-logo-img" src="assets/Skygentic-wordmark.png" alt="SkyGentic AI" />
         </a>
 
         <div className="hdr-actions">
@@ -576,7 +576,7 @@ function Footer() {
         <div className="ft-upper">
           <div className="ft-brand-section">
             <a href="index.html" className="hdr-logo ft-brand-logo" aria-label="SkyGentic AI Homepage">
-              <img className="hdr-logo-img ft-logo-img" src="uploads/skygentic-wordmark.png" alt="SkyGentic AI" />
+              <img className="hdr-logo-img ft-logo-img" src="assets/Skygentic-wordmark.png" alt="SkyGentic AI" />
             </a>
             <p className="ft-description">
               Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
