@@ -18,10 +18,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        services: resolve(import.meta.dirname, 'services.html'),
-        resources: resolve(import.meta.dirname, 'resources.html'),
+        platform: resolve(import.meta.dirname, 'platform.html'),
+        features: resolve(import.meta.dirname, 'features.html'),
         getInTouch: resolve(import.meta.dirname, 'get-in-touch.html'),
-        about: resolve(import.meta.dirname, 'about.html'),
+        company: resolve(import.meta.dirname, 'company.html'),
         signin: resolve(import.meta.dirname, 'signin.html'),
         scheduleDemo: resolve(import.meta.dirname, 'schedule-demo.html'),
         privacy: resolve(import.meta.dirname, 'privacy.html'),

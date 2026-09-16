@@ -144,9 +144,9 @@ Motion specification:
 - Pointer movement is capped by `--space-2`.
 - `prefers-reduced-motion` disables spatial motion and keeps state changes visible.
 
-## About Page Narrative
+## Company Page Narrative
 
-The about page in `about.html` follows the supplied reference structure while using SkyGentic tokens and typography.
+The company page in `company.html` follows the supplied reference structure while using SkyGentic tokens and typography.
 
 - Bounds: standard `.container`, with the intro constrained to a centered readable measure and the mission/CTA sections using two-column desktop grids.
 - Layout order: centered page title and lead, mission split row, three-cell metric strip, guiding principles card row, then a divider-led next-step CTA.
