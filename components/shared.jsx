@@ -101,7 +101,7 @@ function Header({ current = "home" }) {
 
   const menuItems = [
     { label: "Platform", href: "platform.html", hasDropdown: true, key: "services" },
-    { label: "Solutions", href: "index.html#capabilities", hasDropdown: true, key: "solutions" },
+    { label: "Solutions", href: "customer-care.html", hasDropdown: true, key: "solutions" },
     { label: "Features", href: "features.html", hasDropdown: false, key: "resources" },
     { label: "Get in Touch", href: "get-in-touch.html", hasDropdown: false, key: "getInTouch" },
     { label: "Company", href: "company.html", hasDropdown: false, key: "aboutUs" }
@@ -114,15 +114,25 @@ function Header({ current = "home" }) {
       { label: "SkyFlow", href: "platform.html#skyflow" },
       { label: "Hive", href: "platform.html#hive" },
       { label: "NovaOps", href: "platform.html#nova-ops" }
-    ],
-    solutions: [
-      { label: "Use Case: Customer Care", href: "index.html#showcase" },
-      { label: "Use Case: Workflow automation", href: "platform.html#skyflow" },
-      { label: "Industries: Real Estate", href: "get-in-touch.html" },
-      { label: "Industries: Home Services", href: "get-in-touch.html" },
-      { label: "Industries: Travel & Hospitality", href: "get-in-touch.html" }
     ]
   };
+
+  const solutionUseCases = [
+    { label: "Customer Care", href: "customer-care.html", icon: "assets/navbar/customer-care.svg" },
+    { label: "Workflow automation", href: "workflow-automation.html", icon: "assets/navbar/workflow-automation.svg" }
+  ];
+
+  const solutionIndustries = [
+    { label: "Real Estate", href: "real-estate.html", icon: "assets/navbar/real-estate.svg" },
+    { label: "Home Services", href: "home-services.html", icon: "assets/navbar/home-services.svg" },
+    { label: "Travel & Hospitality", href: "travel-hospitality.html", icon: "assets/navbar/travel-hospitality.svg" }
+  ];
+
+  const SolutionIcon = ({ src }) => (
+    <span className="hdr-solution-icon" aria-hidden="true">
+      <img src={src} alt="" width="24" height="24" />
+    </span>
+  );
 
   const handleLogoClick = (event) => {
     if (
@@ -172,7 +182,29 @@ function Header({ current = "home" }) {
                         <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
-                    {openDropdowns[item.key] && dropdownMenus[item.key] && (
+                    {openDropdowns[item.key] && item.key === "solutions" && (
+                      <div className="hdr-submenu hdr-submenu--solutions">
+                        <div className="hdr-solution-col">
+                          <span className="hdr-submenu-heading">Use Case</span>
+                          {solutionUseCases.map(subitem => (
+                            <a key={subitem.label} href={subitem.href} className="hdr-solution-link">
+                              <SolutionIcon src={subitem.icon} />
+                              <span><strong>{subitem.label}</strong></span>
+                            </a>
+                          ))}
+                        </div>
+                        <div className="hdr-solution-col">
+                          <span className="hdr-submenu-heading">Industries</span>
+                          {solutionIndustries.map(industry => (
+                            <a key={industry.label} href={industry.href} className="hdr-solution-link hdr-solution-link--compact">
+                              <SolutionIcon src={industry.icon} />
+                              <span><strong>{industry.label}</strong></span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {openDropdowns[item.key] && item.key !== "solutions" && dropdownMenus[item.key] && (
                       <div className="hdr-submenu">
                         {dropdownMenus[item.key].map(subitem => (
                           <a key={subitem.label} href={subitem.href} className="hdr-submenu-link">
@@ -204,7 +236,19 @@ function Header({ current = "home" }) {
           {menuItems.map(item => (
             <div key={item.key || item.label} className="hdr-mobile-group">
               <a href={item.href}>{item.label}</a>
-              {item.hasDropdown && dropdownMenus[item.key] && (
+              {item.hasDropdown && item.key === "solutions" && (
+                <div className="hdr-mobile-submenu hdr-mobile-submenu--solutions">
+                  <span>Use Case</span>
+                  {solutionUseCases.map(subitem => (
+                    <a key={subitem.label} href={subitem.href}>{subitem.label}</a>
+                  ))}
+                  <span>Industries</span>
+                  {solutionIndustries.map(industry => (
+                    <a key={industry.label} href={industry.href}>{industry.label}</a>
+                  ))}
+                </div>
+              )}
+              {item.hasDropdown && item.key !== "solutions" && dropdownMenus[item.key] && (
                 <div className="hdr-mobile-submenu">
                   {dropdownMenus[item.key].map(subitem => (
                     <a key={subitem.label} href={subitem.href}>{subitem.label}</a>
@@ -384,6 +428,89 @@ function Header({ current = "home" }) {
           animation: fadeDown 0.18s ease;
           z-index: 10;
         }
+        .hdr-submenu--solutions {
+          left: 50%;
+          width: min(calc(100vw - 48px), 620px);
+          min-width: 0;
+          padding: 28px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 28px;
+          transform: translateX(-50%);
+          background: var(--color-card);
+          color: var(--color-body);
+          border-color: var(--color-border);
+          box-shadow: var(--shadow-mega-menu, 0 24px 70px oklch(19% 0.025 255 / 0.14));
+        }
+        .hdr-submenu-heading {
+          display: block;
+          margin-bottom: 12px;
+          color: var(--color-secondary-text);
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 0;
+        }
+        .hdr-solution-col {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .hdr-solution-link {
+          min-height: 48px;
+          display: grid;
+          grid-template-columns: 48px minmax(0, 1fr);
+          align-items: start;
+          gap: 12px;
+          color: var(--color-body);
+          border-radius: var(--radius-md);
+          text-decoration: none;
+          transition: color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+        }
+        .hdr-solution-link strong {
+          display: block;
+          color: var(--color-heading);
+          font-size: 15px;
+          line-height: 1.25;
+        }
+        .hdr-solution-link small {
+          display: block;
+          margin-top: 6px;
+          color: var(--color-secondary-text);
+          font-size: 13px;
+          line-height: 1.4;
+        }
+        .hdr-solution-icon {
+          width: 48px;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: var(--radius-sm);
+          background: var(--color-blue-50);
+          transition: background-color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+        }
+        .hdr-solution-icon img {
+          display: block;
+          width: 24px;
+          height: 24px;
+        }
+        .hdr-solution-link:hover,
+        .hdr-solution-link:focus-visible {
+          color: var(--color-primary-blue);
+          outline: none;
+          transform: translateX(2px);
+        }
+        .hdr-solution-link:focus-visible {
+          outline: 2px solid var(--focus-ring-color);
+          outline-offset: var(--focus-ring-offset);
+        }
+        .hdr-solution-link:hover .hdr-solution-icon,
+        .hdr-solution-link:focus-visible .hdr-solution-icon {
+          background: var(--color-blue-100);
+          transform: translateY(-1px);
+        }
         @keyframes fadeDown {
           from { opacity: 0; transform: translateY(-4px); }
           to { opacity: 1; transform: translateY(0); }
@@ -512,6 +639,14 @@ function Header({ current = "home" }) {
           color: oklch(94% 0.014 250 / 0.72);
           font-size: 13px;
           font-weight: 400;
+        }
+        .hdr-mobile-submenu--solutions span {
+          grid-column: 1 / -1;
+          color: oklch(94% 0.014 250 / 0.58);
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0;
         }
         @media (max-width: 1024px) {
           .hdr--scrolled .hdr-inner {

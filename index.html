@@ -119,7 +119,7 @@
           </div>
         </li>
         <li class="services-menu solutions-menu">
-          <a href="index.html#capabilities" class="services-menu-trigger" aria-expanded="false" aria-controls="solutions-dropdown"
+          <a href="customer-care.html" class="services-menu-trigger" aria-expanded="false" aria-controls="solutions-dropdown"
             aria-haspopup="true">
             Solutions
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -127,19 +127,7 @@
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </a>
-          <div class="service-dropdown service-dropdown--solutions" id="solutions-dropdown" role="menu" aria-label="Solutions List">
-            <div class="service-dropdown-group" role="presentation">
-              <span class="service-dropdown-heading" role="presentation">Use Case</span>
-              <a class="service-dropdown-link" href="index.html#showcase" role="menuitem">Customer Care</a>
-              <a class="service-dropdown-link" href="platform.html#skyflow" role="menuitem">Workflow automation</a>
-            </div>
-            <div class="service-dropdown-group" role="presentation">
-              <span class="service-dropdown-heading" role="presentation">Industries</span>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Real Estate</a>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Home Services</a>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Travel &amp; Hospitality</a>
-            </div>
-          </div>
+          <div class="service-dropdown service-dropdown--solutions solutions-mega" id="solutions-dropdown" role="menu" aria-label="Solutions List" data-solutions-menu></div>
         </li>
         <li>
           <a href="features.html" class="nav-link">
@@ -224,25 +212,7 @@
                 <polyline points="9 6 15 12 9 18"></polyline>
               </svg>
             </button>
-            <div class="mobile-submenu" id="mobile-solutions-panel" hidden>
-              <span class="mobile-submenu-heading">Use Case</span>
-              <a class="mobile-submenu-link" href="index.html#showcase">
-                <span><strong>Customer Care</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="platform.html#skyflow">
-                <span><strong>Workflow automation</strong></span>
-              </a>
-              <span class="mobile-submenu-heading">Industries</span>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Real Estate</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Home Services</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Travel &amp; Hospitality</strong></span>
-              </a>
-            </div>
+            <div class="mobile-submenu" id="mobile-solutions-panel" hidden data-mobile-solutions-menu></div>
           </div>
           <a class="mobile-menu-row" href="features.html">
             <span>Features</span>
@@ -1201,6 +1171,8 @@
   <script type="module" src="scripts/hero-animation.js"></script>
 
   <!-- Interactive Testimonials Accordion Script -->
+  <script src="scripts/solutions-mega-menu.js"></script>
+
   <script>
     const lifecycleSection = document.querySelector('.section-sticky-showcase');
     const lifecycleNavColumn = document.querySelector('.lifecycle-nav-column');
@@ -1374,7 +1346,7 @@
       });
 
       document.addEventListener('click', (event) => {
-        const selectedDropdownLink = event.target.closest('.service-dropdown-link');
+        const selectedDropdownLink = event.target.closest('.service-dropdown-link, .solutions-mega-item, .solutions-mega-feature-link');
         if (selectedDropdownLink && menu.contains(selectedDropdownLink)) {
           menu.classList.add('is-selection-closed');
           selectedDropdownLink.blur();

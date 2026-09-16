@@ -35,6 +35,28 @@ The marquee in `index.html` uses two identical, adjacent logo groups. Its transf
 - Hover: movement pauses so a logo can be inspected.
 - Reduced motion: the first logo group remains visible without animation.
 
+## Solutions Navigation Mega Menu
+
+The Solutions dropdown in the shared navbar is a desktop mega menu with mobile drawer parity. It is implemented in the repeated static page navs, `components/navbar.jsx`, `components/shared.jsx`, and shared styling in `styles/design-system.css`.
+
+- Bounds: desktop panel is fixed below the 72px sticky header, centered in the viewport, and capped at 930px with `calc(100vw - var(--space-12))` breathing room.
+- Layout: two columns in order: Use Case and Industries. Use Case includes Customer Care and Workflow automation; Industries includes Real Estate, Home Services, and Travel & Hospitality.
+- Icons: each menu item uses a dedicated decorative SVG from `assets/navbar/` with empty alt text and fixed dimensions.
+- Surface: `--color-mega-panel`, `--color-mega-panel-accent`, `--color-mega-icon-bg`, and `--shadow-mega-menu` from `styles/tokens.css`; no ad-hoc hex values or emoji/generic AI badges.
+- Typography: headings, item labels, and descriptions inherit `--font-family-body`; labels use `letter-spacing: 0`.
+- Mobile: the Solutions drawer keeps the same groups and order, using standard `.mobile-submenu` links and 56px row rhythm.
+
+State matrix:
+- Idle: crisp 1px border, 48px icon/link hit targets, readable grouped hierarchy.
+- Hover: menu item translates by 2px and icon lifts by 1px under pointer-capable interaction.
+- Focus-visible: trigger, menu items, and featured link use the global 2px focus ring with token offset.
+- Active: items return to stable baseline geometry.
+- Disabled: `aria-disabled="true"` reduces opacity, removes pointer interaction, and suppresses transforms.
+- Loading: `data-state="loading"` uses reduced opacity and progress cursor without resizing the row.
+- Error: `data-state="error"` switches icon/link signal color to `--color-error`.
+- Success: `data-state="success"` switches icon/link signal color to `--color-teal`.
+- Reduced motion: dropdown movement is removed; opacity/visibility changes remain effectively instant.
+
 ## Pre-Footer CTA
 
 The pre-footer CTA in `index.html` replaces the previous FAQ section and sits immediately before the approved footer.
