@@ -100,19 +100,27 @@ function Header({ current = "home" }) {
   };
 
   const menuItems = [
-    { label: "Services", href: "services.html", hasDropdown: true, key: "services" },
-    { label: "Resources", href: "resources.html", hasDropdown: false, key: "resources" },
+    { label: "Platform", href: "platform.html", hasDropdown: true, key: "services" },
+    { label: "Solutions", href: "index.html#capabilities", hasDropdown: true, key: "solutions" },
+    { label: "Features", href: "features.html", hasDropdown: false, key: "resources" },
     { label: "Get in Touch", href: "get-in-touch.html", hasDropdown: false, key: "getInTouch" },
-    { label: "About Us", href: "about-us.html", hasDropdown: false, key: "aboutUs" }
+    { label: "Company", href: "company.html", hasDropdown: false, key: "aboutUs" }
   ];
 
   const dropdownMenus = {
     services: [
-      { label: "Forge", href: "services.html#forge" },
-      { label: "Swarm", href: "services.html#swarm" },
-      { label: "SkyFlow", href: "services.html#skyflow" },
-      { label: "Hive", href: "services.html#hive" },
-      { label: "NovaOps", href: "services.html#novaops" }
+      { label: "Forge", href: "platform.html#forge" },
+      { label: "Swarm", href: "platform.html#swarm" },
+      { label: "SkyFlow", href: "platform.html#skyflow" },
+      { label: "Hive", href: "platform.html#hive" },
+      { label: "NovaOps", href: "platform.html#nova-ops" }
+    ],
+    solutions: [
+      { label: "Use Case: Customer Care", href: "index.html#showcase" },
+      { label: "Use Case: Workflow automation", href: "platform.html#skyflow" },
+      { label: "Industries: Real Estate", href: "get-in-touch.html" },
+      { label: "Industries: Home Services", href: "get-in-touch.html" },
+      { label: "Industries: Travel & Hospitality", href: "get-in-touch.html" }
     ]
   };
 
@@ -581,21 +589,21 @@ function Footer() {
 
           <nav className="ft-navigation" aria-label="Footer navigation">
             <div className="ft-nav-column">
-              <h5>Services</h5>
+              <h5>Platform</h5>
               <ul className="ft-link-list">
-                <li><a href="services.html#forge">Forge</a></li>
-                <li><a href="services.html#swarm">Swarm</a></li>
-                <li><a href="services.html#skyflow">SkyFlow</a></li>
-                <li><a href="services.html#hive">Hive</a></li>
-                <li><a href="services.html#nova-ops">NovaOps</a></li>
+                <li><a href="platform.html#forge">Forge</a></li>
+                <li><a href="platform.html#swarm">Swarm</a></li>
+                <li><a href="platform.html#skyflow">SkyFlow</a></li>
+                <li><a href="platform.html#hive">Hive</a></li>
+                <li><a href="platform.html#nova-ops">NovaOps</a></li>
               </ul>
             </div>
             <div className="ft-nav-column">
               <h5>Quick Links</h5>
               <ul className="ft-link-list">
-                <li><a href="resources.html">Resources</a></li>
+                <li><a href="features.html">Features</a></li>
                 <li><a href="get-in-touch.html">Get in Touch</a></li>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="company.html">Company</a></li>
                 <li><a href="signin.html">Sign in</a></li>
               </ul>
             </div>
@@ -812,7 +820,7 @@ function ChatWidget() {
       const responses = {
         demo: "Great — I can book a 20-min demo with our team. What's your work email?",
         agent: "We ship 5 production-ready agents: Conversational, Voice, Sales, Workflow, and Knowledge. Each is fine-tuned to your data and tools. Which fits your use case?",
-        default: "I can point you in the right direction. For specifics, let me connect you with our team — or check out Services in the menu."
+        default: "I can point you in the right direction. For specifics, let me connect you with our team — or check out Platform in the menu."
       };
       const key = /demo|meeting|call/i.test(text) ? "demo" : /agent|service/i.test(text) ? "agent" : "default";
       setMsgs(m => [...m, { who: "bot", text: responses[key] }]);
@@ -855,7 +863,7 @@ function ChatWidget() {
             {typing && <div className="cw-msg cw-msg--bot cw-typing"><span></span><span></span><span></span></div>}
           </div>
           <div className="cw-suggest">
-            {["What are your services?", "Plan a rollout", "Book a demo"].map(s => (
+            {["Explore Platform", "Plan a rollout", "Book a demo"].map(s => (
               <button key={s} onClick={() => send(s)}>{s}</button>
             ))}
           </div>

@@ -19,21 +19,21 @@ export const Footer = () => (
 
         <nav className="footer-navigation" aria-label="Footer navigation">
           <div className="footer-nav-column">
-            <h2 className="footer-col-title">Services</h2>
+            <h2 className="footer-col-title">Platform</h2>
             <ul className="footer-link-list">
-              <li><a href="services.html#forge" className="footer-link">Forge</a></li>
-              <li><a href="services.html#swarm" className="footer-link">Swarm</a></li>
-              <li><a href="services.html#skyflow" className="footer-link">SkyFlow</a></li>
-              <li><a href="services.html#hive" className="footer-link">Hive</a></li>
-              <li><a href="services.html#nova-ops" className="footer-link">NovaOps</a></li>
+              <li><a href="platform.html#forge" className="footer-link">Forge</a></li>
+              <li><a href="platform.html#swarm" className="footer-link">Swarm</a></li>
+              <li><a href="platform.html#skyflow" className="footer-link">SkyFlow</a></li>
+              <li><a href="platform.html#hive" className="footer-link">Hive</a></li>
+              <li><a href="platform.html#nova-ops" className="footer-link">NovaOps</a></li>
             </ul>
           </div>
           <div className="footer-nav-column">
             <h2 className="footer-col-title">Quick Links</h2>
             <ul className="footer-link-list">
-              <li><a href="#capabilities" className="footer-link">Resources</a></li>
+              <li><a href="features.html" className="footer-link">Features</a></li>
               <li><a href="#demo" className="footer-link">Get in Touch</a></li>
-              <li><a href="#about" className="footer-link">About Us</a></li>
+              <li><a href="company.html" className="footer-link">Company</a></li>
               <li><a href="#signin" className="footer-link">Sign in</a></li>
             </ul>
           </div>
