@@ -453,16 +453,16 @@ body {
   animation: pulseFlow 560ms var(--hero-ease-out) both;
 }
 
-.pulse-req { offset-path: path("M 255 128 Q 300 96 270 72"); }
-.pulse-plan { offset-path: path("M 205 180 Q 228 176 195 168"); }
-.pulse-core { offset-path: path("M 248 185 Q 300 144 352 185"); }
-.pulse-a1 { offset-path: path("M 390 142 Q 414 92 420 58"); }
-.pulse-a2 { offset-path: path("M 390 184 Q 406 184 420 184"); }
-.pulse-a3 { offset-path: path("M 390 224 Q 408 258 420 318"); }
-.pulse-a4 { offset-path: path("M 225 224 Q 182 282 180 318"); }
-.pulse-a5 { offset-path: path("M 292 240 Q 272 258 272 275"); }
-.pulse-feed { offset-path: path("M 248 240 C 218 250, 198 270, 196 385"); fill: var(--color-teal); filter: drop-shadow(0 0 6px var(--color-teal)); }
-.pulse-summary { offset-path: path("M 352 240 C 382 250, 400 270, 400 385"); fill: var(--color-teal); filter: drop-shadow(0 0 6px var(--color-teal)); }
+.pulse-req { offset-path: path("M 255 150 C 297 116, 276 59.5, 234 59.5"); }
+.pulse-plan { offset-path: path("M 210 205 C 190 205, 199 196.5, 179 196.5"); }
+.pulse-core { offset-path: path("M 249.6 205 Q 300 165.4 350.4 205"); }
+.pulse-a1 { offset-path: path("M 390 163.2 C 419 163.2, 411 55, 440 55"); }
+.pulse-a2 { offset-path: path("M 390 205 C 419 205, 411 184, 440 184"); }
+.pulse-a3 { offset-path: path("M 390 244.6 C 419 244.6, 411 326, 440 326"); }
+.pulse-a4 { offset-path: path("M 300 260 C 300 270, 300 278, 300 288"); }
+.pulse-a5 { offset-path: path("M 210 244.6 C 171.7 244.6, 182.3 326, 144 326"); }
+.pulse-feed { offset-path: path("M 210 244.6 C 176 274, 166 372, 244 408"); fill: var(--color-teal); filter: drop-shadow(0 0 6px var(--color-teal)); }
+.pulse-summary { offset-path: path("M 390 244.6 C 444 290, 440 436, 320 464"); fill: var(--color-teal); filter: drop-shadow(0 0 6px var(--color-teal)); }
 
 .connector-pulse.is-pulsing.pulse-plan {
   animation-duration: 520ms;
@@ -494,7 +494,7 @@ body {
 .request-card {
   position: absolute;
   top: 16px;
-  left: 20px;
+  left: -16px;
   width: 250px;
   z-index: 6;
   border: 1px solid var(--color-border);
@@ -504,7 +504,7 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--space-3) var(--space-4);
   opacity: 0;
-  transform: translateY(-8px) scale(0.96);
+  transform: translateX(-32px) scale(0.96);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
 }
 
@@ -527,7 +527,7 @@ body {
 @keyframes requestCardEntrance {
   0% {
     opacity: 0;
-    transform: translateY(-26px);
+    transform: translateX(-32px);
   }
   100% {
     opacity: 1;
@@ -565,8 +565,8 @@ body {
 /* 2. Planning Card */
 .planning-card {
   position: absolute;
-  top: 110px;
-  left: 0;
+  top: 122px;
+  left: -16px;
   width: 195px;
   z-index: 5;
   border: 1px solid var(--color-border);
@@ -576,7 +576,7 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--space-3) var(--space-4);
   opacity: 0;
-  transform: translateY(8px) scale(0.96);
+  transform: translateX(-28px) scale(0.96);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
 }
 
@@ -651,7 +651,7 @@ body {
 .orchestrator-node {
   position: absolute;
   left: 300px;
-  top: 185px;
+  top: 205px;
   transform: translate(-50%, -50%) scale(0.96);
   width: 180px;
   min-height: 110px;
@@ -789,15 +789,15 @@ body {
   backdrop-filter: blur(20px);
   box-shadow: 0 12px 36px oklch(19% 0.025 255 / 0.06);
   opacity: 0;
-  transform: scale(0.92);
+  transform: translateX(32px) scale(0.92);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
-.agent-card--1 { right: 20px; top: 16px; }
-.agent-card--2 { right: 20px; top: 145px; }
-.agent-card--3 { right: 20px; top: 275px; }
-.agent-card--4 { left: 20px; top: 275px; }
-.agent-card--5 { left: 220px; top: 275px; }
+.agent-card--1 { right: 0; top: 16px; }
+.agent-card--2 { right: 0; top: 145px; }
+.agent-card--3 { right: 0; top: 287px; }
+.agent-card--4 { left: 220px; top: 288px; }
+.agent-card--5 { left: -16px; top: 287px; }
 
 .agent-card.is-visible {
   opacity: 1;
@@ -904,8 +904,8 @@ body {
 /* 5. Live Activity Feed Log Card */
 .activity-feed-card {
   position: absolute;
-  left: 20px;
-  top: 385px;
+  left: -16px;
+  top: 382px;
   width: 260px;
   z-index: 6;
   border: 1px solid var(--color-border);
@@ -915,7 +915,7 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--space-3) var(--space-4);
   opacity: 0;
-  transform: translateY(12px) scale(0.96);
+  transform: translateX(-28px) scale(0.96);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
 }
 
@@ -1007,8 +1007,8 @@ body {
 /* 6. Workflow Summary Card */
 .completion-card {
   position: absolute;
-  right: 20px;
-  top: 385px;
+  right: 0;
+  top: 372px;
   width: 280px;
   z-index: 7;
   border: 1px solid oklch(68% 0.160 175 / 0.4);
