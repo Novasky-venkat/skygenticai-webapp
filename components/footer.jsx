@@ -6,7 +6,7 @@ export const Footer = () => (
       <div className="footer-upper">
         <div className="footer-brand-section">
           <a href="/" className="nav-brand footer-brand" aria-label="SkyGentic AI Homepage">
-            <img className="nav-wordmark footer-wordmark" src="assets/skygentic-wordmark.png" alt="SkyGentic" />
+            <img className="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="SkyGentic" />
           </a>
           <p className="footer-description">
             Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
