@@ -672,6 +672,7 @@
 
           <!-- Right Column: Interactive Lifecycle Panels -->
           <div class="sticky-cards-column" data-lifecycle-stack>
+            <div class="sticky-card-stage" data-lifecycle-stage>
             
             <!-- Card 1: AI Planning Engine -->
             <div id="lifecycle-stage-1" class="sticky-card-item is-active" data-lifecycle-card data-lifecycle-panel="0" data-base-z="1" style="position: sticky; top: var(--lifecycle-sticky-top); z-index: 1;">
@@ -969,6 +970,7 @@
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1210,8 +1212,12 @@
   <script>
     const lifecycleSection = document.querySelector('.section-sticky-showcase');
     const lifecycleNavColumn = document.querySelector('.lifecycle-nav-column');
+    const lifecycleStack = document.querySelector('[data-lifecycle-stack]');
+    const lifecycleStage = document.querySelector('[data-lifecycle-stage]');
     const lifecycleCards = [...document.querySelectorAll('[data-lifecycle-card]')];
     const lifecycleButtons = [...document.querySelectorAll('[data-lifecycle-index]')];
+    const lifecycleDesktopQuery = window.matchMedia('(min-width: 992px)');
+    const lifecycleReduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeMenu = 0;
     let lifecycleFrameRequested = false;
     let lifecycleClickLock = 0;
@@ -1229,7 +1235,70 @@
       const firstCardHeight = lifecycleCards[0]?.offsetHeight || card.offsetHeight || 0;
       const flowOffset = (firstCardHeight + stackGap) * index;
       const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      return Math.min(maxScrollY, Math.max(0, stackTop + flowOffset - getLifecycleTop(card)));
+      const pinTop = lifecycleDesktopQuery.matches ? getLifecyclePinnedTop(firstCardHeight) : getLifecycleTop(card);
+      return Math.min(maxScrollY, Math.max(0, stackTop + flowOffset - pinTop));
+    }
+
+    function clampLifecycleProgress(value) {
+      return Math.max(0, Math.min(1, value));
+    }
+
+    function getLifecyclePinnedTop(cardHeight = 0) {
+      const stackStep = 40;
+      const stageHeight = cardHeight + ((lifecycleCards.length - 1) * stackStep);
+      return Math.max(24, Math.round((window.innerHeight - stageHeight) / 2));
+    }
+
+    function syncLifecycleStackMotion() {
+      if (!lifecycleStack || !lifecycleStage || !lifecycleCards.length) return;
+
+      if (!lifecycleDesktopQuery.matches) {
+        lifecycleSection?.style.removeProperty('--lifecycle-pin-top');
+        lifecycleSection?.style.removeProperty('--lifecycle-stage-height');
+        lifecycleSection?.style.removeProperty('--lifecycle-scroll-height');
+        lifecycleStack.style.removeProperty('--lifecycle-stage-height');
+        lifecycleStack.style.removeProperty('--lifecycle-scroll-height');
+        lifecycleCards.forEach(card => {
+          card.style.removeProperty('--lifecycle-stack-y');
+          card.style.removeProperty('--lifecycle-exit-y');
+          card.style.removeProperty('--lifecycle-card-rotate');
+        });
+        return;
+      }
+
+      const stackStyle = window.getComputedStyle(lifecycleStack);
+      const stackGap = parseFloat(stackStyle.rowGap || stackStyle.gap) || 0;
+      const firstCardHeight = lifecycleCards[0]?.offsetHeight || 0;
+      const flowStep = firstCardHeight + stackGap;
+      const stackStep = 40;
+      const firstTargetY = getLifecycleTargetY(lifecycleCards[0], 0);
+      const maxStackOffset = (lifecycleCards.length - 1) * stackStep;
+      const stageHeight = firstCardHeight + maxStackOffset;
+      const scrollHeight = stageHeight + (flowStep * Math.max(0, lifecycleCards.length - 1));
+      const reduceMotion = lifecycleReduceMotionQuery.matches;
+
+      lifecycleSection?.style.setProperty('--lifecycle-pin-top', `${getLifecyclePinnedTop(firstCardHeight)}px`);
+      lifecycleSection?.style.setProperty('--lifecycle-stage-height', `${Math.round(stageHeight)}px`);
+      lifecycleSection?.style.setProperty('--lifecycle-scroll-height', `${Math.round(scrollHeight)}px`);
+      lifecycleStack.style.setProperty('--lifecycle-stage-height', `${Math.round(stageHeight)}px`);
+      lifecycleStack.style.setProperty('--lifecycle-scroll-height', `${Math.round(scrollHeight)}px`);
+
+      lifecycleCards.forEach((card, index) => {
+        const stackedOffset = Math.max(0, maxStackOffset - (index * stackStep));
+        const cardTargetY = getLifecycleTargetY(card, index);
+        const nextTargetY = lifecycleCards[index + 1]
+          ? getLifecycleTargetY(lifecycleCards[index + 1], index + 1)
+          : cardTargetY;
+        const linearProgress = index < lifecycleCards.length - 1
+          ? clampLifecycleProgress((window.scrollY - cardTargetY) / Math.max(1, nextTargetY - cardTargetY))
+          : 0;
+        const exitProgress = linearProgress * linearProgress * (3 - (2 * linearProgress));
+        const exitDistance = card.offsetHeight + (stackStep * 4);
+
+        card.style.setProperty('--lifecycle-stack-y', `${Math.round(stackedOffset)}px`);
+        card.style.setProperty('--lifecycle-exit-y', `${Math.round(-exitDistance * exitProgress)}px`);
+        card.style.setProperty('--lifecycle-card-rotate', `${reduceMotion ? 0 : exitProgress * 4}deg`);
+      });
     }
 
     function setLifecycleActive(index) {
@@ -1246,6 +1315,21 @@
       });
     }
 
+    function getLifecycleActiveIndexFromScroll() {
+      let nextActive = 0;
+      const sectionRect = lifecycleSection?.getBoundingClientRect();
+      if (sectionRect && sectionRect.top > window.innerHeight * .45) return nextActive;
+
+      lifecycleCards.forEach((card, index) => {
+        const reachedCard = lifecycleDesktopQuery.matches
+          ? window.scrollY >= getLifecycleTargetY(card, index) - 2
+          : card.getBoundingClientRect().top <= getLifecycleTop(card) + 2;
+        if (reachedCard) nextActive = index;
+      });
+
+      return nextActive;
+    }
+
     function syncLifecycleRail() {
       if (!lifecycleNavColumn) return;
       lifecycleNavColumn.classList.remove('is-fixed', 'is-pinned-bottom');
@@ -1255,12 +1339,12 @@
 
     function readLifecycleFromScroll() {
       if (!lifecycleSection || !lifecycleCards.length) return;
+      syncLifecycleStackMotion();
       if (Date.now() < lifecycleClickLock) {
         syncLifecycleRail();
         return;
       }
 
-      let nextActive = 0;
       const sectionRect = lifecycleSection.getBoundingClientRect();
       if (sectionRect.top > window.innerHeight * .45) {
         setLifecycleActive(0);
@@ -1268,10 +1352,7 @@
         return;
       }
 
-      lifecycleCards.forEach((card, index) => {
-        if (card.getBoundingClientRect().top <= getLifecycleTop(card) + 2) nextActive = index;
-      });
-      setLifecycleActive(nextActive);
+      setLifecycleActive(getLifecycleActiveIndexFromScroll());
       syncLifecycleRail();
     }
 
@@ -1290,7 +1371,7 @@
       const tick = () => {
         const hasArrived = Math.abs(window.scrollY - targetY) <= 2;
         const hasTimedOut = performance.now() - startedAt > 1800;
-        setLifecycleActive(index);
+        setLifecycleActive(hasArrived || hasTimedOut ? index : getLifecycleActiveIndexFromScroll());
         syncLifecycleRail();
 
         if (hasArrived || hasTimedOut) {
@@ -1315,11 +1396,11 @@
       button.addEventListener('click', (event) => {
         event.preventDefault();
         const card = lifecycleCards[index];
-        setLifecycleActive(index);
+        if (!lifecycleDesktopQuery.matches) setLifecycleActive(index);
         syncLifecycleRail();
         if (!card) return;
 
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion = lifecycleReduceMotionQuery.matches;
         const targetY = getLifecycleTargetY(card, index);
         lifecycleClickLock = Date.now() + (reduceMotion ? 80 : 2000);
         window.scrollTo({ top: targetY, behavior: reduceMotion ? 'auto' : 'smooth' });
