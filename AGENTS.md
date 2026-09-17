@@ -96,3 +96,39 @@ npm test
 # Check git status
 git status
 ```
+
+---
+
+## ⚡ Lean Gemini/Antigravity Operating Rules
+
+### Parent & Delegation Workflow
+- **Parent Focus**: Keep the parent focused on task definition, acceptance criteria, research synthesis, user decisions, and exceptionally complex issues.
+- **Worker Delegation**: Delegate bounded implementation, test fixes, documentation, exploration, and targeted review. Do not routinely reread worker code or repeat completed checks; consume concise evidence and resolve only conflicts or gaps.
+- **Output Brevity**: The parent gives a minimal user-facing result without a reasoning narrative. Keep raw logs and reasoning private.
+
+### Model & Effort Allocation
+- **Clear & Narrow Work**: Use 3.8 Flash at low effort for clear, narrow work.
+- **Broader Engineering Judgment**: Use a 3.8 Flash High implementer at medium effort when the change needs broader engineering judgment.
+- **Code Review**: Use one exact reviewer at `Gemini 3.8 Flash` with `high` effort for meaningful code changes. Spawn reviewer work with a bounded prompt and no full history. If a project role overrides that reviewer model, use the default agent with explicit high settings; state the project-workflow conflict briefly rather than assuming global settings win.
+- **Larger Tasks**: Use `/teamwork-preview` to perform larger tasks with subagents.
+
+### Worker Discipline & Reporting Limits
+- **Terminal & Scope**: Workers use the terminal, keep scope narrow, and do not recursively delegate or inherit the parent orchestration workflow.
+- **Concise Reporting**: Workers report at most 250 words: status, files changed or inspected, checks run, blockers, and a private log path.
+
+### Deterministic Checks & Repair Thresholds
+- **Direct Execution**: Run deterministic build, lint, typecheck, and focused tests directly when they can establish an exit status. Do not use an AI worker solely to obtain a command result.
+- **Repair Threshold**: A worker may repair a failed check twice; then return the failure, evidence, and a proposed decision. Escalate sooner for an architectural choice, unsafe action, or material ambiguity.
+
+### Knowledge Graph (graphify) Rules
+- **Graph First**: Use a repository graph first only when one already exists. Workers must verify scoped graph findings against source.
+- **No Extraction**: Never run a graph extraction.
+- **Single Update**: After source changes, update the graph once through the existing hook or a worker fallback, never both. Hooks must remain deterministic: no LLM calls or autonomous loops.
+
+### Safety, Sandboxing & Approvals
+- **Code & Inputs**: Preserve user edits, validate external input, keep secrets in environment or approved secret stores, and review the relevant diff before a push.
+- **Permissions & Sandboxing**: Never bypass permissions, force actions, lower sandboxing, or disable protections.
+- **Network Tools**: Treat networked tools as read-only by default.
+- **Mandatory Approvals**: Require explicit approval before posting, publishing, pushing, merging, paid jobs, remote-agent dispatch, credential changes, or third-party mutations. When approval is unclear, leave a local draft or plan.
+- **Precedence**: Respect higher-priority and project instructions. Ask only when missing information materially blocks safe completion.
+
