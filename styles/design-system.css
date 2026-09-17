@@ -1263,6 +1263,9 @@ body {
 
 .section-sticky-showcase {
   --lifecycle-sticky-top: 100px;
+  --lifecycle-pin-top: var(--lifecycle-sticky-top);
+  --lifecycle-stack-gap: 60px;
+  --lifecycle-stack-double-gap: 120px;
   background: var(--color-section-alt);
   padding: 100px 0 160px 0;
   position: relative;
@@ -1338,14 +1341,77 @@ body {
   grid-column: 2;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: var(--lifecycle-stack-gap);
   position: relative;
   padding-left: var(--space-2);
+}
+
+.sticky-card-stage {
+  display: contents;
 }
 
 .sticky-card-item {
   scroll-margin-top: var(--lifecycle-sticky-top);
   transition: transform var(--transition-smooth);
+}
+
+@media (min-width: 992px) {
+  .lifecycle-nav-column {
+    top: var(--lifecycle-pin-top);
+    display: flex;
+    align-items: center;
+    min-height: var(--lifecycle-stage-height, 568px);
+  }
+
+  .sticky-cards-column {
+    display: block;
+    min-height: var(--lifecycle-scroll-height, 1600px);
+  }
+
+  .sticky-card-stage {
+    display: block;
+    position: sticky;
+    top: var(--lifecycle-pin-top);
+    height: var(--lifecycle-stage-height, 568px);
+    isolation: isolate;
+  }
+
+  .sticky-card-item {
+    position: absolute !important;
+    inset: 0 0 auto 0;
+    top: 0 !important;
+    width: 100%;
+    transition: none !important;
+    transform: translate3d(0, calc(var(--lifecycle-stack-y, 0px) + var(--lifecycle-exit-y, 0px)), 0) rotate(var(--lifecycle-card-rotate, 0deg));
+    transform-origin: center center;
+    backface-visibility: hidden;
+    isolation: isolate;
+    will-change: transform;
+  }
+
+  .sticky-card-item:not(.is-active) {
+    transition: none !important;
+  }
+
+  .sticky-card-item[data-lifecycle-panel="0"] {
+    --lifecycle-stack-y: 80px;
+    z-index: 3 !important;
+  }
+
+  .sticky-card-item[data-lifecycle-panel="1"] {
+    --lifecycle-stack-y: calc(-100% - var(--lifecycle-stack-gap) + 40px);
+    z-index: 2 !important;
+  }
+
+  .sticky-card-item[data-lifecycle-panel="2"] {
+    --lifecycle-stack-y: calc(-200% - var(--lifecycle-stack-double-gap));
+    z-index: 1 !important;
+  }
+
+  .sticky-card-item.is-active {
+    transition: none !important;
+    z-index: 6 !important;
+  }
 }
 
 .sticky-card-surface {
@@ -2270,6 +2336,36 @@ body {
     opacity: 1;
     transform: rotate(45deg) scale(1);
   }
+}
+
+#lifecycle-stage-2 .workflow-step-list::after {
+  opacity: 1;
+  transform: scaleY(1);
+  animation: none;
+}
+
+#lifecycle-stage-2 .workflow-step-item,
+#lifecycle-stage-2 .workflow-step-item::before {
+  animation: none;
+}
+
+#lifecycle-stage-2 .workflow-step-item::before {
+  opacity: 0;
+  transform: none;
+}
+
+#lifecycle-stage-2 .workflow-step-marker {
+  background: var(--color-primary-blue);
+  box-shadow: 0 0 0 6px var(--color-blue-50);
+  transform: scale(1);
+  transition: none;
+  animation: none;
+}
+
+#lifecycle-stage-2 .workflow-step-marker::before {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+  animation: none;
 }
 
 .governance-dashboard-mockup {
