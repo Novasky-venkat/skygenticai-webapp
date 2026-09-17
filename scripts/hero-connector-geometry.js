@@ -13,6 +13,8 @@ const CONNECTOR_PATHS = {
 
 const fmt = (value) => Number(value.toFixed(1)).toString();
 const point = (x, y) => ({ x, y });
+const INFORMATIONAL_CARD_TERMINAL_GAP = 0;
+const CUBIC_TRIM_STEPS = 96;
 
 const boxFor = (element) => {
   const width = element.offsetWidth;
@@ -78,6 +80,125 @@ const cubic = (start, c1, c2, end) =>
 const quadratic = (start, control, end) =>
   `M ${fmt(start.x)} ${fmt(start.y)} Q ${fmt(control.x)} ${fmt(control.y)} ${fmt(end.x)} ${fmt(end.y)}`;
 
+const lerp = (start, end, t) =>
+  point(
+    start.x + (end.x - start.x) * t,
+    start.y + (end.y - start.y) * t
+  );
+
+const cubicPointAt = (start, c1, c2, end, t) => {
+  const q0 = lerp(start, c1, t);
+  const q1 = lerp(c1, c2, t);
+  const q2 = lerp(c2, end, t);
+  const r0 = lerp(q0, q1, t);
+  const r1 = lerp(q1, q2, t);
+
+  return lerp(r0, r1, t);
+};
+
+const splitCubicAt = (start, c1, c2, end, t) => {
+  const q0 = lerp(start, c1, t);
+  const q1 = lerp(c1, c2, t);
+  const q2 = lerp(c2, end, t);
+  const r0 = lerp(q0, q1, t);
+  const r1 = lerp(q1, q2, t);
+  const split = lerp(r0, r1, t);
+
+  return { start, c1: q0, c2: r0, end: split };
+};
+
+const isInsideBox = (value, box) =>
+  value.x >= box.left &&
+  value.x <= box.right &&
+  value.y >= box.top &&
+  value.y <= box.bottom;
+
+const cubicLengthUntil = (start, c1, c2, end, untilT) => {
+  const steps = Math.max(1, Math.ceil(CUBIC_TRIM_STEPS * untilT));
+  let previous = start;
+  let length = 0;
+
+  for (let index = 1; index <= steps; index += 1) {
+    const t = untilT * (index / steps);
+    const current = cubicPointAt(start, c1, c2, end, t);
+    length += Math.hypot(current.x - previous.x, current.y - previous.y);
+    previous = current;
+  }
+
+  return length;
+};
+
+const findBoxEntryT = (start, c1, c2, end, box) => {
+  let previousT = 0;
+  let previousInside = isInsideBox(start, box);
+
+  for (let index = 1; index <= CUBIC_TRIM_STEPS; index += 1) {
+    const currentT = index / CUBIC_TRIM_STEPS;
+    const currentInside = isInsideBox(cubicPointAt(start, c1, c2, end, currentT), box);
+
+    if (!previousInside && currentInside) {
+      let low = previousT;
+      let high = currentT;
+
+      for (let iteration = 0; iteration < 12; iteration += 1) {
+        const mid = (low + high) / 2;
+        if (isInsideBox(cubicPointAt(start, c1, c2, end, mid), box)) {
+          high = mid;
+        } else {
+          low = mid;
+        }
+      }
+
+      return high;
+    }
+
+    previousT = currentT;
+    previousInside = currentInside;
+  }
+
+  return null;
+};
+
+const findTBeforeEntry = (start, c1, c2, end, entryT, gap) => {
+  const targetLength = Math.max(0, cubicLengthUntil(start, c1, c2, end, entryT) - gap);
+  let low = 0;
+  let high = entryT;
+
+  for (let iteration = 0; iteration < 16; iteration += 1) {
+    const mid = (low + high) / 2;
+    if (cubicLengthUntil(start, c1, c2, end, mid) < targetLength) {
+      low = mid;
+    } else {
+      high = mid;
+    }
+  }
+
+  return high;
+};
+
+const terminalCubicBeforeBox = (start, c1, c2, end, box, terminalStroke) => {
+  const endpointAllowance = terminalEndpointTrim(end, c2, terminalStroke.width, terminalStroke.linecap);
+  const entryT = findBoxEntryT(start, c1, c2, end, box);
+  const gap = INFORMATIONAL_CARD_TERMINAL_GAP + endpointAllowance;
+
+  if (entryT === null) {
+    return {
+      start,
+      c1,
+      c2,
+      end: trimTerminalEndpoint(end, c2, gap)
+    };
+  }
+
+  return splitCubicAt(
+    start,
+    c1,
+    c2,
+    end,
+    findTBeforeEntry(start, c1, c2, end, entryT, gap)
+  );
+};
+
 const sideCurve = (start, end, direction) => {
   const handle = Math.min(46, Math.max(20, Math.abs(end.x - start.x) * 0.58));
   const sign = direction === 'left' ? -1 : 1;
@@ -89,17 +210,67 @@ const sideCurve = (start, end, direction) => {
   );
 };
 
-const buildPaths = (boxes) => {
+const trimTerminalEndpoint = (end, control, distance) => {
+  const dx = end.x - control.x;
+  const dy = end.y - control.y;
+  const length = Math.hypot(dx, dy);
+
+  if (!length) return end;
+
+  return point(
+    end.x - (dx / length) * distance,
+    end.y - (dy / length) * distance
+  );
+};
+
+const terminalEndpointTrim = (end, control, strokeWidth, strokeLinecap) => {
+  const dx = end.x - control.x;
+  const dy = end.y - control.y;
+  const length = Math.hypot(dx, dy);
+
+  if (!length) return 0;
+
+  const tangentX = Math.max(Math.abs(dx / length), 0.01);
+  const normalX = Math.abs(dy / length);
+  const strokeHalf = strokeWidth / 2;
+  const capOverhang = strokeLinecap === 'square' || strokeLinecap === 'round' ? strokeHalf : 0;
+  const pixelRatio = typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1;
+  const antialiasAllowance = 1 / Math.max(pixelRatio, 1);
+
+  return capOverhang + ((strokeHalf * normalX) + antialiasAllowance) / tangentX;
+};
+
+const buildPaths = (boxes, terminalStroke) => {
   const core = boxes.core;
   const requestEnd = edgeCenter(boxes.request, 'right');
   const planEnd = edgeCenter(boxes.plan, 'right');
+  const feedStart = coreAnchor(core, 'leftLower');
+  const summaryStart = coreAnchor(core, 'rightLower');
   const agent1End = edgeCenter(boxes.agent1, 'left');
   const agent2End = edgeCenter(boxes.agent2, 'left');
   const agent3End = edgeCenter(boxes.agent3, 'left');
   const agent4End = edgeCenter(boxes.agent4, 'top');
   const agent5End = edgeCenter(boxes.agent5, 'right');
-  const feedEnd = edgeCenter(boxes.feed, 'right');
-  const summaryEnd = edgeCenter(boxes.summary, 'left');
+  const feedBoundaryEnd = edgeCenter(boxes.feed, 'right');
+  const summaryBoundaryEnd = edgeCenter(boxes.summary, 'left');
+  const feedControlEnd = point(feedBoundaryEnd.x - 78, feedBoundaryEnd.y - 36);
+  const summaryControlEnd = point(summaryBoundaryEnd.x + 120, summaryBoundaryEnd.y - 28);
+  const feedCurve = terminalCubicBeforeBox(
+    feedStart,
+    point(core.left - 34, core.bottom + 14),
+    feedControlEnd,
+    feedBoundaryEnd,
+    boxes.feed,
+    terminalStroke
+  );
+  const summaryCurve = terminalCubicBeforeBox(
+    summaryStart,
+    point(core.right + 54, core.bottom + 30),
+    summaryControlEnd,
+    summaryBoundaryEnd,
+    boxes.summary,
+    terminalStroke
+  );
 
   return {
     req: cubic(
@@ -124,18 +295,8 @@ const buildPaths = (boxes) => {
       agent4End
     ),
     a5: sideCurve(coreAnchor(core, 'leftLower'), agent5End, 'left'),
-    feed: cubic(
-      coreAnchor(core, 'leftLower'),
-      point(core.left - 34, core.bottom + 14),
-      point(feedEnd.x - 78, feedEnd.y - 36),
-      feedEnd
-    ),
-    summary: cubic(
-      coreAnchor(core, 'rightLower'),
-      point(core.right + 54, core.bottom + 30),
-      point(summaryEnd.x + 120, summaryEnd.y - 28),
-      summaryEnd
-    )
+    feed: cubic(feedCurve.start, feedCurve.c1, feedCurve.c2, feedCurve.end),
+    summary: cubic(summaryCurve.start, summaryCurve.c1, summaryCurve.c2, summaryCurve.end)
   };
 };
 
@@ -143,6 +304,17 @@ const setPulsePath = (pulse, path) => {
   const offsetPath = `path("${path}")`;
   pulse.style.offsetPath = offsetPath;
   pulse.style.webkitOffsetPath = offsetPath;
+};
+
+const terminalStrokeFor = (svg) => {
+  const line = svg.querySelector('.connector-line--feed') || svg.querySelector('.connector-line--summary');
+  const style = line && typeof window !== 'undefined' ? window.getComputedStyle(line) : null;
+  const width = Number.parseFloat(style?.strokeWidth) || 1.5;
+
+  return {
+    width,
+    linecap: style?.strokeLinecap || 'butt'
+  };
 };
 
 export function syncHeroConnectorGeometry(visual) {
@@ -167,7 +339,7 @@ export function syncHeroConnectorGeometry(visual) {
   const boxes = Object.fromEntries(
     Object.entries(elements).map(([key, element]) => [key, boxFor(element)])
   );
-  const paths = buildPaths(boxes);
+  const paths = buildPaths(boxes, terminalStrokeFor(svg));
 
   Object.entries(paths).forEach(([key, path]) => {
     const selectors = CONNECTOR_PATHS[key];
