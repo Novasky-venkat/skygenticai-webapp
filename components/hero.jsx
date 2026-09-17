@@ -207,7 +207,7 @@ const HeroAutomationVisual = () => {
         <path className={`connector-line connector-line--agent-4 ${isAgentConnectorActive(3) ? 'is-active' : ''}`} d="M 300 260 C 300 270, 300 278, 300 288" />
         <path className={`connector-line connector-line--agent-5 ${isAgentConnectorActive(4) ? 'is-active' : ''}`} d="M 210 244.6 C 171.7 244.6, 182.3 326, 144 326" />
         <path className={`connector-line connector-line--feed ${step.stage === 'reporting' ? 'is-active' : ''}`} d="M 210 244.6 C 176 274, 166 372, 244 408" />
-        <path className={`connector-line connector-line--summary ${step.stage === 'summary' || step.stage === 'idle' ? 'is-active' : ''}`} d="M 390 244.6 C 444 290, 440 436, 320 464" />
+        <path className={`connector-line connector-line--summary ${step.stage === 'summary' || step.stage === 'idle' ? 'is-active' : ''}`} d="M 390 244.6 C 444 290, 440 446, 320 474" />
 
         <circle className={`connector-pulse ${step.pulse === 'req' ? 'is-pulsing pulse-req' : ''}`} r="3.5" />
         <circle className={`connector-pulse ${step.pulse === 'plan' ? 'is-pulsing pulse-plan' : ''}`} r="3.5" />
