@@ -571,228 +571,63 @@ function Nav({ current = "home" }) {
 // ============ FOOTER ============
 function Footer() {
   return (
-    <footer className="ft" role="contentinfo">
-      <div className="container">
-        <div className="ft-upper">
-          <div className="ft-brand-section">
-            <a href="index.html" className="hdr-logo ft-brand-logo" aria-label="SkyGentic AI Homepage">
-              <img className="hdr-logo-img ft-logo-img" src="assets/Skygentic-wordmark.png" alt="SkyGentic AI" />
-            </a>
-            <p className="ft-description">
-              Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
-            </p>
-            <div className="ft-status" aria-label="All systems operational">
-              <span className="ft-status-dot" aria-hidden="true"></span>
-              <span>All systems operational</span>
-            </div>
+  <footer className="footer-wrapper footer-compact surface-page" role="contentinfo">
+    <div className="container">
+      <div className="footer-upper">
+        <div className="footer-brand-section">
+          <a href="index.html" className="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
+            <img className="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic AI" />
+          </a>
+          <p className="text-body-compact">
+            Agentic AI for ambitious businesses.<br />
+            Deploy intelligent AI workforces that automate operations.
+          </p>
+          <nav className="footer-social" aria-label="Social links">
+            <a href="https://linkedin.com/company/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on LinkedIn"><span className="social-icon social-icon-linkedin" aria-hidden="true" /></a>
+            <a href="https://github.com/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on GitHub"><span className="social-icon social-icon-github" aria-hidden="true" /></a>
+            <a href="https://instagram.com/skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on Instagram"><span className="social-icon social-icon-instagram" aria-hidden="true" /></a>
+            <a href="https://x.com/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on X"><span className="social-icon social-icon-x" aria-hidden="true" /></a>
+          </nav>
+        </div>
+
+        <nav className="footer-navigation rule-left-desktop" aria-label="Footer navigation">
+          <div className="footer-nav-column">
+            <h2 className="font-display nav-section-title">Platform</h2>
+            <ul className="footer-link-list">
+              <li><a href="platform.html#forge" className="nav-link nav-subtle">Forge</a></li>
+              <li><a href="platform.html#swarm" className="nav-link nav-subtle">Swarm</a></li>
+              <li><a href="platform.html#skyflow" className="nav-link nav-subtle">SkyFlow</a></li>
+              <li><a href="platform.html#hive" className="nav-link nav-subtle">Hive</a></li>
+              <li><a href="platform.html#nova-ops" className="nav-link nav-subtle">NovaOps</a></li>
+            </ul>
           </div>
-
-          <nav className="ft-navigation" aria-label="Footer navigation">
-            <div className="ft-nav-column">
-              <h5>Platform</h5>
-              <ul className="ft-link-list">
-                <li><a href="platform.html#forge">Forge</a></li>
-                <li><a href="platform.html#swarm">Swarm</a></li>
-                <li><a href="platform.html#skyflow">SkyFlow</a></li>
-                <li><a href="platform.html#hive">Hive</a></li>
-                <li><a href="platform.html#nova-ops">NovaOps</a></li>
-              </ul>
-            </div>
-            <div className="ft-nav-column">
-              <h5>Quick Links</h5>
-              <ul className="ft-link-list">
-                <li><a href="features.html">Features</a></li>
-                <li><a href="get-in-touch.html">Get in Touch</a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="signin.html">Sign in</a></li>
-              </ul>
-            </div>
-            <div className="ft-nav-column">
-              <h5>Follow Us</h5>
-              <ul className="ft-link-list">
-                <li><a href="https://linkedin.com/company/skygenticai" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
-                <li><a href="https://github.com/skygenticai" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
-                <li><a href="https://x.com/skygenticai" aria-label="SkyGentic AI on X">X</a></li>
-                <li><a aria-disabled="true" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-
-        <div className="ft-bottom">
-          <span>© 2026 SkyGentic AI / Novasky. All rights reserved.</span>
-          <nav className="ft-policy" aria-label="Footer legal links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-          </nav>
-        </div>
+          <div className="footer-nav-column">
+            <h2 className="font-display nav-section-title">Quick Links</h2>
+            <ul className="footer-link-list">
+              <li><a href="company.html" className="nav-link nav-subtle">Company</a></li>
+              <li><a href="features.html" className="nav-link nav-subtle">Features</a></li>
+              <li><a href="get-in-touch.html" className="nav-link nav-subtle">Get In Touch</a></li>
+              <li><a href="signin.html" className="nav-link nav-subtle">Sign In</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      <style>{`
-        .ft {
-          background: var(--dark-bg);
-          color: var(--dark-ink-soft);
-          font-family: var(--font-body);
-          font-weight: 400;
-          padding: var(--space-8) 0 var(--space-5);
-          position: relative;
-          overflow-x: clip;
-        }
-        .ft .container {
-          position: relative;
-        }
-        .ft-upper {
-          display: grid;
-          grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
-          gap: var(--space-8);
-          align-items: start;
-          padding-bottom: var(--space-8);
-        }
-        .ft-brand-section {
-          max-width: 560px;
-        }
-        .ft-brand-logo {
-          width: fit-content;
-          height: auto;
-          margin-left: -10px;
-          padding: 8px 10px;
-          background: var(--color-card);
-          border: 1px solid var(--dark-border);
-          border-radius: var(--r-sm);
-        }
-        .ft-logo-img {
-          width: 250px;
-          height: auto;
-        }
-        .ft-description {
-          color: var(--dark-ink-soft);
-          font-size: 16px;
-          line-height: 1.65;
-          max-width: 465px;
-          margin: var(--space-5) 0 0;
-        }
-        .ft-status {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: var(--space-4);
-          color: var(--dark-ink);
-          font-size: 14px;
-          font-weight: 500;
-        }
-        .ft-status-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--accent-2);
-          flex: 0 0 auto;
-        }
-        .ft-navigation {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(32px, 4vw, 56px);
-        }
-        .ft-navigation h5 {
-          font-family: var(--font-display);
-          font-size: 16px;
-          line-height: 1.3;
-          letter-spacing: 0;
-          color: var(--dark-ink);
-          margin: 0 0 var(--space-4);
-          font-weight: 500;
-        }
-        .ft-link-list {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-        }
-        .ft-link-list a,
-        .ft-policy a {
-          display: inline-flex;
-          align-items: center;
-          min-height: 48px;
-          font-size: 15px;
-          line-height: 1.2;
-          font-family: var(--font-body);
-          font-weight: 500;
-          color: var(--dark-ink-soft);
-          width: fit-content;
-          padding: 8px 12px;
-          margin-left: -12px;
-          border-radius: var(--radius-pill);
-          transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-          white-space: nowrap;
-        }
-        .ft-link-list a:hover,
-        .ft-link-list a:focus-visible,
-        .ft-policy a:hover,
-        .ft-policy a:focus-visible {
-          color: var(--dark-ink);
-          background: oklch(99% 0.006 250 / 0.055);
-          transform: translateX(2px);
-        }
-        .ft-link-list a:active,
-        .ft-policy a:active {
-          transform: translateX(0);
-        }
-        .ft-bottom {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: var(--space-5);
-          border-top: 1px solid var(--dark-border);
-          padding-top: var(--space-5);
-          font-size: 13.5px;
-          color: var(--dark-ink-mute);
-        }
-        .ft-policy {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: var(--space-5);
-          flex-wrap: wrap;
-        }
-        @media (max-width: 880px) {
-          .ft-upper {
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
-          }
-          .ft-navigation {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-          }
-        }
-        @media (max-width: 640px) {
-          .ft {
-            padding-top: var(--space-8);
-          }
-          .ft-upper {
-            gap: var(--space-6);
-            padding-bottom: var(--space-8);
-          }
-          .ft-navigation {
-            grid-template-columns: 1fr;
-            gap: var(--space-6);
-          }
-          .ft-logo-img {
-            width: 150px;
-          }
-          .ft-bottom {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--space-3);
-          }
-          .ft-policy {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
-          }
-        }
-      `}</style>
-    </footer>
+      <div className="footer-bottom-bar rule-top text-body-small">
+        <div className="footer-copyright">© 2026 SkyGentic AI. All rights reserved.</div>
+        <nav className="footer-legal" aria-label="Footer legal links">
+          <a href="privacy.html" className="nav-link nav-subtle">Privacy Policy</a>
+          <a href="terms.html" className="nav-link nav-subtle">Terms of Service</a>
+        </nav>
+        <a href="#" className="btn-glass btn-icon-outline footer-back-to-top" aria-label="Back to Top">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 19V5" />
+            <path d="M6 11l6-6 6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
   );
 }
 
