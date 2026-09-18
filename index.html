@@ -260,15 +260,15 @@
           <div class="hero-agentic-visual" aria-hidden="true" data-stage="request">
             <!-- Precision SVG Connectors with Traveling Signal Dots -->
             <svg class="hero-connectors-svg" viewBox="0 0 600 560" fill="none" preserveAspectRatio="xMidYMid meet">
-              <path class="connector-line connector-line--req" d="M 255 128 Q 300 96 270 72" />
-              <path class="connector-line connector-line--plan" d="M 205 180 Q 228 176 195 168" />
-              <path class="connector-line connector-line--agent-1" d="M 390 142 Q 414 92 420 58" />
-              <path class="connector-line connector-line--agent-2" d="M 390 184 Q 406 184 420 184" />
-              <path class="connector-line connector-line--agent-3" d="M 390 224 Q 408 258 420 318" />
-              <path class="connector-line connector-line--agent-4" d="M 225 224 Q 182 282 180 318" />
-              <path class="connector-line connector-line--agent-5" d="M 292 240 Q 272 258 272 275" />
-              <path class="connector-line connector-line--feed" d="M 248 240 C 218 250, 198 270, 196 385" />
-              <path class="connector-line connector-line--summary" d="M 352 240 C 382 250, 400 270, 400 385" />
+              <path class="connector-line connector-line--req" d="M 255 150 C 297 116, 276 59.5, 234 59.5" />
+              <path class="connector-line connector-line--plan" d="M 210 205 C 190 205, 199 196.5, 179 196.5" />
+              <path class="connector-line connector-line--agent-1" d="M 390 163.2 C 419 163.2, 411 55, 440 55" />
+              <path class="connector-line connector-line--agent-2" d="M 390 205 C 419 205, 411 184, 440 184" />
+              <path class="connector-line connector-line--agent-3" d="M 390 244.6 C 419 244.6, 411 326, 440 326" />
+              <path class="connector-line connector-line--agent-4" d="M 300 260 C 300 270, 300 278, 300 288" />
+              <path class="connector-line connector-line--agent-5" d="M 210 244.6 C 171.7 244.6, 182.3 326, 144 326" />
+              <path class="connector-line connector-line--feed" d="M 210 244.6 C 176 274, 166 372, 244 408" />
+              <path class="connector-line connector-line--summary" d="M 390 244.6 C 444 290, 440 446, 320 474" />
 
               <circle class="connector-pulse pulse-req" r="3.5" />
               <circle class="connector-pulse pulse-plan" r="3.5" />
@@ -642,6 +642,7 @@
 
           <!-- Right Column: Interactive Lifecycle Panels -->
           <div class="sticky-cards-column" data-lifecycle-stack>
+            <div class="sticky-card-stage" data-lifecycle-stage>
             
             <!-- Card 1: AI Planning Engine -->
             <div id="lifecycle-stage-1" class="sticky-card-item is-active" data-lifecycle-card data-lifecycle-panel="0" data-base-z="1" style="position: sticky; top: var(--lifecycle-sticky-top); z-index: 1;">
@@ -939,6 +940,7 @@
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1025,7 +1027,7 @@
             Connects to 120+ tools your team already uses.
           </h2>
           <p class="integrations-description">
-            n8n, UI path, Zendesk, Slack, Gmail, Stripe, Notion, Codex and your custom internal APIs via webhooks or our SDK.
+            n8n, UI path, Zendesk, Slack, Outlook, Jira, Linear, Codex and your custom internal APIs via webhooks or our SDK.
           </p>
         </div>
 
@@ -1074,8 +1076,14 @@
             <img class="integration-card-image" src="assets/integrations/zendesk.png" alt="Zendesk" loading="lazy" decoding="async">
           </div>
 
-          <div class="integration-card" role="listitem">
+          <div class="integration-card integration-card--slack" role="listitem">
             <img class="integration-card-image" src="assets/integrations/slack.png" alt="Slack" loading="lazy" decoding="async">
+            <span class="slack-loading-image" aria-hidden="true">
+              <span class="slack-loading-image__copy">and many more</span>
+              <span class="slack-loading-image__dot slack-loading-image__dot--1"></span>
+              <span class="slack-loading-image__dot slack-loading-image__dot--2"></span>
+              <span class="slack-loading-image__dot slack-loading-image__dot--3"></span>
+            </span>
           </div>
         </div>
       </div>
@@ -1088,7 +1096,7 @@
           Ready to Build Your Autonomous Enterprise Workforce?
         </h2>
         <p class="prefooter-cta-copy">
-          Deploy AI agents that work 24/7, automate operations, and scale alongside your business without adding operational complexity.
+          Deploy AI agents that work 24/7, automate operations and scale alongside your business without adding operational complexity.
         </p>
         <a href="schedule-demo.html" class="btn-primary prefooter-cta-button" aria-label="Schedule a Demo with Skygentic AI">
           <div class="btn-text-wrapper">
@@ -1109,61 +1117,60 @@
 
     <!-- Section 10 : Footer -->
 
-  <footer class="footer-wrapper footer-compact" role="contentinfo">
+  <footer class="footer-wrapper footer-compact surface-page" role="contentinfo">
     <div class="container">
       <div class="footer-upper">
         <div class="footer-brand-section">
-          <a href="/" class="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
-            <img class="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic">
+          <a href="index.html" class="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
+            <img class="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic AI">
           </a>
-          <p class="footer-description">
-            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think and scale alongside your team.
+          <p class="text-body-compact">
+            Agentic AI for ambitious businesses.<br>
+            Deploy intelligent AI workforces that automate operations.
           </p>
-          <div class="footer-status" aria-label="All systems operational">
-            <span class="footer-status-dot" aria-hidden="true"></span>
-            <span>All systems operational</span>
-          </div>
+          <nav class="footer-social" aria-label="Social links">
+            <a href="https://linkedin.com/company/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on LinkedIn"><span class="social-icon social-icon-linkedin" aria-hidden="true"></span></a>
+            <a href="https://github.com/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on GitHub"><span class="social-icon social-icon-github" aria-hidden="true"></span></a>
+            <a href="https://instagram.com/skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on Instagram"><span class="social-icon social-icon-instagram" aria-hidden="true"></span></a>
+            <a href="https://x.com/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on X"><span class="social-icon social-icon-x" aria-hidden="true"></span></a>
+          </nav>
         </div>
 
-        <nav class="footer-navigation" aria-label="Footer navigation">
+        <nav class="footer-navigation rule-left-desktop" aria-label="Footer navigation">
           <div class="footer-nav-column">
-            <h2 class="footer-col-title">Platform</h2>
+            <h2 class="font-display nav-section-title">Platform</h2>
             <ul class="footer-link-list">
-              <li><a href="platform.html#forge" class="footer-link">Forge</a></li>
-              <li><a href="platform.html#swarm" class="footer-link">Swarm</a></li>
-              <li><a href="platform.html#skyflow" class="footer-link">Skyflow</a></li>
-              <li><a href="platform.html#hive" class="footer-link">Hive</a></li>
-              <li><a href="platform.html#nova-ops" class="footer-link">NovaOps</a></li>
+              <li><a href="platform.html#forge" class="nav-link nav-subtle">Forge</a></li>
+              <li><a href="platform.html#swarm" class="nav-link nav-subtle">Swarm</a></li>
+              <li><a href="platform.html#skyflow" class="nav-link nav-subtle">SkyFlow</a></li>
+              <li><a href="platform.html#hive" class="nav-link nav-subtle">Hive</a></li>
+              <li><a href="platform.html#nova-ops" class="nav-link nav-subtle">NovaOps</a></li>
             </ul>
           </div>
           <div class="footer-nav-column">
-            <h2 class="footer-col-title">Quick Links</h2>
+            <h2 class="font-display nav-section-title">Quick Links</h2>
             <ul class="footer-link-list">
-              <li><a href="features.html" class="footer-link">Features</a></li>
-              <li><a href="get-in-touch.html" class="footer-link">Get in Touch</a></li>
-              <li><a href="company.html" class="footer-link">Company</a></li>
-              <li><a href="signin.html" class="footer-link">Sign in</a></li>
-              <li><a href="schedule-demo.html" class="footer-link">Schedule Demo</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h2 class="footer-col-title">Follow Us</h2>
-            <ul class="footer-link-list">
-              <li><a href="https://linkedin.com/company/Skygenticai" class="footer-link" aria-label="Skygentic AI on LinkedIn">LinkedIn</a></li>
-              <li><a href="https://github.com/Skygenticai" class="footer-link" aria-label="Skygentic AI on GitHub">GitHub</a></li>
-              <li><a href="https://x.com/Skygenticai" class="footer-link" aria-label="Skygentic AI on X">X</a></li>
-              <li><a aria-disabled="true" class="footer-link" aria-label="Skygentic AI on Instagram">Instagram</a></li>
+              <li><a href="company.html" class="nav-link nav-subtle">Company</a></li>
+              <li><a href="features.html" class="nav-link nav-subtle">Features</a></li>
+              <li><a href="get-in-touch.html" class="nav-link nav-subtle">Get In Touch</a></li>
+              <li><a href="signin.html" class="nav-link nav-subtle">Sign In</a></li>
             </ul>
           </div>
         </nav>
       </div>
 
-      <div class="footer-bottom-bar">
-        <div>© 2026 Skygentic AI / Novasky. All rights reserved.</div>
+      <div class="footer-bottom-bar rule-top text-body-small">
+        <div class="footer-copyright">© 2026 Skygentic AI / Novasky. All rights reserved.</div>
         <nav class="footer-legal" aria-label="Footer legal links">
-          <a href="privacy.html" class="footer-link">Privacy Policy</a>
-          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="privacy.html" class="nav-link nav-subtle">Privacy Policy</a>
+          <a href="terms.html" class="nav-link nav-subtle">Terms of Service</a>
         </nav>
+        <a href="#" class="btn-glass btn-icon-outline footer-back-to-top" aria-label="Back to Top">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 19V5"></path>
+            <path d="M6 11l6-6 6 6"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>
@@ -1176,8 +1183,12 @@
   <script>
     const lifecycleSection = document.querySelector('.section-sticky-showcase');
     const lifecycleNavColumn = document.querySelector('.lifecycle-nav-column');
+    const lifecycleStack = document.querySelector('[data-lifecycle-stack]');
+    const lifecycleStage = document.querySelector('[data-lifecycle-stage]');
     const lifecycleCards = [...document.querySelectorAll('[data-lifecycle-card]')];
     const lifecycleButtons = [...document.querySelectorAll('[data-lifecycle-index]')];
+    const lifecycleDesktopQuery = window.matchMedia('(min-width: 992px)');
+    const lifecycleReduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeMenu = 0;
     let lifecycleFrameRequested = false;
     let lifecycleClickLock = 0;
@@ -1195,7 +1206,70 @@
       const firstCardHeight = lifecycleCards[0]?.offsetHeight || card.offsetHeight || 0;
       const flowOffset = (firstCardHeight + stackGap) * index;
       const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      return Math.min(maxScrollY, Math.max(0, stackTop + flowOffset - getLifecycleTop(card)));
+      const pinTop = lifecycleDesktopQuery.matches ? getLifecyclePinnedTop(firstCardHeight) : getLifecycleTop(card);
+      return Math.min(maxScrollY, Math.max(0, stackTop + flowOffset - pinTop));
+    }
+
+    function clampLifecycleProgress(value) {
+      return Math.max(0, Math.min(1, value));
+    }
+
+    function getLifecyclePinnedTop(cardHeight = 0) {
+      const stackStep = 40;
+      const stageHeight = cardHeight + ((lifecycleCards.length - 1) * stackStep);
+      return Math.max(24, Math.round((window.innerHeight - stageHeight) / 2));
+    }
+
+    function syncLifecycleStackMotion() {
+      if (!lifecycleStack || !lifecycleStage || !lifecycleCards.length) return;
+
+      if (!lifecycleDesktopQuery.matches) {
+        lifecycleSection?.style.removeProperty('--lifecycle-pin-top');
+        lifecycleSection?.style.removeProperty('--lifecycle-stage-height');
+        lifecycleSection?.style.removeProperty('--lifecycle-scroll-height');
+        lifecycleStack.style.removeProperty('--lifecycle-stage-height');
+        lifecycleStack.style.removeProperty('--lifecycle-scroll-height');
+        lifecycleCards.forEach(card => {
+          card.style.removeProperty('--lifecycle-stack-y');
+          card.style.removeProperty('--lifecycle-exit-y');
+          card.style.removeProperty('--lifecycle-card-rotate');
+        });
+        return;
+      }
+
+      const stackStyle = window.getComputedStyle(lifecycleStack);
+      const stackGap = parseFloat(stackStyle.rowGap || stackStyle.gap) || 0;
+      const firstCardHeight = lifecycleCards[0]?.offsetHeight || 0;
+      const flowStep = firstCardHeight + stackGap;
+      const stackStep = 40;
+      const firstTargetY = getLifecycleTargetY(lifecycleCards[0], 0);
+      const maxStackOffset = (lifecycleCards.length - 1) * stackStep;
+      const stageHeight = firstCardHeight + maxStackOffset;
+      const scrollHeight = stageHeight + (flowStep * Math.max(0, lifecycleCards.length - 1));
+      const reduceMotion = lifecycleReduceMotionQuery.matches;
+
+      lifecycleSection?.style.setProperty('--lifecycle-pin-top', `${getLifecyclePinnedTop(firstCardHeight)}px`);
+      lifecycleSection?.style.setProperty('--lifecycle-stage-height', `${Math.round(stageHeight)}px`);
+      lifecycleSection?.style.setProperty('--lifecycle-scroll-height', `${Math.round(scrollHeight)}px`);
+      lifecycleStack.style.setProperty('--lifecycle-stage-height', `${Math.round(stageHeight)}px`);
+      lifecycleStack.style.setProperty('--lifecycle-scroll-height', `${Math.round(scrollHeight)}px`);
+
+      lifecycleCards.forEach((card, index) => {
+        const stackedOffset = Math.max(0, maxStackOffset - (index * stackStep));
+        const cardTargetY = getLifecycleTargetY(card, index);
+        const nextTargetY = lifecycleCards[index + 1]
+          ? getLifecycleTargetY(lifecycleCards[index + 1], index + 1)
+          : cardTargetY;
+        const linearProgress = index < lifecycleCards.length - 1
+          ? clampLifecycleProgress((window.scrollY - cardTargetY) / Math.max(1, nextTargetY - cardTargetY))
+          : 0;
+        const exitProgress = linearProgress * linearProgress * (3 - (2 * linearProgress));
+        const exitDistance = card.offsetHeight + (stackStep * 4);
+
+        card.style.setProperty('--lifecycle-stack-y', `${Math.round(stackedOffset)}px`);
+        card.style.setProperty('--lifecycle-exit-y', `${Math.round(-exitDistance * exitProgress)}px`);
+        card.style.setProperty('--lifecycle-card-rotate', `${reduceMotion ? 0 : exitProgress * 4}deg`);
+      });
     }
 
     function setLifecycleActive(index) {
@@ -1212,6 +1286,21 @@
       });
     }
 
+    function getLifecycleActiveIndexFromScroll() {
+      let nextActive = 0;
+      const sectionRect = lifecycleSection?.getBoundingClientRect();
+      if (sectionRect && sectionRect.top > window.innerHeight * .45) return nextActive;
+
+      lifecycleCards.forEach((card, index) => {
+        const reachedCard = lifecycleDesktopQuery.matches
+          ? window.scrollY >= getLifecycleTargetY(card, index) - 2
+          : card.getBoundingClientRect().top <= getLifecycleTop(card) + 2;
+        if (reachedCard) nextActive = index;
+      });
+
+      return nextActive;
+    }
+
     function syncLifecycleRail() {
       if (!lifecycleNavColumn) return;
       lifecycleNavColumn.classList.remove('is-fixed', 'is-pinned-bottom');
@@ -1221,12 +1310,12 @@
 
     function readLifecycleFromScroll() {
       if (!lifecycleSection || !lifecycleCards.length) return;
+      syncLifecycleStackMotion();
       if (Date.now() < lifecycleClickLock) {
         syncLifecycleRail();
         return;
       }
 
-      let nextActive = 0;
       const sectionRect = lifecycleSection.getBoundingClientRect();
       if (sectionRect.top > window.innerHeight * .45) {
         setLifecycleActive(0);
@@ -1234,10 +1323,7 @@
         return;
       }
 
-      lifecycleCards.forEach((card, index) => {
-        if (card.getBoundingClientRect().top <= getLifecycleTop(card) + 2) nextActive = index;
-      });
-      setLifecycleActive(nextActive);
+      setLifecycleActive(getLifecycleActiveIndexFromScroll());
       syncLifecycleRail();
     }
 
@@ -1256,7 +1342,7 @@
       const tick = () => {
         const hasArrived = Math.abs(window.scrollY - targetY) <= 2;
         const hasTimedOut = performance.now() - startedAt > 1800;
-        setLifecycleActive(index);
+        setLifecycleActive(hasArrived || hasTimedOut ? index : getLifecycleActiveIndexFromScroll());
         syncLifecycleRail();
 
         if (hasArrived || hasTimedOut) {
@@ -1281,11 +1367,11 @@
       button.addEventListener('click', (event) => {
         event.preventDefault();
         const card = lifecycleCards[index];
-        setLifecycleActive(index);
+        if (!lifecycleDesktopQuery.matches) setLifecycleActive(index);
         syncLifecycleRail();
         if (!card) return;
 
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion = lifecycleReduceMotionQuery.matches;
         const targetY = getLifecycleTargetY(card, index);
         lifecycleClickLock = Date.now() + (reduceMotion ? 80 : 2000);
         window.scrollTo({ top: targetY, behavior: reduceMotion ? 'auto' : 'smooth' });

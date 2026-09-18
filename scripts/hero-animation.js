@@ -1,3 +1,5 @@
+import { syncHeroConnectorGeometry } from './hero-connector-geometry.js';
+
 (() => {
   const visual = document.querySelector('.hero-agentic-visual');
   if (!visual) return;
@@ -112,6 +114,15 @@
 
   let scenarioIndex = 0;
   let stepIndex = 0;
+  let connectorResizeFrame = 0;
+
+  const scheduleConnectorGeometrySync = () => {
+    window.cancelAnimationFrame(connectorResizeFrame);
+    connectorResizeFrame = window.requestAnimationFrame(() => syncHeroConnectorGeometry(visual));
+  };
+
+  window.addEventListener('resize', scheduleConnectorGeometrySync, { passive: true });
+  document.fonts?.ready.then(scheduleConnectorGeometrySync);
 
   function render() {
     const scenario = scenarios[scenarioIndex];
@@ -175,6 +186,8 @@
         </div>
       `).join('');
     }
+
+    syncHeroConnectorGeometry(visual);
 
     // Update SVG active paths & pulse classes
     const svg = visual.querySelector('.hero-connectors-svg');

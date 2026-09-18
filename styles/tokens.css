@@ -22,7 +22,7 @@
   --color-footer-text: var(--color-blue-50);
   --color-footer-heading: var(--color-blue-100);
   --color-footer-muted: var(--color-border);
-  --color-footer-divider: oklch(88% .02 250 / .2);
+  --color-footer-divider: oklch(29% .08 258 / .18);
   --color-footer-link-hover-bg: oklch(99% .006 250 / .08);
   --color-footer-status: var(--color-teal);
 

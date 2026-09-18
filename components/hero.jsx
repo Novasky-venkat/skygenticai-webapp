@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CapsuleButton } from './base';
+import { syncHeroConnectorGeometry } from '../scripts/hero-connector-geometry.js';
 
 const scenarios = [
   {
@@ -143,6 +144,7 @@ const renderIcon = (type) => {
 };
 
 const HeroAutomationVisual = () => {
+  const visualRef = useRef(null);
   const [scenarioIndex, setScenarioIndex] = useState(0);
   const [stepIndex, setStepIndex] = useState(0);
   const step = heroTimeline[stepIndex];
@@ -150,6 +152,27 @@ const HeroAutomationVisual = () => {
   const isPlanningConnected = step.stage === 'planning' || step.stage === 'orchestration';
   const isRequestConnected = step.stage === 'planning' || step.stage === 'orchestration';
   const isAgentConnectorActive = (index) => step.activeAgent === index && (step.stage === 'delegating' || step.stage === 'executing');
+
+  useEffect(() => {
+    syncHeroConnectorGeometry(visualRef.current);
+  });
+
+  useEffect(() => {
+    let resizeFrame = 0;
+    const scheduleSync = () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(() => syncHeroConnectorGeometry(visualRef.current));
+    };
+
+    window.addEventListener('resize', scheduleSync, { passive: true });
+    document.fonts?.ready.then(scheduleSync);
+    scheduleSync();
+
+    return () => {
+      window.cancelAnimationFrame(resizeFrame);
+      window.removeEventListener('resize', scheduleSync);
+    };
+  }, []);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -173,18 +196,18 @@ const HeroAutomationVisual = () => {
   }, [stepIndex, step.duration]);
 
   return (
-    <div className="hero-agentic-visual" aria-hidden="true" data-stage={step.stage}>
+    <div ref={visualRef} className="hero-agentic-visual" aria-hidden="true" data-stage={step.stage}>
       {/* Precision SVG Connectors with Traveling Pulse Dots */}
       <svg className="hero-connectors-svg" viewBox="0 0 600 560" fill="none" preserveAspectRatio="xMidYMid meet">
-        <path className={`connector-line connector-line--req ${isRequestConnected ? 'is-active' : ''}`} d="M 255 128 Q 300 96 270 72" />
-        <path className={`connector-line connector-line--plan ${isPlanningConnected ? 'is-active' : ''}`} d="M 205 180 Q 228 176 195 168" />
-        <path className={`connector-line connector-line--agent-1 ${isAgentConnectorActive(0) ? 'is-active' : ''}`} d="M 390 142 Q 414 92 420 58" />
-        <path className={`connector-line connector-line--agent-2 ${isAgentConnectorActive(1) ? 'is-active' : ''}`} d="M 390 184 Q 406 184 420 184" />
-        <path className={`connector-line connector-line--agent-3 ${isAgentConnectorActive(2) ? 'is-active' : ''}`} d="M 390 224 Q 408 258 420 318" />
-        <path className={`connector-line connector-line--agent-4 ${isAgentConnectorActive(3) ? 'is-active' : ''}`} d="M 225 224 Q 182 282 180 318" />
-        <path className={`connector-line connector-line--agent-5 ${isAgentConnectorActive(4) ? 'is-active' : ''}`} d="M 292 240 Q 272 258 272 275" />
-        <path className={`connector-line connector-line--feed ${step.stage === 'reporting' ? 'is-active' : ''}`} d="M 248 240 C 218 250, 198 270, 196 385" />
-        <path className={`connector-line connector-line--summary ${step.stage === 'summary' || step.stage === 'idle' ? 'is-active' : ''}`} d="M 352 240 C 382 250, 400 270, 400 385" />
+        <path className={`connector-line connector-line--req ${isRequestConnected ? 'is-active' : ''}`} d="M 255 150 C 297 116, 276 59.5, 234 59.5" />
+        <path className={`connector-line connector-line--plan ${isPlanningConnected ? 'is-active' : ''}`} d="M 210 205 C 190 205, 199 196.5, 179 196.5" />
+        <path className={`connector-line connector-line--agent-1 ${isAgentConnectorActive(0) ? 'is-active' : ''}`} d="M 390 163.2 C 419 163.2, 411 55, 440 55" />
+        <path className={`connector-line connector-line--agent-2 ${isAgentConnectorActive(1) ? 'is-active' : ''}`} d="M 390 205 C 419 205, 411 184, 440 184" />
+        <path className={`connector-line connector-line--agent-3 ${isAgentConnectorActive(2) ? 'is-active' : ''}`} d="M 390 244.6 C 419 244.6, 411 326, 440 326" />
+        <path className={`connector-line connector-line--agent-4 ${isAgentConnectorActive(3) ? 'is-active' : ''}`} d="M 300 260 C 300 270, 300 278, 300 288" />
+        <path className={`connector-line connector-line--agent-5 ${isAgentConnectorActive(4) ? 'is-active' : ''}`} d="M 210 244.6 C 171.7 244.6, 182.3 326, 144 326" />
+        <path className={`connector-line connector-line--feed ${step.stage === 'reporting' ? 'is-active' : ''}`} d="M 210 244.6 C 176 274, 166 372, 244 408" />
+        <path className={`connector-line connector-line--summary ${step.stage === 'summary' || step.stage === 'idle' ? 'is-active' : ''}`} d="M 390 244.6 C 444 290, 440 446, 320 474" />
 
         <circle className={`connector-pulse ${step.pulse === 'req' ? 'is-pulsing pulse-req' : ''}`} r="3.5" />
         <circle className={`connector-pulse ${step.pulse === 'plan' ? 'is-pulsing pulse-plan' : ''}`} r="3.5" />
