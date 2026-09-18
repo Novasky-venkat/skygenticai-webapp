@@ -57,6 +57,20 @@ State matrix:
 - Success: `data-state="success"` switches icon/link signal color to `--color-teal`.
 - Reduced motion: dropdown movement is removed; opacity/visibility changes remain effectively instant.
 
+### Desktop navbar laptop alignment -- 2026-09-19
+
+- Scope: shared `.navbar-wrapper` navigation in `styles/design-system.css`, including static internal pages and `scripts/site-shell.js` injected pages.
+- Bounds: desktop laptop range remains `992px` to `1180px`, preserving the 70px header and token-based horizontal padding.
+- Typography: top-level nav links and dropdown triggers use the body font at bold weight with `letter-spacing: 0`; labels stay single-line at laptop widths to avoid uneven vertical centering.
+- Alignment: the wordmark reduces to 200px in the laptop range, the menu flexes to the available center lane, and actions hold intrinsic width on the right so the nav row remains baseline-aligned without wrapping.
+- State inheritance: hover, focus-visible, active, disabled, loading, error, success, and reduced-motion behavior remain unchanged from the shared navigation matrix.
+
+### Platform dropdown icon tiles -- 2026-09-19
+
+- Scope: Platform dropdown and mobile Platform submenu icons using `.service-icon-img` in the shared navbar.
+- Tile format: each existing architecture PNG is contained inside a 48px square surface using `--color-blue-50`, `--radius-sm`, and token padding so it matches the quiet logo-tile language used by Solutions.
+- Interaction: row hover/focus keeps the existing `translateX(2px)` link motion while the tile shifts to `--color-blue-100` and lifts by 1px. Active, disabled, loading, error, success, focus-visible, and reduced-motion behavior remain inherited.
+
 ## Pre-Footer CTA
 
 The pre-footer CTA in `index.html` replaces the previous FAQ section and sits immediately before the approved footer.

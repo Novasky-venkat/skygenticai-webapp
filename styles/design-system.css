@@ -35,7 +35,7 @@ body {
   min-height: 42px; padding: 0 var(--space-4); border-radius: var(--radius-pill);
   background: transparent; box-shadow: none;
   color: var(--color-body); font-family: var(--font-family-body);
-  font-size: 1rem; font-weight: 500; text-decoration: none;
+  font-size: 1rem; font-weight: 700; text-decoration: none; white-space: nowrap;
   transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .nav-link:hover, .nav-link:focus-visible,
@@ -152,7 +152,7 @@ body {
   min-height: 42px; padding: 0 var(--space-4); border: 0; border-radius: var(--radius-pill);
   background: transparent; box-shadow: none;
   color: var(--color-body); cursor: pointer; font-family: var(--font-family-body);
-  font-size: 1rem; font-weight: 500; text-decoration: none;
+  font-size: 1rem; font-weight: 700; text-decoration: none; white-space: nowrap;
   transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .services-menu-trigger svg { transition: transform var(--transition-normal); }
@@ -202,22 +202,24 @@ body {
   font-size: .75rem; font-weight: 700; line-height: 1.2; text-transform: uppercase;
 }
 .service-dropdown-link {
-  display: flex; align-items: center; gap: var(--space-3);
+  display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: var(--space-3);
+  min-height: 56px;
   padding: var(--space-2) var(--space-3); color: var(--color-body);
   text-decoration: none; font-family: var(--font-family-body);
-  font-size: 0.9375rem; font-weight: 500; border-radius: var(--radius-md);
+  font-size: 0.9375rem; font-weight: 700; border-radius: var(--radius-md);
   transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
 }
 .service-icon-img {
-  display: block; width: 32px; height: 32px; object-fit: contain;
-  flex-shrink: 0; transition: transform var(--transition-fast);
+  display: block; width: 48px; height: 48px; padding: var(--space-3);
+  object-fit: contain; background: var(--color-blue-50); border-radius: var(--radius-sm);
+  flex-shrink: 0; transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 .service-dropdown-link:hover, .service-dropdown-link:focus-visible {
   background: var(--color-blue-50); color: var(--color-primary-blue); transform: translateX(2px);
 }
 .service-dropdown-link:hover .service-icon-img, .service-dropdown-link:focus-visible .service-icon-img {
-  transform: scale(1.08);
+  background: var(--color-blue-100); transform: translateY(-1px);
 }
 
 /* Layout */
@@ -2833,33 +2835,31 @@ body {
 @media (min-width: 992px) and (max-width: 1180px) {
   .navbar-container {
     min-height: 70px;
-    gap: var(--space-3);
-    padding: 0 var(--space-4);
+    gap: var(--space-2);
+    padding: 0 var(--space-3);
   }
 
   .nav-wordmark {
-    width: 220px;
+    width: 200px;
   }
 
   .nav-menu {
-    gap: var(--space-5);
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    min-width: 0;
   }
 
   .nav-link,
   .nav-signin,
   .services-menu-trigger {
     min-height: 48px;
-    max-width: 5.25rem;
     padding: 0 var(--space-2);
     font-size: .9375rem;
     line-height: 1.35;
     text-align: center;
-    white-space: normal;
-  }
-
-  .nav-link[href="get-in-touch.html"] {
-    max-width: none;
     white-space: nowrap;
+    flex: 0 0 auto;
   }
 
   .nav-link[href="get-in-touch.html"] > span,
@@ -2874,7 +2874,7 @@ body {
 
   .nav-text-slide {
     line-height: 1.35;
-    white-space: normal;
+    white-space: nowrap;
   }
 
   .nav-text-slide[aria-hidden="true"] {
@@ -2882,12 +2882,14 @@ body {
   }
 
   .nav-actions {
-    gap: var(--space-4);
-    margin-left: var(--space-5);
+    flex: 0 0 auto;
+    gap: var(--space-3);
+    margin-left: var(--space-4);
   }
 
   .nav-actions .btn-primary {
-    padding-left: var(--space-4);
+    padding-left: var(--space-3);
+    font-size: .875rem;
   }
 
   .hero-grid {
