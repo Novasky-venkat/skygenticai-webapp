@@ -46,17 +46,21 @@ export const Navbar = () => (
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
-          <div className="service-dropdown service-dropdown--solutions" id="solutions-dropdown" role="menu" aria-label="Solutions List">
-            <div className="service-dropdown-group" role="presentation">
+          <div className="service-dropdown service-dropdown--solutions solutions-mega" id="solutions-dropdown" role="menu" aria-label="Solutions List">
+            <div className="solutions-mega-column" role="presentation">
               <span className="service-dropdown-heading" role="presentation">Use Case</span>
-              <a className="service-dropdown-link" href="index.html#showcase" role="menuitem">Customer Care</a>
-              <a className="service-dropdown-link" href="platform.html#skyflow" role="menuitem">Workflow automation</a>
+              <a className="solutions-mega-item" href="customer-care.html" role="menuitem"><span className="solutions-mega-icon" aria-hidden="true"><img src="assets/navbar/customer-care.svg" alt="" width="24" height="24" /></span><span className="solutions-mega-copy"><strong>Customer Care</strong></span></a>
+              <a className="solutions-mega-item" href="workflow-automation.html" role="menuitem"><span className="solutions-mega-icon" aria-hidden="true"><img src="assets/navbar/workflow-automation.svg" alt="" width="24" height="24" /></span><span className="solutions-mega-copy"><strong>Workflow automation</strong></span></a>
             </div>
-            <div className="service-dropdown-group" role="presentation">
+            <div className="solutions-mega-column" role="presentation">
               <span className="service-dropdown-heading" role="presentation">Industries</span>
-              <a className="service-dropdown-link" href="get-in-touch.html" role="menuitem">Real Estate</a>
-              <a className="service-dropdown-link" href="get-in-touch.html" role="menuitem">Home Services</a>
-              <a className="service-dropdown-link" href="get-in-touch.html" role="menuitem">Travel &amp; Hospitality</a>
+              {[
+                ["Real Estate", "real-estate.html", "assets/navbar/real-estate.svg"],
+                ["Home Services", "home-services.html", "assets/navbar/home-services.svg"],
+                ["Travel & Hospitality", "travel-hospitality.html", "assets/navbar/travel-hospitality.svg"]
+              ].map(([industry, href, icon]) => (
+                <a className="solutions-mega-item" href={href} role="menuitem" key={industry}><span className="solutions-mega-icon" aria-hidden="true"><img src={icon} alt="" width="24" height="24" /></span><span className="solutions-mega-copy"><strong>{industry}</strong></span></a>
+              ))}
             </div>
           </div>
         </li>

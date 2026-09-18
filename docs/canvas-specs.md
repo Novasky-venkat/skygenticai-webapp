@@ -35,6 +35,42 @@ The marquee in `index.html` uses two identical, adjacent logo groups. Its transf
 - Hover: movement pauses so a logo can be inspected.
 - Reduced motion: the first logo group remains visible without animation.
 
+## Solutions Navigation Mega Menu
+
+The Solutions dropdown in the shared navbar is a desktop mega menu with mobile drawer parity. It is implemented in the repeated static page navs, `components/navbar.jsx`, `components/shared.jsx`, and shared styling in `styles/design-system.css`.
+
+- Bounds: desktop panel is fixed below the 72px sticky header, centered in the viewport, and capped at 930px with `calc(100vw - var(--space-12))` breathing room.
+- Layout: two columns in order: Use Case and Industries. Use Case includes Customer Care and Workflow automation; Industries includes Real Estate, Home Services, and Travel & Hospitality.
+- Icons: each menu item uses a dedicated decorative SVG from `assets/navbar/` with empty alt text and fixed dimensions.
+- Surface: `--color-mega-panel`, `--color-mega-panel-accent`, `--color-mega-icon-bg`, and `--shadow-mega-menu` from `styles/tokens.css`; no ad-hoc hex values or emoji/generic AI badges.
+- Typography: headings, item labels, and descriptions inherit `--font-family-body`; labels use `letter-spacing: 0`.
+- Mobile: the Solutions drawer keeps the same groups and order, using standard `.mobile-submenu` links and 56px row rhythm.
+
+State matrix:
+- Idle: crisp 1px border, 48px icon/link hit targets, readable grouped hierarchy.
+- Hover: menu item translates by 2px and icon lifts by 1px under pointer-capable interaction.
+- Focus-visible: trigger, menu items, and featured link use the global 2px focus ring with token offset.
+- Active: items return to stable baseline geometry.
+- Disabled: `aria-disabled="true"` reduces opacity, removes pointer interaction, and suppresses transforms.
+- Loading: `data-state="loading"` uses reduced opacity and progress cursor without resizing the row.
+- Error: `data-state="error"` switches icon/link signal color to `--color-error`.
+- Success: `data-state="success"` switches icon/link signal color to `--color-teal`.
+- Reduced motion: dropdown movement is removed; opacity/visibility changes remain effectively instant.
+
+### Desktop navbar laptop alignment -- 2026-09-19
+
+- Scope: shared `.navbar-wrapper` navigation in `styles/design-system.css`, including static internal pages and `scripts/site-shell.js` injected pages.
+- Bounds: desktop laptop range remains `992px` to `1180px`, preserving the 70px header and token-based horizontal padding.
+- Typography: top-level nav links and dropdown triggers use the body font at bold weight with `letter-spacing: 0`; labels stay single-line at laptop widths to avoid uneven vertical centering.
+- Alignment: the wordmark reduces to 200px in the laptop range, the menu flexes to the available center lane, and actions hold intrinsic width on the right so the nav row remains baseline-aligned without wrapping.
+- State inheritance: hover, focus-visible, active, disabled, loading, error, success, and reduced-motion behavior remain unchanged from the shared navigation matrix.
+
+### Platform dropdown icon tiles -- 2026-09-19
+
+- Scope: Platform dropdown and mobile Platform submenu icons using `.service-icon-img` in the shared navbar.
+- Tile format: each existing architecture PNG is contained inside a 48px square surface using `--color-blue-50`, `--radius-sm`, and token padding so it matches the quiet logo-tile language used by Solutions.
+- Interaction: row hover/focus keeps the existing `translateX(2px)` link motion while the tile shifts to `--color-blue-100` and lifts by 1px. Active, disabled, loading, error, success, focus-visible, and reduced-motion behavior remain inherited.
+
 ## Pre-Footer CTA
 
 The pre-footer CTA in `index.html` replaces the previous FAQ section and sits immediately before the approved footer.
