@@ -69,6 +69,9 @@ State matrix:
 
 - Scope: Platform dropdown and mobile Platform submenu icons using `.service-icon-img` in the shared navbar.
 - Tile format: each existing architecture PNG is contained inside a 48px square surface using `--color-blue-50`, `--radius-sm`, and token padding so it matches the quiet logo-tile language used by Solutions.
+- Desktop trigger behavior: Platform and Solutions top-level triggers act as menu controls. Click, Enter, or Space opens the dropdown and never navigates to the trigger `href`; links inside the dropdown retain normal navigation.
+- Responsive behavior: below the 992px desktop breakpoint, `.service-dropdown` is explicitly disabled even if hover/focus/open classes are present. Tablet and mobile use the hamburger drawer only.
+- Mobile drawer: Platform is a disclosure button bound to `#mobile-services-panel`, matching the Solutions row behavior. Static headers are normalized by `scripts/solutions-mega-menu.js`; injected headers define the button directly in `scripts/site-shell.js`.
 - Interaction: row hover/focus keeps the existing `translateX(2px)` link motion while the tile shifts to `--color-blue-100` and lifts by 1px. Active, disabled, loading, error, success, focus-visible, and reduced-motion behavior remain inherited.
 
 ## Pre-Footer CTA

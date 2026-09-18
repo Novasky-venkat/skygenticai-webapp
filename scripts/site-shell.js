@@ -53,7 +53,7 @@
         </a>
         <div class="mobile-menu-list">
           <div class="mobile-menu-item">
-            <a class="mobile-menu-row" href="platform.html"><span>Platform</span></a>
+            <button class="mobile-menu-row" type="button" aria-expanded="false" aria-controls="mobile-services-panel"><span>Platform</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
             <div class="mobile-submenu" id="mobile-services-panel" hidden>
               <a class="mobile-submenu-link" href="platform.html#forge"><img class="service-icon-img" src="assets/architecture/icon-forge.png" alt="" width="32" height="32"><span><strong>Forge</strong></span></a>
               <a class="mobile-submenu-link" href="platform.html#swarm"><img class="service-icon-img" src="assets/architecture/icon-swarm.png" alt="" width="32" height="32"><span><strong>Swarm</strong></span></a>

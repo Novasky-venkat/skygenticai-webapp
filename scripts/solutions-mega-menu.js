@@ -56,4 +56,48 @@
   document.querySelectorAll("[data-mobile-solutions-menu]").forEach((menu) => {
     if (!menu.hasChildNodes()) menu.innerHTML = mobileMenu;
   });
+
+  document.querySelectorAll(".services-menu").forEach((menu) => {
+    const trigger = menu.querySelector(".services-menu-trigger");
+    if (!trigger || trigger.dataset.dropdownTriggerBound === "true") return;
+    trigger.dataset.dropdownTriggerBound = "true";
+    trigger.setAttribute("role", "button");
+
+    const openMenu = () => {
+      document.querySelectorAll(".services-menu.is-open").forEach((openMenuItem) => {
+        if (openMenuItem !== menu) {
+          openMenuItem.classList.remove("is-open");
+          openMenuItem.querySelector(".services-menu-trigger")?.setAttribute("aria-expanded", "false");
+        }
+      });
+      menu.classList.remove("is-selection-closed");
+      menu.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+    };
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openMenu();
+    });
+
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key !== " ") return;
+      event.preventDefault();
+      openMenu();
+    });
+  });
+
+  document.querySelectorAll('.mobile-menu-item > a.mobile-menu-row[href="platform.html"]').forEach((row) => {
+    const panel = row.parentElement?.querySelector(".mobile-submenu");
+    if (!panel) return;
+    if (!panel.id) panel.id = "mobile-services-panel";
+
+    const button = document.createElement("button");
+    button.className = row.className;
+    button.type = "button";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", panel.id);
+    button.innerHTML = `${row.innerHTML}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>`;
+    row.replaceWith(button);
+  });
 })();

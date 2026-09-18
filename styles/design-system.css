@@ -3313,6 +3313,15 @@ body {
     max-width: min(44vw, 180px); justify-content: center;
   }
   .nav-menu { display: none; }
+  .service-dropdown,
+  .services-menu:not(.is-selection-closed):hover .service-dropdown,
+  .services-menu:not(.is-selection-closed):focus-within .service-dropdown,
+  .services-menu.is-open .service-dropdown {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
   .nav-actions { margin-left: auto; gap: var(--space-3); }
   .nav-actions .btn-primary { display: none; }
   .nav-signin {
