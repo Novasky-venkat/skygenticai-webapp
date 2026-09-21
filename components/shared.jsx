@@ -101,7 +101,7 @@ function Header({ current = "home" }) {
 
   const menuItems = [
     { label: "Platform", href: "platform.html", hasDropdown: true, key: "services" },
-    { label: "Solutions", href: "index.html#capabilities", hasDropdown: true, key: "solutions" },
+    { label: "Solutions", href: "customer-care.html", hasDropdown: true, key: "solutions" },
     { label: "Features", href: "features.html", hasDropdown: false, key: "resources" },
     { label: "Get in Touch", href: "get-in-touch.html", hasDropdown: false, key: "getInTouch" },
     { label: "Company", href: "company.html", hasDropdown: false, key: "aboutUs" }
@@ -114,15 +114,25 @@ function Header({ current = "home" }) {
       { label: "SkyFlow", href: "platform.html#skyflow" },
       { label: "Hive", href: "platform.html#hive" },
       { label: "NovaOps", href: "platform.html#nova-ops" }
-    ],
-    solutions: [
-      { label: "Use Case: Customer Care", href: "index.html#showcase" },
-      { label: "Use Case: Workflow automation", href: "platform.html#skyflow" },
-      { label: "Industries: Real Estate", href: "get-in-touch.html" },
-      { label: "Industries: Home Services", href: "get-in-touch.html" },
-      { label: "Industries: Travel & Hospitality", href: "get-in-touch.html" }
     ]
   };
+
+  const solutionUseCases = [
+    { label: "Customer Care", href: "customer-care.html", icon: "assets/navbar/customer-care.svg" },
+    { label: "Workflow Automation", href: "workflow-automation.html", icon: "assets/navbar/workflow-automation.svg" }
+  ];
+
+  const solutionIndustries = [
+    { label: "Real Estate", href: "real-estate.html", icon: "assets/navbar/real-estate.svg" },
+    { label: "Home Services", href: "home-services.html", icon: "assets/navbar/home-services.svg" },
+    { label: "Travel & Hospitality", href: "travel-hospitality.html", icon: "assets/navbar/travel-hospitality.svg" }
+  ];
+
+  const SolutionIcon = ({ src }) => (
+    <span className="hdr-solution-icon" aria-hidden="true">
+      <img src={src} alt="" width="24" height="24" />
+    </span>
+  );
 
   const handleLogoClick = (event) => {
     if (
@@ -172,7 +182,29 @@ function Header({ current = "home" }) {
                         <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
-                    {openDropdowns[item.key] && dropdownMenus[item.key] && (
+                    {openDropdowns[item.key] && item.key === "solutions" && (
+                      <div className="hdr-submenu hdr-submenu--solutions">
+                        <div className="hdr-solution-col">
+                          <span className="hdr-submenu-heading">Use Cases</span>
+                          {solutionUseCases.map(subitem => (
+                            <a key={subitem.label} href={subitem.href} className="hdr-solution-link">
+                              <SolutionIcon src={subitem.icon} />
+                              <span><strong>{subitem.label}</strong></span>
+                            </a>
+                          ))}
+                        </div>
+                        <div className="hdr-solution-col">
+                          <span className="hdr-submenu-heading">Industries</span>
+                          {solutionIndustries.map(industry => (
+                            <a key={industry.label} href={industry.href} className="hdr-solution-link hdr-solution-link--compact">
+                              <SolutionIcon src={industry.icon} />
+                              <span><strong>{industry.label}</strong></span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {openDropdowns[item.key] && item.key !== "solutions" && dropdownMenus[item.key] && (
                       <div className="hdr-submenu">
                         {dropdownMenus[item.key].map(subitem => (
                           <a key={subitem.label} href={subitem.href} className="hdr-submenu-link">
@@ -204,7 +236,19 @@ function Header({ current = "home" }) {
           {menuItems.map(item => (
             <div key={item.key || item.label} className="hdr-mobile-group">
               <a href={item.href}>{item.label}</a>
-              {item.hasDropdown && dropdownMenus[item.key] && (
+              {item.hasDropdown && item.key === "solutions" && (
+                <div className="hdr-mobile-submenu hdr-mobile-submenu--solutions">
+                  <span>Use Cases</span>
+                  {solutionUseCases.map(subitem => (
+                    <a key={subitem.label} href={subitem.href}>{subitem.label}</a>
+                  ))}
+                  <span>Industries</span>
+                  {solutionIndustries.map(industry => (
+                    <a key={industry.label} href={industry.href}>{industry.label}</a>
+                  ))}
+                </div>
+              )}
+              {item.hasDropdown && item.key !== "solutions" && dropdownMenus[item.key] && (
                 <div className="hdr-mobile-submenu">
                   {dropdownMenus[item.key].map(subitem => (
                     <a key={subitem.label} href={subitem.href}>{subitem.label}</a>
@@ -384,6 +428,107 @@ function Header({ current = "home" }) {
           animation: fadeDown 0.18s ease;
           z-index: 10;
         }
+        .hdr-submenu--solutions {
+          left: 50%;
+          width: min(calc(100vw - 48px), 620px);
+          min-width: 0;
+          padding: 28px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 28px;
+          transform: translateX(-50%);
+          background: var(--color-card);
+          color: var(--color-body);
+          border-color: var(--color-border);
+          box-shadow: var(--shadow-mega-menu, 0 24px 70px oklch(19% 0.025 255 / 0.14));
+        }
+        .hdr-submenu-heading {
+          display: block;
+          margin-bottom: 12px;
+          color: var(--color-secondary-text);
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 0;
+        }
+        .hdr-solution-col {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .hdr-solution-link {
+          min-height: 56px;
+          display: grid;
+          grid-template-columns: 48px minmax(0, 1fr);
+          align-items: center;
+          gap: var(--space-3);
+          padding: var(--space-2) var(--space-3);
+          color: var(--color-body);
+          border-radius: var(--radius-md);
+          text-decoration: none;
+          transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+        }
+        .hdr-solution-link strong {
+          display: block;
+          color: var(--color-heading);
+          font-size: 15px;
+          line-height: 1.25;
+        }
+        .hdr-solution-link small {
+          display: block;
+          margin-top: 6px;
+          color: var(--color-secondary-text);
+          font-size: 13px;
+          line-height: 1.4;
+        }
+        .hdr-solution-icon {
+          width: 48px;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: var(--radius-sm);
+          background: var(--color-blue-50);
+          transition: background-color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+        }
+        .hdr-solution-icon img {
+          display: block;
+          width: 24px;
+          height: 24px;
+        }
+        .hdr-solution-link:hover,
+        .hdr-solution-link:focus-visible {
+          background: var(--color-blue-50);
+          color: var(--color-primary-blue);
+          outline: none;
+          transform: translateX(2px);
+        }
+        .hdr-solution-link:focus-visible {
+          outline: 2px solid var(--focus-ring-color);
+          outline-offset: var(--focus-ring-offset);
+        }
+        .hdr-solution-link:hover .hdr-solution-icon,
+        .hdr-solution-link:focus-visible .hdr-solution-icon {
+          background: var(--color-blue-100);
+          transform: translateY(-1px);
+        }
+        .hdr-solution-link[aria-disabled="true"] {
+          opacity: .45;
+          cursor: not-allowed;
+          pointer-events: none;
+          transform: none;
+        }
+        .hdr-solution-link[data-state="loading"] {
+          opacity: .72;
+          cursor: progress;
+        }
+        .hdr-solution-link[data-state="success"] {
+          color: var(--color-teal);
+        }
+        .hdr-solution-link[data-state="error"] {
+          color: var(--color-error);
+        }
         @keyframes fadeDown {
           from { opacity: 0; transform: translateY(-4px); }
           to { opacity: 1; transform: translateY(0); }
@@ -513,6 +658,14 @@ function Header({ current = "home" }) {
           font-size: 13px;
           font-weight: 400;
         }
+        .hdr-mobile-submenu--solutions span {
+          grid-column: 1 / -1;
+          color: oklch(94% 0.014 250 / 0.58);
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0;
+        }
         @media (max-width: 1024px) {
           .hdr--scrolled .hdr-inner {
             max-width: 100%;
@@ -571,228 +724,63 @@ function Nav({ current = "home" }) {
 // ============ FOOTER ============
 function Footer() {
   return (
-    <footer className="ft" role="contentinfo">
-      <div className="container">
-        <div className="ft-upper">
-          <div className="ft-brand-section">
-            <a href="index.html" className="hdr-logo ft-brand-logo" aria-label="SkyGentic AI Homepage">
-              <img className="hdr-logo-img ft-logo-img" src="assets/Skygentic-wordmark.png" alt="SkyGentic AI" />
-            </a>
-            <p className="ft-description">
-              Agentic AI for ambitious businesses. Deploy intelligent agents that work, think, and scale alongside your team.
-            </p>
-            <div className="ft-status" aria-label="All systems operational">
-              <span className="ft-status-dot" aria-hidden="true"></span>
-              <span>All systems operational</span>
-            </div>
+  <footer className="footer-wrapper footer-compact surface-page" role="contentinfo">
+    <div className="container">
+      <div className="footer-upper">
+        <div className="footer-brand-section">
+          <a href="index.html" className="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
+            <img className="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic AI" />
+          </a>
+          <p className="text-body-compact">
+            Agentic AI for ambitious businesses.<br />
+            Deploy intelligent AI workforces that automate operations.
+          </p>
+          <nav className="footer-social" aria-label="Social links">
+            <a href="https://linkedin.com/company/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on LinkedIn"><span className="social-icon social-icon-linkedin" aria-hidden="true" /></a>
+            <a href="https://github.com/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on GitHub"><span className="social-icon social-icon-github" aria-hidden="true" /></a>
+            <a href="https://instagram.com/skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on Instagram"><span className="social-icon social-icon-instagram" aria-hidden="true" /></a>
+            <a href="https://x.com/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on X"><span className="social-icon social-icon-x" aria-hidden="true" /></a>
+          </nav>
+        </div>
+
+        <nav className="footer-navigation rule-left-desktop" aria-label="Footer navigation">
+          <div className="footer-nav-column">
+            <h2 className="font-display nav-section-title">Platform</h2>
+            <ul className="footer-link-list">
+              <li><a href="platform.html#forge" className="nav-link nav-subtle">Forge</a></li>
+              <li><a href="platform.html#swarm" className="nav-link nav-subtle">Swarm</a></li>
+              <li><a href="platform.html#skyflow" className="nav-link nav-subtle">SkyFlow</a></li>
+              <li><a href="platform.html#hive" className="nav-link nav-subtle">Hive</a></li>
+              <li><a href="platform.html#nova-ops" className="nav-link nav-subtle">NovaOps</a></li>
+            </ul>
           </div>
-
-          <nav className="ft-navigation" aria-label="Footer navigation">
-            <div className="ft-nav-column">
-              <h5>Platform</h5>
-              <ul className="ft-link-list">
-                <li><a href="platform.html#forge">Forge</a></li>
-                <li><a href="platform.html#swarm">Swarm</a></li>
-                <li><a href="platform.html#skyflow">SkyFlow</a></li>
-                <li><a href="platform.html#hive">Hive</a></li>
-                <li><a href="platform.html#nova-ops">NovaOps</a></li>
-              </ul>
-            </div>
-            <div className="ft-nav-column">
-              <h5>Quick Links</h5>
-              <ul className="ft-link-list">
-                <li><a href="features.html">Features</a></li>
-                <li><a href="get-in-touch.html">Get in Touch</a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="signin.html">Sign in</a></li>
-              </ul>
-            </div>
-            <div className="ft-nav-column">
-              <h5>Follow Us</h5>
-              <ul className="ft-link-list">
-                <li><a href="https://linkedin.com/company/skygenticai" aria-label="SkyGentic AI on LinkedIn">LinkedIn</a></li>
-                <li><a href="https://github.com/skygenticai" aria-label="SkyGentic AI on GitHub">GitHub</a></li>
-                <li><a href="https://x.com/skygenticai" aria-label="SkyGentic AI on X">X</a></li>
-                <li><a aria-disabled="true" aria-label="SkyGentic AI on Instagram">Instagram</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-
-        <div className="ft-bottom">
-          <span>© 2026 SkyGentic AI / Novasky. All rights reserved.</span>
-          <nav className="ft-policy" aria-label="Footer legal links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-          </nav>
-        </div>
+          <div className="footer-nav-column">
+            <h2 className="font-display nav-section-title">Quick Links</h2>
+            <ul className="footer-link-list">
+              <li><a href="company.html" className="nav-link nav-subtle">Company</a></li>
+              <li><a href="features.html" className="nav-link nav-subtle">Features</a></li>
+              <li><a href="get-in-touch.html" className="nav-link nav-subtle">Get In Touch</a></li>
+              <li><a href="signin.html" className="nav-link nav-subtle">Sign In</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      <style>{`
-        .ft {
-          background: var(--dark-bg);
-          color: var(--dark-ink-soft);
-          font-family: var(--font-body);
-          font-weight: 400;
-          padding: var(--space-8) 0 var(--space-5);
-          position: relative;
-          overflow-x: clip;
-        }
-        .ft .container {
-          position: relative;
-        }
-        .ft-upper {
-          display: grid;
-          grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
-          gap: var(--space-8);
-          align-items: start;
-          padding-bottom: var(--space-8);
-        }
-        .ft-brand-section {
-          max-width: 560px;
-        }
-        .ft-brand-logo {
-          width: fit-content;
-          height: auto;
-          margin-left: -10px;
-          padding: 8px 10px;
-          background: var(--color-card);
-          border: 1px solid var(--dark-border);
-          border-radius: var(--r-sm);
-        }
-        .ft-logo-img {
-          width: 250px;
-          height: auto;
-        }
-        .ft-description {
-          color: var(--dark-ink-soft);
-          font-size: 16px;
-          line-height: 1.65;
-          max-width: 465px;
-          margin: var(--space-5) 0 0;
-        }
-        .ft-status {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: var(--space-4);
-          color: var(--dark-ink);
-          font-size: 14px;
-          font-weight: 500;
-        }
-        .ft-status-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--accent-2);
-          flex: 0 0 auto;
-        }
-        .ft-navigation {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(32px, 4vw, 56px);
-        }
-        .ft-navigation h5 {
-          font-family: var(--font-display);
-          font-size: 16px;
-          line-height: 1.3;
-          letter-spacing: 0;
-          color: var(--dark-ink);
-          margin: 0 0 var(--space-4);
-          font-weight: 500;
-        }
-        .ft-link-list {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-        }
-        .ft-link-list a,
-        .ft-policy a {
-          display: inline-flex;
-          align-items: center;
-          min-height: 48px;
-          font-size: 15px;
-          line-height: 1.2;
-          font-family: var(--font-body);
-          font-weight: 500;
-          color: var(--dark-ink-soft);
-          width: fit-content;
-          padding: 8px 12px;
-          margin-left: -12px;
-          border-radius: var(--radius-pill);
-          transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-          white-space: nowrap;
-        }
-        .ft-link-list a:hover,
-        .ft-link-list a:focus-visible,
-        .ft-policy a:hover,
-        .ft-policy a:focus-visible {
-          color: var(--dark-ink);
-          background: oklch(99% 0.006 250 / 0.055);
-          transform: translateX(2px);
-        }
-        .ft-link-list a:active,
-        .ft-policy a:active {
-          transform: translateX(0);
-        }
-        .ft-bottom {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: var(--space-5);
-          border-top: 1px solid var(--dark-border);
-          padding-top: var(--space-5);
-          font-size: 13.5px;
-          color: var(--dark-ink-mute);
-        }
-        .ft-policy {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: var(--space-5);
-          flex-wrap: wrap;
-        }
-        @media (max-width: 880px) {
-          .ft-upper {
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
-          }
-          .ft-navigation {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-          }
-        }
-        @media (max-width: 640px) {
-          .ft {
-            padding-top: var(--space-8);
-          }
-          .ft-upper {
-            gap: var(--space-6);
-            padding-bottom: var(--space-8);
-          }
-          .ft-navigation {
-            grid-template-columns: 1fr;
-            gap: var(--space-6);
-          }
-          .ft-logo-img {
-            width: 150px;
-          }
-          .ft-bottom {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--space-3);
-          }
-          .ft-policy {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
-          }
-        }
-      `}</style>
-    </footer>
+      <div className="footer-bottom-bar rule-top text-body-small">
+        <div className="footer-copyright">© 2026 SkyGentic AI. All rights reserved.</div>
+        <nav className="footer-legal" aria-label="Footer legal links">
+          <a href="privacy.html" className="nav-link nav-subtle">Privacy Policy</a>
+          <a href="terms.html" className="nav-link nav-subtle">Terms of Service</a>
+        </nav>
+        <a href="#" className="btn-glass btn-icon-outline footer-back-to-top" aria-label="Back to Top">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 19V5" />
+            <path d="M6 11l6-6 6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
   );
 }
 
