@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skygentic AI - AI for Travel &amp; Hospitality</title>
+  <meta name="description" content="Skygentic AI helps travel and hospitality teams deliver personalized assistance before, during and after each journey with AI agents.">
+  <link rel="canonical" href="https://Skygentic.ai/travel-hospitality.html">
+  <meta property="og:title" content="Skygentic AI - AI for Travel &amp; Hospitality">
+  <meta property="og:description" content="AI agents for booking assistance, reservation management, guest services, travel support and personalized recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://Skygentic.ai/travel-hospitality.html">
+  <meta property="og:image" content="assets/Skygentic-wordmark.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skygentic AI - AI for Travel &amp; Hospitality">
+  <meta name="twitter:description" content="AI agents for booking assistance, reservation management, guest services, travel support and personalized recommendations.">
+  <meta name="twitter:image" content="assets/Skygentic-wordmark.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", "name": "Skygentic AI", "url": "https://Skygentic.ai", "logo": "assets/Skygentic-wordmark.png" },
+      { "@type": "SoftwareApplication", "name": "Skygentic AI", "applicationCategory": "BusinessApplication", "operatingSystem": "Web" },
+      { "@type": "WebPage", "name": "Skygentic AI - AI for Travel & Hospitality", "url": "https://Skygentic.ai/travel-hospitality.html" }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/design-system.css">
+  <style>
+/* Solutions Pages */
+.solution-page {
+  background-color: var(--color-background);
+  color: var(--color-body);
+  overflow-x: clip;
+}
+
+.solution-page-shell {
+  background-color: var(--color-background);
+  background-image: var(--bg-hero-composition), var(--bg-gradient-hero);
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% 760px;
+  color: var(--color-body);
+  overflow-x: clip;
+}
+
+.solution-hero {
+  position: relative;
+  padding: var(--space-12) 0 var(--space-16);
+  overflow: clip;
+}
+
+.solution-hero::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  right: 7%;
+  width: min(44vw, 520px);
+  height: min(36vw, 420px);
+  background: var(--bg-prefooter-cta-glow);
+  filter: blur(var(--space-16));
+  opacity: .54;
+  pointer-events: none;
+}
+
+.solution-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(360px, .97fr);
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.solution-kicker,
+.solution-section-label {
+  display: block;
+  margin: 0 0 var(--space-4);
+  color: var(--color-primary-blue);
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.solution-title {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 2.55rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.solution-lead {
+  max-width: 680px;
+  margin: var(--space-6) 0 0;
+  color: var(--color-body);
+  font-family: var(--font-family-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.solution-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.solution-visual {
+  position: relative;
+  min-height: 472px;
+  isolation: isolate;
+}
+
+.solution-visual::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-12) var(--space-4) var(--space-8);
+  background: var(--bg-gradient-ai-showcase);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-ambient-card);
+  opacity: .72;
+}
+
+.solution-visual::after {
+  content: "";
+  position: absolute;
+  inset: var(--space-4) 0 0 var(--space-6);
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: var(--space-10) var(--space-10);
+  border-radius: var(--radius-sm);
+  opacity: .28;
+  mask-image: radial-gradient(ellipse at center, var(--color-heading) 0%, transparent 76%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.solution-visual-lines {
+  position: absolute;
+  inset: var(--space-8);
+  width: calc(100% - var(--space-16));
+  height: calc(100% - var(--space-16));
+  color: var(--color-primary-blue);
+  opacity: .42;
+  z-index: 1;
+}
+
+.solution-visual-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 6 7;
+  animation: solutionLineDrift 8s var(--ease-linear) infinite;
+}
+
+.solution-node {
+  position: absolute;
+  z-index: 2;
+  width: min(58%, 260px);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  box-shadow: var(--shadow-ambient-card);
+  transform: translateY(0);
+  animation: solutionCardFloat 7s var(--ease-out) infinite;
+}
+
+.solution-node:nth-of-type(2) {
+  animation-delay: -1.2s;
+}
+
+.solution-node:nth-of-type(3) {
+  animation-delay: -2.4s;
+}
+
+.solution-node:nth-of-type(4) {
+  animation-delay: -3.1s;
+}
+
+.solution-node--one { top: var(--space-8); left: 0; }
+.solution-node--two { top: 26%; right: 0; }
+.solution-node--three { top: 56%; left: var(--space-8); }
+.solution-node--four { right: var(--space-2); bottom: 0; }
+.solution-node--property { top: var(--space-8); right: var(--space-4); bottom: auto; }
+
+.solution-node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.solution-node-label {
+  color: var(--color-secondary-text);
+  font-family: var(--font-family-body);
+  font-size: .75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.solution-node-icon {
+  width: var(--space-8);
+  height: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-primary-blue);
+  flex: 0 0 auto;
+}
+
+.solution-node-icon svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.solution-node-title {
+  display: block;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.solution-node-text {
+  margin: var(--space-2) 0 0;
+  color: var(--color-body);
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.solution-message-stack {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.solution-message {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-body);
+  font-size: .875rem;
+  line-height: 1.45;
+}
+
+.solution-message--agent {
+  background: var(--color-teal-soft);
+}
+
+.solution-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  color: var(--color-primary-blue);
+  font-size: .875rem;
+  font-weight: 700;
+}
+
+.solution-status::before {
+  content: "";
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 var(--space-2) var(--color-teal-soft);
+}
+
+.solution-section {
+  padding: var(--space-20) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.solution-section--soft {
+  background: var(--color-card);
+}
+
+.solution-section--tint {
+  background: var(--color-blue-50);
+}
+
+.solution-section-header {
+  max-width: 820px;
+  margin: 0 0 var(--space-10);
+}
+
+.solution-section-title {
+  max-width: 780px;
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.solution-section-copy {
+  max-width: 780px;
+  margin: var(--space-5) 0 0;
+  color: var(--color-body);
+  font-family: var(--font-family-body);
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+
+.solution-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.solution-card-grid--six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.solution-card {
+  min-width: 0;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  box-shadow: var(--shadow-nav);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-blue);
+  box-shadow: var(--shadow-ambient-card);
+}
+
+.solution-card:hover .solution-card-number,
+.solution-card:focus-within .solution-card-number {
+  opacity: 1;
+  color: var(--color-primary-blue);
+  text-shadow: 0 0 var(--space-6) var(--color-blue-100);
+}
+
+.solution-card-number {
+  display: block;
+  margin-bottom: var(--space-8);
+  color: var(--color-primary-blue);
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  opacity: .32;
+  transition: opacity var(--transition-normal), text-shadow var(--transition-normal);
+}
+
+.solution-card-title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.solution-card-copy {
+  margin: var(--space-3) 0 0;
+  color: var(--color-body);
+  font-family: var(--font-family-body);
+  font-size: .975rem;
+  line-height: 1.6;
+}
+
+.solution-process {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--process-count, 4), minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.solution-process--four { --process-count: 4; }
+.solution-process--five { --process-count: 5; }
+
+.solution-process::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-8) + var(--space-1));
+  left: var(--space-8);
+  right: var(--space-8);
+  height: 1px;
+  background: var(--color-border);
+}
+
+.solution-process::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-8) + var(--space-1));
+  left: var(--space-8);
+  width: min(50%, calc(100% - var(--space-16)));
+  height: 1px;
+  background: var(--color-primary-blue);
+  transform-origin: left;
+  animation: solutionLineGrow 4.8s var(--ease-out) infinite;
+}
+
+.solution-process-step {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  box-shadow: var(--shadow-nav);
+}
+
+.solution-process-dot {
+  width: var(--space-5);
+  height: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  border-radius: 50%;
+  background: var(--color-primary-blue);
+  color: var(--color-card);
+  box-shadow: 0 0 0 var(--space-2) var(--color-blue-50);
+}
+
+.solution-process-icon {
+  width: var(--space-8);
+  height: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-blue);
+}
+
+.solution-process-icon svg {
+  width: var(--space-5);
+  height: var(--space-5);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.solution-process-number {
+  display: block;
+  color: var(--color-primary-blue);
+  font-size: .8125rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.solution-process-title {
+  margin: var(--space-2) 0 0;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.solution-process-copy {
+  margin: var(--space-3) 0 0;
+  color: var(--color-body);
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+
+.solution-journey {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scrollbar-width: thin;
+}
+
+.solution-journey-step {
+  position: relative;
+  min-width: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  color: var(--color-heading);
+  font-family: var(--font-family-body);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.solution-journey-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--space-3));
+  width: var(--space-3);
+  height: 1px;
+  background: var(--color-primary-blue);
+}
+
+.solution-integration-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+}
+
+.solution-integration-card {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  color: var(--color-heading);
+  font-family: var(--font-family-body);
+  font-size: .9375rem;
+  font-weight: 800;
+  text-align: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.solution-integration-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary-blue);
+}
+
+.solution-cta {
+  position: relative;
+  padding: var(--space-20) 0 var(--space-24);
+  background: var(--color-background);
+  overflow: clip;
+}
+
+.solution-cta::before {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: min(72vw, 620px);
+  height: min(46vw, 360px);
+  transform: translate(-50%, -50%);
+  background: var(--bg-prefooter-cta-glow);
+  filter: blur(54px);
+  opacity: .58;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.solution-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.solution-cta-title {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family-display);
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.solution-cta-button {
+  margin-top: var(--space-6);
+  white-space: nowrap;
+}
+
+.solution-cta-button .btn-text-slide {
+  white-space: nowrap;
+}
+
+@keyframes solutionCardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(-1 * var(--space-2))); }
+}
+
+@keyframes solutionLineDrift {
+  to { stroke-dashoffset: -52; }
+}
+
+@keyframes solutionMobileLineDrift {
+  to { background-position: 0 12px; }
+}
+
+@keyframes solutionLineGrow {
+  0%, 100% { transform: scaleX(.18); opacity: .36; }
+  45%, 60% { transform: scaleX(1); opacity: .9; }
+}
+
+@media (min-width: 768px) {
+  .solution-title {
+    font-size: 3.35rem;
+  }
+}
+
+@media (min-width: 1180px) {
+  .solution-title {
+    font-size: 4.4rem;
+  }
+}
+
+@media (max-width: 1180px) {
+  .solution-hero-grid {
+    grid-template-columns: minmax(0, .95fr) minmax(430px, 1.05fr);
+    gap: var(--space-10);
+  }
+
+  .solution-visual {
+    min-height: 520px;
+  }
+
+  .solution-node {
+    width: min(47%, 236px);
+  }
+
+  .solution-node--one { top: var(--space-10); }
+  .solution-node--two { top: 24%; }
+  .solution-node--three { top: 58%; left: var(--space-4); }
+  .solution-node--four { right: 0; bottom: var(--space-2); }
+  .solution-node--property { top: auto; right: 0; bottom: var(--space-2); }
+
+  .solution-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-process::before,
+  .solution-process::after {
+    display: none;
+  }
+
+  .solution-integration-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .solution-page-shell {
+    background-size: auto;
+  }
+
+  .solution-hero {
+    padding: var(--space-10) 0 var(--space-12);
+  }
+
+  .solution-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .solution-visual {
+    width: min(100%, 680px);
+    margin: 0 auto;
+  }
+
+  .solution-card-grid,
+  .solution-card-grid--six {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .solution-hero {
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .solution-title {
+    font-size: 2.25rem;
+  }
+
+  .solution-lead,
+  .solution-section-copy {
+    font-size: 1rem;
+  }
+
+  .solution-actions .btn-primary {
+    width: 100%;
+  }
+
+  .solution-cta-button {
+    width: 100%;
+    padding-left: var(--space-3);
+    font-size: .875rem;
+  }
+
+  .solution-cta-button--wide {
+    font-size: .8125rem;
+  }
+
+  .solution-visual {
+    min-height: auto;
+    display: grid;
+    justify-items: center;
+    gap: var(--space-10);
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .solution-visual::before {
+    inset: 0;
+  }
+
+  .solution-visual-lines {
+    display: block;
+    inset: var(--space-6) var(--space-5);
+    width: calc(100% - var(--space-10));
+    height: calc(100% - var(--space-12));
+    opacity: .36;
+    pointer-events: none;
+  }
+
+  .solution-node {
+    position: relative;
+    width: min(100%, 300px);
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    animation: none;
+  }
+
+  .solution-node--one::after,
+  .solution-node--two::after,
+  .solution-node--three::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: var(--space-10);
+    transform: translateX(-50%);
+    background-image: linear-gradient(to bottom, var(--color-primary-blue) 0 46%, transparent 46% 100%);
+    background-size: 2px 12px;
+    background-repeat: repeat-y;
+    opacity: .48;
+    pointer-events: none;
+    animation: solutionMobileLineDrift 900ms var(--ease-linear) infinite;
+  }
+
+  .solution-node--one,
+  .solution-node--two,
+  .solution-node--three,
+  .solution-node--four,
+  .solution-node--property {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  .solution-section {
+    padding: var(--space-12) 0;
+  }
+
+  .solution-section-title,
+  .solution-cta-title {
+    font-size: 2rem;
+  }
+
+  .solution-card-grid,
+  .solution-card-grid--six,
+  .solution-process,
+  .solution-integration-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .solution-card {
+    min-height: auto;
+    padding: var(--space-6);
+  }
+
+  .solution-process-step {
+    padding: var(--space-5);
+  }
+
+  .solution-journey {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .solution-journey-step {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .solution-journey-step:not(:last-child)::after {
+    top: auto;
+    right: 50%;
+    bottom: calc(-1 * var(--space-3));
+    width: 1px;
+    height: var(--space-3);
+  }
+
+  .solution-cta {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solution-node,
+  .solution-node::after,
+  .solution-visual-line,
+  .solution-process::after {
+    animation: none;
+  }
+
+  .solution-card,
+  .solution-integration-card {
+    transition-duration: .01ms;
+  }
+}
+  </style>
+</head>
+
+<body class="solution-page">
+  <div data-site-header></div>
+
+  <main id="main-content" class="solution-page-shell">
+    <section class="solution-hero" aria-labelledby="travel-title">
+      <div class="container">
+        <div class="solution-hero-grid">
+          <div>
+            <span class="solution-kicker">INDUSTRY - Travel & Hospitality</span>
+            <h1 id="travel-title" class="solution-title">AI that makes every journey easier.</h1>
+            <p class="solution-lead">Deliver personalized travel and hospitality experiences with AI agents that assist customers before, during and after their journey.</p>
+            <div class="solution-actions">
+              <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule a travel and hospitality demo">
+                <span class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></span>
+                <span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="solution-visual" aria-label="Travel and hospitality AI workflow">
+            <svg class="solution-visual-lines" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
+              <path class="solution-visual-line" d="M112 88 C232 96 298 146 404 160"></path>
+              <path class="solution-visual-line" d="M402 204 C324 242 248 262 150 300"></path>
+              <path class="solution-visual-line" d="M170 334 C254 382 350 348 424 350"></path>
+            </svg>
+            <article class="solution-node solution-node--one">
+              <div class="solution-node-header">
+                <span class="solution-node-label">Discover</span>
+                <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg></span>
+              </div>
+              <strong class="solution-node-title">Guest intent understood</strong>
+              <p class="solution-node-text">Preferences, timing, booking context and questions are captured.</p>
+            </article>
+            <article class="solution-node solution-node--two">
+              <div class="solution-node-header">
+                <span class="solution-node-label">Book</span>
+                <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span>
+              </div>
+              <strong class="solution-node-title">Reservation supported</strong>
+              <p class="solution-node-text">Changes, confirmations, policies and next steps stay organized.</p>
+            </article>
+            <article class="solution-node solution-node--three">
+              <div class="solution-node-header">
+                <span class="solution-node-label">Stay</span>
+                <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16v8"></path><path d="M4 19V7"></path><path d="M8 11V7h6v4"></path></svg></span>
+              </div>
+              <strong class="solution-node-title">Service request routed</strong>
+              <p class="solution-node-text">Guest needs move to the right team with context intact.</p>
+            </article>
+            <article class="solution-node solution-node--four">
+              <div class="solution-node-header">
+                <span class="solution-node-label">Support</span>
+                <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3"></path><path d="M19 13v-3a7 7 0 0 0-7-7"></path><path d="M5 13h3v5H5z"></path><path d="M16 13h3v5h-3z"></path></svg></span>
+              </div>
+              <strong class="solution-node-title">Follow-up personalized</strong>
+              <span class="solution-status">Journey supported</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section solution-section--soft" aria-labelledby="travel-reimagined-title">
+      <div class="container">
+        <div class="solution-section-header">
+          <span class="solution-section-label">TRAVEL &amp; HOSPITALITY, REIMAGINED</span>
+          <h2 id="travel-reimagined-title" class="solution-section-title">From booking to checkout, your AI concierge is always available.</h2>
+        </div>
+        <div class="solution-card-grid solution-card-grid--six">
+          <article class="solution-card"><span class="solution-card-number">01</span><h3 class="solution-card-title">Booking assistance</h3><p class="solution-card-copy">Help customers discover options, answer questions and navigate booking workflows.</p></article>
+          <article class="solution-card"><span class="solution-card-number">02</span><h3 class="solution-card-title">Reservation management</h3><p class="solution-card-copy">Handle changes, cancellations, confirmations and reservation requests.</p></article>
+          <article class="solution-card"><span class="solution-card-number">03</span><h3 class="solution-card-title">Guest services</h3><p class="solution-card-copy">Assist with check-in information, amenities, transportation and service requests.</p></article>
+          <article class="solution-card"><span class="solution-card-number">04</span><h3 class="solution-card-title">Travel information</h3><p class="solution-card-copy">Provide relevant information about bookings, properties, policies and destinations.</p></article>
+          <article class="solution-card"><span class="solution-card-number">05</span><h3 class="solution-card-title">24/7 travel support</h3><p class="solution-card-copy">Give travelers assistance before, during and after their journey.</p></article>
+          <article class="solution-card"><span class="solution-card-number">06</span><h3 class="solution-card-title">Personalized recommendations</h3><p class="solution-card-copy">Use customer context and preferences to provide relevant suggestions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section solution-section--tint" aria-labelledby="travel-workflow-title">
+      <div class="container">
+        <div class="solution-section-header">
+          <span class="solution-section-label">THE CUSTOMER JOURNEY</span>
+          <h2 id="travel-workflow-title" class="solution-section-title">Support every step of the journey.</h2>
+        </div>
+        <div class="solution-journey" aria-label="Travel and hospitality customer journey">
+          <div class="solution-journey-step">Discover</div>
+          <div class="solution-journey-step">Book</div>
+          <div class="solution-journey-step">Prepare</div>
+          <div class="solution-journey-step">Travel</div>
+          <div class="solution-journey-step">Stay</div>
+          <div class="solution-journey-step">Support</div>
+          <div class="solution-journey-step">Follow-Up</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-cta" aria-labelledby="travel-cta-title">
+      <div class="container-focus solution-cta-inner">
+        <h2 id="travel-cta-title" class="solution-cta-title">Create experiences that feel personal.</h2>
+        <a href="schedule-demo.html" class="btn-primary solution-cta-button solution-cta-button--wide" aria-label="Build your AI-powered guest experience">
+          <span class="btn-text-wrapper"><span class="btn-text-slide">Build Your AI-Powered Guest Experience</span><span class="btn-text-slide">Build Your AI-Powered Guest Experience</span></span>
+          <span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script src="scripts/site-shell.js"></script>
+  <script src="scripts/solutions-mega-menu.js"></script>
+</body>
+
+</html>

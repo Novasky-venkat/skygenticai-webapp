@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skygentic AI | Features</title>
   <meta name="description"
-    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and customer case studies.">
+    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and agent operations guidance.">
   <link rel="canonical" href="https://Skygentic.ai/features.html">
 
   <!-- OpenGraph Social Cards -->
   <meta property="og:title" content="Platform Features, SDKs &amp; Whitepapers | Skygentic AI">
   <meta property="og:description"
-    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and customer case studies.">
+    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and agent operations guidance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://Skygentic.ai/features.html">
   <meta property="og:image" content="https://Skygentic.ai/og-image.png">
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Platform Features, SDKs &amp; Whitepapers | Skygentic AI">
   <meta name="twitter:description"
-    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and customer case studies.">
+    content="Access Skygentic AI developer documentation, REST API references, SDK guides, enterprise security whitepapers, and agent operations guidance.">
   <meta name="twitter:image" content="https://Skygentic.ai/og-image.png">
 
   <!-- Schema.org JSON-LD Structured Data -->
@@ -116,7 +116,7 @@
           </div>
         </li>
         <li class="services-menu solutions-menu">
-          <a href="index.html#capabilities" class="services-menu-trigger" aria-expanded="false" aria-controls="solutions-dropdown"
+          <a href="customer-care.html" class="services-menu-trigger" aria-expanded="false" aria-controls="solutions-dropdown"
             aria-haspopup="true">
             Solutions
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -124,19 +124,7 @@
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </a>
-          <div class="service-dropdown service-dropdown--solutions" id="solutions-dropdown" role="menu" aria-label="Solutions List">
-            <div class="service-dropdown-group" role="presentation">
-              <span class="service-dropdown-heading" role="presentation">Use Case</span>
-              <a class="service-dropdown-link" href="index.html#showcase" role="menuitem">Customer Care</a>
-              <a class="service-dropdown-link" href="platform.html#skyflow" role="menuitem">Workflow automation</a>
-            </div>
-            <div class="service-dropdown-group" role="presentation">
-              <span class="service-dropdown-heading" role="presentation">Industries</span>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Real Estate</a>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Home Services</a>
-              <a class="service-dropdown-link" href="get-in-touch.html" role="menuitem">Travel &amp; Hospitality</a>
-            </div>
-          </div>
+          <div class="service-dropdown service-dropdown--solutions solutions-mega" id="solutions-dropdown" role="menu" aria-label="Solutions List" data-solutions-menu></div>
         </li>
         <li>
           <a href="features.html" class="nav-link" aria-current="page">
@@ -221,25 +209,7 @@
                 <polyline points="9 6 15 12 9 18"></polyline>
               </svg>
             </button>
-            <div class="mobile-submenu" id="mobile-solutions-panel" hidden>
-              <span class="mobile-submenu-heading">Use Case</span>
-              <a class="mobile-submenu-link" href="index.html#showcase">
-                <span><strong>Customer Care</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="platform.html#skyflow">
-                <span><strong>Workflow automation</strong></span>
-              </a>
-              <span class="mobile-submenu-heading">Industries</span>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Real Estate</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Home Services</strong></span>
-              </a>
-              <a class="mobile-submenu-link" href="get-in-touch.html">
-                <span><strong>Travel &amp; Hospitality</strong></span>
-              </a>
-            </div>
+            <div class="mobile-submenu" id="mobile-solutions-panel" hidden data-mobile-solutions-menu></div>
           </div>
           <a class="mobile-menu-row" href="features.html">
             <span>Features</span>
@@ -356,26 +326,23 @@
       }
 
       .resource-capsule {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: var(--space-2);
-        min-height: 40px;
-        margin: 0 0 var(--space-5);
-        padding: var(--space-2) var(--space-4);
-        border: 1px solid var(--color-primary-blue);
-        border-radius: var(--radius-pill);
-        background: var(--color-blue-50);
+        justify-content: center;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 0 var(--space-6);
         color: var(--color-primary-blue);
-        font-family: var(--font-family-body);
-        font-size: .95rem;
+        font-family: var(--font-family-display);
+        font-size: 1.5rem;
         font-weight: 500;
-        line-height: 1;
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+        text-align: left;
       }
 
       .resource-capsule svg {
-        flex: 0 0 auto;
-        width: 14px;
-        height: 14px;
+        display: none;
       }
 
       .resource-shell h2 {
@@ -402,8 +369,7 @@
         margin-top: var(--space-8);
       }
 
-      .resource-card,
-      .resource-featured {
+      .resource-card {
         border: 1px solid var(--color-border);
         border-radius: var(--radius-lg);
         background: var(--color-card);
@@ -420,7 +386,6 @@
       }
 
       .resource-card span,
-      .resource-featured span,
       .resource-version__label {
         display: block;
         color: var(--color-primary-blue);
@@ -433,8 +398,7 @@
       }
 
       .resource-card h3,
-      .resource-version h3,
-      .resource-featured h3 {
+      .resource-version h3 {
         margin: var(--space-3) 0 0;
         font-size: 1.18rem;
         font-weight: 500;
@@ -443,7 +407,6 @@
 
       .resource-card p,
       .resource-version p,
-      .resource-featured p,
       .resource-log-footer p {
         margin: var(--space-3) 0 0;
         color: var(--color-body);
@@ -452,66 +415,72 @@
       }
 
       .resource-timeline {
-        --timeline-rail-x: 18px;
-        --timeline-dot-size: 22px;
-        position: relative;
         display: grid;
-        max-width: 720px;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
+        align-items: stretch;
+        gap: var(--space-2);
+        width: 100%;
         margin: var(--space-10) 0 0;
-        padding-left: var(--space-16);
-        text-align: left;
-      }
-
-      .resource-timeline::before {
-        content: "";
-        position: absolute;
-        left: var(--timeline-rail-x);
-        top: calc(var(--timeline-dot-size) / 2);
-        bottom: 0;
-        width: 3px;
-        border-radius: var(--radius-line);
-      }
-
-      .resource-timeline::before {
-        z-index: 1;
-        background: var(--color-primary-blue);
       }
 
       .resource-version {
-        position: relative;
-        z-index: 2;
-        padding: var(--space-8) 0;
-        border-top: 1px solid var(--color-border);
-      }
-
-      .resource-version:first-of-type {
-        padding-top: 0;
-        border-top: 0;
-      }
-
-      .resource-version:last-child {
-        padding-bottom: 0;
-      }
-
-      .resource-version__dot {
-        position: absolute;
-        left: calc((var(--timeline-rail-x) - var(--space-16)) - (var(--timeline-dot-size) / 2) + 1.5px);
-        top: 28px;
-        width: var(--timeline-dot-size);
-        height: var(--timeline-dot-size);
-        border: 2px solid var(--color-primary-blue);
-        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 144px;
+        padding: var(--space-5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
         background: var(--color-card);
-        box-shadow: 0 0 0 7px var(--color-blue-50);
+        box-shadow: 0 12px 40px color-mix(in oklch, var(--color-heading) 7%, transparent);
+        text-align: left;
       }
 
-      .resource-version:first-of-type .resource-version__dot {
-        top: 0;
+      .resource-version-arrow {
+        align-self: center;
+        color: var(--color-primary-blue);
+        font-family: var(--font-family-body);
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1;
       }
 
-      .resource-version:last-child .resource-version__dot {
-        border-color: var(--color-primary-blue);
-        box-shadow: 0 0 0 7px var(--color-blue-50);
+      .resource-timeline.is-staged .resource-version,
+      .resource-timeline.is-staged .resource-version-arrow {
+        opacity: 0;
+        transform: translateY(var(--space-2));
+      }
+
+      .resource-timeline.is-staged.is-visible .resource-version,
+      .resource-timeline.is-staged.is-visible .resource-version-arrow {
+        animation: version-step-reveal 300ms var(--ease-out) forwards;
+      }
+
+      .resource-timeline.is-visible .resource-version:nth-of-type(2) {
+        animation-delay: 1.5s;
+      }
+
+      .resource-timeline.is-visible .resource-version:nth-of-type(3) {
+        animation-delay: 3s;
+      }
+
+      .resource-timeline.is-visible .resource-version-arrow:nth-of-type(1) {
+        animation-delay: 300ms;
+      }
+
+      .resource-timeline.is-visible .resource-version-arrow:nth-of-type(2) {
+        animation-delay: 1.8s;
+      }
+
+      .resource-timeline.is-visible .resource-version-arrow:nth-of-type(3) {
+        animation-delay: 3.3s;
+      }
+
+      @keyframes version-step-reveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .resource-log-footer {
@@ -542,21 +511,6 @@
       .resource-log-footer a:hover {
         color: var(--color-blue-900);
         transform: translateX(4px);
-      }
-
-      .resource-featured {
-        margin-top: var(--space-8);
-        padding: var(--space-8);
-        text-align: left;
-      }
-
-      .resource-featured h3 {
-        max-width: 960px;
-        font-size: clamp(1.35rem, 2vw, 1.75rem);
-      }
-
-      .resource-featured p {
-        max-width: 980px;
       }
 
       @media (max-width: 980px) {
@@ -597,23 +551,45 @@
           scroll-margin-top: 88px;
         }
 
-        .resource-card,
-        .resource-featured {
+        .resource-card {
           padding: var(--space-5);
         }
 
         .resource-timeline {
-          --timeline-rail-x: 15px;
-          --timeline-dot-size: 24px;
-          padding-left: var(--space-12);
+          grid-template-columns: minmax(0, 1fr);
+          gap: var(--space-3);
         }
 
-        .resource-version__dot {
-          left: calc((var(--timeline-rail-x) - var(--space-12)) - (var(--timeline-dot-size) / 2) + 1.5px);
+        .resource-version-arrow {
+          justify-self: center;
+          font-size: 0;
+        }
+
+        .resource-version-arrow::before {
+          content: ">>";
+          display: inline-block;
+          font-size: 1.35rem;
+          transform: rotate(90deg);
+        }
+
+        .resource-version {
+          min-height: auto;
+          padding: var(--space-5);
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
+        .resource-timeline.is-staged .resource-version,
+        .resource-timeline.is-staged .resource-version-arrow {
+          transform: none;
+        }
+
+        .resource-timeline.is-staged.is-visible .resource-version,
+        .resource-timeline.is-staged.is-visible .resource-version-arrow {
+          animation: version-step-reveal 200ms var(--ease-out) forwards;
+          animation-delay: 0ms;
+        }
+
         .resource-log-footer a {
           transition: none;
         }
@@ -627,7 +603,7 @@
           <div class="resources-hero__copy">
             <h1 class="resources-hero__title" id="resources-hero-title">Features</h1>
             <p class="resources-hero__intro">
-              Documentation, versions, logs and case studies for every agent kept together in one place. From the
+              Documentation, versions and operations for every agent kept together in one place. From the
               moment an agent is created, its setup, updates and behavior are recorded automatically, giving you a
               clear history from first draft to production outcome.
             </p>
@@ -694,44 +670,44 @@
             </p>
             <div class="resource-timeline">
               <article class="resource-version">
-                <span class="resource-version__dot" aria-hidden="true"></span>
                 <div>
                   <span class="resource-version__label">v1.0</span>
                   <h3>Initial agent created</h3>
                   <p>Base logic and first documentation set.</p>
                 </div>
               </article>
+              <span class="resource-version-arrow" aria-hidden="true">&gt;&gt;</span>
               <article class="resource-version">
-                <span class="resource-version__dot" aria-hidden="true"></span>
                 <div>
                   <span class="resource-version__label">v1.1</span>
                   <h3>Workflow updated</h3>
                   <p>Refined decision steps based on testing.</p>
                 </div>
               </article>
+              <span class="resource-version-arrow" aria-hidden="true">&gt;&gt;</span>
               <article class="resource-version">
-                <span class="resource-version__dot" aria-hidden="true"></span>
                 <div>
                   <span class="resource-version__label">v2.0</span>
                   <h3>New integration added</h3>
-                  <p>Documentation and case study updated to match.</p>
+                  <p>Documentation and operating guidance updated to match.</p>
                 </div>
               </article>
+              <span class="resource-version-arrow" aria-hidden="true">&gt;&gt;</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="logs" class="resource-panel" aria-labelledby="logs-title">
+      <section id="operate" class="resource-panel" aria-labelledby="operate-title">
         <div class="container">
           <div class="resource-shell">
             <div class="resource-capsule" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none">
                 <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
               </svg>
-              <span>Logs</span>
+              <span>Operate</span>
             </div>
-            <h2 id="logs-title">A complete record of what your agent does.</h2>
+            <h2 id="operate-title">A complete record of what your agent does.</h2>
             <p class="resource-lede">
               Logs capture every run, decision and change your agent makes, giving you visibility into its behavior
               and a reliable trail to review when something needs attention.
@@ -757,92 +733,68 @@
         </div>
       </section>
 
-      <section id="case-studies" class="resource-panel" aria-labelledby="case-studies-title">
-        <div class="container">
-          <div class="resource-shell">
-            <div class="resource-capsule" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none">
-                <path d="M7.55 1.9c.12-.54.78-.54.9 0l.74 3.35c.06.29.27.5.56.56l3.35.74c.54.12.54.78 0 .9l-3.35.74c-.29.06-.5.27-.56.56l-.74 3.35c-.12.54-.78.54-.9 0l-.74-3.35a.78.78 0 0 0-.56-.56L2.9 7.45c-.54-.12-.54-.78 0-.9l3.35-.74a.78.78 0 0 0 .56-.56l.74-3.35Z" fill="currentColor"/>
-              </svg>
-              <span>Case Studies</span>
-            </div>
-            <h2 id="case-studies-title">See the finished result, from real clients.</h2>
-            <p class="resource-lede">
-              Once an agent is built, documented and versioned, here's what it looks like in production with the
-              outcomes it delivered.
-            </p>
-            <article class="resource-featured">
-              <span>Featured</span>
-              <h3>How one client went from idea to a fully versioned agent.</h3>
-              <p>
-                This study examines the complete lifecycle from initial agent design and documentation through four
-                layers iterations and the operational improvements observed at each stage.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 
-  <footer class="footer-wrapper footer-compact" role="contentinfo">
+  <footer class="footer-wrapper footer-compact surface-page" role="contentinfo">
     <div class="container">
       <div class="footer-upper">
         <div class="footer-brand-section">
-          <a href="/" class="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
-            <img class="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic">
+          <a href="index.html" class="nav-brand footer-brand" aria-label="Skygentic AI Homepage">
+            <img class="nav-wordmark footer-wordmark" src="assets/Skygentic-wordmark.png" alt="Skygentic AI">
           </a>
-          <p class="footer-description">
-            Agentic AI for ambitious businesses. Deploy intelligent agents that work, think and scale alongside your team.
+          <p class="text-body-compact">
+            Agentic AI for ambitious businesses.<br>
+            Deploy intelligent AI workforces that automate operations.
           </p>
-          <div class="footer-status" aria-label="All systems operational">
-            <span class="footer-status-dot" aria-hidden="true"></span>
-            <span>All systems operational</span>
-          </div>
+          <nav class="footer-social" aria-label="Social links">
+            <a href="https://linkedin.com/company/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on LinkedIn"><span class="social-icon social-icon-linkedin" aria-hidden="true"></span></a>
+            <a href="https://github.com/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on GitHub"><span class="social-icon social-icon-github" aria-hidden="true"></span></a>
+            <a href="https://instagram.com/skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on Instagram"><span class="social-icon social-icon-instagram" aria-hidden="true"></span></a>
+            <a href="https://x.com/Skygenticai" class="btn-glass btn-icon-outline" aria-label="Skygentic AI on X"><span class="social-icon social-icon-x" aria-hidden="true"></span></a>
+          </nav>
         </div>
 
-        <nav class="footer-navigation" aria-label="Footer navigation">
+        <nav class="footer-navigation rule-left-desktop" aria-label="Footer navigation">
           <div class="footer-nav-column">
-            <h2 class="footer-col-title">Platform</h2>
+            <h2 class="font-display nav-section-title">Platform</h2>
             <ul class="footer-link-list">
-              <li><a href="platform.html#forge" class="footer-link">Forge</a></li>
-              <li><a href="platform.html#swarm" class="footer-link">Swarm</a></li>
-              <li><a href="platform.html#skyflow" class="footer-link">Skyflow</a></li>
-              <li><a href="platform.html#hive" class="footer-link">Hive</a></li>
-              <li><a href="platform.html#nova-ops" class="footer-link">NovaOps</a></li>
+              <li><a href="platform.html#forge" class="nav-link nav-subtle">Forge</a></li>
+              <li><a href="platform.html#swarm" class="nav-link nav-subtle">Swarm</a></li>
+              <li><a href="platform.html#skyflow" class="nav-link nav-subtle">SkyFlow</a></li>
+              <li><a href="platform.html#hive" class="nav-link nav-subtle">Hive</a></li>
+              <li><a href="platform.html#nova-ops" class="nav-link nav-subtle">NovaOps</a></li>
             </ul>
           </div>
           <div class="footer-nav-column">
-            <h2 class="footer-col-title">Quick Links</h2>
+            <h2 class="font-display nav-section-title">Quick Links</h2>
             <ul class="footer-link-list">
-              <li><a href="features.html" class="footer-link">Features</a></li>
-              <li><a href="get-in-touch.html" class="footer-link">Get in Touch</a></li>
-              <li><a href="company.html" class="footer-link">Company</a></li>
-              <li><a href="signin.html" class="footer-link">Sign in</a></li>
-              <li><a href="schedule-demo.html" class="footer-link">Schedule Demo</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h2 class="footer-col-title">Follow Us</h2>
-            <ul class="footer-link-list">
-              <li><a href="https://linkedin.com/company/Skygenticai" class="footer-link" aria-label="Skygentic AI on LinkedIn">LinkedIn</a></li>
-              <li><a href="https://github.com/Skygenticai" class="footer-link" aria-label="Skygentic AI on GitHub">GitHub</a></li>
-              <li><a href="https://x.com/Skygenticai" class="footer-link" aria-label="Skygentic AI on X">X</a></li>
-              <li><a aria-disabled="true" class="footer-link" aria-label="Skygentic AI on Instagram">Instagram</a></li>
+              <li><a href="company.html" class="nav-link nav-subtle">Company</a></li>
+              <li><a href="features.html" class="nav-link nav-subtle">Features</a></li>
+              <li><a href="get-in-touch.html" class="nav-link nav-subtle">Get In Touch</a></li>
+              <li><a href="signin.html" class="nav-link nav-subtle">Sign In</a></li>
             </ul>
           </div>
         </nav>
       </div>
 
-      <div class="footer-bottom-bar">
-        <div>© 2026 Skygentic AI / Novasky. All rights reserved.</div>
+      <div class="footer-bottom-bar rule-top text-body-small">
+        <div class="footer-copyright">© 2026 SkyGentic AI. All rights reserved.</div>
         <nav class="footer-legal" aria-label="Footer legal links">
-          <a href="privacy.html" class="footer-link">Privacy Policy</a>
-          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="privacy.html" class="nav-link nav-subtle">Privacy Policy</a>
+          <a href="terms.html" class="nav-link nav-subtle">Terms of Service</a>
         </nav>
+        <a href="#" class="btn-glass btn-icon-outline footer-back-to-top" aria-label="Back to Top">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 19V5"></path>
+            <path d="M6 11l6-6 6 6"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>
+
+  <script src="scripts/solutions-mega-menu.js"></script>
 
   <script>
     const navbar = document.querySelector('.navbar-wrapper');
@@ -883,7 +835,7 @@
       });
 
       document.addEventListener('click', (event) => {
-        const selectedDropdownLink = event.target.closest('.service-dropdown-link');
+        const selectedDropdownLink = event.target.closest('.service-dropdown-link, .solutions-mega-item, .solutions-mega-feature-link');
         if (selectedDropdownLink && menu.contains(selectedDropdownLink)) {
           menu.classList.add('is-selection-closed');
           selectedDropdownLink.blur();
@@ -931,6 +883,26 @@
     mobileNavLinks.forEach((link) => {
       link.addEventListener('click', () => setMobileMenuOpen(false));
     });
+
+    const versionTimeline = document.querySelector('.resource-timeline');
+
+    if (versionTimeline) {
+      versionTimeline.classList.add('is-staged');
+
+      if ('IntersectionObserver' in window) {
+        const versionTimelineObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.25 });
+
+        versionTimelineObserver.observe(versionTimeline);
+      } else {
+        versionTimeline.classList.add('is-visible');
+      }
+    }
   </script>
 </body>
 

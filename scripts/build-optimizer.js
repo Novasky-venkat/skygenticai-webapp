@@ -36,6 +36,17 @@ const assetsDir = path.join(srcDir, 'assets');
 if (fs.existsSync(assetsDir)) {
   copyDir(assetsDir, path.join(distDir, 'assets'));
 }
+const scriptsDir = path.join(srcDir, 'scripts');
+if (fs.existsSync(scriptsDir)) {
+  const runtimeScriptsDir = path.join(distDir, 'scripts');
+  fs.mkdirSync(runtimeScriptsDir, { recursive: true });
+  ['hero-animation.js', 'solutions-mega-menu.js', 'site-shell.js'].forEach(file => {
+    const scriptPath = path.join(scriptsDir, file);
+    if (fs.existsSync(scriptPath)) {
+      fs.copyFileSync(scriptPath, path.join(runtimeScriptsDir, file));
+    }
+  });
+}
 fs.copyFileSync(path.join(srcDir, 'sitemap.xml'), path.join(distDir, 'sitemap.xml'));
 fs.copyFileSync(path.join(srcDir, 'robots.txt'), path.join(distDir, 'robots.txt'));
 
@@ -44,7 +55,8 @@ function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
     .replace(/\s+/g, ' ')                   // collapse whitespace
-    .replace(/\s*([{}:;,>+~])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*([{}:;,>+~(),])\s*/g, '$1')     // remove space around delimiters
+    .replace(/\s*\/\s*/g, '/')              // tighten color alpha and font shorthand separators
     .replace(/;\}/g, '}')                   // remove trailing semicolons
     .replace(/0\.(\d+)/g, '.$1')            // 0.5 -> .5
     .replace(/(:|\s)0(px|rem|em|%)/gi, '$10') // 0px -> 0
@@ -84,6 +96,97 @@ htmlFiles.forEach(file => {
   fs.writeFileSync(htmlDist, minifiedHTML, 'utf-8');
   console.log(`  ✓ Minified HTML: ${file} (${rawHTML.length}B -> ${minifiedHTML.length}B)`);
 });
+
+function walkFiles(dir, extensions, fileList = []) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  entries.forEach(entry => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(fullPath, extensions, fileList);
+      return;
+    }
+
+    if (
+      !entry.name.endsWith('.gz') &&
+      !entry.name.endsWith('.br') &&
+      extensions.some(extension => entry.name.endsWith(extension))
+    ) {
+      fileList.push(fullPath);
+    }
+  });
+  return fileList;
+}
+
+function shortCustomPropertyName(index) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const base = alphabet.length;
+  let cursor = index;
+  let suffix = '';
+
+  do {
+    suffix = alphabet[cursor % base] + suffix;
+    cursor = Math.floor(cursor / base) - 1;
+  } while (cursor >= 0);
+
+  return `--${suffix}`;
+}
+
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function optimizeCustomProperties() {
+  const replaceableFiles = walkFiles(distDir, ['.css', '.html', '.js']);
+  const propertyPattern = /--[A-Za-z_][A-Za-z0-9_-]*/g;
+  const contents = replaceableFiles.map(filePath => ({
+    filePath,
+    content: fs.readFileSync(filePath, 'utf-8'),
+  }));
+  const properties = new Set();
+
+  contents.forEach(file => {
+    const matches = file.content.match(propertyPattern) || [];
+    matches.forEach(match => properties.add(match));
+  });
+
+  const orderedProperties = Array.from(properties).sort((a, b) => b.length - a.length);
+  const reserved = new Set(orderedProperties);
+  const mapping = new Map();
+  let shortIndex = 0;
+
+  orderedProperties.forEach(property => {
+    let candidate;
+    do {
+      candidate = shortCustomPropertyName(shortIndex);
+      shortIndex += 1;
+    } while (reserved.has(candidate) || mapping.has(candidate));
+
+    mapping.set(property, candidate);
+  });
+
+  if (mapping.size === 0) {
+    return;
+  }
+
+  let bytesBefore = 0;
+  let bytesAfter = 0;
+  const sortedMappings = Array.from(mapping).sort((a, b) => b[0].length - a[0].length);
+  const replacementPattern = new RegExp(sortedMappings.map(([property]) => escapeRegex(property)).join('|'), 'g');
+
+  contents.forEach(file => {
+    let optimized = file.content;
+    bytesBefore += Buffer.byteLength(optimized, 'utf-8');
+
+    optimized = optimized.replace(replacementPattern, match => mapping.get(match));
+
+    bytesAfter += Buffer.byteLength(optimized, 'utf-8');
+    fs.writeFileSync(file.filePath, optimized, 'utf-8');
+  });
+
+  console.log(`  âœ“ Optimized CSS custom properties: ${mapping.size} tokens (${bytesBefore}B -> ${bytesAfter}B)`);
+}
+
+optimizeCustomProperties();
 
 // Pre-compress all static assets with Gzip & Brotli for cloud CDNs
 function compressFile(filePath) {
