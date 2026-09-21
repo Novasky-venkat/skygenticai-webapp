@@ -119,7 +119,7 @@ function Header({ current = "home" }) {
 
   const solutionUseCases = [
     { label: "Customer Care", href: "customer-care.html", icon: "assets/navbar/customer-care.svg" },
-    { label: "Workflow automation", href: "workflow-automation.html", icon: "assets/navbar/workflow-automation.svg" }
+    { label: "Workflow Automation", href: "workflow-automation.html", icon: "assets/navbar/workflow-automation.svg" }
   ];
 
   const solutionIndustries = [
@@ -185,7 +185,7 @@ function Header({ current = "home" }) {
                     {openDropdowns[item.key] && item.key === "solutions" && (
                       <div className="hdr-submenu hdr-submenu--solutions">
                         <div className="hdr-solution-col">
-                          <span className="hdr-submenu-heading">Use Case</span>
+                          <span className="hdr-submenu-heading">Use Cases</span>
                           {solutionUseCases.map(subitem => (
                             <a key={subitem.label} href={subitem.href} className="hdr-solution-link">
                               <SolutionIcon src={subitem.icon} />
@@ -238,7 +238,7 @@ function Header({ current = "home" }) {
               <a href={item.href}>{item.label}</a>
               {item.hasDropdown && item.key === "solutions" && (
                 <div className="hdr-mobile-submenu hdr-mobile-submenu--solutions">
-                  <span>Use Case</span>
+                  <span>Use Cases</span>
                   {solutionUseCases.map(subitem => (
                     <a key={subitem.label} href={subitem.href}>{subitem.label}</a>
                   ))}
