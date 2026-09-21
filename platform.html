@@ -519,6 +519,1358 @@
       line-height: 1.5;
     }
 
+    .working-principle-card[data-product="Swarm"] {
+      --swarm-card-surface: linear-gradient(145deg, #FFFFFF 0%, #FBFDFF 55%, #F3F9FF 100%);
+      --swarm-card-border: rgba(76, 155, 235, 0.22);
+      --swarm-card-shadow: 0 18px 40px rgba(35, 105, 190, 0.10), 0 5px 14px rgba(35, 105, 190, 0.06);
+      --swarm-card-shadow-hover: 0 24px 50px rgba(35, 105, 190, 0.15), 0 8px 20px rgba(35, 105, 190, 0.08);
+      position: relative;
+      overflow: clip;
+      isolation: isolate;
+      padding: clamp(48px, 5vw, 68px) clamp(26px, 4vw, 46px) clamp(70px, 6vw, 92px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="Swarm"]::before,
+    .working-principle-card[data-product="Swarm"]::after {
+      display: none;
+    }
+
+    .working-principle-card[data-product="Swarm"]::before {
+      width: min(540px, 62vw);
+      aspect-ratio: 1;
+      top: -28%;
+      left: -18%;
+      background: color-mix(in srgb, var(--color-blue-100) 52%, transparent);
+      opacity: .58;
+    }
+
+    .working-principle-card[data-product="Swarm"]::after {
+      width: min(620px, 66vw);
+      aspect-ratio: 1;
+      right: -24%;
+      bottom: -34%;
+      background: color-mix(in srgb, var(--color-cyan-blue) 22%, transparent);
+      opacity: .46;
+    }
+
+    .working-principle-card[data-product="Swarm"] .working-principle-header,
+    .working-principle-card[data-product="Swarm"] .swarm-principle-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .working-principle-card[data-product="Swarm"] .working-principle-header {
+      display: grid;
+      justify-items: center;
+      max-width: 720px;
+      margin: 0 auto clamp(56px, 6vw, 76px);
+      padding-bottom: 0;
+      border-bottom: 0;
+      text-align: center;
+    }
+
+    .working-principle-card[data-product="Swarm"] .principle-title {
+      color: var(--services-ink);
+      font-family: var(--font-family-display);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: .99;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .working-principle-card[data-product="Swarm"] .principle-title span {
+      color: var(--color-primary-blue);
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+
+    .working-principle-card[data-product="Swarm"] .principle-copy {
+      max-width: 720px;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .swarm-principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .swarm-principle-card {
+      position: relative;
+      min-width: 0;
+      min-height: 336px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px 28px 30px;
+      border: 1px solid var(--swarm-card-border);
+      border-radius: var(--radius-2xl);
+      background: var(--swarm-card-surface);
+      box-shadow: var(--swarm-card-shadow);
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+    .swarm-principle-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(45, 140, 240, 0.52);
+      border-radius: inherit;
+      box-shadow: 0 0 0 1px rgba(45, 140, 240, 0.12), 0 18px 38px rgba(35, 105, 190, 0.12);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .swarm-principle-card:nth-child(2)::after {
+      animation-delay: 1.45s;
+    }
+
+    .swarm-principle-card:nth-child(3)::after {
+      animation-delay: 2.9s;
+    }
+
+    .swarm-principle-icon {
+      width: 92px;
+      height: 92px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #FFFFFF;
+      box-shadow: 0 16px 30px rgba(25, 118, 230, 0.20);
+    }
+
+    .swarm-principle-card:nth-child(1) .swarm-principle-icon {
+      background: linear-gradient(145deg, #35A7FF, #0C58E8);
+    }
+
+    .swarm-principle-card:nth-child(2) .swarm-principle-icon {
+      background: linear-gradient(145deg, #349BFF, #175DEB);
+    }
+
+    .swarm-principle-card:nth-child(3) .swarm-principle-icon {
+      background: linear-gradient(145deg, #29B9F3, #0879DF);
+    }
+
+    .swarm-principle-icon svg {
+      width: 46px;
+      height: 46px;
+      display: block;
+      stroke: currentColor;
+      stroke-width: 2.35;
+    }
+
+    .swarm-principle-card h4 {
+      margin: 20px 0 12px;
+      color: #07175C;
+      font-family: var(--font-family-display);
+      font-size: clamp(1.5625rem, 1.9vw, 1.8125rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: 0;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .swarm-principle-card p {
+      max-width: 100%;
+      margin: 0;
+      color: #304775;
+      font-family: var(--font-family-body);
+      font-size: clamp(1.0625rem, 1.28vw, 1.1875rem);
+      font-weight: 500;
+      line-height: 1.52;
+      text-align: left;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .swarm-principle-card::after {
+        animation: swarm-card-border-highlight 4.35s var(--ease-out) infinite;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .swarm-principle-grid:hover .swarm-principle-card::after {
+        animation: none;
+        opacity: 0;
+      }
+
+      .swarm-principle-card:hover {
+        border-color: rgba(45, 140, 240, 0.35);
+        box-shadow: var(--swarm-card-shadow-hover);
+        transform: translateY(-6px);
+      }
+
+      .swarm-principle-grid:hover .swarm-principle-card:hover::after {
+        opacity: .9;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .swarm-principle-card {
+        transition: none;
+      }
+
+      .swarm-principle-card::after {
+        animation: none;
+        opacity: 0;
+      }
+    }
+
+    @keyframes swarm-card-border-highlight {
+      0%,
+      70%,
+      100% {
+        opacity: 0;
+      }
+
+      18% {
+        opacity: .9;
+      }
+
+      36% {
+        opacity: .28;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .swarm-principle-grid {
+        grid-template-columns: repeat(2, minmax(0, 360px));
+        justify-content: center;
+      }
+
+      .swarm-principle-card:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: min(100%, 360px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .working-principle-card[data-product="Swarm"] {
+        padding: var(--space-16) var(--space-4) var(--space-20);
+      }
+
+      .working-principle-card[data-product="Swarm"] .working-principle-header {
+        margin-bottom: var(--space-12);
+      }
+
+      .working-principle-card[data-product="Swarm"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .working-principle-card[data-product="Swarm"] .principle-copy {
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .swarm-principle-grid {
+        grid-template-columns: minmax(0, min(100%, 420px));
+        gap: var(--space-6);
+      }
+
+      .swarm-principle-card,
+      .swarm-principle-card:nth-child(3) {
+        width: 100%;
+        min-height: 0;
+        padding: 24px 24px 28px;
+      }
+
+      .swarm-principle-icon {
+        width: 86px;
+        height: 86px;
+      }
+
+      .swarm-principle-icon svg {
+        width: 44px;
+        height: 44px;
+      }
+
+      .swarm-principle-card h4 {
+        margin-top: 18px;
+        font-size: 1.55rem;
+      }
+
+      .swarm-principle-card p {
+        font-size: 1.02rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .working-principle-card[data-product="Swarm"] {
+        padding-inline: var(--space-3);
+      }
+
+      .working-principle-card[data-product="Swarm"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .swarm-principle-card {
+        min-height: 0;
+        padding: 22px 22px 26px;
+      }
+    }
+
+    .working-principle-card[data-product="Forge"] {
+      --forge-chevron: clamp(56px, 5vw, 86px);
+      position: relative;
+      overflow: clip;
+      isolation: isolate;
+      padding: clamp(48px, 5vw, 68px) clamp(26px, 4vw, 46px) clamp(70px, 6vw, 92px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="Forge"]::before,
+    .working-principle-card[data-product="Forge"]::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .working-principle-card[data-product="Forge"]::before {
+      display: none;
+    }
+
+    .working-principle-card[data-product="Forge"]::after {
+      display: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .working-principle-header,
+    .working-principle-card[data-product="Forge"] .forge-process-row {
+      position: relative;
+      z-index: 1;
+    }
+
+    .working-principle-card[data-product="Forge"] .working-principle-header {
+      justify-items: center;
+      max-width: 720px;
+      margin: 0 auto clamp(56px, 6vw, 76px);
+      padding-bottom: 0;
+      border-bottom: 0;
+      text-align: center;
+    }
+
+    .working-principle-card[data-product="Forge"] .principle-title {
+      color: var(--services-ink);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: .99;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .working-principle-card[data-product="Forge"] .principle-title span {
+      color: var(--color-primary-blue);
+      background: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .principle-copy {
+      max-width: 720px;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-process-row {
+      display: flex;
+      align-items: stretch;
+      width: min(100%, 1260px);
+      margin: 0 auto;
+      filter: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 320px;
+      isolation: isolate;
+      transition: transform var(--transition-fast);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card + .forge-chevron-card {
+      margin-left: calc(-1 * var(--space-8));
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::before,
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::after,
+    .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+      clip-path: polygon(0 0, calc(100% - var(--forge-chevron)) 0, 100% 50%, calc(100% - var(--forge-chevron)) 100%, 0 100%, calc(var(--forge-chevron) * .58) 50%);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::before,
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::before {
+      inset: var(--space-2) var(--space-2) calc(-1 * var(--space-2)) var(--space-4);
+      z-index: 0;
+      background: color-mix(in srgb, var(--color-primary-blue) 11%, oklch(100% 0 0));
+      opacity: .44;
+      filter: blur(.3px);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card::after {
+      inset: 0;
+      z-index: 1;
+      background: var(--color-primary-blue);
+      opacity: .22;
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card:nth-child(2)::after {
+      animation-delay: 1.45s;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card:nth-child(3)::after {
+      animation-delay: 2.9s;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+      position: absolute;
+      inset: 2px;
+      z-index: 2;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: var(--space-12) calc(var(--forge-chevron) + var(--space-8)) var(--space-10) calc(var(--forge-chevron) + var(--space-5));
+      background:
+        radial-gradient(circle at 50% 24%, oklch(100% 0 0 / .94), transparent 32%),
+        linear-gradient(145deg, oklch(100% 0 0) 0%, color-mix(in srgb, var(--color-ice-blue) 72%, oklch(100% 0 0)) 58%, color-mix(in srgb, var(--color-cyan-blue) 16%, oklch(100% 0 0)) 100%);
+      box-shadow:
+        inset 0 1px 0 var(--color-process-highlight),
+        0 16px 34px oklch(29% .08 258 / .08);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-card:nth-child(2) .forge-chevron-surface {
+      background:
+        radial-gradient(circle at 50% 24%, oklch(100% 0 0 / .95), transparent 32%),
+        linear-gradient(145deg, oklch(100% 0 0) 0%, color-mix(in srgb, var(--color-blue-100) 58%, oklch(100% 0 0)) 58%, color-mix(in srgb, var(--color-primary-blue) 10%, oklch(100% 0 0)) 100%);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-process-icon {
+      width: 92px;
+      height: 92px;
+      margin: 0 0 var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--color-primary-blue);
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-primary-blue) 14%, transparent), color-mix(in srgb, var(--color-cyan-blue) 6%, transparent) 66%, transparent 72%);
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-process-icon svg {
+      width: 60px;
+      height: 60px;
+      display: block;
+      transition: transform var(--transition-fast);
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-surface h4 {
+      margin: 0 0 var(--space-4);
+      color: var(--color-navy-950);
+      font-family: var(--font-family-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .working-principle-card[data-product="Forge"] .forge-chevron-surface p {
+      width: min(100%, 320px);
+      margin: 0;
+      color: var(--color-process-text);
+      font-family: var(--font-family-body);
+      font-size: .96rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .working-principle-card[data-product="Forge"] .forge-chevron-card::after {
+        animation: forge-chevron-border-highlight 4.35s var(--ease-out) infinite;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .working-principle-card[data-product="Forge"] .forge-process-row:hover .forge-chevron-card::after {
+        animation: none;
+        opacity: .22;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-row:hover .forge-chevron-card:hover::after {
+        opacity: .68;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card:hover .forge-process-icon svg {
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .working-principle-card[data-product="Forge"] .forge-chevron-card::after {
+        animation: none;
+        opacity: .32;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card,
+      .working-principle-card[data-product="Forge"] .forge-process-icon svg {
+        transition: none;
+      }
+    }
+
+    @keyframes forge-chevron-border-highlight {
+      0%,
+      70%,
+      100% {
+        opacity: .22;
+      }
+
+      18% {
+        opacity: .68;
+      }
+
+      36% {
+        opacity: .36;
+      }
+    }
+
+    .working-principle-card[data-product="Skyflow"] {
+      --skyflow-paper-radius: var(--radius-2xl);
+      position: relative;
+      overflow: visible;
+      isolation: isolate;
+      margin-top: 104px;
+      padding: clamp(60px, 6vw, 88px) clamp(24px, 4vw, 44px) clamp(76px, 7vw, 104px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="Skyflow"]::before,
+    .working-principle-card[data-product="Skyflow"]::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .working-principle-card[data-product="Skyflow"]::before {
+      display: none;
+    }
+
+    .working-principle-card[data-product="Skyflow"]::after {
+      display: none;
+    }
+
+    .working-principle-card[data-product="Skyflow"] .working-principle-header,
+    .working-principle-card[data-product="Skyflow"] .skyflow-floating-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .working-principle-card[data-product="Skyflow"] .working-principle-header {
+      justify-items: center;
+      max-width: 720px;
+      margin: 0 auto clamp(56px, 6vw, 76px);
+      padding-bottom: 0;
+      border-bottom: 0;
+      text-align: center;
+    }
+
+    .working-principle-card[data-product="Skyflow"] .principle-title {
+      margin: 0;
+      color: var(--services-ink);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: .99;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .working-principle-card[data-product="Skyflow"] .principle-title span {
+      color: var(--color-primary-blue);
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+
+    .working-principle-card[data-product="Skyflow"] .principle-copy {
+      max-width: 720px;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .skyflow-floating-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 44px;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .skyflow-floating-card {
+      --skyflow-front-rotate: -2deg;
+      --skyflow-back-rotate: 12deg;
+      position: relative;
+      width: min(100%, 300px);
+      height: clamp(300px, 25vw, 326px);
+      justify-self: center;
+      isolation: isolate;
+      transform: translateZ(0);
+    }
+
+    .skyflow-floating-card:nth-child(2) {
+      --skyflow-front-rotate: 1.5deg;
+      --skyflow-back-rotate: -10deg;
+    }
+
+    .skyflow-floating-card:nth-child(3) {
+      --skyflow-front-rotate: -1.5deg;
+      --skyflow-back-rotate: 10deg;
+    }
+
+    .skyflow-floating-card::before,
+    .skyflow-floating-card::after {
+      content: "";
+      position: absolute;
+      border-radius: var(--skyflow-paper-radius);
+      pointer-events: none;
+    }
+
+    .skyflow-floating-card::before {
+      inset: 10px 2px -14px 2px;
+      z-index: 0;
+      background: linear-gradient(145deg, var(--color-ice-blue-soft) 0%, var(--color-blue-100) 48%, color-mix(in srgb, var(--color-secondary-blue) 54%, var(--color-card)) 100%);
+      box-shadow: 0 18px 45px var(--color-process-shadow);
+      transform: rotate(var(--skyflow-back-rotate));
+    }
+
+    .skyflow-floating-card::after {
+      display: none;
+    }
+
+    .skyflow-floating-front {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid color-mix(in srgb, var(--color-secondary-blue) 34%, transparent);
+      border-radius: var(--skyflow-paper-radius);
+      background: linear-gradient(145deg, var(--color-card) 0%, var(--color-ice-blue-soft) 55%, var(--color-ice-blue) 100%);
+      box-shadow:
+        0 20px 45px var(--color-process-shadow),
+        0 6px 15px var(--color-process-halo),
+        inset 0 1px 0 var(--color-process-highlight),
+        inset 0 0 0 1px color-mix(in srgb, var(--color-primary-blue) 9%, transparent);
+      transform: rotate(var(--skyflow-front-rotate));
+      transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .skyflow-floating-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border: 1px solid var(--color-primary-blue);
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-primary-blue) 12%, transparent);
+      opacity: .22;
+      pointer-events: none;
+    }
+
+    .skyflow-floating-card:nth-child(2) .skyflow-floating-front::after {
+      animation-delay: 1.45s;
+    }
+
+    .skyflow-floating-card:nth-child(3) .skyflow-floating-front::after {
+      animation-delay: 2.9s;
+    }
+
+    .skyflow-floating-content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 226px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      padding: var(--space-8) var(--space-4);
+      text-align: center;
+      transform: rotate(calc(var(--skyflow-front-rotate) * -1));
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .skyflow-floating-icon {
+      width: 68px;
+      height: 68px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      border-radius: 50%;
+      color: var(--color-primary-blue);
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-primary-blue) 12%, transparent), color-mix(in srgb, var(--color-cyan-blue) 6%, transparent) 66%, transparent 72%);
+    }
+
+    .skyflow-floating-icon svg {
+      width: 44px;
+      height: 44px;
+      display: block;
+      stroke-width: 2.35;
+      transition: transform var(--transition-fast);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .skyflow-floating-front::after {
+        animation: forge-chevron-border-highlight 4.35s var(--ease-out) infinite;
+      }
+    }
+
+    .skyflow-floating-title {
+      margin: 0 0 var(--space-4);
+      color: var(--color-navy-950);
+      font-family: var(--font-family-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .skyflow-floating-description {
+      max-width: 226px;
+      margin: 0;
+      color: var(--color-process-text);
+      font-family: var(--font-family-body);
+      font-size: .96rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .skyflow-floating-grid:hover .skyflow-floating-front::after {
+        animation: none;
+        opacity: .22;
+      }
+
+      .skyflow-floating-card:hover .skyflow-floating-front {
+        border-color: color-mix(in srgb, var(--color-primary-blue) 42%, transparent);
+        box-shadow:
+          0 28px 56px var(--color-process-shadow-strong),
+          0 10px 24px var(--color-process-halo),
+          inset 0 1px 0 var(--color-process-highlight),
+          inset 0 0 0 1px color-mix(in srgb, var(--color-primary-blue) 18%, transparent);
+        transform: translateY(-8px) scale(1.015) rotate(var(--skyflow-front-rotate));
+      }
+
+      .skyflow-floating-grid:hover .skyflow-floating-card:hover .skyflow-floating-front::after {
+        opacity: .68;
+      }
+
+      .skyflow-floating-card:hover .skyflow-floating-icon svg {
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .skyflow-floating-front::after {
+        animation: none;
+      }
+
+      .skyflow-floating-front::after {
+        opacity: .32;
+      }
+
+      .skyflow-floating-icon svg,
+      .skyflow-floating-front {
+        transition: none;
+      }
+    }
+
+    @keyframes hive-border-highlight {
+      0%,
+      70%,
+      100% {
+        opacity: .34;
+      }
+
+      18% {
+        opacity: .7;
+      }
+
+      36% {
+        opacity: .44;
+      }
+    }
+
+    .hive-principle-showcase {
+      --hive-accent: var(--color-primary-blue);
+      --hive-accent-bright: var(--color-electric-blue);
+      --hive-accent-soft: var(--color-cyan-blue);
+      --hive-panel-shape: polygon(50% 0%, 88% 16%, 100% 50%, 88% 84%, 50% 100%, 12% 84%, 0% 50%, 12% 16%);
+      position: relative;
+      overflow: visible;
+      isolation: isolate;
+      padding: clamp(58px, 6vw, 82px) 0 clamp(76px, 7vw, 108px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hive-principle-showcase::before,
+    .hive-principle-showcase::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hive-principle-showcase::before {
+      display: none;
+    }
+
+    .hive-principle-showcase::after {
+      display: none;
+    }
+
+    .hive-principle-showcase .working-principle-header,
+    .hive-workflow-cards {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hive-principle-showcase .working-principle-header {
+      justify-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding-bottom: 0;
+      border-bottom: 0;
+      text-align: center;
+    }
+
+    .hive-principle-showcase .principle-title {
+      color: var(--services-ink);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: .99;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .hive-title-accent {
+      color: var(--color-primary-blue);
+      background: none;
+    }
+
+    .hive-principle-showcase .principle-copy {
+      max-width: 720px;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .hive-workflow-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      justify-content: center;
+      gap: clamp(20px, 2.4vw, 32px);
+      width: min(100%, 1320px);
+      margin: clamp(42px, 5vw, 64px) auto 0;
+      padding: 0;
+    }
+
+    .hive-panel-card {
+      position: relative;
+      width: min(100%, 310px);
+      height: clamp(320px, 27vw, 350px);
+      min-width: 0;
+      justify-self: center;
+      overflow: visible;
+      isolation: isolate;
+      filter: drop-shadow(0 15px 22px color-mix(in srgb, var(--hive-accent) 14%, transparent));
+    }
+
+    .hive-panel-back,
+    .hive-panel-depth,
+    .hive-panel-front {
+      position: absolute;
+      clip-path: var(--hive-panel-shape);
+    }
+
+    .hive-panel-back,
+    .hive-panel-depth {
+      pointer-events: none;
+    }
+
+    .hive-panel-back {
+      inset: var(--space-2) var(--space-2) calc(-1 * var(--space-2)) var(--space-4);
+      z-index: 0;
+      background: color-mix(in srgb, var(--hive-accent) 11%, var(--color-card));
+      opacity: .44;
+      filter: blur(.4px);
+    }
+
+    .hive-panel-depth {
+      inset: 0;
+      z-index: 1;
+      background: var(--hive-accent);
+      opacity: .34;
+      box-shadow: none;
+    }
+
+    .hive-panel-front {
+      inset: 3px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      pointer-events: auto;
+      padding: clamp(38px, 3.2vw, 48px) clamp(28px, 2.6vw, 36px) clamp(38px, 3.4vw, 50px);
+      background:
+        radial-gradient(circle at 50% 24%, oklch(100% 0 0 / .94), transparent 32%),
+        linear-gradient(145deg, oklch(100% 0 0) 0%, color-mix(in srgb, var(--color-ice-blue) 72%, oklch(100% 0 0)) 58%, color-mix(in srgb, var(--color-cyan-blue) 16%, oklch(100% 0 0)) 100%);
+      border: 0;
+      box-shadow:
+        inset 0 1px 0 var(--color-process-highlight),
+        0 16px 34px oklch(29% .08 258 / .08);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .hive-panel-front::before {
+      display: none;
+    }
+
+    .hive-panel-front::after {
+      display: none;
+    }
+
+    .hive-panel-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      gap: var(--space-3);
+      width: min(100%, 226px);
+      height: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .hive-panel-icon {
+      width: 68px;
+      height: 68px;
+      margin-bottom: 0;
+      display: grid;
+      place-items: center;
+      color: var(--hive-accent);
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--hive-accent-soft) 24%, transparent), color-mix(in srgb, var(--hive-accent) 7%, transparent) 62%, transparent 72%);
+      filter: none;
+    }
+
+    .hive-panel-icon svg {
+      display: block;
+      width: 44px;
+      height: 44px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hive-panel-title {
+      margin: 0;
+      color: var(--color-navy-950);
+      font-family: var(--font-family-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .hive-panel-description {
+      max-width: 226px;
+      margin: 0;
+      color: var(--color-process-text);
+      font-size: .96rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hive-panel-card {
+        transition: transform var(--transition-fast);
+      }
+
+      .hive-panel-icon svg {
+        transition: transform var(--transition-fast);
+      }
+
+      .hive-panel-depth {
+        animation: hive-border-highlight 4.35s var(--ease-out) infinite;
+      }
+
+      .hive-panel-card:nth-of-type(2) .hive-panel-depth {
+        animation-delay: 1.45s;
+      }
+
+      .hive-panel-card:nth-of-type(3) .hive-panel-depth {
+        animation-delay: 2.9s;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .hive-workflow-cards:hover .hive-panel-depth {
+        animation: none;
+        opacity: .34;
+      }
+
+      .hive-panel-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .hive-workflow-cards:hover .hive-panel-card:hover .hive-panel-depth {
+        opacity: .7;
+      }
+
+      .hive-panel-card:hover .hive-panel-icon svg {
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hive-panel-depth {
+        animation: none;
+        opacity: .34;
+      }
+
+      .hive-panel-card,
+      .hive-panel-icon svg {
+        transition: none;
+      }
+    }
+
+    .working-principle-card[data-product="NovaOps"] {
+      position: relative;
+      overflow: visible;
+      isolation: isolate;
+      padding: clamp(56px, 6vw, 82px) 0 clamp(70px, 7vw, 104px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .working-principle-card[data-product="NovaOps"]::before {
+      display: none;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .working-principle-header,
+    .novaops-side-card-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .working-principle-header {
+      justify-items: center;
+      max-width: 760px;
+      margin: 0 auto clamp(42px, 5vw, 64px);
+      padding-bottom: 0;
+      border-bottom: 0;
+      text-align: center;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .principle-title {
+      color: var(--services-ink);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: .99;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .principle-title span {
+      color: var(--color-primary-blue);
+      background: linear-gradient(90deg, var(--color-primary-blue) 0%, var(--color-cyan-blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .principle-copy {
+      max-width: 720px;
+      color: var(--services-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .novaops-side-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(24px, 2.4vw, 32px);
+      width: min(100%, 1320px);
+      margin: 0 auto;
+    }
+
+    .novaops-side-card {
+      --novaops-start: var(--color-primary-blue);
+      --novaops-end: var(--color-cyan-blue);
+      position: relative;
+      display: grid;
+      grid-template-columns: 33% minmax(0, 1fr);
+      min-height: clamp(292px, 24vw, 324px);
+      min-width: 0;
+      border-radius: var(--radius-xl);
+      border: 1px solid color-mix(in srgb, var(--color-cyan-blue) 32%, var(--color-border));
+      background: linear-gradient(140deg, var(--color-card) 0%, var(--color-ice-blue-soft) 56%, var(--color-blue-50) 100%);
+      box-shadow:
+        0 18px 40px var(--color-process-shadow),
+        0 4px 12px oklch(53% .2 258 / .08),
+        inset 0 1px 0 var(--color-process-highlight);
+      isolation: isolate;
+      transition: transform var(--transition-fast);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .novaops-side-card::before,
+    .novaops-side-card::after {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .novaops-side-card::before {
+      inset: 6px 6px -6px -6px;
+      z-index: -1;
+      border: 1px solid color-mix(in srgb, var(--color-cyan-blue) 18%, transparent);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--color-cyan-blue) 12%, transparent), color-mix(in srgb, var(--color-primary-blue) 7%, transparent));
+    }
+
+    .novaops-side-card::after {
+      inset: 0;
+      z-index: 3;
+      border: 1px solid var(--color-primary-blue);
+      box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--color-cyan-blue) 32%, transparent),
+        0 0 38px oklch(73% .15 226 / .28);
+      opacity: .22;
+    }
+
+    .novaops-side-card:nth-child(2) {
+      --novaops-start: var(--color-electric-blue);
+      --novaops-end: var(--color-secondary-blue);
+    }
+
+    .novaops-side-card:nth-child(3) {
+      --novaops-start: var(--color-cyan-blue);
+      --novaops-end: var(--color-electric-blue);
+    }
+
+    .novaops-icon-panel {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--novaops-end) 15%, var(--color-card)) 0%, color-mix(in srgb, var(--novaops-start) 8%, var(--color-ice-blue-soft)) 100%),
+        var(--color-card);
+    }
+
+    .novaops-icon-panel::before,
+    .novaops-icon-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .novaops-icon-panel::before {
+      z-index: 0;
+      background: linear-gradient(145deg, var(--novaops-start) 0%, var(--novaops-end) 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 49%, 70% 62%, 0 62%);
+    }
+
+    .novaops-icon-panel::after {
+      z-index: 1;
+      background:
+        linear-gradient(90deg, oklch(100% 0 0 / .18), transparent 52%),
+        linear-gradient(180deg, transparent 0%, oklch(100% 0 0 / .18) 58%, transparent 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 49%, 70% 62%, 0 62%);
+    }
+
+    .novaops-card-icon {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      z-index: 2;
+      width: clamp(48px, 4.8vw, 60px);
+      height: clamp(48px, 4.8vw, 60px);
+      color: var(--color-card);
+      transform: translate(-50%, -50%);
+    }
+
+    .novaops-card-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--transition-fast);
+    }
+
+    .novaops-card-content {
+      min-width: 0;
+      padding: clamp(78px, 7vw, 94px) clamp(26px, 2.8vw, 36px) var(--space-8);
+      border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+      background:
+        radial-gradient(circle at 18% 16%, oklch(100% 0 0 / .96), transparent 38%),
+        linear-gradient(145deg, oklch(100% 0 0) 0%, var(--color-ice-blue-soft) 100%);
+      box-shadow: inset 0 1px 0 var(--color-process-highlight);
+    }
+
+    .novaops-card-content h4 {
+      margin: 0 0 var(--space-4);
+      color: var(--color-navy-950);
+      font-family: var(--font-family-display);
+      font-size: clamp(1.34rem, 1.9vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: 0;
+      text-align: left;
+    }
+
+    .novaops-card-content p {
+      margin: 0;
+      color: var(--color-process-text);
+      font-family: var(--font-family-body);
+      font-size: clamp(.96rem, 1.2vw, 1.06rem);
+      font-weight: 400;
+      line-height: 1.52;
+      letter-spacing: 0;
+      text-align: left;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .novaops-side-card::after {
+        animation: forge-chevron-border-highlight 4.35s var(--ease-out) infinite;
+      }
+
+      .novaops-side-card:nth-child(2)::after {
+        animation-delay: 1.45s;
+      }
+
+      .novaops-side-card:nth-child(3)::after {
+        animation-delay: 2.9s;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .novaops-side-card-grid:hover .novaops-side-card::after {
+        animation: none;
+        opacity: .22;
+      }
+
+      .novaops-side-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .novaops-side-card-grid:hover .novaops-side-card:hover::after {
+        opacity: .68;
+      }
+
+      .novaops-side-card:hover .novaops-card-icon svg {
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .novaops-side-card::after {
+        animation: none;
+        opacity: .32;
+      }
+
+      .novaops-side-card,
+      .novaops-card-icon svg {
+        transition: none;
+      }
+    }
+
     .all-together-section {
       padding: 24px 0 0;
     }
@@ -633,6 +1985,99 @@
         --principle-step-gap: 44px;
       }
 
+      .working-principle-card[data-product="Forge"] {
+        --forge-chevron: 58px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card {
+        min-height: 304px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+        padding: var(--space-10) calc(var(--forge-chevron) + var(--space-5)) var(--space-8) calc(var(--forge-chevron) + var(--space-3));
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-icon {
+        width: 78px;
+        height: 78px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-icon svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface h4 {
+        font-size: 1rem;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface p {
+        font-size: .9rem;
+        line-height: 1.5;
+      }
+
+      .skyflow-floating-grid {
+        gap: 30px;
+      }
+
+      .skyflow-floating-card {
+        width: min(100%, 280px);
+        height: 304px;
+      }
+
+      .skyflow-floating-content {
+        width: min(100%, 212px);
+        padding: var(--space-8) var(--space-5);
+      }
+
+      .hive-workflow-cards {
+        gap: var(--space-5);
+      }
+
+      .hive-panel-card {
+        width: min(100%, 292px);
+        height: 326px;
+      }
+
+      .hive-panel-front {
+        padding: var(--space-8) var(--space-5) var(--space-8);
+      }
+
+      .hive-panel-back {
+        inset: var(--space-2) var(--space-2) calc(-1 * var(--space-2)) var(--space-4);
+      }
+
+      .hive-panel-depth {
+        inset: 0;
+      }
+
+      .hive-panel-description {
+        max-width: 210px;
+        font-size: .9rem;
+        line-height: 1.5;
+      }
+
+      .novaops-side-card-grid {
+        gap: var(--space-5);
+      }
+
+      .novaops-side-card {
+        min-height: 296px;
+      }
+
+      .novaops-card-content {
+        padding: 72px 22px var(--space-6);
+      }
+
+      .novaops-card-content h4 {
+        font-size: 1.36rem;
+      }
+
+      .novaops-card-content p {
+        font-size: .98rem;
+        line-height: 1.5;
+      }
+
     }
 
     @media (max-width: 920px) {
@@ -705,6 +2150,57 @@
         margin-top: 56px;
       }
 
+      .working-principle-card[data-product="Forge"] {
+        min-height: auto;
+      }
+
+      .working-principle-card[data-product="Forge"] .working-principle-header {
+        margin-bottom: var(--space-12);
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-row {
+        --forge-chevron: 48px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card {
+        min-height: 324px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card + .forge-chevron-card {
+        margin-left: calc(-1 * var(--space-5));
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+        padding-inline: calc(var(--forge-chevron) + var(--space-3));
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface p {
+        width: min(100%, 250px);
+      }
+
+      .working-principle-card[data-product="Skyflow"] {
+        margin-top: 56px;
+        padding: var(--space-16) var(--space-5) var(--space-20);
+      }
+
+      .working-principle-card[data-product="Skyflow"] .working-principle-header {
+        margin-bottom: var(--space-12);
+      }
+
+      .skyflow-floating-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-10) var(--space-8);
+      }
+
+      .skyflow-floating-card {
+        width: min(100%, 286px);
+        height: 312px;
+      }
+
+      .skyflow-floating-card:nth-child(3) {
+        grid-column: 1 / -1;
+      }
+
       .principle-steps {
         --principle-step-gap: 26px;
         grid-template-columns: 1fr;
@@ -721,6 +2217,38 @@
         background: var(--color-border);
         transform: translateX(-50%);
         opacity: 1;
+      }
+
+      .hive-principle-showcase::after {
+        display: none;
+      }
+
+      .hive-workflow-cards {
+        grid-template-columns: minmax(0, min(100%, 350px));
+        gap: var(--space-8);
+        margin-top: var(--space-12);
+      }
+
+      .hive-panel-card {
+        width: min(100%, 350px);
+        height: 390px;
+        justify-self: center;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .working-principle-header {
+        margin-bottom: var(--space-12);
+      }
+
+      .novaops-side-card-grid {
+        gap: var(--space-4);
+      }
+
+      .novaops-side-card {
+        min-height: 286px;
+      }
+
+      .novaops-card-content {
+        padding: 66px 18px var(--space-6);
       }
 
       .all-together-intro {
@@ -763,6 +2291,96 @@
 
       .services-tab {
         flex: 1 0 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .working-principle-card[data-product="Forge"] {
+        padding: var(--space-16) var(--space-4) var(--space-20);
+      }
+
+      .working-principle-card[data-product="Forge"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .working-principle-card[data-product="Forge"] .principle-copy {
+        font-size: 1rem;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-row {
+        --forge-chevron: 56px;
+        width: min(100%, 460px);
+        flex-direction: column;
+        gap: var(--space-5);
+        filter: none;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card,
+      .working-principle-card[data-product="Forge"] .forge-chevron-card + .forge-chevron-card {
+        min-height: 288px;
+        margin-left: 0;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+        padding: var(--space-10) calc(var(--forge-chevron) + var(--space-5)) var(--space-8) calc(var(--forge-chevron) + var(--space-4));
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface p {
+        width: min(100%, 280px);
+        text-align: center;
+      }
+
+      .working-principle-card[data-product="Skyflow"] {
+        padding-inline: var(--space-4);
+      }
+
+      .skyflow-floating-grid {
+        grid-template-columns: minmax(0, min(100%, 390px));
+        justify-content: center;
+        gap: var(--space-8);
+      }
+
+      .skyflow-floating-card:nth-child(3) {
+        grid-column: auto;
+      }
+
+      .skyflow-floating-card {
+        height: 312px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] {
+        padding: var(--space-16) var(--space-3) var(--space-20);
+      }
+
+      .working-principle-card[data-product="NovaOps"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .principle-copy {
+        font-size: 1rem;
+      }
+
+      .novaops-side-card-grid {
+        grid-template-columns: minmax(0, min(100%, 420px));
+        justify-content: center;
+        gap: var(--space-6);
+      }
+
+      .novaops-side-card {
+        min-height: 286px;
+        grid-template-columns: 34% minmax(0, 1fr);
+      }
+
+      .novaops-card-content {
+        padding: 72px var(--space-6) var(--space-8);
+      }
+
+      .novaops-card-content h4 {
+        font-size: 1.42rem;
+      }
+
+      .novaops-card-content p {
+        font-size: 1rem;
       }
     }
 
@@ -817,6 +2435,115 @@
         padding: 28px 20px;
       }
 
+      .working-principle-card[data-product="Skyflow"] {
+        padding: var(--space-16) var(--space-3) var(--space-20);
+      }
+
+      .working-principle-card[data-product="Skyflow"] .working-principle-header {
+        padding-inline: var(--space-3);
+      }
+
+      .working-principle-card[data-product="Skyflow"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .working-principle-card[data-product="Skyflow"] .principle-copy {
+        font-size: 1rem;
+      }
+
+      .skyflow-floating-card {
+        width: min(100%, 266px);
+        height: 300px;
+      }
+
+      .skyflow-floating-content {
+        width: min(100%, 210px);
+        padding: var(--space-8) var(--space-4);
+      }
+
+      .skyflow-floating-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: var(--space-4);
+      }
+
+      .skyflow-floating-icon svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      .skyflow-floating-title {
+        margin-bottom: var(--space-4);
+      }
+
+      .skyflow-floating-description {
+        max-width: 210px;
+      }
+
+      .hive-principle-showcase {
+        padding-inline: 0;
+      }
+
+      .hive-principle-showcase .working-principle-header {
+        padding-inline: var(--space-5);
+      }
+
+      .hive-workflow-cards {
+        grid-template-columns: minmax(0, min(100%, 292px));
+        gap: var(--space-6);
+      }
+
+      .hive-panel-card {
+        width: min(100%, 292px);
+        height: 326px;
+      }
+
+      .hive-panel-back {
+        inset: var(--space-2) var(--space-2) calc(-1 * var(--space-2)) var(--space-4);
+      }
+
+      .hive-panel-front {
+        inset: 3px;
+        padding: var(--space-8) var(--space-5) var(--space-8);
+      }
+
+      .hive-panel-depth {
+        inset: 0;
+      }
+
+      .hive-panel-content {
+        width: min(100%, 206px);
+        gap: var(--space-3);
+      }
+
+      .hive-panel-icon {
+        width: 64px;
+        height: 64px;
+      }
+
+      .hive-panel-icon svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hive-panel-description {
+        max-width: 206px;
+        font-size: .9rem;
+        line-height: 1.5;
+      }
+
+      .working-principle-card[data-product="NovaOps"] {
+        padding-inline: 0;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .working-principle-header {
+        padding-inline: var(--space-5);
+      }
+
+      .novaops-side-card-grid {
+        gap: var(--space-5);
+      }
+
       .working-principle-header {
         padding-bottom: 24px;
       }
@@ -863,9 +2590,202 @@
       }
     }
 
+    @media (max-width: 420px) {
+      .working-principle-card[data-product="Forge"] {
+        padding-inline: var(--space-3);
+      }
+
+      .working-principle-card[data-product="Forge"] .principle-title {
+        font-size: 2.25rem;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-process-row {
+        --forge-chevron: 42px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-card {
+        min-height: 300px;
+      }
+
+      .working-principle-card[data-product="Forge"] .forge-chevron-surface {
+        padding: var(--space-8) calc(var(--forge-chevron) + var(--space-3)) var(--space-8) calc(var(--forge-chevron) + var(--space-2));
+      }
+
+      .working-principle-card[data-product="Skyflow"] {
+        padding-inline: var(--space-2);
+      }
+
+      .skyflow-floating-card {
+        width: min(100%, 250px);
+        height: 292px;
+      }
+
+      .skyflow-floating-card::before {
+        inset: 8px 0 -12px 0;
+      }
+
+      .skyflow-floating-content {
+        width: min(100%, 198px);
+        padding-inline: var(--space-3);
+      }
+
+      .skyflow-floating-description {
+        max-width: 198px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] {
+        padding-inline: 0;
+      }
+
+      .novaops-side-card {
+        min-height: 300px;
+        grid-template-columns: 35% minmax(0, 1fr);
+      }
+
+      .novaops-card-icon {
+        width: 46px;
+        height: 46px;
+      }
+
+      .novaops-card-content {
+        padding: 70px var(--space-5) var(--space-6);
+      }
+
+      .novaops-card-content h4 {
+        font-size: 1.25rem;
+      }
+
+      .novaops-card-content p {
+        font-size: .94rem;
+        line-height: 1.48;
+      }
+    }
+
     @media (max-width: 360px) {
       .services-tab {
         font-size: 0.72rem;
+      }
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-card h4,
+    .working-principle-card[data-product="NovaOps"] .novaops-card-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-card p,
+    .working-principle-card[data-product="NovaOps"] .novaops-card-content p {
+      font-size: .96rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-grid {
+      gap: var(--space-5);
+      width: min(100%, 940px);
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-card {
+      min-height: 258px;
+      padding: 22px 24px 24px;
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-icon {
+      width: 76px;
+      height: 76px;
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-icon svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .working-principle-card[data-product="Swarm"] .swarm-principle-card h4 {
+      margin: 16px 0 10px;
+    }
+
+    .working-principle-card[data-product="NovaOps"] .novaops-side-card-grid {
+      gap: var(--space-5);
+      width: min(100%, 1120px);
+    }
+
+    .working-principle-card[data-product="NovaOps"] .novaops-side-card {
+      min-height: clamp(218px, 18vw, 244px);
+      grid-template-columns: 30% minmax(0, 1fr);
+    }
+
+    .working-principle-card[data-product="NovaOps"] .novaops-card-icon {
+      width: clamp(40px, 4vw, 52px);
+      height: clamp(40px, 4vw, 52px);
+    }
+
+    .working-principle-card[data-product="NovaOps"] .novaops-card-content {
+      padding: 54px 22px 22px;
+    }
+
+    @media (max-width: 1180px) {
+      .working-principle-card[data-product="Swarm"] .swarm-principle-grid {
+        grid-template-columns: repeat(2, minmax(0, 320px));
+      }
+
+      .working-principle-card[data-product="Swarm"] .swarm-principle-card:nth-child(3) {
+        width: min(100%, 320px);
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-side-card {
+        min-height: 226px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-card-content {
+        padding: 52px 20px 22px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .working-principle-card[data-product="Swarm"] .swarm-principle-grid {
+        grid-template-columns: minmax(0, min(100%, 340px));
+      }
+
+      .working-principle-card[data-product="Swarm"] .swarm-principle-card,
+      .working-principle-card[data-product="Swarm"] .swarm-principle-card:nth-child(3) {
+        width: 100%;
+        min-height: 0;
+        padding: 20px 22px 22px;
+      }
+
+      .working-principle-card[data-product="Swarm"] .swarm-principle-icon {
+        width: 74px;
+        height: 74px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-side-card-grid {
+        grid-template-columns: minmax(0, min(100%, 340px));
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-side-card {
+        min-height: 218px;
+        grid-template-columns: 32% minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .working-principle-card[data-product="Swarm"] .swarm-principle-grid,
+      .working-principle-card[data-product="NovaOps"] .novaops-side-card-grid {
+        grid-template-columns: minmax(0, min(100%, 320px));
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-side-card {
+        min-height: 210px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-card-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .working-principle-card[data-product="NovaOps"] .novaops-card-content {
+        padding: 50px 18px 20px;
       }
     }
   </style>
@@ -1110,32 +3030,55 @@
           </div>
           <section class="working-principle-card" aria-labelledby="forge-principle-title" data-product="Forge">
             <div class="working-principle-header">
-              <h3 id="forge-principle-title" class="principle-title">Working principle of Forge</h3>
+              <h3 id="forge-principle-title" class="principle-title">Working principle of <span>Forge</span></h3>
               <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <ol class="principle-steps" aria-label="Forge working principle steps">
-              <li class="principle-step">
-                <span class="step-num">01</span>
-                <div class="step-copy">
-                  <strong>Capture</strong>
+            <div class="forge-process-row" aria-label="Forge production path">
+              <article class="forge-chevron-card">
+                <div class="forge-chevron-surface">
+                  <div class="forge-process-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 8h22l10 10v38H18z"></path>
+                      <path d="M40 8v12h10"></path>
+                      <path d="M24 28h20"></path>
+                      <path d="M24 38h20"></path>
+                      <path d="M24 48h15"></path>
+                    </svg>
+                  </div>
+                  <h4>CAPTURE</h4>
                   <p>Captures the user's request and extracts the job, data sources, permissions and expected outcome.</p>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">02</span>
-                <div class="step-copy">
-                  <strong>Configure</strong>
+              </article>
+
+              <article class="forge-chevron-card">
+                <div class="forge-chevron-surface">
+                  <div class="forge-process-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M27.5 7h9l2.1 8.1a18.7 18.7 0 0 1 5.2 3l8-2.4 4.5 7.8-5.9 5.8c.4 1.7.4 3.8 0 5.5l5.9 5.8-4.5 7.8-8-2.4a18.7 18.7 0 0 1-5.2 3L36.5 57h-9l-2.1-8.1a18.7 18.7 0 0 1-5.2-3l-8 2.4-4.5-7.8 5.9-5.8a14 14 0 0 1 0-5.5l-5.9-5.8 4.5-7.8 8 2.4a18.7 18.7 0 0 1 5.2-3z"></path>
+                      <circle cx="32" cy="32" r="10"></circle>
+                    </svg>
+                  </div>
+                  <h4>CONFIGURE</h4>
                   <p>Maps the request to connectors, memory, skills, prompts and guardrails before deployment.</p>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">03</span>
-                <div class="step-copy">
-                  <strong>Operate</strong>
+              </article>
+
+              <article class="forge-chevron-card">
+                <div class="forge-chevron-surface">
+                  <div class="forge-process-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M47.5 7.5c-8.8.8-17.1 5.7-24.8 14.7l-8.2-.3-7 7 10.5 5.2 11.9 11.9 5.2 10.5 7-7-.3-8.2c9-7.7 13.9-16 14.7-24.8.2-2.5-1.9-4.9-4.4-4.7z"></path>
+                      <circle cx="43" cy="21" r="4"></circle>
+                      <path d="M19 45l-8 8"></path>
+                      <path d="M25 50l-5 5"></path>
+                      <path d="M14 39l-5 5"></path>
+                    </svg>
+                  </div>
+                  <h4>OPERATE</h4>
                   <p>Ships the agent into the client account with a clear name, purpose and testable operating path.</p>
                 </div>
-              </li>
-            </ol>
+              </article>
+            </div>
           </section>
         </article>
 
@@ -1157,32 +3100,49 @@
           </div>
           <section class="working-principle-card" aria-labelledby="swarm-principle-title" data-product="Swarm">
             <div class="working-principle-header">
-              <h3 id="swarm-principle-title" class="principle-title">Working principle of Swarm</h3>
+              <h3 id="swarm-principle-title" class="principle-title">Working principle of <span>Swarm</span></h3>
               <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <ol class="principle-steps" aria-label="Swarm working principle steps">
-              <li class="principle-step">
-                <span class="step-num">01</span>
-                <div class="step-copy">
-                  <strong>Capture</strong>
-                  <p>Groups related agents into a silo based on goal, department or workflow.</p>
+            <div class="swarm-principle-grid" aria-label="Swarm working principle workflow">
+              <article class="swarm-principle-card">
+                <div class="swarm-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h22l10 10v38H18z"></path>
+                    <path d="M40 8v12h10"></path>
+                    <path d="M24 28h20"></path>
+                    <path d="M24 38h20"></path>
+                    <path d="M24 48h15"></path>
+                  </svg>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">02</span>
-                <div class="step-copy">
-                  <strong>Configure</strong>
-                  <p>Shares context between agents so handoffs stay coherent instead of restarting from zero.</p>
+                <h4>CAPTURE</h4>
+                <p>Groups related agents into a silo based on goal, department or workflow.</p>
+              </article>
+
+              <article class="swarm-principle-card">
+                <div class="swarm-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M27.5 7h9l2.1 8.1a18.7 18.7 0 0 1 5.2 3l8-2.4 4.5 7.8-5.9 5.8c.4 1.7.4 3.8 0 5.5l5.9 5.8-4.5 7.8-8-2.4a18.7 18.7 0 0 1-5.2 3L36.5 57h-9l-2.1-8.1a18.7 18.7 0 0 1-5.2-3l-8 2.4-4.5-7.8 5.9-5.8a14 14 0 0 1 0-5.5l-5.9-5.8 4.5-7.8 8 2.4a18.7 18.7 0 0 1 5.2-3z"></path>
+                    <circle cx="32" cy="32" r="10"></circle>
+                  </svg>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">03</span>
-                <div class="step-copy">
-                  <strong>Operate</strong>
-                  <p>Splits budget top-down across silos and then across the agents inside each silo.</p>
+                <h4>CONFIGURE</h4>
+                <p>Shares context between agents so handoffs stay coherent instead of restarting from zero.</p>
+              </article>
+
+              <article class="swarm-principle-card">
+                <div class="swarm-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M47.5 7.5c-8.8.8-17.1 5.7-24.8 14.7l-8.2-.3-7 7 10.5 5.2 11.9 11.9 5.2 10.5 7-7-.3-8.2c9-7.7 13.9-16 14.7-24.8.2-2.5-1.9-4.9-4.4-4.7z"></path>
+                    <circle cx="43" cy="21" r="4"></circle>
+                    <path d="M19 45l-8 8"></path>
+                    <path d="M25 50l-5 5"></path>
+                    <path d="M14 39l-5 5"></path>
+                  </svg>
                 </div>
-              </li>
-            </ol>
+                <h4>OPERATE</h4>
+                <p>Splits budget top-down across silos and then across the agents inside each silo.</p>
+              </article>
+            </div>
           </section>
         </article>
 
@@ -1204,32 +3164,59 @@
           </div>
           <section class="working-principle-card" aria-labelledby="skyflow-principle-title" data-product="Skyflow">
             <div class="working-principle-header">
-              <h3 id="skyflow-principle-title" class="principle-title">Working principle of Skyflow</h3>
+              <h3 id="skyflow-principle-title" class="principle-title">Working principle of <span>Skyflow</span></h3>
               <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <ol class="principle-steps" aria-label="Skyflow working principle steps">
-              <li class="principle-step">
-                <span class="step-num">01</span>
-                <div class="step-copy">
-                  <strong>Capture</strong>
-                  <p>Attaches guardrails to each silo before agents run production work.</p>
+            <div class="skyflow-floating-grid" aria-label="Skyflow working principle workflow">
+              <article class="skyflow-floating-card" aria-labelledby="skyflow-capture-title" aria-describedby="skyflow-capture-copy">
+                <div class="skyflow-floating-front">
+                  <div class="skyflow-floating-content">
+                    <div class="skyflow-floating-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h22l10 10v38H18z"></path>
+                        <path d="M40 8v12h10"></path>
+                        <path d="M24 28h20"></path>
+                        <path d="M24 38h20"></path>
+                        <path d="M24 48h15"></path>
+                      </svg>
+                    </div>
+                    <h4 id="skyflow-capture-title" class="skyflow-floating-title">CAPTURE</h4>
+                    <p id="skyflow-capture-copy" class="skyflow-floating-description">Attaches guardrails to each silo before agents run production work.</p>
+                  </div>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">02</span>
-                <div class="step-copy">
-                  <strong>Configure</strong>
-                  <p>Watches failures, timeouts and risky actions through an agent manager.</p>
+              </article>
+              <article class="skyflow-floating-card" aria-labelledby="skyflow-configure-title" aria-describedby="skyflow-configure-copy">
+                <div class="skyflow-floating-front">
+                  <div class="skyflow-floating-content">
+                    <div class="skyflow-floating-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M27.5 7h9l2.1 8.1a18.7 18.7 0 0 1 5.2 3l8-2.4 4.5 7.8-5.9 5.8c.4 1.7.4 3.8 0 5.5l5.9 5.8-4.5 7.8-8-2.4a18.7 18.7 0 0 1-5.2 3L36.5 57h-9l-2.1-8.1a18.7 18.7 0 0 1-5.2-3l-8 2.4-4.5-7.8 5.9-5.8a14 14 0 0 1 0-5.5l-5.9-5.8 4.5-7.8 8 2.4a18.7 18.7 0 0 1 5.2-3z"></path>
+                        <circle cx="32" cy="32" r="10"></circle>
+                      </svg>
+                    </div>
+                    <h4 id="skyflow-configure-title" class="skyflow-floating-title">CONFIGURE</h4>
+                    <p id="skyflow-configure-copy" class="skyflow-floating-description">Watches failures, timeouts and risky actions through an agent manager.</p>
+                  </div>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">03</span>
-                <div class="step-copy">
-                  <strong>Operate</strong>
-                  <p>Retries, alerts, pauses, skips or escalates based on the rules the client defines.</p>
+              </article>
+              <article class="skyflow-floating-card" aria-labelledby="skyflow-operate-title" aria-describedby="skyflow-operate-copy">
+                <div class="skyflow-floating-front">
+                  <div class="skyflow-floating-content">
+                    <div class="skyflow-floating-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M47.5 7.5c-8.8.8-17.1 5.7-24.8 14.7l-8.2-.3-7 7 10.5 5.2 11.9 11.9 5.2 10.5 7-7-.3-8.2c9-7.7 13.9-16 14.7-24.8.2-2.5-1.9-4.9-4.4-4.7z"></path>
+                        <circle cx="43" cy="21" r="4"></circle>
+                        <path d="M19 45l-8 8"></path>
+                        <path d="M25 50l-5 5"></path>
+                        <path d="M14 39l-5 5"></path>
+                      </svg>
+                    </div>
+                    <h4 id="skyflow-operate-title" class="skyflow-floating-title">OPERATE</h4>
+                    <p id="skyflow-operate-copy" class="skyflow-floating-description">Retries, alerts, pauses, skips or escalates based on the rules the client defines.</p>
+                  </div>
                 </div>
-              </li>
-            </ol>
+              </article>
+            </div>
           </section>
         </article>
 
@@ -1249,34 +3236,79 @@
               <img class="service-visual-image" src="assets/services/hive1.png" alt="Hive collaborative agents diagram" loading="lazy" decoding="async">
             </div>
           </div>
-          <section class="working-principle-card" aria-labelledby="hive-principle-title" data-product="Hive">
+          <section class="working-principle-card hive-principle-showcase" aria-labelledby="hive-principle-title" data-product="Hive">
             <div class="working-principle-header">
-              <h3 id="hive-principle-title" class="principle-title">Working principle of Hive</h3>
+              <h3 id="hive-principle-title" class="principle-title">Working principle of <span class="hive-title-accent">Hive</span></h3>
               <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <ol class="principle-steps" aria-label="Hive working principle steps">
-              <li class="principle-step">
-                <span class="step-num">01</span>
-                <div class="step-copy">
-                  <strong>Capture</strong>
-                  <p>Combines every silo into a single real-time agentic application.</p>
+            <div class="hive-workflow-cards" aria-label="Hive working principle workflow">
+              <article class="hive-panel-card" aria-labelledby="hive-capture-title" aria-describedby="hive-capture-copy">
+                <div class="hive-panel-back" aria-hidden="true"></div>
+                <div class="hive-panel-depth" aria-hidden="true"></div>
+                <div class="hive-panel-front">
+                  <div class="hive-panel-content">
+                    <div class="hive-panel-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64">
+                        <circle cx="24" cy="21" r="7"></circle>
+                        <path d="M12 42c2.6-8.2 8.2-12.2 12-12.2S33.4 33.8 36 42"></path>
+                        <path d="M38 18h12c2.8 0 5 2.2 5 5v10c0 2.8-2.2 5-5 5h-6l-8 7V23c0-2.8 2.2-5 5-5"></path>
+                        <path d="M44 27h6"></path>
+                      </svg>
+                    </div>
+                    <h4 id="hive-capture-title" class="hive-panel-title">CAPTURE</h4>
+                    <p id="hive-capture-copy" class="hive-panel-description">Combines every silo into a single real-time agentic application.</p>
+                  </div>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">02</span>
-                <div class="step-copy">
-                  <strong>Configure</strong>
-                  <p>Shows agent status, workload, exceptions and performance from one dashboard.</p>
+              </article>
+              <article class="hive-panel-card" aria-labelledby="hive-configure-title" aria-describedby="hive-configure-copy">
+                <div class="hive-panel-back" aria-hidden="true"></div>
+                <div class="hive-panel-depth" aria-hidden="true"></div>
+                <div class="hive-panel-front">
+                  <div class="hive-panel-content">
+                    <div class="hive-panel-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64">
+                        <circle cx="30" cy="32" r="8"></circle>
+                        <path d="M30 12v7"></path>
+                        <path d="M30 45v7"></path>
+                        <path d="M10 32h7"></path>
+                        <path d="M43 32h7"></path>
+                        <path d="M16 18l5 5"></path>
+                        <path d="M39 41l5 5"></path>
+                        <path d="M44 18l-5 5"></path>
+                        <path d="M21 41l-5 5"></path>
+                        <circle cx="51" cy="17" r="4"></circle>
+                        <circle cx="52" cy="47" r="4"></circle>
+                        <path d="M45 20l-8 6"></path>
+                        <path d="M45 44l-8-6"></path>
+                      </svg>
+                    </div>
+                    <h4 id="hive-configure-title" class="hive-panel-title">CONFIGURE</h4>
+                    <p id="hive-configure-copy" class="hive-panel-description">Shows agent status, workload, exceptions and performance from one dashboard.</p>
+                  </div>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">03</span>
-                <div class="step-copy">
-                  <strong>Operate</strong>
-                  <p>Lets teams coordinate cross-silo work without losing ownership or governance boundaries.</p>
+              </article>
+              <article class="hive-panel-card" aria-labelledby="hive-operate-title" aria-describedby="hive-operate-copy">
+                <div class="hive-panel-back" aria-hidden="true"></div>
+                <div class="hive-panel-depth" aria-hidden="true"></div>
+                <div class="hive-panel-front">
+                  <div class="hive-panel-content">
+                    <div class="hive-panel-icon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64">
+                        <path d="M36 10c8.5 3 15.6 10 19 19L40 44 22 26 36 10Z"></path>
+                        <path d="M22 26l-9 4 11 11"></path>
+                        <path d="M40 44l-4 9-11-11"></path>
+                        <circle cx="40" cy="26" r="4"></circle>
+                        <path d="M22 46l-9 9"></path>
+                        <path d="M30 51l-5 5"></path>
+                        <path d="M17 39l-5 5"></path>
+                      </svg>
+                    </div>
+                    <h4 id="hive-operate-title" class="hive-panel-title">OPERATE</h4>
+                    <p id="hive-operate-copy" class="hive-panel-description">Lets teams coordinate cross-silo work without losing ownership or governance boundaries.</p>
+                  </div>
                 </div>
-              </li>
-            </ol>
+              </article>
+            </div>
           </section>
         </article>
 
@@ -1298,32 +3330,61 @@
           </div>
           <section class="working-principle-card" aria-labelledby="novaops-principle-title" data-product="NovaOps">
             <div class="working-principle-header">
-              <h3 id="novaops-principle-title" class="principle-title">Working principle of NovaOps</h3>
+              <h3 id="novaops-principle-title" class="principle-title">Working principle of <span>NovaOps</span></h3>
               <p class="principle-copy">A production path with checks, handoffs and feedback built into every stage.</p>
             </div>
-            <ol class="principle-steps" aria-label="NovaOps working principle steps">
-              <li class="principle-step">
-                <span class="step-num">01</span>
-                <div class="step-copy">
-                  <strong>Capture</strong>
-                  <p>Monitors live agent systems across usage, latency, exceptions and data freshness.</p>
+            <div class="novaops-side-card-grid" aria-label="NovaOps working principle workflow">
+              <article class="novaops-side-card" aria-labelledby="novaops-capture-title" aria-describedby="novaops-capture-copy">
+                <div class="novaops-icon-panel" aria-hidden="true">
+                  <div class="novaops-card-icon">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M18 8h22l10 10v38H18z"></path>
+                      <path d="M40 8v12h10"></path>
+                      <path d="M24 28h20"></path>
+                      <path d="M24 38h20"></path>
+                      <path d="M24 48h15"></path>
+                    </svg>
+                  </div>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">02</span>
-                <div class="step-copy">
-                  <strong>Configure</strong>
-                  <p>Scales operational capacity as workflows, clients and volume grow.</p>
+                <div class="novaops-card-content">
+                  <h4 id="novaops-capture-title">CAPTURE</h4>
+                  <p id="novaops-capture-copy">Monitors live agent systems across usage, latency, exceptions and data freshness.</p>
                 </div>
-              </li>
-              <li class="principle-step">
-                <span class="step-num">03</span>
-                <div class="step-copy">
-                  <strong>Operate</strong>
-                  <p>Keeps production teams informed with alerts, run status and continuous oversight.</p>
+              </article>
+
+              <article class="novaops-side-card" aria-labelledby="novaops-configure-title" aria-describedby="novaops-configure-copy">
+                <div class="novaops-icon-panel" aria-hidden="true">
+                  <div class="novaops-card-icon">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M27.5 7h9l2.1 8.1a18.7 18.7 0 0 1 5.2 3l8-2.4 4.5 7.8-5.9 5.8c.4 1.7.4 3.8 0 5.5l5.9 5.8-4.5 7.8-8-2.4a18.7 18.7 0 0 1-5.2 3L36.5 57h-9l-2.1-8.1a18.7 18.7 0 0 1-5.2-3l-8 2.4-4.5-7.8 5.9-5.8a14 14 0 0 1 0-5.5l-5.9-5.8 4.5-7.8 8 2.4a18.7 18.7 0 0 1 5.2-3z"></path>
+                      <circle cx="32" cy="32" r="10"></circle>
+                    </svg>
+                  </div>
                 </div>
-              </li>
-            </ol>
+                <div class="novaops-card-content">
+                  <h4 id="novaops-configure-title">CONFIGURE</h4>
+                  <p id="novaops-configure-copy">Scales operational capacity as workflows, clients and volume grow.</p>
+                </div>
+              </article>
+
+              <article class="novaops-side-card" aria-labelledby="novaops-operate-title" aria-describedby="novaops-operate-copy">
+                <div class="novaops-icon-panel" aria-hidden="true">
+                  <div class="novaops-card-icon">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M47.5 7.5c-8.8.8-17.1 5.7-24.8 14.7l-8.2-.3-7 7 10.5 5.2 11.9 11.9 5.2 10.5 7-7-.3-8.2c9-7.7 13.9-16 14.7-24.8.2-2.5-1.9-4.9-4.4-4.7z"></path>
+                      <circle cx="43" cy="21" r="4"></circle>
+                      <path d="M19 45l-8 8"></path>
+                      <path d="M25 50l-5 5"></path>
+                      <path d="M14 39l-5 5"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="novaops-card-content">
+                  <h4 id="novaops-operate-title">OPERATE</h4>
+                  <p id="novaops-operate-copy">Keeps production teams informed with alerts, run status and continuous oversight.</p>
+                </div>
+              </article>
+            </div>
           </section>
         </article>
 
