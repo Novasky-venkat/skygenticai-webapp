@@ -402,12 +402,20 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(var(--process-count, 4), minmax(0, 1fr));
+  align-items: stretch;
   gap: var(--space-4);
   margin-top: var(--space-10);
 }
 
-.solution-process--four { --process-count: 4; }
-.solution-process--five { --process-count: 5; }
+.solution-process--four {
+  --process-count: 4;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.solution-process--five {
+  --process-count: 5;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
 
 .solution-process::before,
 .solution-process::after,
@@ -447,6 +455,16 @@
   box-shadow: var(--shadow-nav);
 }
 
+.solution-process-step::before {
+  content: "";
+  display: block;
+  width: var(--space-10);
+  height: var(--radius-line);
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-line);
+  background: var(--color-primary-blue);
+}
+
 .solution-process-dot {
   width: var(--space-5);
   height: var(--space-5);
@@ -481,15 +499,27 @@
 }
 
 .solution-process-number {
-  display: block;
+  display: none;
   color: var(--color-primary-blue);
   font-size: .8125rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
+.solution-process-arrow {
+  align-self: center;
+  color: var(--color-primary-blue);
+  font-family: var(--font-family-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: .82;
+  white-space: nowrap;
+}
+
 .solution-process-title {
-  margin: var(--space-2) 0 0;
+  margin: 0;
   color: var(--color-heading);
   font-family: var(--font-family-display);
   font-size: 1.25rem;
@@ -679,6 +709,10 @@
 
   .solution-process {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-process-arrow {
+    display: none;
   }
 
   .solution-process::before,
@@ -966,26 +1000,21 @@
         </div>
         <div class="solution-process solution-process--four" aria-label="Customer care process">
           <article class="solution-process-step">
-            <span class="solution-process-dot" aria-hidden="true"></span>
-            <span class="solution-process-number">01</span>
             <h3 class="solution-process-title">Understand</h3>
             <p class="solution-process-copy">Understand the customer's request, intent and context.</p>
           </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
           <article class="solution-process-step">
-            <span class="solution-process-dot" aria-hidden="true"></span>
-            <span class="solution-process-number">02</span>
             <h3 class="solution-process-title">Decide</h3>
             <p class="solution-process-copy">Determine the right response and next step.</p>
           </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
           <article class="solution-process-step">
-            <span class="solution-process-dot" aria-hidden="true"></span>
-            <span class="solution-process-number">03</span>
             <h3 class="solution-process-title">Act</h3>
             <p class="solution-process-copy">Connect with your systems and perform the required action.</p>
           </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
           <article class="solution-process-step">
-            <span class="solution-process-dot" aria-hidden="true"></span>
-            <span class="solution-process-number">04</span>
             <h3 class="solution-process-title">Resolve</h3>
             <p class="solution-process-copy">Complete the request or bring in the right person.</p>
           </article>
