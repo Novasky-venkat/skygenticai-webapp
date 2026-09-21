@@ -29,7 +29,7 @@
 
   const useCases = [
     ["Customer Care", "customer-care.html", "assets/navbar/customer-care.svg"],
-    ["Workflow automation", "workflow-automation.html", "assets/navbar/workflow-automation.svg"]
+    ["Workflow Automation", "workflow-automation.html", "assets/navbar/workflow-automation.svg"]
   ];
   const industries = [
     ["Real Estate", "real-estate.html", "assets/navbar/real-estate.svg"],
@@ -40,7 +40,7 @@
 
   const desktopMenu = `
     <div class="solutions-mega-column" role="presentation">
-      <span class="service-dropdown-heading" role="presentation">Use Case</span>
+      <span class="service-dropdown-heading" role="presentation">Use Cases</span>
       ${useCases.map(item).join("")}
     </div>
     <div class="solutions-mega-column" role="presentation">
@@ -49,7 +49,7 @@
     </div>`;
 
   const mobileMenu = `
-    <span class="mobile-submenu-heading">Use Case</span>
+    <span class="mobile-submenu-heading">Use Cases</span>
     ${useCases.map(([label, href, icon]) => `<a class="mobile-submenu-link" href="${href}"><img class="service-icon-img" src="${icon}" alt="" width="32" height="32"><span><strong>${label}</strong></span></a>`).join("")}
     <span class="mobile-submenu-heading">Industries</span>
     ${industries.map(([label, href, icon]) => `<a class="mobile-submenu-link" href="${href}"><img class="service-icon-img" src="${icon}" alt="" width="32" height="32"><span><strong>${label}</strong></span></a>`).join("")}`;
