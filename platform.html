@@ -303,41 +303,28 @@
     }
 
     .service-kicker {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 42px;
-      min-width: 155px;
+      display: block;
+      width: fit-content;
+      min-height: 0;
+      min-width: 0;
       max-width: 100%;
-      padding: 0 19px;
-      border: 1px solid var(--color-primary-blue);
-      border-radius: var(--radius-pill);
-      background: var(--services-bg);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
       color: var(--color-primary-blue);
-      font-size: 0.875rem;
+      font-family: var(--font-family-body);
+      font-size: 1.35rem;
       font-weight: 500;
       letter-spacing: 0;
-      line-height: 1;
+      line-height: 1.15;
       text-transform: none;
+      margin-bottom: 22px;
       white-space: nowrap;
     }
 
-    .service-kicker {
-      width: fit-content;
-      min-width: 0;
-      padding-inline: 16px;
-      margin-bottom: 22px;
-    }
-
     .service-kicker::before {
-      content: "";
-      width: 12px;
-      height: 12px;
-      flex: 0 0 12px;
-      display: block;
-      background: var(--color-primary-blue);
-      clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+      display: none;
     }
 
     .service-heading {
