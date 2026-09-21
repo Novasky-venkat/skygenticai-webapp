@@ -8,6 +8,17 @@
   --color-error: oklch(58% .2 25);
   --color-primary-blue: oklch(53% .2 258);
   --color-secondary-blue: oklch(70% .14 250);
+  --color-electric-blue: oklch(62% .22 253);
+  --color-cyan-blue: oklch(73% .15 226);
+  --color-ice-blue: oklch(97% .025 239);
+  --color-ice-blue-soft: oklch(99% .012 239);
+  --color-navy-950: oklch(17% .07 263);
+  --color-process-text: oklch(31% .06 257);
+  --color-process-shadow: oklch(53% .2 258 / .18);
+  --color-process-shadow-strong: oklch(29% .08 258 / .18);
+  --color-process-highlight: oklch(99% .006 250 / .78);
+  --color-process-rim: oklch(73% .15 226 / .34);
+  --color-process-halo: oklch(73% .15 226 / .22);
   --color-soft-sky: var(--color-blue-100);
   --color-cta-hover: oklch(47% .18 258);
   --color-background: oklch(98% .01 250);
@@ -39,6 +50,15 @@
   --bg-gradient-knowledge: linear-gradient(135deg, var(--color-teal-soft) 0%, var(--color-card) 100%);
   --bg-gradient-testimonials: linear-gradient(135deg, var(--color-card) 0%, var(--color-blue-50) 100%);
   --bg-gradient-footer-cta: linear-gradient(135deg, var(--color-blue-100) 0%, var(--color-teal-soft) 100%);
+  --bg-gradient-forge-principle: linear-gradient(180deg, var(--color-card) 0%, var(--color-ice-blue-soft) 44%, var(--color-blue-50) 100%);
+  --bg-gradient-forge-title: linear-gradient(90deg, var(--color-primary-blue) 0%, var(--color-electric-blue) 52%, var(--color-cyan-blue) 100%);
+  --bg-gradient-forge-card: linear-gradient(135deg, oklch(99% .006 250 / .9) 0%, oklch(97% .025 239 / .82) 52%, oklch(94% .035 250 / .74) 100%);
+  --bg-gradient-forge-card-alt: linear-gradient(135deg, oklch(99% .006 250 / .88) 0%, oklch(94% .035 250 / .7) 50%, oklch(97% .025 239 / .86) 100%);
+  --bg-gradient-forge-outline: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-electric-blue) 46%, var(--color-cyan-blue) 100%);
+  --bg-gradient-forge-depth: linear-gradient(135deg, oklch(53% .2 258 / .2), oklch(73% .15 226 / .24));
+  --bg-gradient-forge-icon: linear-gradient(145deg, oklch(94% .035 250 / .82) 0%, oklch(73% .15 226 / .18) 100%);
+  --bg-forge-wave-top: linear-gradient(138deg, oklch(94% .035 250 / 0) 0%, oklch(94% .035 250 / .46) 42%, oklch(73% .15 226 / .14) 100%);
+  --bg-forge-wave-bottom: linear-gradient(315deg, oklch(97% .025 239 / 0) 0%, oklch(70% .14 250 / .26) 48%, oklch(73% .15 226 / .12) 100%);
 
   --font-family-display: 'Clashdisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -70,6 +90,10 @@
   --shadow-btn-primary-hover: 0 8px 24px oklch(47% .18 258 / .32);
   --shadow-ambient-card: 0 4px 130px oklch(70% .045 250 / .15);
   --shadow-nav: 0 4px 24px oklch(19% .025 255 / .05);
+  --shadow-forge-chevron: 0 22px 44px var(--color-process-shadow), 0 46px 90px oklch(70% .14 250 / .16);
+  --shadow-forge-chevron-strong: 0 28px 56px var(--color-process-shadow-strong), 0 0 38px oklch(73% .15 226 / .28);
+  --shadow-forge-chevron-inset: inset 0 1px 0 var(--color-process-highlight), inset 0 -18px 42px var(--color-process-halo);
+  --shadow-forge-icon: inset 0 1px 0 var(--color-process-highlight), 0 12px 26px var(--color-process-halo);
 
   --transition-fast: .15s ease;
   --transition-normal: .3s cubic-bezier(.16, 1, .3, 1);
