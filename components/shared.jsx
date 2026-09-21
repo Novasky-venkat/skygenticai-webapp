@@ -458,15 +458,16 @@ function Header({ current = "home" }) {
           gap: 10px;
         }
         .hdr-solution-link {
-          min-height: 48px;
+          min-height: 56px;
           display: grid;
           grid-template-columns: 48px minmax(0, 1fr);
-          align-items: start;
-          gap: 12px;
+          align-items: center;
+          gap: var(--space-3);
+          padding: var(--space-2) var(--space-3);
           color: var(--color-body);
           border-radius: var(--radius-md);
           text-decoration: none;
-          transition: color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+          transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
         }
         .hdr-solution-link strong {
           display: block;
@@ -498,6 +499,7 @@ function Header({ current = "home" }) {
         }
         .hdr-solution-link:hover,
         .hdr-solution-link:focus-visible {
+          background: var(--color-blue-50);
           color: var(--color-primary-blue);
           outline: none;
           transform: translateX(2px);
@@ -510,6 +512,22 @@ function Header({ current = "home" }) {
         .hdr-solution-link:focus-visible .hdr-solution-icon {
           background: var(--color-blue-100);
           transform: translateY(-1px);
+        }
+        .hdr-solution-link[aria-disabled="true"] {
+          opacity: .45;
+          cursor: not-allowed;
+          pointer-events: none;
+          transform: none;
+        }
+        .hdr-solution-link[data-state="loading"] {
+          opacity: .72;
+          cursor: progress;
+        }
+        .hdr-solution-link[data-state="success"] {
+          color: var(--color-teal);
+        }
+        .hdr-solution-link[data-state="error"] {
+          color: var(--color-error);
         }
         @keyframes fadeDown {
           from { opacity: 0; transform: translateY(-4px); }

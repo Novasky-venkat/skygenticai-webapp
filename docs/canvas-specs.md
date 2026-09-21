@@ -48,7 +48,7 @@ The Solutions dropdown in the shared navbar is a desktop mega menu with mobile d
 
 State matrix:
 - Idle: crisp 1px border, 48px icon/link hit targets, readable grouped hierarchy.
-- Hover: menu item translates by 2px and icon lifts by 1px under pointer-capable interaction.
+- Hover: menu item uses the same `--color-blue-50` row background as Platform, translates by 2px, and lifts the icon by 1px under pointer-capable interaction.
 - Focus-visible: trigger, menu items, and featured link use the global 2px focus ring with token offset.
 - Active: items return to stable baseline geometry.
 - Disabled: `aria-disabled="true"` reduces opacity, removes pointer interaction, and suppresses transforms.
