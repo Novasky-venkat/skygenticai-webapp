@@ -56,7 +56,7 @@
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/design-system.css">
   <style>
-    @media (min-width:300px) and (max-width:800px){
+    @media (min-width:300px) and (max-width:1100px){
       .section-testimonial-ribbon{padding:var(--space-10) 0;overflow:clip}
       .testimonial-main-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);min-height:0;padding:0 var(--space-4)}
       .testimonial-left-wrapper,.testimonial-right-wrapper{width:100%;padding:0;min-width:0}
@@ -968,7 +968,9 @@
               <p class="expanded-quote">
                 Free your team from manual, rule-based tasks by delegating routine operations to intelligent AI agents that work around the clock.
               </p>
-              <img class="workflow-visual" src="assets/resources/automate.png" alt="Workflow automation diagram showing repetitive inputs moving through extract, process, and validate steps into completed outputs" loading="lazy" decoding="async">
+              <div class="expanded-image-wrapper">
+                <img class="expanded-card-image workflow-visual" src="assets/resources/automate.png" alt="Workflow automation diagram showing repetitive inputs moving through extract, process, and validate steps into completed outputs" loading="lazy" decoding="async">
+              </div>
             </div>
           </div>
 
@@ -1547,7 +1549,7 @@
 
     const testimonialTrack = document.getElementById('testimonialTrack');
     const panels = document.querySelectorAll('.testimonial-panel');
-    const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 800px)');
+    const mobileCardsQuery = window.matchMedia('(min-width: 300px) and (max-width: 1100px)');
     let currentActiveIdx = 0;
 
     const collapsedIcons = {
@@ -1586,7 +1588,11 @@
     function renderPanel(panel, idx, isActive) {
       const data = testimonialsData[idx];
       const useMobileCards = mobileCardsQuery.matches;
-      const workflowVisual = data.visual ? `<img class="workflow-visual" src="${data.visual}" alt="${data.visualAlt}" loading="lazy" decoding="async">` : '';
+      const workflowVisual = data.visual ? `
+        <div class="expanded-image-wrapper">
+          <img class="expanded-card-image workflow-visual" src="${data.visual}" alt="${data.visualAlt}" loading="lazy" decoding="async">
+        </div>
+      ` : '';
       panel.classList.toggle('mobile-card', useMobileCards);
       panel.classList.toggle('active', !useMobileCards && isActive);
       panel.classList.toggle('collapsed', !useMobileCards && !isActive);
