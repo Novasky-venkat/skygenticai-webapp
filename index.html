@@ -63,10 +63,11 @@
       .testimonial-title{font-size:clamp(2rem,10vw,2.5rem);overflow-wrap:anywhere}
       .testimonial-details{max-width:none;margin:0}
       .testimonial-right-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
-      .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
+      .testimonial-right-wrapper>.testimonial-panel{flex:initial;width:100%;min-height:0;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-card);box-shadow:var(--shadow-ambient-card);cursor:default}
       .testimonial-right-wrapper .panel-expanded-view{height:auto;padding:var(--space-5);gap:0}
       .testimonial-right-wrapper .expanded-header{margin-bottom:var(--space-1)}
       .testimonial-right-wrapper .expanded-name{font-size:1.25rem;overflow-wrap:anywhere}
+      .testimonial-right-wrapper .expanded-header,.testimonial-right-wrapper .expanded-quote{min-height:0}
       .testimonial-right-wrapper .expanded-quote{font-size:1rem}
     }
   </style>
