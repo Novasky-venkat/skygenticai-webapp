@@ -429,6 +429,7 @@
   right: var(--space-8);
   height: 1px;
   background: var(--color-border);
+  z-index: 0;
 }
 
 .solution-process::after {
@@ -441,16 +442,81 @@
   background: var(--color-primary-blue);
   transform-origin: left;
   animation: solutionLineGrow 4.8s var(--ease-out) infinite;
+  z-index: 0;
+}
+
+.solution-process--five::after {
+  width: calc(100% - var(--space-16));
+  animation-duration: 5.6s;
+}
+
+.solution-process--cards {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding: var(--space-8);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-10) var(--space-8);
+  background-color: var(--color-blue-50);
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: var(--space-8) var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-ambient-card);
+  overflow: hidden;
+}
+
+.solution-process--cards::before,
+.solution-process--cards::after {
+  display: none;
 }
 
 .solution-process-step {
   position: relative;
+  z-index: 1;
   min-width: 0;
   padding: var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-card);
   box-shadow: var(--shadow-nav);
+}
+
+.solution-process--cards .solution-process-step {
+  min-height: 176px;
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-nav);
+}
+
+.solution-process--cards .solution-process-step:nth-child(1) {
+  grid-column: 1 / 5;
+}
+
+.solution-process--cards .solution-process-step:nth-child(2) {
+  grid-column: 8 / 12;
+  transform: translateY(var(--space-6));
+}
+
+.solution-process--cards .solution-process-step:nth-child(3) {
+  grid-column: 2 / 6;
+}
+
+.solution-process--cards .solution-process-step:nth-child(4) {
+  grid-column: 7 / 11;
+  transform: translateY(var(--space-5));
+}
+
+.solution-process--cards .solution-process-step:nth-child(5) {
+  grid-column: 5 / 9;
+}
+
+.solution-process-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .solution-process-dot {
@@ -472,13 +538,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
   color: var(--color-primary-blue);
 }
 
 .solution-process-icon svg {
-  width: var(--space-5);
-  height: var(--space-5);
+  width: var(--space-4);
+  height: var(--space-4);
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -687,6 +754,15 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .solution-process--cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-process--cards .solution-process-step:nth-child(n) {
+    grid-column: auto;
+    transform: none;
+  }
+
   .solution-process::before,
   .solution-process::after {
     display: none;
@@ -826,6 +902,11 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .solution-process--cards {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--space-5);
+  }
+
   .solution-card {
     min-height: auto;
     padding: var(--space-6);
@@ -833,6 +914,11 @@
 
   .solution-process-step {
     padding: var(--space-5);
+  }
+
+  .solution-process--cards .solution-process-step {
+    min-height: auto;
+    padding: var(--space-6);
   }
 
   .solution-journey {
@@ -883,9 +969,9 @@
       <div class="container">
         <div class="solution-hero-grid">
           <div>
-            <span class="solution-kicker">INDUSTRY - real estate</span>
-            <h1 id="real-estate-title" class="solution-title">AI that keeps real estate moving.</h1>
-            <p class="solution-lead">From lead qualification to property inquiries and appointment scheduling, Skygentic helps real estate teams respond faster and automate the work behind every customer interaction.</p>
+            <span class="solution-kicker">INDUSTRY  - REAL ESTATE</span>
+            <h1 id="real-estate-title" class="solution-title">Put your real estate portfolio to work with AI agents.</h1>
+            <p class="solution-lead">Use AI agents to manage property operations, monitor your portfolio, discover relevant opportunities and move promising deals forward from one agentic system.</p>
             <div class="solution-actions">
               <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule a real estate demo">
                 <span class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></span>
@@ -894,7 +980,7 @@
             </div>
           </div>
 
-          <div class="solution-visual" aria-label="Real estate AI workflow">
+          <div class="solution-visual" aria-label="One agent swarm. From portfolio to opportunity.">
             <svg class="solution-visual-lines" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
               <path class="solution-visual-line" d="M110 86 C226 96 302 142 404 160"></path>
               <path class="solution-visual-line" d="M404 204 C330 246 248 260 152 300"></path>
@@ -902,35 +988,35 @@
             </svg>
             <article class="solution-node solution-node--one">
               <div class="solution-node-header">
-                <span class="solution-node-label">New Lead</span>
+                <span class="solution-node-label">Portfolio Agent</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 9v11h16V9l-8-6Z"></path><path d="M9 20v-6h6v6"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Property inquiry received</strong>
-              <p class="solution-node-text">Budget, location, property type and timing enter the flow.</p>
+              <strong class="solution-node-title">Portfolio monitored</strong>
+              <p class="solution-node-text">Tracks property information, activity, documents and operational needs across your portfolio.</p>
             </article>
             <article class="solution-node solution-node--two">
               <div class="solution-node-header">
-                <span class="solution-node-label">AI Conversation</span>
+                <span class="solution-node-label">Discovery Agent</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4V5Z"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Requirements captured</strong>
-              <p class="solution-node-text">Preferences become structured lead context.</p>
+              <strong class="solution-node-title">Opportunities found</strong>
+              <p class="solution-node-text">Discovers properties and deals that fit your goals.</p>
             </article>
             <article class="solution-node solution-node--three">
               <div class="solution-node-header">
-                <span class="solution-node-label">Property Match</span>
+                <span class="solution-node-label">Analysis Agent</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"></path><path d="m8 13 3 3 5-7"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Site visit proposed</strong>
-              <p class="solution-node-text">Relevant next steps are prepared for the agent or prospect.</p>
+              <strong class="solution-node-title">Deals evaluated</strong>
+              <p class="solution-node-text">Reviews property data, requirements and available information to identify relevant opportunities.</p>
             </article>
             <article class="solution-node solution-node--four solution-node--property">
               <div class="solution-node-header">
-                <span class="solution-node-label">CRM</span>
+                <span class="solution-node-label">Action Agent</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"></path><path d="M8 9h8"></path><path d="M8 13h8"></path><path d="M8 17h5"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Follow-up queued</strong>
-              <span class="solution-status">Lead ready</span>
+              <strong class="solution-node-title">Opportunity advanced</strong>
+              <p class="solution-node-text">Coordinates the next steps across connected systems and keeps the workflow moving toward action.</p>
             </article>
           </div>
         </div>
@@ -940,16 +1026,14 @@
     <section class="solution-section solution-section--soft" aria-labelledby="real-estate-reimagined-title">
       <div class="container">
         <div class="solution-section-header">
-          <span class="solution-section-label">REAL ESTATE, REIMAGINED</span>
-          <h2 id="real-estate-reimagined-title" class="solution-section-title">Turn every inquiry into an opportunity.</h2>
+          <span class="solution-section-label">AGENTIC REAL ESTATE</span>
+          <h2 id="real-estate-reimagined-title" class="solution-section-title">Manage what you own. Discover what comes next.</h2>
+          <p class="solution-section-copy">Real estate teams shouldn't spend their time switching between systems, manually tracking property activity or repeatedly searching for the next opportunity. Skygentic agents work continuously across your portfolio and investment workflows.</p>
         </div>
-        <div class="solution-card-grid solution-card-grid--six">
-          <article class="solution-card"><span class="solution-card-number">01</span><h3 class="solution-card-title">Lead qualification</h3><p class="solution-card-copy">Engage new leads instantly and understand their requirements.</p></article>
-          <article class="solution-card"><span class="solution-card-number">02</span><h3 class="solution-card-title">Property discovery</h3><p class="solution-card-copy">Help prospects find properties based on location, budget, type and preferences.</p></article>
-          <article class="solution-card"><span class="solution-card-number">03</span><h3 class="solution-card-title">Site visit scheduling</h3><p class="solution-card-copy">Coordinate availability and schedule property visits.</p></article>
-          <article class="solution-card"><span class="solution-card-number">04</span><h3 class="solution-card-title">Lead follow-ups</h3><p class="solution-card-copy">Keep conversations moving with timely and personalized follow-ups.</p></article>
-          <article class="solution-card"><span class="solution-card-number">05</span><h3 class="solution-card-title">CRM automation</h3><p class="solution-card-copy">Capture information and update your CRM automatically.</p></article>
-          <article class="solution-card"><span class="solution-card-number">06</span><h3 class="solution-card-title">Property inquiries</h3><p class="solution-card-copy">Answer questions about availability, pricing, amenities and property details.</p></article>
+        <div class="solution-card-grid">
+          <article class="solution-card"><span class="solution-card-number">01</span><h3 class="solution-card-title">Property operations</h3><p class="solution-card-copy">Coordinate recurring property workflows, organize information, track activity and keep operational work moving.</p></article>
+          <article class="solution-card"><span class="solution-card-number">02</span><h3 class="solution-card-title">Deal discovery</h3><p class="solution-card-copy">Continuously search connected property and market information for opportunities aligned with your investment criteria.</p></article>
+          <article class="solution-card"><span class="solution-card-number">03</span><h3 class="solution-card-title">Opportunity intelligence</h3><p class="solution-card-copy">Analyze and prioritize relevant properties so your team can focus on the opportunities that matter.</p></article>
         </div>
       </div>
     </section>
@@ -957,26 +1041,43 @@
     <section class="solution-section solution-section--tint" aria-labelledby="real-estate-workflow-title">
       <div class="container">
         <div class="solution-section-header">
-          <span class="solution-section-label">FROM LEAD TO NEXT STEP</span>
-          <h2 id="real-estate-workflow-title" class="solution-section-title">Keep every opportunity moving forward.</h2>
+          <span class="solution-section-label">HOW IT WORKS</span>
+          <h2 id="real-estate-workflow-title" class="solution-section-title">From investment criteria to actionable opportunity.</h2>
         </div>
-        <div class="solution-journey" aria-label="Real estate workflow">
-          <div class="solution-journey-step">New Lead</div>
-          <div class="solution-journey-step">AI Conversation</div>
-          <div class="solution-journey-step">Requirements</div>
-          <div class="solution-journey-step">Property Match</div>
-          <div class="solution-journey-step">Site Visit</div>
-          <div class="solution-journey-step">CRM</div>
-          <div class="solution-journey-step">Follow-Up</div>
+        <div class="solution-process solution-process--five solution-process--cards" aria-label="How agentic real estate works">
+          <article class="solution-process-step"><div class="solution-process-top"><span class="solution-process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg></span><span class="solution-process-number">01</span></div><h3 class="solution-process-title">Understand</h3><p class="solution-process-copy">Understand your portfolio, objectives, property preferences and investment criteria.</p></article>
+          <article class="solution-process-step"><div class="solution-process-top"><span class="solution-process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 5h12v14H6z"></path><path d="m9 12 2 2 4-5"></path></svg></span><span class="solution-process-number">02</span></div><h3 class="solution-process-title">Monitor</h3><p class="solution-process-copy">Continuously track property operations, information, and relevant market activity.</p></article>
+          <article class="solution-process-step"><div class="solution-process-top"><span class="solution-process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span><span class="solution-process-number">03</span></div><h3 class="solution-process-title">Discover</h3><p class="solution-process-copy">Search connected sources for properties and opportunities that match your requirements.</p></article>
+          <article class="solution-process-step"><div class="solution-process-top"><span class="solution-process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg></span><span class="solution-process-number">04</span></div><h3 class="solution-process-title">Evaluate</h3><p class="solution-process-copy">Analyze available information and prioritize the opportunities most relevant to your objectives.</p></article>
+          <article class="solution-process-step"><div class="solution-process-top"><span class="solution-process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h9"></path><path d="m12 6 6 6-6 6"></path><path d="M7 7h3"></path><path d="M7 17h3"></path></svg></span><span class="solution-process-number">05</span></div><h3 class="solution-process-title">Advance</h3><p class="solution-process-copy">Coordinate the required next steps across connected systems and move selected opportunities forward.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section solution-section--soft" aria-labelledby="real-estate-ecosystem-title">
+      <div class="container">
+        <div class="solution-section-header">
+          <span class="solution-section-label">YOUR REAL ESTATE ECOSYSTEM</span>
+          <h2 id="real-estate-ecosystem-title" class="solution-section-title">One agentic workflow across your portfolio.</h2>
+          <p class="solution-section-copy">Connect the systems and information your real estate operations already depend on, so agents can work across them as one coordinated workflow.</p>
+        </div>
+        <div class="solution-integration-grid" aria-label="Real estate ecosystem systems">
+          <div class="solution-integration-card">Property Data</div>
+          <div class="solution-integration-card">Market Data</div>
+          <div class="solution-integration-card">Documents</div>
+          <div class="solution-integration-card">Email</div>
+          <div class="solution-integration-card">CRM</div>
+          <div class="solution-integration-card">APIs</div>
         </div>
       </div>
     </section>
 
     <section class="solution-cta" aria-labelledby="real-estate-cta-title">
       <div class="container-focus solution-cta-inner">
-        <h2 id="real-estate-cta-title" class="solution-cta-title">Keep your agents focused on closing.</h2>
-        <a href="schedule-demo.html" class="btn-primary solution-cta-button" aria-label="Schedule a real estate demo">
-          <span class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></span>
+        <h2 id="real-estate-cta-title" class="solution-cta-title">Manage your portfolio. Find your next opportunity.</h2>
+        <p class="solution-section-copy">Put AI agents to work across property operations and deal discovery, so your team can spend more time acting on opportunities and less time searching for them.</p>
+        <a href="schedule-demo.html" class="btn-primary solution-cta-button solution-cta-button--wide" aria-label="Build your real estate workflow">
+          <span class="btn-text-wrapper"><span class="btn-text-slide">Build Your Real Estate Workflow</span><span class="btn-text-slide">Build Your Real Estate Workflow</span></span>
           <span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
         </a>
       </div>
