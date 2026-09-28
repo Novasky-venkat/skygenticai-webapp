@@ -195,7 +195,7 @@
 .solution-node--one { top: var(--space-8); left: 0; }
 .solution-node--two { top: 26%; right: 0; }
 .solution-node--three { top: 56%; left: var(--space-8); }
-.solution-node--four { right: var(--space-2); bottom: 0; }
+.solution-node--four { right: var(--space-2); bottom: calc(-1 * var(--space-8)); }
 .solution-node--property { top: var(--space-8); right: var(--space-4); bottom: auto; }
 
 .solution-node-header {
@@ -414,12 +414,26 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(var(--process-count, 4), minmax(0, 1fr));
+  align-items: stretch;
   gap: var(--space-4);
   margin-top: var(--space-10);
 }
 
-.solution-process--four { --process-count: 4; }
-.solution-process--five { --process-count: 5; }
+.solution-process--four {
+  --process-count: 4;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.solution-process--five {
+  --process-count: 5;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.solution-process::before,
+.solution-process::after,
+.solution-process-dot {
+  display: none;
+}
 
 .solution-process::before {
   content: "";
@@ -453,10 +467,20 @@
   box-shadow: var(--shadow-nav);
 }
 
+.solution-process-step::before {
+  content: "";
+  display: block;
+  width: var(--space-10);
+  height: var(--radius-line);
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-line);
+  background: var(--color-primary-blue);
+}
+
 .solution-process-dot {
   width: var(--space-5);
   height: var(--space-5);
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-5);
@@ -487,15 +511,27 @@
 }
 
 .solution-process-number {
-  display: block;
+  display: none;
   color: var(--color-primary-blue);
   font-size: .8125rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
+.solution-process-arrow {
+  align-self: center;
+  color: var(--color-primary-blue);
+  font-family: var(--font-family-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: .82;
+  white-space: nowrap;
+}
+
 .solution-process-title {
-  margin: var(--space-2) 0 0;
+  margin: 0;
   color: var(--color-heading);
   font-family: var(--font-family-display);
   font-size: 1.25rem;
@@ -680,11 +716,15 @@
   .solution-node--one { top: var(--space-10); }
   .solution-node--two { top: 24%; }
   .solution-node--three { top: 58%; left: var(--space-4); }
-  .solution-node--four { right: 0; bottom: var(--space-2); }
+  .solution-node--four { right: 0; bottom: calc(-1 * var(--space-8)); }
   .solution-node--property { top: auto; right: 0; bottom: var(--space-2); }
 
   .solution-process {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-process-arrow {
+    display: none;
   }
 
   .solution-process::before,
@@ -715,9 +755,12 @@
     margin: 0 auto;
   }
 
-  .solution-card-grid,
-  .solution-card-grid--six {
+  .solution-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-card-grid--six {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -884,8 +927,8 @@
         <div class="solution-hero-grid">
           <div>
             <span class="solution-kicker">INDUSTRY - Travel & Hospitality</span>
-            <h1 id="travel-title" class="solution-title">AI that makes every journey easier.</h1>
-            <p class="solution-lead">Deliver personalized travel and hospitality experiences with AI agents that assist customers before, during and after their journey.</p>
+            <h1 id="travel-title" class="solution-title">Turn every trip into an agent managed journey.</h1>
+            <p class="solution-lead">Give travelers AI agents that understand what they want, discover the right options, coordinate services and manage the journey from request to completion.</p>
             <div class="solution-actions">
               <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule a travel and hospitality demo">
                 <span class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></span>
@@ -902,35 +945,36 @@
             </svg>
             <article class="solution-node solution-node--one">
               <div class="solution-node-header">
-                <span class="solution-node-label">Discover</span>
+                <span class="solution-node-label">TRAVEL AGENT</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Guest intent understood</strong>
-              <p class="solution-node-text">Preferences, timing, booking context and questions are captured.</p>
+              <strong class="solution-node-title">Request understood</strong>
+              <p class="solution-node-text">Captures destination, dates, budget, preferences and the experience the traveler wants.</p>
             </article>
             <article class="solution-node solution-node--two">
               <div class="solution-node-header">
-                <span class="solution-node-label">Book</span>
+                <span class="solution-node-label">DISCOVERY AGENT</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Reservation supported</strong>
-              <p class="solution-node-text">Changes, confirmations, policies and next steps stay organized.</p>
+              <strong class="solution-node-title">Options discovered</strong>
+              <p class="solution-node-text">Searches connected travel and hospitality services for options that match the request.</p>
             </article>
             <article class="solution-node solution-node--three">
               <div class="solution-node-header">
-                <span class="solution-node-label">Stay</span>
+                <span class="solution-node-label">PLANNING AGENT</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16v8"></path><path d="M4 19V7"></path><path d="M8 11V7h6v4"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Service request routed</strong>
-              <p class="solution-node-text">Guest needs move to the right team with context intact.</p>
+              <strong class="solution-node-title">Journey coordinated</strong>
+              <p class="solution-node-text">Organizes the selected travel, stay and service options into one connected journey.</p>
             </article>
             <article class="solution-node solution-node--four">
               <div class="solution-node-header">
-                <span class="solution-node-label">Support</span>
+                <span class="solution-node-label">JOURNEY AGENT</span>
                 <span class="solution-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3"></path><path d="M19 13v-3a7 7 0 0 0-7-7"></path><path d="M5 13h3v5H5z"></path><path d="M16 13h3v5h-3z"></path></svg></span>
               </div>
-              <strong class="solution-node-title">Follow-up personalized</strong>
-              <span class="solution-status">Journey supported</span>
+              <strong class="solution-node-title">Trip managed</strong>
+              <p class="solution-node-text">Keeps the journey moving, coordinates updates and adapts the workflow when plans change.</p>
+              <!---- <span class="solution-status">Journey supported</span> ---->
             </article>
           </div>
         </div>
@@ -940,16 +984,49 @@
     <section class="solution-section solution-section--soft" aria-labelledby="travel-reimagined-title">
       <div class="container">
         <div class="solution-section-header">
-          <span class="solution-section-label">TRAVEL &amp; HOSPITALITY, REIMAGINED</span>
-          <h2 id="travel-reimagined-title" class="solution-section-title">From booking to checkout, your AI concierge is always available.</h2>
+          <span class="solution-section-label">AGENTIC TRAVEL</span>
+          <h2 id="travel-reimagined-title" class="solution-section-title">From travel intent to a coordinated journey.</h2>
+          <p class="solution-lead">Travelers shouldn't have to search across multiple platforms, compare endless options and coordinate every part of a trip themselves. Skygentic agents understand the request and manage the workflow around the traveler.</p>
         </div>
         <div class="solution-card-grid solution-card-grid--six">
-          <article class="solution-card"><span class="solution-card-number">01</span><h3 class="solution-card-title">Booking assistance</h3><p class="solution-card-copy">Help customers discover options, answer questions and navigate booking workflows.</p></article>
-          <article class="solution-card"><span class="solution-card-number">02</span><h3 class="solution-card-title">Reservation management</h3><p class="solution-card-copy">Handle changes, cancellations, confirmations and reservation requests.</p></article>
-          <article class="solution-card"><span class="solution-card-number">03</span><h3 class="solution-card-title">Guest services</h3><p class="solution-card-copy">Assist with check-in information, amenities, transportation and service requests.</p></article>
-          <article class="solution-card"><span class="solution-card-number">04</span><h3 class="solution-card-title">Travel information</h3><p class="solution-card-copy">Provide relevant information about bookings, properties, policies and destinations.</p></article>
-          <article class="solution-card"><span class="solution-card-number">05</span><h3 class="solution-card-title">24/7 travel support</h3><p class="solution-card-copy">Give travelers assistance before, during and after their journey.</p></article>
-          <article class="solution-card"><span class="solution-card-number">06</span><h3 class="solution-card-title">Personalized recommendations</h3><p class="solution-card-copy">Use customer context and preferences to provide relevant suggestions.</p></article>
+          <article class="solution-card"><span class="solution-card-number">01</span><h3 class="solution-card-title">Personalized discovery</h3><p class="solution-card-copy">Find relevant travel, stay and experience options based on the traveler's preferences, budgetand requirements.</p></article>
+          <article class="solution-card"><span class="solution-card-number">02</span><h3 class="solution-card-title">Journey coordination</h3><p class="solution-card-copy">Bring travel, accommodation, activities and related services together into one coordinated workflow.</p></article>
+          <article class="solution-card"><span class="solution-card-number">03</span><h3 class="solution-card-title">Continuous assistance</h3><p class="solution-card-copy">Keep track of the journey, respond to changing requirementsand coordinate the next actions when plans change.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section" aria-labelledby="travel-process-title">
+      <div class="container">
+        <div class="solution-section-header">
+          <span class="solution-section-label">HOW IT WORKS</span>
+          <h2 id="travel-process-title" class="solution-section-title">From travel request to completed journey.</h2>
+        </div>
+        <div class="solution-process solution-process--five" aria-label="Travel and hospitality process">
+          <article class="solution-process-step">
+            <h3 class="solution-process-title">Understand</h3>
+            <p class="solution-process-copy">Understand where the traveler wants to go, when they want to travel, their budget, preferencesand requirements.</p>
+          </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
+          <article class="solution-process-step">
+            <h3 class="solution-process-title">Discover</h3>
+            <p class="solution-process-copy">Search connected travel and hospitality services for options that match the traveler's intent.</p>
+          </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
+          <article class="solution-process-step">
+            <h3 class="solution-process-title">Plan</h3>
+            <p class="solution-process-copy">Organize the relevant options into a journey based on the traveler's needs and priorities.</p>
+          </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
+          <article class="solution-process-step">
+            <h3 class="solution-process-title">Coordinate</h3>
+            <p class="solution-process-copy">Manage the required actions across connected travel, hospitalityand service systems.</p>
+          </article>
+          <span class="solution-process-arrow" aria-hidden="true">&gt;&gt;</span>
+          <article class="solution-process-step">
+            <h3 class="solution-process-title">Adapt</h3>
+            <p class="solution-process-copy">Respond to changes and coordinate the best next action throughout the journey.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -957,26 +1034,25 @@
     <section class="solution-section solution-section--tint" aria-labelledby="travel-workflow-title">
       <div class="container">
         <div class="solution-section-header">
-          <span class="solution-section-label">THE CUSTOMER JOURNEY</span>
-          <h2 id="travel-workflow-title" class="solution-section-title">Support every step of the journey.</h2>
+          <span class="solution-section-label">YOUR TRAVEL ECOSYSTEM</span>
+          <h2 id="travel-workflow-title" class="solution-section-title">One agentic workflow across the entire journey.</h2>
+          <p class="solution-lead">Connect the travel and hospitality services your customers already depend on, so agents can coordinate them through one intelligent workflow.</p>
         </div>
         <div class="solution-journey" aria-label="Travel and hospitality customer journey">
-          <div class="solution-journey-step">Discover</div>
-          <div class="solution-journey-step">Book</div>
-          <div class="solution-journey-step">Prepare</div>
-          <div class="solution-journey-step">Travel</div>
-          <div class="solution-journey-step">Stay</div>
-          <div class="solution-journey-step">Support</div>
-          <div class="solution-journey-step">Follow-Up</div>
+          <div class="solution-journey-step">Flights</div>
+          <div class="solution-journey-step">Hotels</div>
+          <div class="solution-journey-step">Transportation</div>
+          <div class="solution-journey-step">Experiences</div>
+          <div class="solution-journey-step">Dining</div>
         </div>
       </div>
     </section>
 
     <section class="solution-cta" aria-labelledby="travel-cta-title">
       <div class="container-focus solution-cta-inner">
-        <h2 id="travel-cta-title" class="solution-cta-title">Create experiences that feel personal.</h2>
+        <h2 id="travel-cta-title" class="solution-cta-title">Let travelers enjoy the journey. Let agents handle the work.</h2>
         <a href="schedule-demo.html" class="btn-primary solution-cta-button solution-cta-button--wide" aria-label="Build your AI-powered guest experience">
-          <span class="btn-text-wrapper"><span class="btn-text-slide">Build Your AI-Powered Guest Experience</span><span class="btn-text-slide">Build Your AI-Powered Guest Experience</span></span>
+          <span class="btn-text-wrapper"><span class="btn-text-slide">Build Your Travel Workflow</span><span class="btn-text-slide">Build Your AI-Powered Guest Experience</span></span>
           <span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
         </a>
       </div>
