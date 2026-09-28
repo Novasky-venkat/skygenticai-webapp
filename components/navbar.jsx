@@ -70,7 +70,7 @@ export const Navbar = () => (
       </ul>
 
       <div className="nav-actions">
-        <a href="#signin" className="nav-signin">Sign In</a>
+        <a href="#" className="nav-signin" onClick={(event) => event.preventDefault()}>Sign In</a>
         <CapsuleButton href="#demo" variant="primary" ariaLabel="Book a demo session">
           Book a demo
         </CapsuleButton>
