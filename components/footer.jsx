@@ -10,7 +10,7 @@ export const Footer = () => (
           </a>
           <p className="text-body-compact">
             Agentic AI for ambitious businesses.<br />
-            Deploy intelligent AI workforces that automate operations.
+            Build, deploy, and scale intelligent AI workforces.
           </p>
           <nav className="footer-social" aria-label="Social links">
             <a href="https://linkedin.com/company/Skygenticai" className="btn-glass btn-icon-outline" aria-label="Skygentic AI on LinkedIn"><span className="social-icon social-icon-linkedin" aria-hidden="true" /></a>
