@@ -222,7 +222,7 @@ function Header({ current = "home" }) {
           </nav>
 
           <div className="hdr-cta">
-            <a href="signin.html" className="hdr-btn hdr-btn--ghost">Sign in</a>
+            <a href="#" className="hdr-btn hdr-btn--ghost" onClick={(event) => event.preventDefault()}>Sign in</a>
           </div>
         </div>
 
@@ -258,7 +258,7 @@ function Header({ current = "home" }) {
             </div>
           ))}
           <div className="hdr-mobile-cta">
-            <a href="signin.html" className="hdr-btn hdr-btn--ghost hdr-btn--block">Sign in</a>
+            <a href="#" className="hdr-btn hdr-btn--ghost hdr-btn--block" onClick={(event) => event.preventDefault()}>Sign in</a>
           </div>
         </div>
       )}
@@ -760,7 +760,7 @@ function Footer() {
               <li><a href="company.html" className="nav-link nav-subtle">Company</a></li>
               <li><a href="features.html" className="nav-link nav-subtle">Features</a></li>
               <li><a href="get-in-touch.html" className="nav-link nav-subtle">Get In Touch</a></li>
-              <li><a href="signin.html" className="nav-link nav-subtle">Sign In</a></li>
+              <li><a href="#" className="nav-link nav-subtle" onClick={(event) => event.preventDefault()}>Sign In</a></li>
             </ul>
           </div>
         </nav>
