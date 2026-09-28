@@ -523,7 +523,8 @@
 
 .solution-journey-step {
   position: relative;
-  min-width: 152px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -690,6 +691,11 @@
   .solution-process::before,
   .solution-process::after {
     display: none;
+  }
+
+  .solution-journey-step {
+    flex: 0 0 auto;
+    min-width: 152px;
   }
 
   .solution-integration-grid {
@@ -974,7 +980,7 @@
 
     <section class="solution-cta" aria-labelledby="home-services-cta-title">
       <div class="container-focus solution-cta-inner">
-        <h2 id="home-services-cta-title" class="solution-cta-title">Keep every service running without the busywork.</h2>
+        <h2 id="home-services-cta-title" class="solution-cta-title">Keep every home service on schedule, effortlessly.</h2>
         <a href="schedule-demo.html" class="btn-primary solution-cta-button" aria-label="Automate your home services operations">
           <span class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></span>
           <span class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
