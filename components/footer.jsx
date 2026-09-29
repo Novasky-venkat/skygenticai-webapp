@@ -37,7 +37,7 @@ export const Footer = () => (
               <li><a href="company.html" className="nav-link nav-subtle">Company</a></li>
               <li><a href="features.html" className="nav-link nav-subtle">Features</a></li>
               <li><a href="get-in-touch.html" className="nav-link nav-subtle">Get In Touch</a></li>
-              <li><a href="#" className="nav-link nav-subtle" onClick={(event) => event.preventDefault()}>Sign In</a></li>
+              <li><a href="workspace-coming-soon.html" className="nav-link nav-subtle">Sign In</a></li>
             </ul>
           </div>
         </nav>
