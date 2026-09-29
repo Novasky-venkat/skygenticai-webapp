@@ -38,7 +38,7 @@
         <li><a href="company.html" class="nav-link"><span>Company</span></a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#" class="nav-signin" onclick="event.preventDefault()">Sign In</a>
+        <a href="workspace-coming-soon.html" class="nav-signin">Sign In</a>
         <a href="schedule-demo.html" class="btn-primary" aria-label="Schedule an Enterprise Demo with Skygentic AI">
           <div class="btn-text-wrapper"><span class="btn-text-slide">Schedule Demo</span><span class="btn-text-slide">Schedule Demo</span></div>
           <div class="btn-icon-bubble" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
@@ -113,7 +113,7 @@
               <li><a href="company.html" class="nav-link nav-subtle">Company</a></li>
               <li><a href="features.html" class="nav-link nav-subtle">Features</a></li>
               <li><a href="get-in-touch.html" class="nav-link nav-subtle">Get In Touch</a></li>
-              <li><a href="#" class="nav-link nav-subtle" onclick="event.preventDefault()">Sign In</a></li>
+              <li><a href="workspace-coming-soon.html" class="nav-link nav-subtle">Sign In</a></li>
             </ul>
           </div>
         </nav>
