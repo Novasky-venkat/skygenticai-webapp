@@ -438,3 +438,32 @@ Research references: WCAG 2.2 target size, focus appearance, focus order, error 
 - Direct Lighthouse on the contact route: accessibility 100/100 and SEO 100/100. Repository `npm test` passes. The repository's aggregate CSS budget excludes inline page styles; this page follows the existing standalone-page style convention.
 - Delivery remains unconnected: valid submission explicitly states that nothing was sent and offers the existing sales email address. No artificial loading or success state is triggered without an actual delivery operation.
 - Research: [MDN constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation) and [reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion).
+
+### Features flowchart mobile readability - 2026-09-30
+
+- Scope: match the desktop flowchart exactly at the three mobile reference widths (320, 375, and 414px), allowing text to scale with the cards.
+- At viewport widths up to 620px, cancel the hero container's 24px side gutters for the diagram only. Keep the connected horizontal graph visible without horizontal scrolling. Tablet and desktop widths above 620px retain the original image and container spacing.
+- Use the same original SVG on every viewport, with `width: 100%` and `height: auto`. Preserve exact typography, colors, card proportions, spacing, shadows, bullets, dotted background guides, connectors, and arrowheads. Text scales proportionally with the illustration instead of wrapping differently on phones.
+- Preserve the existing blue/ink/white palette and all graph relationships. Diagram is informational: hover, focus, active, disabled, and loading states do not apply; no new motion or controls.
+- Preserve descriptive image alt text and intrinsic dimensions on every viewport. At 320/375/414px, the image occupies the full viewport width with proportional heights of approximately 139/162/179px. Verify rendered layout at these widths and the 620/621px breakpoint when browser tooling is available.
+- Research: [W3C Reflow guidance](https://www.w3.org/WAI/WCAG21/Understanding/reflow) recognizes the spatial relationships of diagrams; this layout retains them while fitting the available width.
+- Validation limitation: Node/npm are unavailable in this environment, so repository audits and browser rendering checks have not run.
+- Mobile L refinement: at 400â€“620px (including 414/425px), use an identical SVG drawing with its horizontal viewBox tightened to `72 40 1432 725`. This removes excess internal side whitespace, enlarges the artwork by about 17%, and leaves approximately 7px between each outer card and the screen edge at 425px. Smaller phones, tablets, and desktop retain the original framing.
+- Mobile L typography refinement: increase heading sizes from 33/34 to 37 SVG units, abbreviations from 30 to 33, and resource labels from 27 to 30 (approximately 10%). Preserve card geometry, colors, font families, weights, and the 400–620px scope.
+- Mobile M refinement: extend the enlarged SVG and typography to 375-620px. Mobile M and L share the same framing, card proportions, SVG typography, and colors, scaling to each screen width. Mobile S and tablet remain unchanged.
+- Mobile S refinement: use the same enlarged SVG for every mobile viewport up to 620px, including 320px. Mobile S, M, and L share the same framing, typography, colors, and proportions, scaled to the screen width. Tablet and desktop retain the original SVG.
+- Mobile S image enlargement: below 375px, tighten the SVG viewBox to 92 40 1392 725, increasing the image scale by approximately 3% while preserving every card and all typography. Cards reach within approximately 1px of either screen edge at 320px; Mobile M/L and tablet remain unchanged.
+- Confirmed mobile design: restore the missing mobile-large SVG from the original desktop artwork. Retain the enlarged 1432-wide framing and approximately 10% larger type on all mobile widths up to 620px. Card geometry, colors, fonts, shadows, background guides, bullets, and connectors remain identical to the desktop source. XML and comparison checks passed; browser verification remains unavailable.
+- Single-image revision: all viewports now use the original agent-workspace-diagram.svg. Mobile enlargement is CSS-only: crop its empty side gutters using 1675/1432 scaling, increased to 1675/1392 below 375px. This makes Mobile S approximately 20% larger than an uncropped full-width image. No separate mobile image file; original embedded typography and all drawing details are preserved.
+
+### Current mobile flowchart: vertical layout
+
+- Supersedes the horizontal mobile framing revisions above. At widths up to 620px, render a vertical inline SVG in features.html; no additional image file.
+- Pre-fabricated and custom agents appear as two inputs at the top, connecting to Workspace agent below, then System agents workspace with Documentation, Versions, and Operate.
+- Retain the desktop navy/blue/white colors, rounded cards, thin pale-blue borders, soft blue shadows, dashed connectors, dot markers, and faint dotted background guides. Colors use named tokens copied from the desktop SVG.
+- Use the existing display/body font tokens and desktop heading/body weights, with mobile labels sized for readability. The illustration scales proportionally without clipping.
+- Tablet and desktop above 620px continue to display the original horizontal SVG.
+- The mobile SVG has its own accessible title/description; connectors are decorative. No interactive states or motion are introduced.
+- Verify structure and diff locally; browser rendering and npm audits remain unavailable in this environment.
+- Vertical typography correction: retain the vertical layout and restore the previous horizontal mobile rendered font sizes by converting the desktop 33/34/30/27-unit text sizes from the 1432-unit mobile framing to the 600-unit vertical viewBox (1392-unit framing for Mobile S). Colors, families, weights, card sizes, and connectors are unchanged.
+- Current typography: match all mobile flowchart labels to the computed font size of the paragraph above (normally 16.48px). Compensate for SVG scaling with ResizeObserver so Mobile S/M/L remain consistent. Preserve display/body font families, weights, colors, and vertical geometry.
