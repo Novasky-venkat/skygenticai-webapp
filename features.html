@@ -533,62 +533,140 @@
         }
       }
 
-      .agent-workspace-diagram-mobile {
-        --diagram-ink: var(--color-diagram-ink);
-        --diagram-blue: var(--color-diagram-blue);
-        --diagram-border: var(--color-diagram-border);
-        --diagram-guide: var(--color-diagram-guide);
-        --diagram-surface: var(--color-diagram-surface);
-        --diagram-shadow: var(--color-diagram-shadow);
-        --diagram-font-size: 33px;
-        display: none;
-        width: 100%;
-        max-width: 440px;
-        height: auto;
-        margin-inline: auto;
+      /* Hallmark component: informational flowchart; existing theme and typography.
+       * Pre-emit critique: P4 H4 E4 S5 R5 V4. No interactive states or motion. */
+      .workspace-flow {
+        --flow-ink: var(--color-diagram-ink);
+        --flow-accent: var(--color-diagram-blue);
+        --flow-border: var(--color-diagram-border);
+        --flow-surface: var(--color-diagram-surface);
+        --flow-gap: var(--space-12);
+        --flow-panel-padding: var(--space-6);
+        --flow-heading-size: 1.125rem;
+        --flow-body-size: 1rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+        gap: var(--flow-gap);
+        color: var(--flow-ink);
+        font-family: var(--font-family-body);
       }
 
-      .agent-workspace-diagram-mobile .diagram-heading {
-        fill: var(--diagram-ink);
+      .workspace-flow__group {
+        position: relative;
+        min-width: 0;
+        padding: var(--space-6) var(--flow-panel-padding) var(--space-12);
+        border: 1px solid var(--flow-border);
+        border-radius: var(--radius-pill);
+        background: var(--flow-surface);
+        box-shadow: 0 var(--space-1) var(--space-2) color-mix(in srgb, var(--color-diagram-shadow) 20%, transparent);
+      }
+
+      .resources-page .workspace-flow__title {
+        margin: 0 0 var(--space-8);
+        color: var(--flow-accent);
         font-family: var(--font-family-display);
-        font-size: var(--diagram-font-size);
+        font-size: var(--flow-heading-size);
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .workspace-flow__agents {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--flow-gap);
+        align-items: center;
+        min-height: 144px;
+      }
+
+      .workspace-flow__card {
+        position: relative;
+        min-width: 0;
+        padding: var(--space-6) var(--space-3);
+        border: 1px solid var(--flow-border);
+        border-radius: var(--radius-xl);
+        background: color-mix(in srgb, var(--flow-border) 8%, var(--flow-surface));
+        box-shadow: 0 var(--space-1) var(--space-1) color-mix(in srgb, var(--flow-ink) 24%, transparent);
+        font-size: var(--flow-body-size);
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .workspace-flow__card strong {
+        display: block;
+        font-family: var(--font-family-display);
         font-weight: 700;
       }
 
-      .agent-workspace-diagram-mobile .diagram-abbreviation {
-        fill: var(--diagram-blue);
-        font-family: var(--font-family-body);
-        font-size: var(--diagram-font-size);
+      .workspace-flow__card span {
+        display: block;
+        color: var(--flow-accent);
         font-weight: 500;
       }
 
-      .agent-workspace-diagram-mobile .diagram-system-heading {
-        fill: var(--diagram-blue);
-        font-size: var(--diagram-font-size);
+      .workspace-flow__card--pfa::after,
+      .workspace-flow__group--workspace::after {
+        content: "";
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        width: var(--flow-gap);
+        border-top: 2px solid var(--flow-accent);
       }
 
-      .agent-workspace-diagram-mobile .diagram-list {
-        fill: var(--diagram-ink);
-        font-family: var(--font-family-body);
-        font-size: var(--diagram-font-size);
-        font-weight: 400;
+      .workspace-flow__group--workspace::after {
+        left: calc(100% - var(--flow-panel-padding));
+        width: calc(var(--flow-gap) + var(--flow-panel-padding));
+        /* Align the repository connector with the center of the agent row. */
+        top: calc(var(--space-6) + 1.4 * var(--flow-heading-size) + var(--space-8) + 72px);
+      }
+
+      .workspace-flow__list {
+        display: grid;
+        align-content: center;
+        gap: var(--space-3);
+        min-height: 144px;
+        margin: 0;
+        padding: var(--space-4) var(--space-6) var(--space-4) var(--space-10);
+        text-align: left;
+      }
+
+      .workspace-flow__list li::marker {
+        color: var(--flow-accent);
+      }
+
+      @media (max-width: 900px) {
+        .workspace-flow {
+          --flow-gap: var(--space-6);
+          --flow-panel-padding: var(--space-4);
+        }
+
+      }
+
+      @media (max-width: 820px) {
+        .workspace-flow {
+          grid-template-columns: minmax(0, 1fr);
+          --flow-body-size: 1.03rem;
+          max-width: 440px;
+          margin-inline: auto;
+        }
+
+        .workspace-flow__agents {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .workspace-flow__card--pfa::after,
+        .workspace-flow__group--workspace::after {
+          top: 100%;
+          left: 50%;
+          width: 0;
+          height: var(--flow-gap);
+          border-top: 0;
+          border-left: 2px solid var(--flow-accent);
+        }
       }
 
       @media (max-width: 620px) {
-        .resources-hero__diagram {
-          width: calc(100% + var(--space-6) + var(--space-6));
-          margin-inline: calc(-1 * var(--space-6));
-          overflow: clip;
-        }
-
-        .resources-hero__diagram img {
-          display: none;
-        }
-
-        .agent-workspace-diagram-mobile {
-          display: block;
-        }
-
         .resources-hero {
           padding-top: var(--space-6);
           padding-bottom: var(--space-12);
@@ -660,91 +738,31 @@
               clear history from first draft to production outcome.
             </p>
           </div>
-          <figure class="resources-hero__diagram">
-              <img
-                src="assets/resources/agent-workspace-diagram.svg"
-                alt="System agents workspace diagram showing pre-fabricated agents, workspace agents, custom agents, and resource documentation."
-                width="1675"
-                height="725"
-                decoding="async">
-              <svg class="agent-workspace-diagram-mobile" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 600 850" width="600" height="850" role="img"
-                aria-labelledby="mobile-workspace-title mobile-workspace-description">
-                <title id="mobile-workspace-title">System agents workspace flowchart</title>
-                <desc id="mobile-workspace-description">Pre-fabricated agents and custom agents connect to a workspace agent, then to the system agents workspace containing Documentation, Versions, and Operate.</desc>
-                <defs>
-                  <filter id="mobile-workspace-shadow" x="-20%" y="-25%" width="140%" height="160%">
-                    <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="var(--diagram-shadow)" flood-opacity="0.10"/>
-                  </filter>
-                  <marker id="mobile-workspace-arrow" viewBox="0 0 12 12" refX="10" refY="6"
-                    markerWidth="8" markerHeight="8" orient="auto">
-                    <path d="M2 1 10 6 2 11" fill="none" stroke="var(--diagram-blue)"
-                      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </marker>
-                </defs>
-                <g fill="none" stroke="var(--diagram-guide)" stroke-width="2" stroke-dasharray="10 16" opacity="0.48">
-                  <ellipse cx="300" cy="425" rx="250" ry="375"/>
-                  <path d="M300 16V824M40 425H560"/>
-                </g>
-                <g fill="none" stroke="var(--diagram-blue)" stroke-width="3"
-                  stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" opacity="0.82">
-                  <path d="M154 182V224H446V182"/>
-                  <path d="M300 224V270" marker-end="url(#mobile-workspace-arrow)"/>
-                  <path d="M300 400V480" marker-end="url(#mobile-workspace-arrow)"/>
-                </g>
-                <g fill="var(--diagram-blue)">
-                  <circle cx="154" cy="182" r="6"/>
-                  <circle cx="446" cy="182" r="6"/>
-                  <circle cx="300" cy="224" r="6"/>
-                  <circle cx="300" cy="400" r="6"/>
-                </g>
-                <g fill="var(--diagram-surface)" stroke="var(--diagram-border)" stroke-width="2"
-                  filter="url(#mobile-workspace-shadow)">
-                  <rect x="24" y="32" width="260" height="150" rx="28"/>
-                  <rect x="316" y="32" width="260" height="150" rx="28"/>
-                  <rect x="158" y="270" width="284" height="130" rx="28"/>
-                  <rect x="130" y="480" width="340" height="310" rx="32"/>
-                </g>
-                <g text-anchor="middle">
-                  <text class="diagram-heading" x="154" y="79">Pre-fabricated<tspan x="154" dy="38">agents</tspan></text>
-                  <text class="diagram-abbreviation" x="154" y="154">(PFA)</text>
-                  <text class="diagram-heading" x="446" y="98">Custom agents</text>
-                  <text class="diagram-abbreviation" x="446" y="144">(CA)</text>
-                  <text class="diagram-heading" x="300" y="325">Workspace agent</text>
-                  <text class="diagram-abbreviation" x="300" y="372">(PFA+CA)</text>
-                  <text class="diagram-heading diagram-system-heading" x="300" y="530">System agents<tspan x="300" dy="40">workspace</tspan></text>
-                </g>
-                <rect x="160" y="596" width="280" height="164" rx="24"
-                  fill="var(--diagram-surface)" stroke="var(--diagram-border)" stroke-width="2"/>
-                <g fill="var(--diagram-blue)">
-                  <circle cx="184" cy="633" r="6"/>
-                  <circle cx="184" cy="679" r="6"/>
-                  <circle cx="184" cy="725" r="6"/>
-                </g>
-                <g class="diagram-list">
-                  <text x="204" y="643">Documentation</text>
-                  <text x="204" y="689">Versions</text>
-                  <text x="204" y="735">Operate</text>
-                </g>
-              </svg>
+          <figure class="resources-hero__diagram" aria-label="Workspace flowchart: Pre-fabricated agents connect to Custom Managed Agents inside Workspace, which connects to Workspace Repository containing Documentation, Versions, and Operate.">
+            <div class="workspace-flow">
+              <div class="workspace-flow__group workspace-flow__group--workspace">
+                <h2 class="workspace-flow__title">Workspace</h2>
+                <div class="workspace-flow__agents">
+                  <div class="workspace-flow__card workspace-flow__card--pfa">
+                    <strong>Pre-fabricated agents</strong>
+                    <span>(PFA)</span>
+                  </div>
+                  <div class="workspace-flow__card">
+                    <strong>Custom Managed Agents</strong>
+                    <span>(CMA)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="workspace-flow__group">
+                <h2 class="workspace-flow__title">Workspace Repository</h2>
+                <ul class="workspace-flow__card workspace-flow__list">
+                  <li>Documentation</li>
+                  <li>Versions</li>
+                  <li>Operate</li>
+                </ul>
+              </div>
+            </div>
           </figure>
-          <script>
-            (() => {
-              const diagram = document.querySelector('.agent-workspace-diagram-mobile');
-              const paragraph = document.querySelector('.resources-hero__intro');
-              const matchParagraphSize = () => {
-                const width = diagram.getBoundingClientRect().width;
-                if (!width) return;
-                // Compensate for SVG scaling so the visible text matches the paragraph.
-                const size = parseFloat(getComputedStyle(paragraph).fontSize);
-                diagram.style.setProperty('--diagram-font-size', `${size * diagram.viewBox.baseVal.width / width}px`);
-              };
-              const observer = new ResizeObserver(matchParagraphSize);
-              observer.observe(diagram);
-              observer.observe(paragraph);
-              matchParagraphSize();
-            })();
-          </script>
         </div>
       </section>
 

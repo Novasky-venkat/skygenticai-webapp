@@ -467,3 +467,13 @@ Research references: WCAG 2.2 target size, focus appearance, focus order, error 
 - Verify structure and diff locally; browser rendering and npm audits remain unavailable in this environment.
 - Vertical typography correction: retain the vertical layout and restore the previous horizontal mobile rendered font sizes by converting the desktop 33/34/30/27-unit text sizes from the 1432-unit mobile framing to the 600-unit vertical viewBox (1392-unit framing for Mobile S). Colors, families, weights, card sizes, and connectors are unchanged.
 - Current typography: match all mobile flowchart labels to the computed font size of the paragraph above (normally 16.48px). Compensate for SVG scaling with ResizeObserver so Mobile S/M/L remain consistent. Preserve display/body font families, weights, colors, and vertical geometry.
+
+### Features reference flowchart replacement - 2026-10-03
+
+- User-supplied reference is the approved layout: Workspace encloses Pre-fabricated agents (PFA) connected to Custom Managed Agents (CMA); Workspace connects to a separate Workspace Repository enclosing Documentation, Versions, and Operate.
+- Replace both prior diagrams with one semantic HTML/CSS figure. Preserve existing Clash Display/Satoshi font tokens, weights, and diagram color tokens.
+- Desktop: existing 880px figure bounds; 1.9:1 group widths, 48px connector gaps, 24px padding, rounded outer panels, pale inner cards, solid blue lines and soft shadows. Below 900px use 24px gaps; below 620px stack groups and agents with vertical connectors and readable unscaled type.
+- Informational diagram: idle only; hover, focus, active, disabled, and loading states are not applicable. No motion or additional controls.
+- Research: https://www.w3.org/WAI/WCAG21/Understanding/reflow — preserve relationships while allowing content to fit narrow viewports.
+- Validation: git diff --check passed. Node/npm and browser tooling are unavailable, so npm audits, Lighthouse scoring, and rendered viewport checks could not run.
+- Focused review correction: stack the diagram at 820px and below to keep repository labels within their cards at tablet widths. Existing page spacing still changes at 620px.
